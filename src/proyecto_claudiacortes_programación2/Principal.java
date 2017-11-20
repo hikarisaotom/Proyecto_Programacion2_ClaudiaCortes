@@ -5,7 +5,13 @@
  */
 package proyecto_claudiacortes_programación2;
 
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import javax.swing.ImageIcon;
+import javax.swing.JComponent;
 import javax.swing.JOptionPane;
+import javax.swing.TransferHandler;
+
 
 /**
  *
@@ -47,6 +53,9 @@ public class Principal extends javax.swing.JFrame {
         label2 = new java.awt.Label();
         label3 = new java.awt.Label();
         label4 = new java.awt.Label();
+        pic1 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenu6 = new javax.swing.JMenu();
         jMenu7 = new javax.swing.JMenu();
@@ -88,16 +97,21 @@ public class Principal extends javax.swing.JFrame {
 
         btn_Proceso.setBackground(new java.awt.Color(255, 255, 255));
         btn_Proceso.setText("Proceso");
+        btn_Proceso.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_ProcesoMouseClicked(evt);
+            }
+        });
         btn_Proceso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_ProcesoActionPerformed(evt);
             }
         });
-        jd_UML.getContentPane().add(btn_Proceso, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 140, 60));
+        jd_UML.getContentPane().add(btn_Proceso, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 140, 60));
 
         btn_Separador.setBackground(new java.awt.Color(255, 255, 255));
         btn_Separador.setText("Documento");
-        jd_UML.getContentPane().add(btn_Separador, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 140, 60));
+        jd_UML.getContentPane().add(btn_Separador, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 140, 60));
 
         btn_Decision.setBackground(new java.awt.Color(255, 255, 255));
         btn_Decision.setText("Decision");
@@ -105,11 +119,11 @@ public class Principal extends javax.swing.JFrame {
 
         btn_SubPro.setBackground(new java.awt.Color(255, 255, 255));
         btn_SubPro.setText("Subproceso");
-        jd_UML.getContentPane().add(btn_SubPro, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 140, 60));
+        jd_UML.getContentPane().add(btn_SubPro, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 140, 60));
 
         btn_SeparadorV.setBackground(new java.awt.Color(255, 255, 255));
         btn_SeparadorV.setText("Separador Vertical");
-        jd_UML.getContentPane().add(btn_SeparadorV, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 290, 140, 60));
+        jd_UML.getContentPane().add(btn_SeparadorV, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 290, 140, 60));
 
         btn_InicioFin.setBackground(new java.awt.Color(255, 255, 255));
         btn_InicioFin.setText("Inicio/Finalizacion");
@@ -121,8 +135,11 @@ public class Principal extends javax.swing.JFrame {
 
         jButton8.setBackground(new java.awt.Color(255, 255, 255));
         jButton8.setText("Separador");
-        jd_UML.getContentPane().add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, 140, 60));
-        jd_UML.getContentPane().add(canvas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 90, 440, 330));
+        jd_UML.getContentPane().add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 140, 60));
+
+        canvas1.setBackground(new java.awt.Color(0, 102, 51));
+        canvas1.setCursor(new java.awt.Cursor(java.awt.Cursor.MOVE_CURSOR));
+        jd_UML.getContentPane().add(canvas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 40, 470, 380));
 
         label1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         label1.setText("Color");
@@ -140,6 +157,15 @@ public class Principal extends javax.swing.JFrame {
         label4.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         label4.setText("Estilo de fuente");
         jd_UML.getContentPane().add(label4, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 10, -1, -1));
+
+        pic1.setText("proceso");
+        jd_UML.getContentPane().add(pic1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 380, 140, 50));
+
+        jLabel1.setText("jLabel1");
+        jd_UML.getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 390, -1, -1));
+
+        jLabel2.setText("jLabel2");
+        jd_UML.getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 380, -1, -1));
 
         jMenu6.setText("Archivo");
         jMenuBar2.add(jMenu6);
@@ -228,6 +254,7 @@ public class Principal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+
     private void btn_DiagramaFlujoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_DiagramaFlujoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_DiagramaFlujoActionPerformed
@@ -259,8 +286,21 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_DiagramaClasesMouseClicked
 
     private void btn_ProcesoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ProcesoActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_btn_ProcesoActionPerformed
+
+    private void btn_ProcesoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_ProcesoMouseClicked
+    //  new Lab();
+    //pic1.setIcon(new ImageIcon("C:\\Users\\Claudia Cortes\\Desktop\\Proyecto_ClaudiaCortes_Programacion2\\Proyecto_ClaudiaCortes_Programación2\\src\\Imagenes\\avatar-1.png"));
+        //pic2.setIcon(new ImageIcon("C:\\Users\\Claudia Cortes\\Desktop\\Proyecto_ClaudiaCortes_Programacion2\\Proyecto_ClaudiaCortes_Programación2\\src\\Imagenes\\bar-chart.png"));
+        //pic3.setIcon(new ImageIcon("C:\\Users\\Claudia Cortes\\Desktop\\Proyecto_ClaudiaCortes_Programacion2\\Proyecto_ClaudiaCortes_Programación2\\src\\Imagenes\\battery-1.png"));
+      pic1.addMouseListener(ml);
+     //   pic2.addMouseListener(ml);
+        //pic3.addMouseListener(ml);
+        pic1.setTransferHandler(new TransferHandler("icon"));
+        jLabel2.setTransferHandler(new TransferHandler("icon"));
+        jLabel1.setTransferHandler(new TransferHandler("icon"));
+    }//GEN-LAST:event_btn_ProcesoMouseClicked
 
     /**
      * @param args the command line arguments
@@ -296,7 +336,32 @@ public class Principal extends javax.swing.JFrame {
             }
         });
     }
+    
+  MouseListener ml=new  MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent me) {
+                
+            }
 
+            @Override
+            public void mousePressed(MouseEvent me) {
+               JComponent jc=( JComponent)me.getSource();
+               TransferHandler th = jc.getTransferHandler();
+               th.exportAsDrag(jc, me, TransferHandler.COPY);
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent me) {
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent me) {
+            }
+
+            @Override
+            public void mouseExited(MouseEvent me) {
+            }
+        };
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_Crear;
     private javax.swing.JButton btn_Decision;
@@ -310,6 +375,8 @@ public class Principal extends javax.swing.JFrame {
     private java.awt.Canvas canvas1;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu10;
     private javax.swing.JMenu jMenu11;
@@ -332,6 +399,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_Diagrama;
     private javax.swing.JLabel lbl_FondoInicio;
     private javax.swing.JLabel lbl_UML;
+    private javax.swing.JLabel pic1;
     // End of variables declaration//GEN-END:variables
 private int Bandera=0;
 }

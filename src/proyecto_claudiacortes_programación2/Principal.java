@@ -84,6 +84,8 @@ public class Principal extends javax.swing.JFrame {
         pp_OP = new javax.swing.JPopupMenu();
         jmi_color = new javax.swing.JMenuItem();
         jmi_texto = new javax.swing.JMenuItem();
+        jmi_eliminar = new javax.swing.JMenuItem();
+        jmi_fuente = new javax.swing.JMenuItem();
         btn_DiagramaFlujo = new javax.swing.JButton();
         btn_DiagramaClases = new javax.swing.JButton();
         btn_Crear = new javax.swing.JButton();
@@ -341,6 +343,22 @@ public class Principal extends javax.swing.JFrame {
         });
         pp_OP.add(jmi_texto);
 
+        jmi_eliminar.setText("Eliminar");
+        jmi_eliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmi_eliminarActionPerformed(evt);
+            }
+        });
+        pp_OP.add(jmi_eliminar);
+
+        jmi_fuente.setText("Cambiar Fuente");
+        jmi_fuente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmi_fuenteActionPerformed(evt);
+            }
+        });
+        pp_OP.add(jmi_fuente);
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("INICIO");
         setBackground(new java.awt.Color(255, 255, 255));
@@ -448,6 +466,7 @@ public class Principal extends javax.swing.JFrame {
         JLabel lbl_Proceso;
         lbl_Proceso = new JLabel();
         lbl_Proceso.setOpaque(true);
+      //  lbl_Proceso.
         lbl_Proceso.getName();
         lbl_Proceso.setName("Proceso" + Proceso);
         Proceso++;
@@ -955,12 +974,32 @@ public class Principal extends javax.swing.JFrame {
         try {
             JL_actual.setText(JOptionPane.showInputDialog("Ingrese el nuevo texto de la Label"));
             System.out.println(JL_actual.getText());
-            this.jp_Drag.repaint();
+           
         } catch (Exception e) {
 
         }
 
     }//GEN-LAST:event_jmi_textoActionPerformed
+
+    private void jmi_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_eliminarActionPerformed
+       try {
+           this.jp_Drag.remove(JL_actual);
+           this.jp_Drag.repaint();
+           
+        } catch (Exception e) {
+
+        }
+    }//GEN-LAST:event_jmi_eliminarActionPerformed
+
+    private void jmi_fuenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_fuenteActionPerformed
+      try {
+        //   JL_actual.setFont();
+           
+        } catch (Exception e) {
+
+        }
+    
+    }//GEN-LAST:event_jmi_fuenteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1038,6 +1077,8 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JDialog jd_DiagramaClases;
     private javax.swing.JDialog jd_UML;
     private javax.swing.JMenuItem jmi_color;
+    private javax.swing.JMenuItem jmi_eliminar;
+    private javax.swing.JMenuItem jmi_fuente;
     private javax.swing.JMenuItem jmi_texto;
     private javax.swing.JPanel jp_Drag;
     private java.awt.Label label1;

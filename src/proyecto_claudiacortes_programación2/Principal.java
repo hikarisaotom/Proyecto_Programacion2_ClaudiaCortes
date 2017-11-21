@@ -31,6 +31,7 @@ public class Principal extends javax.swing.JFrame {
         initComponents();
         lbl_UML.setVisible(false);
         lbl_Diagrama.setVisible(false);
+          this.setExtendedState(MAXIMIZED_BOTH);
         // lbl_FondoInicio.setVisible(false);
     }
 
@@ -117,7 +118,9 @@ public class Principal extends javax.swing.JFrame {
         jd_UML.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btn_Proceso.setBackground(new java.awt.Color(255, 255, 255));
-        btn_Proceso.setText("Proceso");
+        btn_Proceso.setFont(btn_Proceso.getFont().deriveFont((float)13));
+        btn_Proceso.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/UML/Proceso.png"))); // NOI18N
+        btn_Proceso.setToolTipText("");
         btn_Proceso.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_ProcesoMouseClicked(evt);
@@ -128,70 +131,70 @@ public class Principal extends javax.swing.JFrame {
                 btn_ProcesoActionPerformed(evt);
             }
         });
-        jd_UML.getContentPane().add(btn_Proceso, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 140, 60));
+        jd_UML.getContentPane().add(btn_Proceso, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 110, 70));
 
         btn_documento.setBackground(new java.awt.Color(255, 255, 255));
-        btn_documento.setText("Documento");
+        btn_documento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/UML/documentos.png"))); // NOI18N
         btn_documento.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_documentoMouseClicked(evt);
             }
         });
-        jd_UML.getContentPane().add(btn_documento, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 140, 60));
+        jd_UML.getContentPane().add(btn_documento, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 110, 70));
 
         btn_Decision.setBackground(new java.awt.Color(255, 255, 255));
-        btn_Decision.setText("Decision");
+        btn_Decision.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/UML/if.png"))); // NOI18N
         btn_Decision.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_DecisionMouseClicked(evt);
             }
         });
-        jd_UML.getContentPane().add(btn_Decision, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, 140, 60));
+        jd_UML.getContentPane().add(btn_Decision, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 30, 100, 70));
 
         btn_SubPro.setBackground(new java.awt.Color(255, 255, 255));
-        btn_SubPro.setText("Subproceso");
+        btn_SubPro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/UML/subpro.png"))); // NOI18N
         btn_SubPro.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_SubProMouseClicked(evt);
             }
         });
-        jd_UML.getContentPane().add(btn_SubPro, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 140, 60));
+        jd_UML.getContentPane().add(btn_SubPro, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 110, 80));
 
         btn_SeparadorV.setBackground(new java.awt.Color(255, 255, 255));
-        btn_SeparadorV.setText("Separador Vertical");
+        btn_SeparadorV.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/UML/separadorV.png"))); // NOI18N
         btn_SeparadorV.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_SeparadorVMouseClicked(evt);
             }
         });
-        jd_UML.getContentPane().add(btn_SeparadorV, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 290, 140, 60));
+        jd_UML.getContentPane().add(btn_SeparadorV, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 340, 140, 10));
 
         btn_InicioFin.setBackground(new java.awt.Color(255, 255, 255));
-        btn_InicioFin.setText("Inicio/Finalizacion");
+        btn_InicioFin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/UML/in_fin.png"))); // NOI18N
         btn_InicioFin.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_InicioFinMouseClicked(evt);
             }
         });
-        jd_UML.getContentPane().add(btn_InicioFin, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, 140, 60));
+        jd_UML.getContentPane().add(btn_InicioFin, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 159, 30, 20));
 
         btn_datos.setBackground(new java.awt.Color(255, 255, 255));
-        btn_datos.setText("Datos");
+        btn_datos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/UML/datos.png"))); // NOI18N
         btn_datos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_datosMouseClicked(evt);
             }
         });
-        jd_UML.getContentPane().add(btn_datos, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 200, 140, 60));
+        jd_UML.getContentPane().add(btn_datos, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 200, 100, 60));
 
         btn_separador.setBackground(new java.awt.Color(255, 255, 255));
-        btn_separador.setText("Separador");
+        btn_separador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/UML/separador.png"))); // NOI18N
         btn_separador.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_separadorMouseClicked(evt);
             }
         });
-        jd_UML.getContentPane().add(btn_separador, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 140, 60));
+        jd_UML.getContentPane().add(btn_separador, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 280, 20, 100));
 
         label1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         label1.setText("Color");
@@ -210,18 +213,19 @@ public class Principal extends javax.swing.JFrame {
         jd_UML.getContentPane().add(label4, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 10, -1, -1));
 
         pic1.setText("proceso");
-        jd_UML.getContentPane().add(pic1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 380, 140, 50));
+        jd_UML.getContentPane().add(pic1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 430, 140, 50));
 
         jLabel1.setText("jLabel1");
-        jd_UML.getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 390, -1, -1));
+        jd_UML.getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 420, -1, -1));
 
         jLabel2.setText("jLabel2");
+        jLabel2.setOpaque(true);
         jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel2MouseClicked(evt);
             }
         });
-        jd_UML.getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 380, -1, -1));
+        jd_UML.getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 430, -1, -1));
 
         jp_Drag.setBackground(new java.awt.Color(153, 255, 255));
         jp_Drag.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -234,14 +238,14 @@ public class Principal extends javax.swing.JFrame {
         jp_Drag.setLayout(jp_DragLayout);
         jp_DragLayout.setHorizontalGroup(
             jp_DragLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 470, Short.MAX_VALUE)
+            .addGap(0, 920, Short.MAX_VALUE)
         );
         jp_DragLayout.setVerticalGroup(
             jp_DragLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 380, Short.MAX_VALUE)
+            .addGap(0, 430, Short.MAX_VALUE)
         );
 
-        jd_UML.getContentPane().add(jp_Drag, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 40, 470, 380));
+        jd_UML.getContentPane().add(jp_Drag, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 60, 920, 430));
 
         jMenu6.setText("Archivo");
         jMenuBar2.add(jMenu6);
@@ -432,21 +436,31 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_DiagramaFlujoActionPerformed
 
     private void btn_CrearMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_CrearMouseClicked
+       
         if (Bandera == 0) {
             JOptionPane.showMessageDialog(this, "Debe seleccionar una opcion antes de iniciar a crear.");
         } else if (Bandera == 1) {
             jd_UML.show(true);
+            this.jd_UML.setModal(true);
+            jd_UML.pack();
+            jd_UML.setLocationRelativeTo(this);
+            
         } else if (Bandera == 2) {
             jd_DiagramaClases.show(true);
+
+            this.jd_DiagramaClases.setModal(true);
+            jd_DiagramaClases.pack();
+            jd_DiagramaClases.setLocationRelativeTo(this);
         }
     }//GEN-LAST:event_btn_CrearMouseClicked
 
     private void btn_DiagramaFlujoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_DiagramaFlujoMouseClicked
         lbl_FondoInicio.setVisible(false);
-
+         
         lbl_Diagrama.setVisible(false);
         lbl_UML.setVisible(true);
         Bandera = 1;
+        
     }//GEN-LAST:event_btn_DiagramaFlujoMouseClicked
 
     private void btn_DiagramaClasesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_DiagramaClasesMouseClicked
@@ -484,7 +498,7 @@ public class Principal extends javax.swing.JFrame {
         lbl_Proceso.setMinimumSize(new Dimension(100, 100));
         lbl_Proceso.setLocation(new Point(20, 20));
         lbl_Proceso.setPreferredSize(new Dimension(50, 50));
-        lbl_Proceso.setSize(100, 100);
+        lbl_Proceso.setSize(100, 65);
         lbl_Proceso.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 if ((lbl_Proceso.getLocation().x + evt.getX() - lbl_Proceso.getWidth() / 2) >= 0
@@ -563,7 +577,7 @@ public class Principal extends javax.swing.JFrame {
         lbl_if.setMinimumSize(new Dimension(100, 100));
         lbl_if.setLocation(new Point(20, 20));
         lbl_if.setPreferredSize(new Dimension(50, 50));
-        lbl_if.setSize(100, 100);
+        lbl_if.setSize(100, 64);
         lbl_if.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 if ((lbl_if.getLocation().x + evt.getX() - lbl_if.getWidth() / 2) >= 0
@@ -622,7 +636,7 @@ public class Principal extends javax.swing.JFrame {
         lbl_documento.setMinimumSize(new Dimension(100, 100));
         lbl_documento.setLocation(new Point(20, 20));
         lbl_documento.setPreferredSize(new Dimension(50, 50));
-        lbl_documento.setSize(100, 100);
+        lbl_documento.setSize(100, 68);
         lbl_documento.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 if ((lbl_documento.getLocation().x + evt.getX() - lbl_documento.getWidth() / 2) >= 0
@@ -680,7 +694,7 @@ public class Principal extends javax.swing.JFrame {
         lbl_inicio_fin.setMinimumSize(new Dimension(100, 100));
         lbl_inicio_fin.setLocation(new Point(20, 20));
         lbl_inicio_fin.setPreferredSize(new Dimension(50, 50));
-        lbl_inicio_fin.setSize(100, 100);
+        lbl_inicio_fin.setSize(100, 61);
         lbl_inicio_fin.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 if ((lbl_inicio_fin.getLocation().x + evt.getX() - lbl_inicio_fin.getWidth() / 2) >= 0
@@ -739,7 +753,7 @@ public class Principal extends javax.swing.JFrame {
         lbl_subpro.setMinimumSize(new Dimension(100, 100));
         lbl_subpro.setLocation(new Point(20, 20));
         lbl_subpro.setPreferredSize(new Dimension(50, 50));
-        lbl_subpro.setSize(100, 100);
+        lbl_subpro.setSize(100, 64);
         lbl_subpro.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 if ((lbl_subpro.getLocation().x + evt.getX() - lbl_subpro.getWidth() / 2) >= 0
@@ -797,7 +811,7 @@ public class Principal extends javax.swing.JFrame {
         lbldatos.setMinimumSize(new Dimension(100, 100));
         lbldatos.setLocation(new Point(20, 20));
         lbldatos.setPreferredSize(new Dimension(50, 50));
-        lbldatos.setSize(100, 100);
+        lbldatos.setSize(100, 55);
         lbldatos.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 if ((lbldatos.getLocation().x + evt.getX() - lbldatos.getWidth() / 2) >= 0
@@ -855,7 +869,7 @@ public class Principal extends javax.swing.JFrame {
         lbl_separador.setMinimumSize(new Dimension(100, 100));
         lbl_separador.setLocation(new Point(20, 20));
         lbl_separador.setPreferredSize(new Dimension(50, 50));
-        lbl_separador.setSize(100, 100);
+        lbl_separador.setSize(6, 100);
         lbl_separador.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 if ((lbl_separador.getLocation().x + evt.getX() - lbl_separador.getWidth() / 2) >= 0
@@ -913,7 +927,7 @@ public class Principal extends javax.swing.JFrame {
         lbl_Vseparador.setMinimumSize(new Dimension(100, 100));
         lbl_Vseparador.setLocation(new Point(20, 20));
         lbl_Vseparador.setPreferredSize(new Dimension(50, 50));
-        lbl_Vseparador.setSize(100, 100);
+        lbl_Vseparador.setSize(100, 6);
         lbl_Vseparador.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 if ((lbl_Vseparador.getLocation().x + evt.getX() - lbl_Vseparador.getWidth() / 2) >= 0
@@ -982,10 +996,14 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_jmi_textoActionPerformed
 
     private void jmi_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_eliminarActionPerformed
-       try {
-           this.jp_Drag.remove(JL_actual);
-           this.jp_Drag.repaint();
-           
+        try {
+            int respuesta = JOptionPane.showConfirmDialog(this.jd_UML, "Seguro que desea eliminar?", "Confirm", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+            if (respuesta == JOptionPane.OK_OPTION) {
+                this.jp_Drag.remove(JL_actual);
+                this.jp_Drag.repaint();
+                JOptionPane.showMessageDialog(this.jd_UML,"Se ha eliminado correctamente");
+            }
+
         } catch (Exception e) {
 
         }

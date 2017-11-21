@@ -31,7 +31,7 @@ public class Principal extends javax.swing.JFrame {
         initComponents();
         lbl_UML.setVisible(false);
         lbl_Diagrama.setVisible(false);
-          this.setExtendedState(MAXIMIZED_BOTH);
+        this.setExtendedState(MAXIMIZED_BOTH);
         // lbl_FondoInicio.setVisible(false);
     }
 
@@ -62,6 +62,17 @@ public class Principal extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jp_Drag = new javax.swing.JPanel();
+        jToolBar1 = new javax.swing.JToolBar();
+        jButton1 = new javax.swing.JButton();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jLabel3 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
+        jToolBar2 = new javax.swing.JToolBar();
+        jLabel4 = new javax.swing.JLabel();
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenu6 = new javax.swing.JMenu();
         jMenu7 = new javax.swing.JMenu();
@@ -87,6 +98,12 @@ public class Principal extends javax.swing.JFrame {
         jmi_texto = new javax.swing.JMenuItem();
         jmi_eliminar = new javax.swing.JMenuItem();
         jmi_fuente = new javax.swing.JMenuItem();
+        jMenuBar4 = new javax.swing.JMenuBar();
+        jMenu17 = new javax.swing.JMenu();
+        jMenu18 = new javax.swing.JMenu();
+        jMenuBar5 = new javax.swing.JMenuBar();
+        jMenu19 = new javax.swing.JMenu();
+        jMenu20 = new javax.swing.JMenu();
         btn_DiagramaFlujo = new javax.swing.JButton();
         btn_DiagramaClases = new javax.swing.JButton();
         btn_Crear = new javax.swing.JButton();
@@ -100,7 +117,8 @@ public class Principal extends javax.swing.JFrame {
         jMenu4 = new javax.swing.JMenu();
         jMenu5 = new javax.swing.JMenu();
 
-        jd_DiagramaClases.setMinimumSize(new java.awt.Dimension(600, 600));
+        jd_DiagramaClases.setMaximumSize(new java.awt.Dimension(1365, 1000));
+        jd_DiagramaClases.setMinimumSize(new java.awt.Dimension(1365, 1000));
 
         javax.swing.GroupLayout jd_DiagramaClasesLayout = new javax.swing.GroupLayout(jd_DiagramaClases.getContentPane());
         jd_DiagramaClases.getContentPane().setLayout(jd_DiagramaClasesLayout);
@@ -114,7 +132,8 @@ public class Principal extends javax.swing.JFrame {
         );
 
         jd_UML.setBackground(new java.awt.Color(255, 255, 255));
-        jd_UML.setMinimumSize(new java.awt.Dimension(600, 600));
+        jd_UML.setMaximumSize(new java.awt.Dimension(1365, 1000));
+        jd_UML.setMinimumSize(new java.awt.Dimension(1365, 1000));
         jd_UML.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btn_Proceso.setBackground(new java.awt.Color(255, 255, 255));
@@ -149,7 +168,7 @@ public class Principal extends javax.swing.JFrame {
                 btn_DecisionMouseClicked(evt);
             }
         });
-        jd_UML.getContentPane().add(btn_Decision, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 30, 100, 70));
+        jd_UML.getContentPane().add(btn_Decision, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 50, 100, 70));
 
         btn_SubPro.setBackground(new java.awt.Color(255, 255, 255));
         btn_SubPro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/UML/subpro.png"))); // NOI18N
@@ -167,7 +186,7 @@ public class Principal extends javax.swing.JFrame {
                 btn_SeparadorVMouseClicked(evt);
             }
         });
-        jd_UML.getContentPane().add(btn_SeparadorV, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 340, 140, 10));
+        jd_UML.getContentPane().add(btn_SeparadorV, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 360, 100, 10));
 
         btn_InicioFin.setBackground(new java.awt.Color(255, 255, 255));
         btn_InicioFin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/UML/in_fin.png"))); // NOI18N
@@ -176,7 +195,7 @@ public class Principal extends javax.swing.JFrame {
                 btn_InicioFinMouseClicked(evt);
             }
         });
-        jd_UML.getContentPane().add(btn_InicioFin, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 159, 30, 20));
+        jd_UML.getContentPane().add(btn_InicioFin, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 150, 100, -1));
 
         btn_datos.setBackground(new java.awt.Color(255, 255, 255));
         btn_datos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/UML/datos.png"))); // NOI18N
@@ -185,7 +204,7 @@ public class Principal extends javax.swing.JFrame {
                 btn_datosMouseClicked(evt);
             }
         });
-        jd_UML.getContentPane().add(btn_datos, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 200, 100, 60));
+        jd_UML.getContentPane().add(btn_datos, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 270, 100, 60));
 
         btn_separador.setBackground(new java.awt.Color(255, 255, 255));
         btn_separador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/UML/separador.png"))); // NOI18N
@@ -194,23 +213,23 @@ public class Principal extends javax.swing.JFrame {
                 btn_separadorMouseClicked(evt);
             }
         });
-        jd_UML.getContentPane().add(btn_separador, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 280, 20, 100));
+        jd_UML.getContentPane().add(btn_separador, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 300, 10, 100));
 
         label1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         label1.setText("Color");
-        jd_UML.getContentPane().add(label1, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 10, -1, -1));
+        jd_UML.getContentPane().add(label1, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 30, -1, -1));
         label1.getAccessibleContext().setAccessibleName("Estilo de fuente");
 
         label2.setText("Fuente");
-        jd_UML.getContentPane().add(label2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 10, -1, -1));
+        jd_UML.getContentPane().add(label2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 30, -1, -1));
 
         label3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         label3.setText("Tamaño");
-        jd_UML.getContentPane().add(label3, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 10, -1, -1));
+        jd_UML.getContentPane().add(label3, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 30, -1, -1));
 
         label4.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         label4.setText("Estilo de fuente");
-        jd_UML.getContentPane().add(label4, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 10, -1, -1));
+        jd_UML.getContentPane().add(label4, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 30, -1, -1));
 
         pic1.setText("proceso");
         jd_UML.getContentPane().add(pic1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 430, 140, 50));
@@ -238,14 +257,81 @@ public class Principal extends javax.swing.JFrame {
         jp_Drag.setLayout(jp_DragLayout);
         jp_DragLayout.setHorizontalGroup(
             jp_DragLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 920, Short.MAX_VALUE)
+            .addGap(0, 900, Short.MAX_VALUE)
         );
         jp_DragLayout.setVerticalGroup(
             jp_DragLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 430, Short.MAX_VALUE)
         );
 
-        jd_UML.getContentPane().add(jp_Drag, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 60, 920, 430));
+        jd_UML.getContentPane().add(jp_Drag, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 60, 900, 430));
+
+        jToolBar1.setRollover(true);
+
+        jButton1.setText("Fuente");
+        jButton1.setFocusable(false);
+        jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jToolBar1.add(jButton1);
+
+        jComboBox1.setEditable(true);
+        jComboBox1.setMaximumRowCount(3);
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(jComboBox1);
+        jToolBar1.add(jLabel3);
+
+        jd_UML.getContentPane().add(jToolBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 230, 20));
+
+        jButton2.setBackground(new java.awt.Color(0, 102, 102));
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+        });
+        jd_UML.getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 0, 24, 20));
+
+        jButton3.setBackground(new java.awt.Color(255, 51, 0));
+        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton3MouseClicked(evt);
+            }
+        });
+        jd_UML.getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 0, 24, 20));
+
+        jButton4.setBackground(new java.awt.Color(255, 51, 0));
+        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton4MouseClicked(evt);
+            }
+        });
+        jd_UML.getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 0, 24, 20));
+
+        jButton5.setBackground(new java.awt.Color(255, 51, 51));
+        jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton5MouseClicked(evt);
+            }
+        });
+        jd_UML.getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 0, 24, 20));
+
+        jButton6.setBackground(new java.awt.Color(255, 255, 51));
+        jButton6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton6MouseClicked(evt);
+            }
+        });
+        jd_UML.getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 0, 24, 20));
+
+        jToolBar2.setRollover(true);
+
+        jLabel4.setText("Color");
+        jToolBar2.add(jLabel4);
+
+        jd_UML.getContentPane().add(jToolBar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 0, 170, 20));
 
         jMenu6.setText("Archivo");
         jMenuBar2.add(jMenu6);
@@ -363,6 +449,18 @@ public class Principal extends javax.swing.JFrame {
         });
         pp_OP.add(jmi_fuente);
 
+        jMenu17.setText("File");
+        jMenuBar4.add(jMenu17);
+
+        jMenu18.setText("Edit");
+        jMenuBar4.add(jMenu18);
+
+        jMenu19.setText("File");
+        jMenuBar5.add(jMenu19);
+
+        jMenu20.setText("Edit");
+        jMenuBar5.add(jMenu20);
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("INICIO");
         setBackground(new java.awt.Color(255, 255, 255));
@@ -436,7 +534,7 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_DiagramaFlujoActionPerformed
 
     private void btn_CrearMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_CrearMouseClicked
-       
+
         if (Bandera == 0) {
             JOptionPane.showMessageDialog(this, "Debe seleccionar una opcion antes de iniciar a crear.");
         } else if (Bandera == 1) {
@@ -444,10 +542,10 @@ public class Principal extends javax.swing.JFrame {
             this.jd_UML.setModal(true);
             jd_UML.pack();
             jd_UML.setLocationRelativeTo(this);
-            
+//jd_UML.setSize(Principal.WIDTH,Principal.HEIGHT);
         } else if (Bandera == 2) {
             jd_DiagramaClases.show(true);
-
+             /// jd_DiagramaClases.setSize(Principal.WIDTH,Principal.HEIGHT);
             this.jd_DiagramaClases.setModal(true);
             jd_DiagramaClases.pack();
             jd_DiagramaClases.setLocationRelativeTo(this);
@@ -456,20 +554,20 @@ public class Principal extends javax.swing.JFrame {
 
     private void btn_DiagramaFlujoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_DiagramaFlujoMouseClicked
         lbl_FondoInicio.setVisible(false);
-         
+
         lbl_Diagrama.setVisible(false);
         lbl_UML.setVisible(true);
         Bandera = 1;
-        
+
     }//GEN-LAST:event_btn_DiagramaFlujoMouseClicked
 
     private void btn_DiagramaClasesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_DiagramaClasesMouseClicked
-        new Lab();
-        /* lbl_UML.setVisible(false);
+        //   new Lab();
+        lbl_UML.setVisible(false);
         lbl_FondoInicio.setVisible(false);
 
         lbl_Diagrama.setVisible(true);
-        Bandera = 2;*/
+        Bandera = 2;
     }//GEN-LAST:event_btn_DiagramaClasesMouseClicked
 
     private void btn_ProcesoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ProcesoActionPerformed
@@ -480,7 +578,7 @@ public class Principal extends javax.swing.JFrame {
         JLabel lbl_Proceso;
         lbl_Proceso = new JLabel();
         lbl_Proceso.setOpaque(true);
-      //  lbl_Proceso.
+        //  lbl_Proceso.
         lbl_Proceso.getName();
         lbl_Proceso.setName("Proceso" + Proceso);
         Proceso++;
@@ -499,10 +597,12 @@ public class Principal extends javax.swing.JFrame {
         lbl_Proceso.setLocation(new Point(20, 20));
         lbl_Proceso.setPreferredSize(new Dimension(50, 50));
         lbl_Proceso.setSize(100, 65);
+        JL_actual = lbl_Proceso;
         lbl_Proceso.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
+                JL_actual = lbl_Proceso;
                 if ((lbl_Proceso.getLocation().x + evt.getX() - lbl_Proceso.getWidth() / 2) >= 0
-                        && (lbl_Proceso.getLocation().x + evt.getX() - lbl_Proceso.getWidth() / 2) <= 350) {
+                        && (lbl_Proceso.getLocation().x + evt.getX() - lbl_Proceso.getWidth() / 2) <= 800) {
                     lbl_Proceso.setLocation(lbl_Proceso.getLocation().x + evt.getX() - lbl_Proceso.getWidth() / 2,
                             lbl_Proceso.getLocation().y + evt.getY() - lbl_Proceso.getHeight() / 2);
                     //System.out.println(lbl_Proceso);
@@ -513,6 +613,7 @@ public class Principal extends javax.swing.JFrame {
         });  //agrega los label
         lbl_Proceso.addMouseListener(new MouseListener() {
             public void mouseClicked(MouseEvent evt) {
+                JL_actual = lbl_Proceso;
                 if (evt.isMetaDown()) {
                     JL_actual = lbl_Proceso;
                     System.out.println(JL_actual);
@@ -522,17 +623,19 @@ public class Principal extends javax.swing.JFrame {
             }
 
             public void mouseEntered(MouseEvent arg0) {
-
+                JL_actual = lbl_Proceso;
             }
 
             public void mouseExited(MouseEvent arg0) {
-
+                JL_actual = lbl_Proceso;
             }
 
             public void mousePressed(MouseEvent arg0) {
+                JL_actual = lbl_Proceso;
             }
 
             public void mouseReleased(MouseEvent arg0) {
+                JL_actual = lbl_Proceso;
             }
         });
 
@@ -578,12 +681,15 @@ public class Principal extends javax.swing.JFrame {
         lbl_if.setLocation(new Point(20, 20));
         lbl_if.setPreferredSize(new Dimension(50, 50));
         lbl_if.setSize(100, 64);
+        JL_actual = lbl_if;
         lbl_if.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
+                JL_actual = lbl_if;
                 if ((lbl_if.getLocation().x + evt.getX() - lbl_if.getWidth() / 2) >= 0
-                        && (lbl_if.getLocation().x + evt.getX() - lbl_if.getWidth() / 2) <= 350) {
+                        && (lbl_if.getLocation().x + evt.getX() - lbl_if.getWidth() / 2) <= 800) {
                     lbl_if.setLocation(lbl_if.getLocation().x + evt.getX() - lbl_if.getWidth() / 2,
                             lbl_if.getLocation().y + evt.getY() - lbl_if.getHeight() / 2);
+                    //   JL_actual = lbl_if;
                     // System.out.println(lbl_if);
                     //System.out.println(lbl_if.getName());
                 }// para que no se salga del rango
@@ -592,6 +698,7 @@ public class Principal extends javax.swing.JFrame {
         });  //agrega los label
         lbl_if.addMouseListener(new MouseListener() {
             public void mouseClicked(MouseEvent evt) {
+                JL_actual = lbl_if;
                 if (evt.isMetaDown()) {
                     JL_actual = lbl_if;
                     System.out.println(JL_actual);
@@ -600,17 +707,19 @@ public class Principal extends javax.swing.JFrame {
             }
 
             public void mouseEntered(MouseEvent arg0) {
-
+                JL_actual = lbl_if;
             }
 
             public void mouseExited(MouseEvent arg0) {
-
+                JL_actual = lbl_if;
             }
 
             public void mousePressed(MouseEvent arg0) {
+                JL_actual = lbl_if;
             }
 
             public void mouseReleased(MouseEvent arg0) {
+                JL_actual = lbl_if;
             }
         });
 
@@ -637,10 +746,12 @@ public class Principal extends javax.swing.JFrame {
         lbl_documento.setLocation(new Point(20, 20));
         lbl_documento.setPreferredSize(new Dimension(50, 50));
         lbl_documento.setSize(100, 68);
+        JL_actual = lbl_documento;
         lbl_documento.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
+                JL_actual = lbl_documento;
                 if ((lbl_documento.getLocation().x + evt.getX() - lbl_documento.getWidth() / 2) >= 0
-                        && (lbl_documento.getLocation().x + evt.getX() - lbl_documento.getWidth() / 2) <= 350) {
+                        && (lbl_documento.getLocation().x + evt.getX() - lbl_documento.getWidth() / 2) <= 800) {
                     lbl_documento.setLocation(lbl_documento.getLocation().x + evt.getX() - lbl_documento.getWidth() / 2,
                             lbl_documento.getLocation().y + evt.getY() - lbl_documento.getHeight() / 2);
                     // System.out.println(lbl_documento);
@@ -651,6 +762,7 @@ public class Principal extends javax.swing.JFrame {
         });
         lbl_documento.addMouseListener(new MouseListener() {
             public void mouseClicked(MouseEvent evt) {
+                JL_actual = lbl_documento;
                 if (evt.isMetaDown()) {
                     JL_actual = lbl_documento;
                     System.out.println(JL_actual);
@@ -659,17 +771,19 @@ public class Principal extends javax.swing.JFrame {
             }
 
             public void mouseEntered(MouseEvent arg0) {
-
+                JL_actual = lbl_documento;
             }
 
             public void mouseExited(MouseEvent arg0) {
-
+                JL_actual = lbl_documento;
             }
 
             public void mousePressed(MouseEvent arg0) {
+                JL_actual = lbl_documento;
             }
 
             public void mouseReleased(MouseEvent arg0) {
+                JL_actual = lbl_documento;
             }
         });
     }//GEN-LAST:event_btn_documentoMouseClicked
@@ -695,10 +809,12 @@ public class Principal extends javax.swing.JFrame {
         lbl_inicio_fin.setLocation(new Point(20, 20));
         lbl_inicio_fin.setPreferredSize(new Dimension(50, 50));
         lbl_inicio_fin.setSize(100, 61);
+        JL_actual = lbl_inicio_fin;
         lbl_inicio_fin.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
+                JL_actual = lbl_inicio_fin;
                 if ((lbl_inicio_fin.getLocation().x + evt.getX() - lbl_inicio_fin.getWidth() / 2) >= 0
-                        && (lbl_inicio_fin.getLocation().x + evt.getX() - lbl_inicio_fin.getWidth() / 2) <= 350) {
+                        && (lbl_inicio_fin.getLocation().x + evt.getX() - lbl_inicio_fin.getWidth() / 2) <= 800) {
                     lbl_inicio_fin.setLocation(lbl_inicio_fin.getLocation().x + evt.getX() - lbl_inicio_fin.getWidth() / 2,
                             lbl_inicio_fin.getLocation().y + evt.getY() - lbl_inicio_fin.getHeight() / 2);
                     //  System.out.println(lbl_inicio_fin);
@@ -709,6 +825,7 @@ public class Principal extends javax.swing.JFrame {
         });
         lbl_inicio_fin.addMouseListener(new MouseListener() {
             public void mouseClicked(MouseEvent evt) {
+                JL_actual = lbl_inicio_fin;
                 if (evt.isMetaDown()) {
                     JL_actual = lbl_inicio_fin;
                     System.out.println(JL_actual);
@@ -717,17 +834,19 @@ public class Principal extends javax.swing.JFrame {
             }
 
             public void mouseEntered(MouseEvent arg0) {
-
+                JL_actual = lbl_inicio_fin;
             }
 
             public void mouseExited(MouseEvent arg0) {
-
+                JL_actual = lbl_inicio_fin;
             }
 
             public void mousePressed(MouseEvent arg0) {
+                JL_actual = lbl_inicio_fin;
             }
 
             public void mouseReleased(MouseEvent arg0) {
+                JL_actual = lbl_inicio_fin;
             }
         });
 
@@ -754,10 +873,12 @@ public class Principal extends javax.swing.JFrame {
         lbl_subpro.setLocation(new Point(20, 20));
         lbl_subpro.setPreferredSize(new Dimension(50, 50));
         lbl_subpro.setSize(100, 64);
+        JL_actual = lbl_subpro;
         lbl_subpro.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
+                JL_actual = lbl_subpro;
                 if ((lbl_subpro.getLocation().x + evt.getX() - lbl_subpro.getWidth() / 2) >= 0
-                        && (lbl_subpro.getLocation().x + evt.getX() - lbl_subpro.getWidth() / 2) <= 350) {
+                        && (lbl_subpro.getLocation().x + evt.getX() - lbl_subpro.getWidth() / 2) <= 800) {
                     lbl_subpro.setLocation(lbl_subpro.getLocation().x + evt.getX() - lbl_subpro.getWidth() / 2,
                             lbl_subpro.getLocation().y + evt.getY() - lbl_subpro.getHeight() / 2);
                     //System.out.println( lbl_subpro);
@@ -768,6 +889,8 @@ public class Principal extends javax.swing.JFrame {
         });
         lbl_subpro.addMouseListener(new MouseListener() {
             public void mouseClicked(MouseEvent evt) {
+                JL_actual = lbl_subpro;
+
                 if (evt.isMetaDown()) {
                     JL_actual = lbl_subpro;
                     System.out.println(JL_actual);
@@ -776,17 +899,19 @@ public class Principal extends javax.swing.JFrame {
             }
 
             public void mouseEntered(MouseEvent arg0) {
-
+                JL_actual = lbl_subpro;
             }
 
             public void mouseExited(MouseEvent arg0) {
-
+                JL_actual = lbl_subpro;
             }
 
             public void mousePressed(MouseEvent arg0) {
+                JL_actual = lbl_subpro;
             }
 
             public void mouseReleased(MouseEvent arg0) {
+                JL_actual = lbl_subpro;
             }
         });
     }//GEN-LAST:event_btn_SubProMouseClicked
@@ -812,10 +937,12 @@ public class Principal extends javax.swing.JFrame {
         lbldatos.setLocation(new Point(20, 20));
         lbldatos.setPreferredSize(new Dimension(50, 50));
         lbldatos.setSize(100, 55);
+        JL_actual = lbldatos;
         lbldatos.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
+                JL_actual = lbldatos;
                 if ((lbldatos.getLocation().x + evt.getX() - lbldatos.getWidth() / 2) >= 0
-                        && (lbldatos.getLocation().x + evt.getX() - lbldatos.getWidth() / 2) <= 350) {
+                        && (lbldatos.getLocation().x + evt.getX() - lbldatos.getWidth() / 2) <= 800) {
                     lbldatos.setLocation(lbldatos.getLocation().x + evt.getX() - lbldatos.getWidth() / 2,
                             lbldatos.getLocation().y + evt.getY() - lbldatos.getHeight() / 2);
                     //  System.out.println(lbldatos);
@@ -826,6 +953,8 @@ public class Principal extends javax.swing.JFrame {
         });  //agrega los label
         lbldatos.addMouseListener(new MouseListener() {
             public void mouseClicked(MouseEvent evt) {
+                JL_actual = lbldatos;
+
                 if (evt.isMetaDown()) {
                     JL_actual = lbldatos;
                     System.out.println(JL_actual);
@@ -834,17 +963,19 @@ public class Principal extends javax.swing.JFrame {
             }
 
             public void mouseEntered(MouseEvent arg0) {
-
+                JL_actual = lbldatos;
             }
 
             public void mouseExited(MouseEvent arg0) {
-
+                JL_actual = lbldatos;
             }
 
             public void mousePressed(MouseEvent arg0) {
+                JL_actual = lbldatos;
             }
 
             public void mouseReleased(MouseEvent arg0) {
+                JL_actual = lbldatos;
             }
         });
     }//GEN-LAST:event_btn_datosMouseClicked
@@ -870,10 +1001,12 @@ public class Principal extends javax.swing.JFrame {
         lbl_separador.setLocation(new Point(20, 20));
         lbl_separador.setPreferredSize(new Dimension(50, 50));
         lbl_separador.setSize(6, 100);
+        JL_actual = lbl_separador;
         lbl_separador.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
+                JL_actual = lbl_separador;
                 if ((lbl_separador.getLocation().x + evt.getX() - lbl_separador.getWidth() / 2) >= 0
-                        && (lbl_separador.getLocation().x + evt.getX() - lbl_separador.getWidth() / 2) <= 350) {
+                        && (lbl_separador.getLocation().x + evt.getX() - lbl_separador.getWidth() / 2) <= 800) {
                     lbl_separador.setLocation(lbl_separador.getLocation().x + evt.getX() - lbl_separador.getWidth() / 2,
                             lbl_separador.getLocation().y + evt.getY() - lbl_separador.getHeight() / 2);
                     //   System.out.println(lbl_separador);
@@ -884,6 +1017,7 @@ public class Principal extends javax.swing.JFrame {
         });  //agrega los label
         lbl_separador.addMouseListener(new MouseListener() {
             public void mouseClicked(MouseEvent evt) {
+                JL_actual = lbl_separador;
                 if (evt.isMetaDown()) {
                     JL_actual = lbl_separador;
                     System.out.println(JL_actual);
@@ -892,17 +1026,19 @@ public class Principal extends javax.swing.JFrame {
             }
 
             public void mouseEntered(MouseEvent arg0) {
-
+                JL_actual = lbl_separador;
             }
 
             public void mouseExited(MouseEvent arg0) {
-
+                JL_actual = lbl_separador;
             }
 
             public void mousePressed(MouseEvent arg0) {
+                JL_actual = lbl_separador;
             }
 
             public void mouseReleased(MouseEvent arg0) {
+                JL_actual = lbl_separador;
             }
         });
     }//GEN-LAST:event_btn_separadorMouseClicked
@@ -928,10 +1064,12 @@ public class Principal extends javax.swing.JFrame {
         lbl_Vseparador.setLocation(new Point(20, 20));
         lbl_Vseparador.setPreferredSize(new Dimension(50, 50));
         lbl_Vseparador.setSize(100, 6);
+        JL_actual = lbl_Vseparador;
         lbl_Vseparador.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
+                JL_actual = lbl_Vseparador;
                 if ((lbl_Vseparador.getLocation().x + evt.getX() - lbl_Vseparador.getWidth() / 2) >= 0
-                        && (lbl_Vseparador.getLocation().x + evt.getX() - lbl_Vseparador.getWidth() / 2) <= 350) {
+                        && (lbl_Vseparador.getLocation().x + evt.getX() - lbl_Vseparador.getWidth() / 2) <= 800) {
                     lbl_Vseparador.setLocation(lbl_Vseparador.getLocation().x + evt.getX() - lbl_Vseparador.getWidth() / 2,
                             lbl_Vseparador.getLocation().y + evt.getY() - lbl_Vseparador.getHeight() / 2);
                     //  System.out.println(lbl_Vseparador);
@@ -942,25 +1080,27 @@ public class Principal extends javax.swing.JFrame {
         });  //agrega los label
         lbl_Vseparador.addMouseListener(new MouseListener() {
             public void mouseClicked(MouseEvent evt) {
+                JL_actual = lbl_Vseparador;
                 if (evt.isMetaDown()) {
-                    JL_actual = lbl_Vseparador;
                     System.out.println(JL_actual);
                     pp_OP.show(evt.getComponent(), evt.getX(), evt.getY());
                 }
             }
 
             public void mouseEntered(MouseEvent arg0) {
-
+                JL_actual = lbl_Vseparador;
             }
 
             public void mouseExited(MouseEvent arg0) {
-
+                JL_actual = lbl_Vseparador;
             }
 
             public void mousePressed(MouseEvent arg0) {
+                JL_actual = lbl_Vseparador;
             }
 
             public void mouseReleased(MouseEvent arg0) {
+                JL_actual = lbl_Vseparador;
             }
         });
     }//GEN-LAST:event_btn_SeparadorVMouseClicked
@@ -976,7 +1116,7 @@ public class Principal extends javax.swing.JFrame {
 
     private void jmi_colorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_colorActionPerformed
         try {
-            JL_actual.setBackground(JColorChooser.showDialog(this, "SELECIONE UN COLOR", Color.yellow));
+            JL_actual.setBackground(JColorChooser.showDialog(jd_UML, "SELECIONE UN COLOR", Color.yellow));
             System.out.println(JL_actual.getBackground());
             // this.jp_Drag.repaint();
         } catch (Exception e) {
@@ -988,7 +1128,7 @@ public class Principal extends javax.swing.JFrame {
         try {
             JL_actual.setText(JOptionPane.showInputDialog("Ingrese el nuevo texto de la Label"));
             System.out.println(JL_actual.getText());
-           
+
         } catch (Exception e) {
 
         }
@@ -1001,7 +1141,7 @@ public class Principal extends javax.swing.JFrame {
             if (respuesta == JOptionPane.OK_OPTION) {
                 this.jp_Drag.remove(JL_actual);
                 this.jp_Drag.repaint();
-                JOptionPane.showMessageDialog(this.jd_UML,"Se ha eliminado correctamente");
+                JOptionPane.showMessageDialog(this.jd_UML, "Se ha eliminado correctamente");
             }
 
         } catch (Exception e) {
@@ -1010,14 +1150,38 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_jmi_eliminarActionPerformed
 
     private void jmi_fuenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_fuenteActionPerformed
-      try {
-        //   JL_actual.setFont();
-           
+        try {
+            //   JL_actual.setFont();
+
         } catch (Exception e) {
 
         }
-    
+
     }//GEN-LAST:event_jmi_fuenteActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
+        JL_actual.setBackground(jButton3.getBackground());
+    }//GEN-LAST:event_jButton3MouseClicked
+
+    private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
+        JL_actual.setBackground(jButton5.getBackground());
+    }//GEN-LAST:event_jButton5MouseClicked
+
+    private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
+        JL_actual.setBackground(jButton6.getBackground());
+    }//GEN-LAST:event_jButton6MouseClicked
+
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+        JL_actual.setBackground(jButton2.getBackground());
+    }//GEN-LAST:event_jButton2MouseClicked
+
+    private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
+        JL_actual.setBackground(jButton4.getBackground());
+    }//GEN-LAST:event_jButton4MouseClicked
 
     /**
      * @param args the command line arguments
@@ -1070,9 +1234,18 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton btn_datos;
     private javax.swing.JButton btn_documento;
     private javax.swing.JButton btn_separador;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu10;
     private javax.swing.JMenu jMenu11;
@@ -1081,7 +1254,11 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu14;
     private javax.swing.JMenu jMenu15;
     private javax.swing.JMenu jMenu16;
+    private javax.swing.JMenu jMenu17;
+    private javax.swing.JMenu jMenu18;
+    private javax.swing.JMenu jMenu19;
     private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu20;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
@@ -1092,6 +1269,10 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuBar jMenuBar3;
+    private javax.swing.JMenuBar jMenuBar4;
+    private javax.swing.JMenuBar jMenuBar5;
+    private javax.swing.JToolBar jToolBar1;
+    private javax.swing.JToolBar jToolBar2;
     private javax.swing.JDialog jd_DiagramaClases;
     private javax.swing.JDialog jd_UML;
     private javax.swing.JMenuItem jmi_color;

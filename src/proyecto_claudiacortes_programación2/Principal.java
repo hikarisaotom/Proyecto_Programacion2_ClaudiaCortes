@@ -35,8 +35,8 @@ public class Principal extends javax.swing.JFrame {
      */
     public Principal() {
         initComponents();
-        lbl_UML.setVisible(false);
-        lbl_Diagrama.setVisible(false);
+      
+        
         this.setExtendedState(MAXIMIZED_BOTH);
         // lbl_FondoInicio.setVisible(false);
     }
@@ -60,6 +60,8 @@ public class Principal extends javax.swing.JFrame {
         jButton10 = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
         btn_separadores = new javax.swing.JButton();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
         jd_UML = new javax.swing.JDialog();
         btn_Proceso = new javax.swing.JButton();
         btn_documento = new javax.swing.JButton();
@@ -73,9 +75,6 @@ public class Principal extends javax.swing.JFrame {
         label2 = new java.awt.Label();
         label3 = new java.awt.Label();
         label4 = new java.awt.Label();
-        pic1 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         jp_Drag = new javax.swing.JPanel();
         jToolBar1 = new javax.swing.JToolBar();
         jButton1 = new javax.swing.JButton();
@@ -88,6 +87,8 @@ public class Principal extends javax.swing.JFrame {
         jButton6 = new javax.swing.JButton();
         jToolBar2 = new javax.swing.JToolBar();
         jLabel4 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenu6 = new javax.swing.JMenu();
         jMenu7 = new javax.swing.JMenu();
@@ -140,15 +141,15 @@ public class Principal extends javax.swing.JFrame {
         js_width = new javax.swing.JSpinner();
         btn_cancelar = new javax.swing.JButton();
         btn_ok = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         PP_OPA = new javax.swing.JPopupMenu();
         jmi_agregarpropiedad = new javax.swing.JMenuItem();
         jmi_Eliminararbol = new javax.swing.JMenuItem();
         btn_DiagramaFlujo = new javax.swing.JButton();
         btn_DiagramaClases = new javax.swing.JButton();
         btn_Crear = new javax.swing.JButton();
-        lbl_FondoInicio = new javax.swing.JLabel();
-        lbl_UML = new javax.swing.JLabel();
         lbl_Diagrama = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -157,8 +158,9 @@ public class Principal extends javax.swing.JFrame {
         jMenu5 = new javax.swing.JMenu();
 
         jd_DiagramaClases.setMinimumSize(new java.awt.Dimension(1365, 1000));
+        jd_DiagramaClases.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jp_dragDiagrama.setBackground(new java.awt.Color(255, 255, 51));
+        jp_dragDiagrama.setBackground(new java.awt.Color(204, 204, 204));
 
         javax.swing.GroupLayout jp_dragDiagramaLayout = new javax.swing.GroupLayout(jp_dragDiagrama);
         jp_dragDiagrama.setLayout(jp_dragDiagramaLayout);
@@ -171,6 +173,9 @@ public class Principal extends javax.swing.JFrame {
             .addGap(0, 343, Short.MAX_VALUE)
         );
 
+        jd_DiagramaClases.getContentPane().add(jp_dragDiagrama, new org.netbeans.lib.awtextra.AbsoluteConstraints(286, 44, -1, -1));
+
+        jButton7.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         jButton7.setText("Agregar ");
         jButton7.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -182,100 +187,65 @@ public class Principal extends javax.swing.JFrame {
                 jButton7ActionPerformed(evt);
             }
         });
+        jd_DiagramaClases.getContentPane().add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 335, -1, -1));
 
+        jTree1.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Clases");
         jTree1.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
         jScrollPane1.setViewportView(jTree1);
 
+        jd_DiagramaClases.getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 88, 246, 213));
+
+        btn_agregarArbol.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         btn_agregarArbol.setText("AGREGAR");
         btn_agregarArbol.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_agregarArbolMouseClicked(evt);
             }
         });
+        jd_DiagramaClases.getContentPane().add(btn_agregarArbol, new org.netbeans.lib.awtextra.AbsoluteConstraints(137, 22, -1, -1));
 
+        jButton9.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         jButton9.setText("jButton9");
         jButton9.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton9MouseClicked(evt);
             }
         });
+        jd_DiagramaClases.getContentPane().add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(99, 335, -1, -1));
 
+        jButton10.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         jButton10.setText("agregar");
         jButton10.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton10MouseClicked(evt);
             }
         });
+        jd_DiagramaClases.getContentPane().add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 335, -1, -1));
 
+        jLabel13.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         jLabel13.setText("Clases Generadas");
+        jd_DiagramaClases.getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(84, 63, -1, -1));
 
+        btn_separadores.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         btn_separadores.setText("Separadores");
         btn_separadores.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_separadoresMouseClicked(evt);
             }
         });
+        jd_DiagramaClases.getContentPane().add(btn_separadores, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 22, -1, -1));
+        jd_DiagramaClases.getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 16, -1, -1));
 
-        javax.swing.GroupLayout jd_DiagramaClasesLayout = new javax.swing.GroupLayout(jd_DiagramaClases.getContentPane());
-        jd_DiagramaClases.getContentPane().setLayout(jd_DiagramaClasesLayout);
-        jd_DiagramaClasesLayout.setHorizontalGroup(
-            jd_DiagramaClasesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jd_DiagramaClasesLayout.createSequentialGroup()
-                .addGroup(jd_DiagramaClasesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jd_DiagramaClasesLayout.createSequentialGroup()
-                        .addGroup(jd_DiagramaClasesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jd_DiagramaClasesLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jButton10)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButton9)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButton7))
-                            .addGroup(jd_DiagramaClasesLayout.createSequentialGroup()
-                                .addGap(84, 84, 84)
-                                .addComponent(jLabel13))
-                            .addGroup(jd_DiagramaClasesLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(21, 21, 21))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_DiagramaClasesLayout.createSequentialGroup()
-                        .addComponent(btn_separadores)
-                        .addGap(18, 18, 18)
-                        .addComponent(btn_agregarArbol)
-                        .addGap(68, 68, 68)))
-                .addComponent(jp_dragDiagrama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(35, Short.MAX_VALUE))
-        );
-        jd_DiagramaClasesLayout.setVerticalGroup(
-            jd_DiagramaClasesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jd_DiagramaClasesLayout.createSequentialGroup()
-                .addGroup(jd_DiagramaClasesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jd_DiagramaClasesLayout.createSequentialGroup()
-                        .addGap(44, 44, 44)
-                        .addComponent(jp_dragDiagrama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jd_DiagramaClasesLayout.createSequentialGroup()
-                        .addGap(36, 36, 36)
-                        .addGroup(jd_DiagramaClasesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btn_agregarArbol)
-                            .addComponent(btn_separadores))
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel13)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(34, 34, 34)
-                        .addGroup(jd_DiagramaClasesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton10)
-                            .addComponent(jButton9)
-                            .addComponent(jButton7))))
-                .addContainerGap(117, Short.MAX_VALUE))
-        );
+        jLabel17.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel17.setOpaque(true);
+        jd_DiagramaClases.getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 1010, 500));
 
         jd_UML.setBackground(new java.awt.Color(255, 255, 255));
         jd_UML.setMinimumSize(new java.awt.Dimension(1365, 1000));
         jd_UML.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btn_Proceso.setBackground(new java.awt.Color(255, 255, 255));
+        btn_Proceso.setBackground(new java.awt.Color(204, 204, 204));
         btn_Proceso.setFont(btn_Proceso.getFont().deriveFont((float)13));
         btn_Proceso.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/UML/Proceso.png"))); // NOI18N
         btn_Proceso.setToolTipText("");
@@ -289,7 +259,7 @@ public class Principal extends javax.swing.JFrame {
                 btn_ProcesoActionPerformed(evt);
             }
         });
-        jd_UML.getContentPane().add(btn_Proceso, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 110, 70));
+        jd_UML.getContentPane().add(btn_Proceso, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 110, 70));
 
         btn_documento.setBackground(new java.awt.Color(255, 255, 255));
         btn_documento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/UML/documentos.png"))); // NOI18N
@@ -298,16 +268,16 @@ public class Principal extends javax.swing.JFrame {
                 btn_documentoMouseClicked(evt);
             }
         });
-        jd_UML.getContentPane().add(btn_documento, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 110, 70));
+        jd_UML.getContentPane().add(btn_documento, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 110, 70));
 
-        btn_Decision.setBackground(new java.awt.Color(255, 255, 255));
+        btn_Decision.setBackground(new java.awt.Color(204, 204, 204));
         btn_Decision.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/UML/if.png"))); // NOI18N
         btn_Decision.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_DecisionMouseClicked(evt);
             }
         });
-        jd_UML.getContentPane().add(btn_Decision, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 40, 100, 70));
+        jd_UML.getContentPane().add(btn_Decision, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 110, 100, 70));
 
         btn_SubPro.setBackground(new java.awt.Color(255, 255, 255));
         btn_SubPro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/UML/subpro.png"))); // NOI18N
@@ -316,7 +286,7 @@ public class Principal extends javax.swing.JFrame {
                 btn_SubProMouseClicked(evt);
             }
         });
-        jd_UML.getContentPane().add(btn_SubPro, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 110, 80));
+        jd_UML.getContentPane().add(btn_SubPro, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 110, 80));
 
         btn_SeparadorV.setBackground(new java.awt.Color(255, 255, 255));
         btn_SeparadorV.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/UML/separadorV.png"))); // NOI18N
@@ -325,7 +295,7 @@ public class Principal extends javax.swing.JFrame {
                 btn_SeparadorVMouseClicked(evt);
             }
         });
-        jd_UML.getContentPane().add(btn_SeparadorV, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 360, 100, 10));
+        jd_UML.getContentPane().add(btn_SeparadorV, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 430, 100, 10));
 
         btn_InicioFin.setBackground(new java.awt.Color(255, 255, 255));
         btn_InicioFin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/UML/in_fin.png"))); // NOI18N
@@ -334,7 +304,7 @@ public class Principal extends javax.swing.JFrame {
                 btn_InicioFinMouseClicked(evt);
             }
         });
-        jd_UML.getContentPane().add(btn_InicioFin, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 150, 100, -1));
+        jd_UML.getContentPane().add(btn_InicioFin, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 220, 100, -1));
 
         btn_datos.setBackground(new java.awt.Color(255, 255, 255));
         btn_datos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/UML/datos.png"))); // NOI18N
@@ -343,7 +313,7 @@ public class Principal extends javax.swing.JFrame {
                 btn_datosMouseClicked(evt);
             }
         });
-        jd_UML.getContentPane().add(btn_datos, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 270, 100, 60));
+        jd_UML.getContentPane().add(btn_datos, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 340, 100, 60));
 
         btn_separador.setBackground(new java.awt.Color(255, 255, 255));
         btn_separador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/UML/separador.png"))); // NOI18N
@@ -352,40 +322,29 @@ public class Principal extends javax.swing.JFrame {
                 btn_separadorMouseClicked(evt);
             }
         });
-        jd_UML.getContentPane().add(btn_separador, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 300, 10, 100));
+        jd_UML.getContentPane().add(btn_separador, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 370, 10, 100));
 
         label1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        label1.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         label1.setText("Color");
         jd_UML.getContentPane().add(label1, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 30, -1, -1));
         label1.getAccessibleContext().setAccessibleName("Estilo de fuente");
 
+        label2.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         label2.setText("Fuente");
         jd_UML.getContentPane().add(label2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 30, -1, -1));
 
         label3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        label3.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         label3.setText("Tamaño");
         jd_UML.getContentPane().add(label3, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 30, -1, -1));
 
         label4.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        label4.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         label4.setText("Estilo de fuente");
         jd_UML.getContentPane().add(label4, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 30, -1, -1));
 
-        pic1.setText("proceso");
-        jd_UML.getContentPane().add(pic1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 430, 140, 50));
-
-        jLabel1.setText("jLabel1");
-        jd_UML.getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 420, -1, -1));
-
-        jLabel2.setText("jLabel2");
-        jLabel2.setOpaque(true);
-        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel2MouseClicked(evt);
-            }
-        });
-        jd_UML.getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 430, -1, -1));
-
-        jp_Drag.setBackground(new java.awt.Color(153, 255, 255));
+        jp_Drag.setBackground(new java.awt.Color(255, 255, 255));
         jp_Drag.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jp_DragMouseClicked(evt);
@@ -407,6 +366,7 @@ public class Principal extends javax.swing.JFrame {
 
         jToolBar1.setRollover(true);
 
+        jButton1.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         jButton1.setText("Fuente");
         jButton1.setFocusable(false);
         jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -467,10 +427,19 @@ public class Principal extends javax.swing.JFrame {
 
         jToolBar2.setRollover(true);
 
+        jLabel4.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         jLabel4.setText("Color");
         jToolBar2.add(jLabel4);
 
         jd_UML.getContentPane().add(jToolBar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 0, 170, 20));
+
+        jLabel14.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
+        jLabel14.setText("Opciones: ");
+        jd_UML.getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 50, -1, -1));
+
+        jLabel15.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel15.setOpaque(true);
+        jd_UML.getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1240, 500));
 
         jMenu6.setText("Archivo");
         jMenuBar2.add(jMenu6);
@@ -638,6 +607,12 @@ public class Principal extends javax.swing.JFrame {
         jd_propiedades.getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, -1, -1));
         jd_propiedades.getContentPane().add(txt_nombreJL_actual, new org.netbeans.lib.awtextra.AbsoluteConstraints(75, 22, 170, -1));
         jd_propiedades.getContentPane().add(txt_textoJL_actual, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 60, 160, -1));
+
+        btn_colorJL_actual.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_colorJL_actualMouseClicked(evt);
+            }
+        });
         jd_propiedades.getContentPane().add(btn_colorJL_actual, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 100, -1, 16));
         jd_propiedades.getContentPane().add(txt_codigocolorJL_actual, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, 120, -1));
         jd_propiedades.getContentPane().add(btn_enableJL_actual, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 130, 160, 20));
@@ -669,6 +644,10 @@ public class Principal extends javax.swing.JFrame {
         });
         jd_propiedades.getContentPane().add(btn_ok, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 343, 60, 20));
 
+        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel1.setOpaque(true);
+        jd_propiedades.getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 260, 370));
+
         jmi_agregarpropiedad.setText("Agregar Propiedad");
         jmi_agregarpropiedad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -690,7 +669,8 @@ public class Principal extends javax.swing.JFrame {
         setBackground(new java.awt.Color(255, 255, 255));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btn_DiagramaFlujo.setBackground(new java.awt.Color(255, 255, 255));
+        btn_DiagramaFlujo.setBackground(new java.awt.Color(204, 204, 204));
+        btn_DiagramaFlujo.setFont(new java.awt.Font("AR CENA", 1, 24)); // NOI18N
         btn_DiagramaFlujo.setText("Diagramas de Flujo Basico");
         btn_DiagramaFlujo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -702,18 +682,20 @@ public class Principal extends javax.swing.JFrame {
                 btn_DiagramaFlujoActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_DiagramaFlujo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 160, 136));
+        getContentPane().add(btn_DiagramaFlujo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 320, 136));
 
-        btn_DiagramaClases.setBackground(new java.awt.Color(255, 255, 255));
+        btn_DiagramaClases.setBackground(new java.awt.Color(204, 204, 204));
+        btn_DiagramaClases.setFont(new java.awt.Font("AR CENA", 1, 24)); // NOI18N
         btn_DiagramaClases.setText("Diagrama de clases");
         btn_DiagramaClases.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_DiagramaClasesMouseClicked(evt);
             }
         });
-        getContentPane().add(btn_DiagramaClases, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 160, 136));
+        getContentPane().add(btn_DiagramaClases, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 330, 320, 136));
 
         btn_Crear.setBackground(new java.awt.Color(255, 255, 255));
+        btn_Crear.setFont(new java.awt.Font("AR CENA", 0, 24)); // NOI18N
         btn_Crear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/edit.png"))); // NOI18N
         btn_Crear.setText("Crear");
         btn_Crear.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -721,16 +703,14 @@ public class Principal extends javax.swing.JFrame {
                 btn_CrearMouseClicked(evt);
             }
         });
-        getContentPane().add(btn_Crear, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 350, 170, 70));
+        getContentPane().add(btn_Crear, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 540, 170, 70));
 
-        lbl_FondoInicio.setText("FONDO");
-        getContentPane().add(lbl_FondoInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 320, 340));
+        lbl_Diagrama.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/bienvenido.png"))); // NOI18N
+        getContentPane().add(lbl_Diagrama, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 30, 920, 520));
 
-        lbl_UML.setText("UML");
-        getContentPane().add(lbl_UML, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 100, 320, 340));
-
-        lbl_Diagrama.setText("Diagrama");
-        getContentPane().add(lbl_Diagrama, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 100, 320, 340));
+        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel2.setOpaque(true);
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1140, 630));
 
         jMenu1.setText("Archivo");
         jMenuBar1.add(jMenu1);
@@ -776,21 +756,16 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_CrearMouseClicked
 
     private void btn_DiagramaFlujoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_DiagramaFlujoMouseClicked
-        lbl_FondoInicio.setVisible(false);
-
-        lbl_Diagrama.setVisible(false);
-        lbl_UML.setVisible(true);
+      
+        lbl_Diagrama.setIcon(new ImageIcon(".\\src\\Imagenes\\flujo.png")); // NOI18N
         Bandera = 1;
 
     }//GEN-LAST:event_btn_DiagramaFlujoMouseClicked
 
     private void btn_DiagramaClasesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_DiagramaClasesMouseClicked
-        //   new Lab();
-        lbl_UML.setVisible(false);
-        lbl_FondoInicio.setVisible(false);
-
-        lbl_Diagrama.setVisible(true);
-        Bandera = 2;
+    
+         lbl_Diagrama.setIcon(new ImageIcon(".\\src\\Imagenes\\clase.jpg")); // NOI18N
+              Bandera = 2;
     }//GEN-LAST:event_btn_DiagramaClasesMouseClicked
 
     private void btn_ProcesoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ProcesoActionPerformed
@@ -810,17 +785,17 @@ public class Principal extends javax.swing.JFrame {
         //System.out.println(lbl_Proceso.getName());
         // System.out.println("EL ERROR ESTA AQUI");
         this.jp_Drag.add(lbl_Proceso);
-        lbl_Proceso.setBackground(Color.red);
+        lbl_Proceso.setBackground(Color.BLUE);
         //  System.out.println(lbl_Proceso);
 
         lbl_Proceso.setLocation(10, 200);
         lbl_Proceso.setIcon(new ImageIcon(".\\src\\Imagenes\\UML\\proceso.png")); // NOI18N
-        lbl_Proceso.setText("PROCESO");
+        lbl_Proceso.setText("proceso");
         lbl_Proceso.setMaximumSize(new java.awt.Dimension(100, 100));
         lbl_Proceso.setMinimumSize(new Dimension(100, 100));
         lbl_Proceso.setLocation(new Point(20, 20));
         lbl_Proceso.setPreferredSize(new Dimension(50, 50));
-        lbl_Proceso.setSize(150, 65);
+        lbl_Proceso.setSize(100, 65);
         JL_actual = lbl_Proceso;
         lbl_Proceso.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
@@ -891,12 +866,13 @@ public class Principal extends javax.swing.JFrame {
         lbl_if.getName();
         lbl_if.setName("lbo_if" + cont_If);
         cont_If++;
+           lbl_if.setText("If");
         lbl_if.setHorizontalTextPosition(SwingConstants.CENTER);
         //System.out.println(lbl_if);
         //System.out.println(lbl_if.getName());
         // System.out.println("EL ERROR ESTA AQUI");
         this.jp_Drag.add(lbl_if);
-        lbl_if.setBackground(Color.red);
+        lbl_if.setBackground(Color.GRAY);
         // System.out.println(lbl_if);
 
         lbl_if.setLocation(10, 200);
@@ -958,11 +934,12 @@ public class Principal extends javax.swing.JFrame {
         lbl_documento.setName("lbl_documento" + documentos);
         lbl_documento.setHorizontalTextPosition(SwingConstants.CENTER);
         documentos++;
+         lbl_documento.setText("Documento");
         // System.out.println(lbl_documento);
         //System.out.println(lbl_documento.getName());
         // System.out.println("EL ERROR ESTA AQUI");
         this.jp_Drag.add(lbl_documento);
-        lbl_documento.setBackground(Color.red);
+        lbl_documento.setBackground(Color.GREEN);
         // System.out.println(lbl_documento);
 
         lbl_documento.setLocation(10, 200);
@@ -1022,11 +999,12 @@ public class Principal extends javax.swing.JFrame {
         lbl_inicio_fin.setName("lbl_inicio_fin" + in_out);
         lbl_inicio_fin.setHorizontalTextPosition(SwingConstants.CENTER);
         in_out++;
+         lbl_inicio_fin.setText("Inicio");
         //System.out.println(lbl_inicio_fin);
         //System.out.println(lbl_inicio_fin.getName());
         // System.out.println("EL ERROR ESTA AQUI");
         this.jp_Drag.add(lbl_inicio_fin);
-        lbl_inicio_fin.setBackground(Color.red);
+        lbl_inicio_fin.setBackground(Color.MAGENTA);
         //System.out.println(lbl_inicio_fin);
         String Nombre = lbl_inicio_fin.getName();
         lbl_inicio_fin.setLocation(10, 200);
@@ -1086,11 +1064,12 @@ public class Principal extends javax.swing.JFrame {
         lbl_subpro.getName();
         lbl_subpro.setName("lbl_subpro" + Subpro);
         Subpro++;
+         lbl_subpro.setText("Subproceso");
         //  System.out.println(lbl_subpro);
         // System.out.println(lbl_subpro.getName());
         // System.out.println("EL ERROR ESTA AQUI");
         this.jp_Drag.add(lbl_subpro);
-        lbl_subpro.setBackground(Color.red);
+        lbl_subpro.setBackground(Color.ORANGE);
         // System.out.println(lbl_subpro);
         lbl_subpro.setHorizontalTextPosition(SwingConstants.CENTER);
         lbl_subpro.setLocation(10, 200);
@@ -1156,7 +1135,8 @@ public class Principal extends javax.swing.JFrame {
         this.jp_Drag.add(lbldatos);
         lbldatos.setBackground(Color.red);
         // System.out.println(lbldatos);
-
+         lbldatos.setHorizontalTextPosition(SwingConstants.CENTER);
+        lbldatos.setText("Datos");
         lbldatos.setLocation(10, 200);
         lbldatos.setIcon(new ImageIcon(".\\src\\Imagenes\\UML\\datos.png")); // NOI18N
         lbldatos.setMaximumSize(new java.awt.Dimension(100, 100));
@@ -1218,7 +1198,7 @@ public class Principal extends javax.swing.JFrame {
         // System.out.println(lbl_separador.getName());
         // System.out.println("EL ERROR ESTA AQUI");
         this.jp_Drag.add(lbl_separador);
-        lbl_separador.setBackground(Color.red);
+        lbl_separador.setBackground(Color.black);
         //  System.out.println(lbl_separador);
         lbl_separador.setHorizontalTextPosition(SwingConstants.CENTER);
         lbl_separador.setLocation(10, 200);
@@ -1279,7 +1259,7 @@ public class Principal extends javax.swing.JFrame {
         // System.out.println(lbl_Vseparador.getName());
         // System.out.println("EL ERROR ESTA AQUI");
         this.jp_Drag.add(lbl_Vseparador);
-        lbl_Vseparador.setBackground(Color.red);
+        lbl_Vseparador.setBackground(Color.BLACK);
         //System.out.println(lbl_Vseparador);
         lbl_Vseparador.setHorizontalTextPosition(SwingConstants.CENTER);
         lbl_Vseparador.setLocation(10, 200);
@@ -1333,11 +1313,6 @@ public class Principal extends javax.swing.JFrame {
     private void jp_DragMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_DragMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_jp_DragMouseClicked
-
-    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
-        //jLabel2.setText(JOptionPane.showInputDialog("Ingrese el nuevo texto de la Label"));
-        // System.out.println(jLabel2.getText());
-    }//GEN-LAST:event_jLabel2MouseClicked
 
     private void jmi_colorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_colorActionPerformed
         try {
@@ -1467,11 +1442,11 @@ public class Principal extends javax.swing.JFrame {
 
     private void jmi_propiedadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_propiedadesActionPerformed
         jd_propiedades.show(true);
-        this.jd_propiedades.setModal(true);
+       
         jd_propiedades.pack();
-        jd_propiedades.setLocationRelativeTo(this);
+        jd_propiedades.setLocationRelativeTo(this.jd_UML);
         jd_propiedades.setTitle(JL_actual.getName() + " Propiedades");
-
+        this.jd_propiedades.setModal(true);//modal, bloquea la padre mientras la hija esta abierta.
         txt_nombreJL_actual.setText(JL_actual.getName());
         txt_textoJL_actual.setText(JL_actual.getText());
         js_height.setValue(JL_actual.getHeight());
@@ -1704,6 +1679,10 @@ public class Principal extends javax.swing.JFrame {
         });
     }//GEN-LAST:event_btn_separadoresMouseClicked
 
+    private void btn_colorJL_actualMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_colorJL_actualMouseClicked
+       btn_colorJL_actual.setBackground(JColorChooser.showDialog(jd_UML,"Seleccione su color",  btn_colorJL_actual.getBackground()));
+    }//GEN-LAST:event_btn_colorJL_actualMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -1778,6 +1757,10 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -1837,11 +1820,8 @@ public class Principal extends javax.swing.JFrame {
     private java.awt.Label label4;
     private javax.swing.JLabel lbl_Diagrama;
     private javax.swing.JLabel lbl_Diagrama1;
-    private javax.swing.JLabel lbl_FondoInicio;
     private javax.swing.JLabel lbl_FondoInicio1;
-    private javax.swing.JLabel lbl_UML;
     private javax.swing.JLabel lbl_UML1;
-    private javax.swing.JLabel pic1;
     private javax.swing.JPopupMenu pp_OP;
     private javax.swing.JTextField txt_codigocolorJL_actual;
     private javax.swing.JTextField txt_nombreJL_actual;

@@ -35,8 +35,7 @@ public class Principal extends javax.swing.JFrame {
      */
     public Principal() {
         initComponents();
-      
-        
+
         this.setExtendedState(MAXIMIZED_BOTH);
         // lbl_FondoInicio.setVisible(false);
     }
@@ -52,12 +51,9 @@ public class Principal extends javax.swing.JFrame {
 
         jd_DiagramaClases = new javax.swing.JDialog();
         jp_dragDiagrama = new javax.swing.JPanel();
-        jButton7 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTree1 = new javax.swing.JTree();
         btn_agregarArbol = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
         btn_separadores = new javax.swing.JButton();
         jLabel16 = new javax.swing.JLabel();
@@ -145,6 +141,9 @@ public class Principal extends javax.swing.JFrame {
         PP_OPA = new javax.swing.JPopupMenu();
         jmi_agregarpropiedad = new javax.swing.JMenuItem();
         jmi_Eliminararbol = new javax.swing.JMenuItem();
+        jmi_EliminarPropiedad = new javax.swing.JMenuItem();
+        jmi_DatosPropiedad = new javax.swing.JMenuItem();
+        PP_OPP = new javax.swing.JPopupMenu();
         btn_DiagramaFlujo = new javax.swing.JButton();
         btn_DiagramaClases = new javax.swing.JButton();
         btn_Crear = new javax.swing.JButton();
@@ -166,28 +165,14 @@ public class Principal extends javax.swing.JFrame {
         jp_dragDiagrama.setLayout(jp_dragDiagramaLayout);
         jp_dragDiagramaLayout.setHorizontalGroup(
             jp_dragDiagramaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 687, Short.MAX_VALUE)
+            .addGap(0, 720, Short.MAX_VALUE)
         );
         jp_dragDiagramaLayout.setVerticalGroup(
             jp_dragDiagramaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 343, Short.MAX_VALUE)
         );
 
-        jd_DiagramaClases.getContentPane().add(jp_dragDiagrama, new org.netbeans.lib.awtextra.AbsoluteConstraints(286, 44, -1, -1));
-
-        jButton7.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
-        jButton7.setText("Agregar ");
-        jButton7.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton7MouseClicked(evt);
-            }
-        });
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
-            }
-        });
-        jd_DiagramaClases.getContentPane().add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 335, -1, -1));
+        jd_DiagramaClases.getContentPane().add(jp_dragDiagrama, new org.netbeans.lib.awtextra.AbsoluteConstraints(286, 44, 720, -1));
 
         jTree1.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Clases");
@@ -204,24 +189,6 @@ public class Principal extends javax.swing.JFrame {
             }
         });
         jd_DiagramaClases.getContentPane().add(btn_agregarArbol, new org.netbeans.lib.awtextra.AbsoluteConstraints(137, 22, -1, -1));
-
-        jButton9.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
-        jButton9.setText("jButton9");
-        jButton9.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton9MouseClicked(evt);
-            }
-        });
-        jd_DiagramaClases.getContentPane().add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(99, 335, -1, -1));
-
-        jButton10.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
-        jButton10.setText("agregar");
-        jButton10.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton10MouseClicked(evt);
-            }
-        });
-        jd_DiagramaClases.getContentPane().add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 335, -1, -1));
 
         jLabel13.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         jLabel13.setText("Clases Generadas");
@@ -664,6 +631,12 @@ public class Principal extends javax.swing.JFrame {
         });
         PP_OPA.add(jmi_Eliminararbol);
 
+        jmi_EliminarPropiedad.setText("Eliminar Propiedad");
+        PP_OPA.add(jmi_EliminarPropiedad);
+
+        jmi_DatosPropiedad.setText("Descripcion");
+        PP_OPA.add(jmi_DatosPropiedad);
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("INICIO");
         setBackground(new java.awt.Color(255, 255, 255));
@@ -756,16 +729,16 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_CrearMouseClicked
 
     private void btn_DiagramaFlujoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_DiagramaFlujoMouseClicked
-      
+
         lbl_Diagrama.setIcon(new ImageIcon(".\\src\\Imagenes\\flujo.png")); // NOI18N
         Bandera = 1;
 
     }//GEN-LAST:event_btn_DiagramaFlujoMouseClicked
 
     private void btn_DiagramaClasesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_DiagramaClasesMouseClicked
-    
-         lbl_Diagrama.setIcon(new ImageIcon(".\\src\\Imagenes\\clase.jpg")); // NOI18N
-              Bandera = 2;
+
+        lbl_Diagrama.setIcon(new ImageIcon(".\\src\\Imagenes\\clase.jpg")); // NOI18N
+        Bandera = 2;
     }//GEN-LAST:event_btn_DiagramaClasesMouseClicked
 
     private void btn_ProcesoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ProcesoActionPerformed
@@ -866,7 +839,7 @@ public class Principal extends javax.swing.JFrame {
         lbl_if.getName();
         lbl_if.setName("lbo_if" + cont_If);
         cont_If++;
-           lbl_if.setText("If");
+        lbl_if.setText("If");
         lbl_if.setHorizontalTextPosition(SwingConstants.CENTER);
         //System.out.println(lbl_if);
         //System.out.println(lbl_if.getName());
@@ -934,7 +907,7 @@ public class Principal extends javax.swing.JFrame {
         lbl_documento.setName("lbl_documento" + documentos);
         lbl_documento.setHorizontalTextPosition(SwingConstants.CENTER);
         documentos++;
-         lbl_documento.setText("Documento");
+        lbl_documento.setText("Documento");
         // System.out.println(lbl_documento);
         //System.out.println(lbl_documento.getName());
         // System.out.println("EL ERROR ESTA AQUI");
@@ -999,7 +972,7 @@ public class Principal extends javax.swing.JFrame {
         lbl_inicio_fin.setName("lbl_inicio_fin" + in_out);
         lbl_inicio_fin.setHorizontalTextPosition(SwingConstants.CENTER);
         in_out++;
-         lbl_inicio_fin.setText("Inicio");
+        lbl_inicio_fin.setText("Inicio");
         //System.out.println(lbl_inicio_fin);
         //System.out.println(lbl_inicio_fin.getName());
         // System.out.println("EL ERROR ESTA AQUI");
@@ -1064,7 +1037,7 @@ public class Principal extends javax.swing.JFrame {
         lbl_subpro.getName();
         lbl_subpro.setName("lbl_subpro" + Subpro);
         Subpro++;
-         lbl_subpro.setText("Subproceso");
+        lbl_subpro.setText("Subproceso");
         //  System.out.println(lbl_subpro);
         // System.out.println(lbl_subpro.getName());
         // System.out.println("EL ERROR ESTA AQUI");
@@ -1135,7 +1108,7 @@ public class Principal extends javax.swing.JFrame {
         this.jp_Drag.add(lbldatos);
         lbldatos.setBackground(Color.red);
         // System.out.println(lbldatos);
-         lbldatos.setHorizontalTextPosition(SwingConstants.CENTER);
+        lbldatos.setHorizontalTextPosition(SwingConstants.CENTER);
         lbldatos.setText("Datos");
         lbldatos.setLocation(10, 200);
         lbldatos.setIcon(new ImageIcon(".\\src\\Imagenes\\UML\\datos.png")); // NOI18N
@@ -1382,67 +1355,8 @@ public class Principal extends javax.swing.JFrame {
         JL_actual.setBackground(jButton4.getBackground());
     }//GEN-LAST:event_jButton4MouseClicked
 
-    private void jButton7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseClicked
-   
-        javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Holi");
-        jTree1.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
-        jScrollPane1.setViewportView(jTree1);
-        jp_dragDiagrama.add(jTree1);
-        Cont_A++;
-        jTree1.setEditable(true);
-       jTree1.setName("Arbol"+Cont_A);
-       Cont_A++;
-        /* javax.swing.JTree Arbol_Global = new javax.swing.JTree();
-        javax.swing.JScrollPane jScrollPane11 = new javax.swing.JScrollPane();
-        Arbol_Global.setName("Arbol" + Cont_A);
-        javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("root");
-        Arbol_Global.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
-        jScrollPane11.setViewportView(Arbol_Global);
-        jp_dragDiagrama.add(Arbol_Global);
-        System.out.println("LLEGO HASTA AQUI");*/
-       jTree1.addMouseListener(new MouseListener() {
-            public void mouseClicked(MouseEvent evt) {
-              
-                if (evt.isMetaDown()) {
-                    
-                    PP_OPA.show(evt.getComponent(), evt.getX(), evt.getY());
-                }
-            }
-
-            public void mouseEntered(MouseEvent arg0) {
-                
-            }
-
-            public void mouseExited(MouseEvent arg0) {
-                
-            }
-
-            public void mousePressed(MouseEvent arg0) {
-               
-            }
-
-            public void mouseReleased(MouseEvent arg0) {
-             
-            }
-        });
-        jTree1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseDragged(java.awt.event.MouseEvent evt) {
-               
-                if ((jTree1.getLocation().x + evt.getX() - jTree1.getWidth() / 2) >= 0
-                        && (jTree1.getLocation().x + evt.getX() - jTree1.getWidth() / 2) <= 800) {
-                   jTree1.setLocation(jTree1.getLocation().x + evt.getX() - jTree1.getWidth() / 2,
-                            jTree1.getLocation().y + evt.getY() - jTree1.getHeight() / 2);
-                    //  System.out.println(lbl_Vseparador);
-                    // System.out.println(lbl_Vseparador.getName());
-                }// para que no se salga del rango
-
-            }
-        });  //agrega los label
-    }//GEN-LAST:event_jButton7MouseClicked
-
     private void jmi_propiedadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_propiedadesActionPerformed
         jd_propiedades.show(true);
-       
         jd_propiedades.pack();
         jd_propiedades.setLocationRelativeTo(this.jd_UML);
         jd_propiedades.setTitle(JL_actual.getName() + " Propiedades");
@@ -1474,35 +1388,36 @@ public class Principal extends javax.swing.JFrame {
         //  btn_ok
     }//GEN-LAST:event_btn_okActionPerformed
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton7ActionPerformed
-
     private void btn_agregarArbolMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_agregarArbolMouseClicked
-        DefaultMutableTreeNode carpetaRaiz = new DefaultMutableTreeNode(JOptionPane.showInputDialog("Ingrese el nombre de la clase: "));
+        Clase C = new Clase(JOptionPane.showInputDialog("Ingrese el nombre de la clase: "));
+        DefaultMutableTreeNode carpetaRaiz = new DefaultMutableTreeNode(C);
         DefaultTreeModel modelo = new DefaultTreeModel(carpetaRaiz);
-        
-        JTree arbol = new JTree(modelo);
+        Diagrama arbol = new Diagrama();
+        arbol.setClase(C);
+        arbol.setModel(modelo);
         arbol.setName("Arbol" + Cont_A);
         arbol.setSize(100, 100);
         Cont_A++;
         arbol.addMouseListener(new MouseListener() {
             public void mouseClicked(MouseEvent evt) {
                 ActualArbol = arbol;
-                 int row =arbol.getClosestRowForLocation(evt.getX(),evt.getY());
-            arbol.setSelectionRow(row);
-            //determinar el tipo de objeto selecionado.
-            //contenido en el nodo seleccionado
-            Object v1=arbol.getSelectionPath().getLastPathComponent();//nos da la ruta y luego nos saca el final de la ruta.
-            nodo_seleccionado=(DefaultMutableTreeNode)v1;
+                int row = arbol.getClosestRowForLocation(evt.getX(), evt.getY());
+                arbol.setSelectionRow(row);
+                //determinar el tipo de objeto selecionado.
+                //contenido en el nodo seleccionado
+                Object v1 = arbol.getSelectionPath().getLastPathComponent();//nos da la ruta y luego nos saca el final de la ruta.
+                nodo_seleccionado = (DefaultMutableTreeNode) v1;
                 if (evt.isMetaDown()) {
-                     if (nodo_seleccionado.getUserObject() instanceof String) {
-                         jmi_Eliminararbol.enable(true);
-                     }else{
+                    if (nodo_seleccionado.getUserObject() instanceof Clase) {
+                        jmi_EliminarPropiedad.show(false);
+                        jmi_DatosPropiedad.show(false);
 
-                     jmi_Eliminararbol.enable(false);
-                     }
-                       PP_OPA.show(evt.getComponent(), evt.getX(), evt.getY());
+                    } else {
+                        jmi_EliminarPropiedad.show(true);
+                        jmi_DatosPropiedad.show(true);
+                    }
+                    PP_OPA.show(evt.getComponent(), evt.getX(), evt.getY());
+
                 }
             }
 
@@ -1524,7 +1439,7 @@ public class Principal extends javax.swing.JFrame {
         });
         arbol.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
-                ActualArbol=arbol;
+                ActualArbol = arbol;
                 if ((arbol.getLocation().x + evt.getX() - arbol.getWidth() / 2) >= 0
                         && (arbol.getLocation().x + evt.getX() - arbol.getWidth() / 2) <= 800) {
                     arbol.setLocation(jTree1.getLocation().x + evt.getX() - arbol.getWidth() / 2,
@@ -1536,86 +1451,40 @@ public class Principal extends javax.swing.JFrame {
         });  //agrega los label
         this.jp_dragDiagrama.add(arbol);
         jp_dragDiagrama.repaint();
-        
         //Lo agregamos al arbol de las clases.
-          DefaultTreeModel m = (DefaultTreeModel) jTree1.getModel();
+        DefaultTreeModel m = (DefaultTreeModel) jTree1.getModel();
         DefaultMutableTreeNode Raiz = (DefaultMutableTreeNode) m.getRoot();
-       Raiz.add(carpetaRaiz);
-       m.reload();
+        Raiz.add(carpetaRaiz);
+        m.reload();
     }//GEN-LAST:event_btn_agregarArbolMouseClicked
-
-    private void jButton9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton9MouseClicked
-        DefaultMutableTreeNode raiz = new DefaultMutableTreeNode("Carpeta");
-        JTree tree1 = new JTree(raiz);
-        tree1.getSelectionModel().setSelectionMode(TreeSelectionModel.SINGLE_TREE_SELECTION);
-        tree1.setVisibleRowCount(12);
-        JScrollPane desplazamiento = new JScrollPane(tree1);
-        desplazamiento.setViewportView(tree1);
-        /*JFrame v = new JFrame("arbolito");
-         v.add(tree1);
-        v.pack();
-        v.setVisible(true);
-        v.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);*/
-        this.jp_dragDiagrama.add(desplazamiento);
-    }//GEN-LAST:event_jButton9MouseClicked
 
     private void jmi_agregarpropiedadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_agregarpropiedadActionPerformed
         String Propiedad = JOptionPane.showInputDialog("Ingrese la propiedad de la clase");
         DefaultTreeModel m = (DefaultTreeModel) ActualArbol.getModel();
         DefaultMutableTreeNode Raiz = (DefaultMutableTreeNode) m.getRoot();
-        DefaultMutableTreeNode Propiedades = new DefaultMutableTreeNode(Propiedad);
+        Propiedad P = new Propiedad(Propiedad);
+        DefaultMutableTreeNode Propiedades = new DefaultMutableTreeNode(P);
+        ActualArbol.getClase().AgregarPropiedad(P);
         Raiz.add(Propiedades);
         m.reload();
-        
-         //Lo agregamos al arbol de las clases.
-         DefaultTreeModel Principal = (DefaultTreeModel) jTree1.getModel();
-         Principal.reload();
-                
+        //Lo agregamos al arbol de las clases.
+        DefaultTreeModel Principal = (DefaultTreeModel) jTree1.getModel();
+        Principal.reload();
+
     }//GEN-LAST:event_jmi_agregarpropiedadActionPerformed
 
-    private void jButton10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton10MouseClicked
-      /*  javax.swing.JTree Arbol;
-        javax.swing.JScrollPane PANE;
-        PANE = new javax.swing.JScrollPane();
-        Arbol = new javax.swing.JTree();
-        javax.swing.tree.DefaultMutableTreeNode Raiz = new javax.swing.tree.DefaultMutableTreeNode("Raiz");
-        Arbol.setModel(new javax.swing.tree.DefaultTreeModel(Raiz));
-        jScrollPane1.setViewportView(Arbol);
-        jp_dragDiagrama.add(Arbol);
-        jp_dragDiagrama.add(jTree1);*/
-      // Creación de los datos para el JTree. Un padre, con hijo1 e hijo2. hijo1 tiene
-		// ademas un nieto.
-		DefaultMutableTreeNode padre = new DefaultMutableTreeNode(new Integer(3));
-		DefaultMutableTreeNode hijo1 = new DefaultMutableTreeNode("hijo1");
-		DefaultMutableTreeNode hijo2 = new DefaultMutableTreeNode("hijo2");
-		DefaultMutableTreeNode nieto1 = new DefaultMutableTreeNode(new Float(2.2));
-		DefaultTreeModel modelo = new DefaultTreeModel(padre);
-		modelo.insertNodeInto(hijo1, padre, 0);
-		modelo.insertNodeInto(hijo2, padre, 1);
-		modelo.insertNodeInto(nieto1, hijo1, 0);
-		
-		// Creacion y visualizacion de la ventana
-		JFrame v = new JFrame("arbolito");
-		JTree arbol = new JTree(modelo);
-                
-		jd_DiagramaClases.add(arbol);
-                v.add(arbol);
-            
-		v.pack();
-		v.setVisible(true);
-		v.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-
-    }//GEN-LAST:event_jButton10MouseClicked
-
     private void jmi_EliminararbolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_EliminararbolActionPerformed
-        int respuesta =JOptionPane.showConfirmDialog(this.jd_DiagramaClases,"Seguro que desea eliminar?","Confirm",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
-        if (respuesta==JOptionPane.OK_OPTION) {
-            DefaultTreeModel m =(DefaultTreeModel)ActualArbol.getModel();
+        int respuesta = JOptionPane.showConfirmDialog(this.jd_DiagramaClases, "Seguro que desea eliminar?", "Confirm", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        if (respuesta == JOptionPane.OK_OPTION) {
+            DefaultTreeModel m = (DefaultTreeModel) ActualArbol.getModel();
             m.removeNodeFromParent(nodo_seleccionado);
             m.reload();
+            jp_dragDiagrama.remove(ActualArbol);
+            jp_dragDiagrama.repaint();
+            JOptionPane.showMessageDialog(this.jd_UML, "Se ha eliminado correctamente");
         }
         DefaultTreeModel Principal = (DefaultTreeModel) jTree1.getModel();
-         Principal.reload();
+        Principal.reload();
     }//GEN-LAST:event_jmi_EliminararbolActionPerformed
 
     private void btn_separadoresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_separadoresMouseClicked
@@ -1680,7 +1549,7 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_separadoresMouseClicked
 
     private void btn_colorJL_actualMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_colorJL_actualMouseClicked
-       btn_colorJL_actual.setBackground(JColorChooser.showDialog(jd_UML,"Seleccione su color",  btn_colorJL_actual.getBackground()));
+        btn_colorJL_actual.setBackground(JColorChooser.showDialog(this.jd_propiedades, "Seleccione su color", btn_colorJL_actual.getBackground()));
     }//GEN-LAST:event_btn_colorJL_actualMouseClicked
 
     /**
@@ -1721,6 +1590,7 @@ public class Principal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPopupMenu PP_OPA;
+    private javax.swing.JPopupMenu PP_OPP;
     private javax.swing.JButton btn_Crear;
     private javax.swing.JButton btn_Crear1;
     private javax.swing.JButton btn_Decision;
@@ -1742,14 +1612,11 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton btn_separador;
     private javax.swing.JButton btn_separadores;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton9;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JLabel jLabel1;
@@ -1802,6 +1669,8 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JDialog jd_DiagramaClases;
     private javax.swing.JDialog jd_UML;
     private javax.swing.JDialog jd_propiedades;
+    private javax.swing.JMenuItem jmi_DatosPropiedad;
+    private javax.swing.JMenuItem jmi_EliminarPropiedad;
     private javax.swing.JMenuItem jmi_Eliminararbol;
     private javax.swing.JMenuItem jmi_agregarpropiedad;
     private javax.swing.JMenuItem jmi_color;
@@ -1838,19 +1707,9 @@ public class Principal extends javax.swing.JFrame {
     private int Bandera = 0;
     //private  DefaultTreeModel Principal = (DefaultTreeModel) jTree1.getModel();
     JLabel JL_actual = null;
-    private int Cont_A=0;
-    JTree ActualArbol;
-     DefaultMutableTreeNode nodo_seleccionado;
-    // private ArrayList <JLabel> Etiquetas=new ArrayList();
-/* //  new Lab();
-    //pic1.setIcon(new ImageIcon("C:\\Users\\Claudia Cortes\\Desktop\\Proyecto_ClaudiaCortes_Programacion2\\Proyecto_ClaudiaCortes_Programación2\\src\\Imagenes\\avatar-1.png"));
-        //pic2.setIcon(new ImageIcon("C:\\Users\\Claudia Cortes\\Desktop\\Proyecto_ClaudiaCortes_Programacion2\\Proyecto_ClaudiaCortes_Programación2\\src\\Imagenes\\bar-chart.png"));
-        //pic3.setIcon(new ImageIcon("C:\\Users\\Claudia Cortes\\Desktop\\Proyecto_ClaudiaCortes_Programacion2\\Proyecto_ClaudiaCortes_Programación2\\src\\Imagenes\\battery-1.png"));
-      pic1.addMouseListener(ml);
-     //   pic2.addMouseListener(ml);
-        //pic3.addMouseListener(ml);
-        pic1.setTransferHandler(new TransferHandler("icon"));
-        jLabel2.setTransferHandler(new TransferHandler("icon"));
-        jLabel1.setTransferHandler(new TransferHandler("icon"));*/
+    private int Cont_A = 0;
+    Diagrama ActualArbol;
+    DefaultMutableTreeNode nodo_seleccionado;
+
 
 }

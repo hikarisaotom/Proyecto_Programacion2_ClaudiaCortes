@@ -22,4 +22,19 @@ public class Diagrama extends JTree{
         this.Clase = Clase;
     }
     
+    public String GenereraCodigo(){
+        String Codigo="";
+        String Public="\n public:";
+       String Private="\n private:";
+        Codigo+="class "+Clase.getNombre()+"{";
+        for (Propiedad propiedad : Clase.getPropiedades()) {
+            if (propiedad.getAlcance()) {
+                Public+=propiedad.getTipo()+" "+propiedad.getNombre()+";\n";
+            }else{
+                Private+=propiedad.getTipo()+" "+propiedad.getNombre()+";\n";
+            }
+        }
+        Codigo+=Public+Private+"};";
+        return Codigo;
+    }
 }

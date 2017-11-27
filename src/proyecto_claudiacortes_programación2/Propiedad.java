@@ -13,12 +13,23 @@ public class Propiedad{
    Object Valor;
      String Nombre;
     Object tipo;
+    boolean Alcance;
+
+    public boolean getAlcance() {
+        return Alcance;
+    }
+
+
+    public void setAlcance(boolean Alcance) {
+        this.Alcance = Alcance;
+    }
 
     public Propiedad() {
+        
     }
     
      public Propiedad(String n) {
-         Nombre=n;
+         Nombre=n;      
     }
 
     public Object getValor() {

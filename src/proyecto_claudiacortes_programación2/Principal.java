@@ -11,6 +11,7 @@ import java.awt.Point;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
+import java.util.Enumeration;
 import javax.swing.ImageIcon;
 import javax.swing.JColorChooser;
 import javax.swing.JComponent;
@@ -20,12 +21,14 @@ import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTree;
+import javax.swing.SpinnerNumberModel;
 import javax.swing.SwingConstants;
 import javax.swing.TransferHandler;
 import javax.swing.WindowConstants;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
+import javax.swing.tree.TreeNode;
 import javax.swing.tree.TreeSelectionModel;
 
 public class Principal extends javax.swing.JFrame {
@@ -48,6 +51,7 @@ public class Principal extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
 
         jd_DiagramaClases = new javax.swing.JDialog();
         jp_dragDiagrama = new javax.swing.JPanel();
@@ -57,6 +61,8 @@ public class Principal extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         btn_separadores = new javax.swing.JButton();
         jLabel16 = new javax.swing.JLabel();
+        btn_generardiagrama = new javax.swing.JButton();
+        btn_generarCodigoClases = new javax.swing.JButton();
         jLabel17 = new javax.swing.JLabel();
         jd_UML = new javax.swing.JDialog();
         btn_Proceso = new javax.swing.JButton();
@@ -143,7 +149,15 @@ public class Principal extends javax.swing.JFrame {
         jmi_Eliminararbol = new javax.swing.JMenuItem();
         jmi_EliminarPropiedad = new javax.swing.JMenuItem();
         jmi_DatosPropiedad = new javax.swing.JMenuItem();
-        PP_OPP = new javax.swing.JPopupMenu();
+        jd_propiedad = new javax.swing.JDialog();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        tf_variable = new javax.swing.JTextField();
+        jc_tipo = new javax.swing.JComboBox<>();
+        jc_alcance = new javax.swing.JComboBox<>();
+        btn_crearpropiedad = new javax.swing.JButton();
         btn_DiagramaFlujo = new javax.swing.JButton();
         btn_DiagramaClases = new javax.swing.JButton();
         btn_Crear = new javax.swing.JButton();
@@ -203,6 +217,27 @@ public class Principal extends javax.swing.JFrame {
         });
         jd_DiagramaClases.getContentPane().add(btn_separadores, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 22, -1, -1));
         jd_DiagramaClases.getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 16, -1, -1));
+
+        btn_generardiagrama.setText("Generar Codigo de una clase");
+        btn_generardiagrama.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_generardiagramaMouseClicked(evt);
+            }
+        });
+        btn_generardiagrama.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_generardiagramaActionPerformed(evt);
+            }
+        });
+        jd_DiagramaClases.getContentPane().add(btn_generardiagrama, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, -1, 50));
+
+        btn_generarCodigoClases.setText("Generar Codigo");
+        btn_generarCodigoClases.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_generarCodigoClasesMouseClicked(evt);
+            }
+        });
+        jd_DiagramaClases.getContentPane().add(btn_generarCodigoClases, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 390, -1, 40));
 
         jLabel17.setBackground(new java.awt.Color(255, 255, 255));
         jLabel17.setOpaque(true);
@@ -623,7 +658,7 @@ public class Principal extends javax.swing.JFrame {
         });
         PP_OPA.add(jmi_agregarpropiedad);
 
-        jmi_Eliminararbol.setText("Eliminar Propiedad");
+        jmi_Eliminararbol.setText("Eliminar Arbol");
         jmi_Eliminararbol.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jmi_EliminararbolActionPerformed(evt);
@@ -636,6 +671,58 @@ public class Principal extends javax.swing.JFrame {
 
         jmi_DatosPropiedad.setText("Descripcion");
         PP_OPA.add(jmi_DatosPropiedad);
+
+        jd_propiedad.setTitle("CREAR PROPIEDAD");
+        jd_propiedad.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
+        jd_propiedad.setForeground(new java.awt.Color(0, 0, 0));
+        jd_propiedad.setMaximumSize(new java.awt.Dimension(300, 300));
+        jd_propiedad.setMinimumSize(new java.awt.Dimension(300, 300));
+        jd_propiedad.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel18.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
+        jLabel18.setText("Variable");
+        jd_propiedad.getContentPane().add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 85, -1));
+
+        jLabel19.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
+        jLabel19.setText("Tipo");
+        jd_propiedad.getContentPane().add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 63, -1));
+
+        jLabel20.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
+        jLabel20.setText("Alcance");
+        jd_propiedad.getContentPane().add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, -1, -1));
+
+        jLabel21.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
+        jLabel21.setText("Valor");
+        jd_propiedad.getContentPane().add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, -1, -1));
+
+        tf_variable.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
+        jd_propiedad.getContentPane().add(tf_variable, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, 112, -1));
+
+        jc_tipo.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
+        jc_tipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Integer", "String", "Double", "Long", " " }));
+
+        org.jdesktop.beansbinding.Binding binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, new javax.swing.JSpinner(), org.jdesktop.beansbinding.ELProperty.create("${enabled}"), jc_tipo, org.jdesktop.beansbinding.BeanProperty.create("selectedItem"));
+        bindingGroup.addBinding(binding);
+
+        jc_tipo.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jc_tipoItemStateChanged(evt);
+            }
+        });
+        jd_propiedad.getContentPane().add(jc_tipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 90, 120, -1));
+
+        jc_alcance.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
+        jc_alcance.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Package", "Public", "Private", "Protected" }));
+        jd_propiedad.getContentPane().add(jc_alcance, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 130, 121, -1));
+
+        btn_crearpropiedad.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
+        btn_crearpropiedad.setText("Crear");
+        btn_crearpropiedad.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_crearpropiedadMouseClicked(evt);
+            }
+        });
+        jd_propiedad.getContentPane().add(btn_crearpropiedad, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 210, -1, -1));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("INICIO");
@@ -701,6 +788,8 @@ public class Principal extends javax.swing.JFrame {
         jMenuBar1.add(jMenu5);
 
         setJMenuBar(jMenuBar1);
+
+        bindingGroup.bind();
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -1402,6 +1491,7 @@ public class Principal extends javax.swing.JFrame {
             public void mouseClicked(MouseEvent evt) {
                 ActualArbol = arbol;
                 int row = arbol.getClosestRowForLocation(evt.getX(), evt.getY());
+           
                 arbol.setSelectionRow(row);
                 //determinar el tipo de objeto selecionado.
                 //contenido en el nodo seleccionado
@@ -1459,17 +1549,8 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_agregarArbolMouseClicked
 
     private void jmi_agregarpropiedadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_agregarpropiedadActionPerformed
-        String Propiedad = JOptionPane.showInputDialog("Ingrese la propiedad de la clase");
-        DefaultTreeModel m = (DefaultTreeModel) ActualArbol.getModel();
-        DefaultMutableTreeNode Raiz = (DefaultMutableTreeNode) m.getRoot();
-        Propiedad P = new Propiedad(Propiedad);
-        DefaultMutableTreeNode Propiedades = new DefaultMutableTreeNode(P);
-        ActualArbol.getClase().AgregarPropiedad(P);
-        Raiz.add(Propiedades);
-        m.reload();
-        //Lo agregamos al arbol de las clases.
-        DefaultTreeModel Principal = (DefaultTreeModel) jTree1.getModel();
-        Principal.reload();
+       jd_propiedad.show();
+     
 
     }//GEN-LAST:event_jmi_agregarpropiedadActionPerformed
 
@@ -1552,6 +1633,81 @@ public class Principal extends javax.swing.JFrame {
         btn_colorJL_actual.setBackground(JColorChooser.showDialog(this.jd_propiedades, "Seleccione su color", btn_colorJL_actual.getBackground()));
     }//GEN-LAST:event_btn_colorJL_actualMouseClicked
 
+    private void btn_generardiagramaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_generardiagramaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_generardiagramaActionPerformed
+
+    private void btn_generardiagramaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_generardiagramaMouseClicked
+   JOptionPane.showMessageDialog(jd_DiagramaClases, ActualArbol.GenereraCodigo());
+    }//GEN-LAST:event_btn_generardiagramaMouseClicked
+
+    private void btn_crearpropiedadMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_crearpropiedadMouseClicked
+        String Propiedad = tf_variable.getText();
+        DefaultTreeModel m = (DefaultTreeModel) ActualArbol.getModel();
+        DefaultMutableTreeNode Raiz = (DefaultMutableTreeNode) m.getRoot();
+        Propiedad P = new Propiedad(Propiedad);
+        P.setTipo(jc_tipo.getSelectedItem());
+        if (jc_alcance.getSelectedItem().equals("Public")) {
+            P.setAlcance(true);
+        } else if (jc_alcance.getSelectedItem().equals("Private")) {
+            P.setAlcance(!true);
+        } else if (jc_alcance.getSelectedItem().equals("Protected")) {
+            P.setAlcance(!true);
+        } else {
+            
+        }
+        DefaultMutableTreeNode Propiedades = new DefaultMutableTreeNode(P);
+        ActualArbol.getClase().AgregarPropiedad(P);
+        Raiz.add(Propiedades);
+        m.reload();
+        //Lo agregamos al arbol de las clases.
+        DefaultTreeModel Principal = (DefaultTreeModel) jTree1.getModel();
+        Principal.reload();
+         tf_variable.setText("");
+        jc_alcance.setSelectedIndex(0);
+          jc_tipo.setSelectedIndex(0);
+       // JOptionPane.showMessageDialog(jd_propiedad,"Propiedad creada con exito");
+       
+        
+    }//GEN-LAST:event_btn_crearpropiedadMouseClicked
+
+    private void jc_tipoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jc_tipoItemStateChanged
+     
+      /*Integer
+String
+Double
+Long*/
+        if (jc_tipo.getSelectedItem().equals("Integer")) {//Integer
+      
+        } else if (jc_tipo.getSelectedItem().equals("String")) {//String
+        
+        
+        } else if (jc_tipo.getSelectedItem().equals("Double")) {//Double
+           
+          
+        } else {
+
+        }
+    }//GEN-LAST:event_jc_tipoItemStateChanged
+
+    private void btn_generarCodigoClasesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_generarCodigoClasesMouseClicked
+       imprimirNodo( (TreeNode)jTree1.getModel().getRoot());
+       
+    }//GEN-LAST:event_btn_generarCodigoClasesMouseClicked
+    public void imprimirNodo(TreeNode nodo) {
+        for(int i=0; i<nodo.getChildCount();i++){
+        Object v1=nodo.getChildAt(i);
+           nodo_seleccionado = (DefaultMutableTreeNode) v1;
+           if (nodo_seleccionado.getUserObject() instanceof Clase){
+               System.out.println("CLASE");
+               Diagrama D=new Diagrama();
+               D.setClase((Clase)nodo_seleccionado.getUserObject());
+               System.out.println( D.GenereraCodigo());
+            }
+         
+    
+        }
+    }
     /**
      * @param args the command line arguments
      */
@@ -1590,7 +1746,6 @@ public class Principal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPopupMenu PP_OPA;
-    private javax.swing.JPopupMenu PP_OPP;
     private javax.swing.JButton btn_Crear;
     private javax.swing.JButton btn_Crear1;
     private javax.swing.JButton btn_Decision;
@@ -1605,9 +1760,12 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton btn_agregarArbol;
     private javax.swing.JButton btn_cancelar;
     private javax.swing.JButton btn_colorJL_actual;
+    private javax.swing.JButton btn_crearpropiedad;
     private javax.swing.JButton btn_datos;
     private javax.swing.JButton btn_documento;
     private javax.swing.JButton btn_enableJL_actual;
+    private javax.swing.JButton btn_generarCodigoClases;
+    private javax.swing.JButton btn_generardiagrama;
     private javax.swing.JButton btn_ok;
     private javax.swing.JButton btn_separador;
     private javax.swing.JButton btn_separadores;
@@ -1628,7 +1786,11 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1665,9 +1827,12 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JToolBar jToolBar2;
     private javax.swing.JTree jTree1;
+    private javax.swing.JComboBox<String> jc_alcance;
     private javax.swing.JComboBox<String> jc_fuente;
+    private javax.swing.JComboBox<String> jc_tipo;
     private javax.swing.JDialog jd_DiagramaClases;
     private javax.swing.JDialog jd_UML;
+    private javax.swing.JDialog jd_propiedad;
     private javax.swing.JDialog jd_propiedades;
     private javax.swing.JMenuItem jmi_DatosPropiedad;
     private javax.swing.JMenuItem jmi_EliminarPropiedad;
@@ -1692,9 +1857,11 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_FondoInicio1;
     private javax.swing.JLabel lbl_UML1;
     private javax.swing.JPopupMenu pp_OP;
+    private javax.swing.JTextField tf_variable;
     private javax.swing.JTextField txt_codigocolorJL_actual;
     private javax.swing.JTextField txt_nombreJL_actual;
     private javax.swing.JTextField txt_textoJL_actual;
+    private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
     private int Proceso = 0;
     private int cont_If = 0;

@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class Clase {
     String  Nombre;
     ArrayList<Propiedad> Propiedades= new ArrayList();
-
+ ArrayList<Clase> Heredados= new ArrayList();
     public Clase() {
     }
       public Clase(String n ) {
@@ -41,6 +41,17 @@ public class Clase {
         this.Propiedades.add(Propiedades);
     }
 
+    public ArrayList<Clase> getHeredados() {
+        return Heredados;
+    }
+
+    public void setHeredados(ArrayList<Clase> Heredados) {
+        this.Heredados = Heredados;
+    }
+ 
+    public void AgregarHerencia(Clase C){
+        Heredados.add(C);
+    }
 
     @Override
     public String toString() {

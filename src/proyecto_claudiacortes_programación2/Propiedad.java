@@ -13,14 +13,14 @@ public class Propiedad{
    Object Valor;
      String Nombre;
     Object tipo;
-    boolean Alcance;
+   int Alcance;
 
-    public boolean getAlcance() {
+    public int getAlcance() {
         return Alcance;
     }
 
 
-    public void setAlcance(boolean Alcance) {
+    public void setAlcance(int Alcance) {
         this.Alcance = Alcance;
     }
 

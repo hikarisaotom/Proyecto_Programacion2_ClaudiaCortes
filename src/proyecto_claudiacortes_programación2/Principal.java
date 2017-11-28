@@ -6,18 +6,26 @@
 package proyecto_claudiacortes_programación2;
 
 import java.awt.Color;
+import java.awt.BorderLayout;
+import java.awt.Component;
+import java.awt.Font;
+import java.awt.Toolkit;
+import java.awt.event.*;
 import java.awt.Dimension;
 import java.awt.Point;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import java.util.Enumeration;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
 import javax.swing.JColorChooser;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTree;
@@ -37,8 +45,21 @@ public class Principal extends javax.swing.JFrame {
      * Creates new form Principal
      */
     public Principal() {
-        initComponents();
+        ArrayList<String> Nombre = new ArrayList();
+        Nombre.add("Arial");
+        Nombre.add("Tahoma");
+        Nombre.add("Comic Sans MS");
+        Nombre.add("Algerian");
 
+        initComponents();
+        DefaultComboBoxModel modelo = (DefaultComboBoxModel) jc_Fuentes.getModel();
+        for (int i = 0; i < Nombre.size(); i++) {
+            Fuentes.add(new java.awt.Font(Nombre.get(i), 1, 11));
+            modelo.addElement(Fuentes.get(i).getFontName());
+            //System.out.println(Fuentes.get(i).getName());
+        }
+        jc_fuente1.setModel(modelo);
+        jc_Fuentes.setModel(modelo);
         this.setExtendedState(MAXIMIZED_BOTH);
         // lbl_FondoInicio.setVisible(false);
     }
@@ -51,7 +72,6 @@ public class Principal extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
 
         jd_DiagramaClases = new javax.swing.JDialog();
         jp_dragDiagrama = new javax.swing.JPanel();
@@ -63,24 +83,21 @@ public class Principal extends javax.swing.JFrame {
         jLabel16 = new javax.swing.JLabel();
         btn_generardiagrama = new javax.swing.JButton();
         btn_generarCodigoClases = new javax.swing.JButton();
-        jLabel17 = new javax.swing.JLabel();
+        btn_agregarArbol1 = new javax.swing.JButton();
+        btn_Herencia = new javax.swing.JButton();
         jd_UML = new javax.swing.JDialog();
-        btn_Proceso = new javax.swing.JButton();
         btn_documento = new javax.swing.JButton();
+        btn_Proceso = new javax.swing.JButton();
         btn_Decision = new javax.swing.JButton();
         btn_SubPro = new javax.swing.JButton();
         btn_SeparadorV = new javax.swing.JButton();
         btn_InicioFin = new javax.swing.JButton();
         btn_datos = new javax.swing.JButton();
         btn_separador = new javax.swing.JButton();
-        label1 = new java.awt.Label();
-        label2 = new java.awt.Label();
-        label3 = new java.awt.Label();
-        label4 = new java.awt.Label();
         jp_Drag = new javax.swing.JPanel();
         jToolBar1 = new javax.swing.JToolBar();
         jButton1 = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jc_Fuentes = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
@@ -89,7 +106,9 @@ public class Principal extends javax.swing.JFrame {
         jButton6 = new javax.swing.JButton();
         jToolBar2 = new javax.swing.JToolBar();
         jLabel4 = new javax.swing.JLabel();
+        btn_generarCodigoUML = new javax.swing.JButton();
         jLabel14 = new javax.swing.JLabel();
+        btn_GenerarCodigoUML = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenu6 = new javax.swing.JMenu();
@@ -137,7 +156,7 @@ public class Principal extends javax.swing.JFrame {
         btn_colorJL_actual = new javax.swing.JButton();
         txt_codigocolorJL_actual = new javax.swing.JTextField();
         btn_enableJL_actual = new javax.swing.JButton();
-        jc_fuente = new javax.swing.JComboBox<>();
+        jc_fuente1 = new javax.swing.JComboBox<>();
         js_height = new javax.swing.JSpinner();
         js_tamanoletra = new javax.swing.JSpinner();
         js_width = new javax.swing.JSpinner();
@@ -158,6 +177,27 @@ public class Principal extends javax.swing.JFrame {
         jc_tipo = new javax.swing.JComboBox<>();
         jc_alcance = new javax.swing.JComboBox<>();
         btn_crearpropiedad = new javax.swing.JButton();
+        btn_actualizar = new javax.swing.JButton();
+        jd_Herencia = new javax.swing.JDialog();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        btn_agregarherencia = new javax.swing.JButton();
+        jButton8 = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jl_hijo = new javax.swing.JList<>();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jl_padre = new javax.swing.JList<>();
+        jd_Metodos = new javax.swing.JDialog();
+        jLabel23 = new javax.swing.JLabel();
+        tf_variable1 = new javax.swing.JTextField();
+        jc_tipo1 = new javax.swing.JComboBox<>();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        jc_alcance1 = new javax.swing.JComboBox<>();
+        btn_crearpropiedad1 = new javax.swing.JButton();
+        btn_actualizar1 = new javax.swing.JButton();
+        jLabel26 = new javax.swing.JLabel();
+        btn_agregarparametro = new javax.swing.JButton();
         btn_DiagramaFlujo = new javax.swing.JButton();
         btn_DiagramaClases = new javax.swing.JButton();
         btn_Crear = new javax.swing.JButton();
@@ -170,7 +210,7 @@ public class Principal extends javax.swing.JFrame {
         jMenu4 = new javax.swing.JMenu();
         jMenu5 = new javax.swing.JMenu();
 
-        jd_DiagramaClases.setMinimumSize(new java.awt.Dimension(1365, 1000));
+        jd_DiagramaClases.setMinimumSize(new java.awt.Dimension(500, 600));
         jd_DiagramaClases.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jp_dragDiagrama.setBackground(new java.awt.Color(204, 204, 204));
@@ -186,14 +226,14 @@ public class Principal extends javax.swing.JFrame {
             .addGap(0, 343, Short.MAX_VALUE)
         );
 
-        jd_DiagramaClases.getContentPane().add(jp_dragDiagrama, new org.netbeans.lib.awtextra.AbsoluteConstraints(286, 44, 720, -1));
+        jd_DiagramaClases.getContentPane().add(jp_dragDiagrama, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 50, 720, -1));
 
         jTree1.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Clases");
         jTree1.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
         jScrollPane1.setViewportView(jTree1);
 
-        jd_DiagramaClases.getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 88, 246, 213));
+        jd_DiagramaClases.getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 88, 246, 150));
 
         btn_agregarArbol.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         btn_agregarArbol.setText("AGREGAR");
@@ -202,7 +242,7 @@ public class Principal extends javax.swing.JFrame {
                 btn_agregarArbolMouseClicked(evt);
             }
         });
-        jd_DiagramaClases.getContentPane().add(btn_agregarArbol, new org.netbeans.lib.awtextra.AbsoluteConstraints(137, 22, -1, -1));
+        jd_DiagramaClases.getContentPane().add(btn_agregarArbol, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 310, -1, -1));
 
         jLabel13.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         jLabel13.setText("Clases Generadas");
@@ -215,7 +255,7 @@ public class Principal extends javax.swing.JFrame {
                 btn_separadoresMouseClicked(evt);
             }
         });
-        jd_DiagramaClases.getContentPane().add(btn_separadores, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 22, -1, -1));
+        jd_DiagramaClases.getContentPane().add(btn_separadores, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, -1, -1));
         jd_DiagramaClases.getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 16, -1, -1));
 
         btn_generardiagrama.setText("Generar Codigo de una clase");
@@ -229,7 +269,7 @@ public class Principal extends javax.swing.JFrame {
                 btn_generardiagramaActionPerformed(evt);
             }
         });
-        jd_DiagramaClases.getContentPane().add(btn_generardiagrama, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, -1, 50));
+        jd_DiagramaClases.getContentPane().add(btn_generardiagrama, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 420, -1, 50));
 
         btn_generarCodigoClases.setText("Generar Codigo");
         btn_generarCodigoClases.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -237,15 +277,38 @@ public class Principal extends javax.swing.JFrame {
                 btn_generarCodigoClasesMouseClicked(evt);
             }
         });
-        jd_DiagramaClases.getContentPane().add(btn_generarCodigoClases, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 390, -1, 40));
+        jd_DiagramaClases.getContentPane().add(btn_generarCodigoClases, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 420, -1, 40));
 
-        jLabel17.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel17.setOpaque(true);
-        jd_DiagramaClases.getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 1010, 500));
+        btn_agregarArbol1.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
+        btn_agregarArbol1.setText("AGREGAR");
+        btn_agregarArbol1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_agregarArbol1MouseClicked(evt);
+            }
+        });
+        jd_DiagramaClases.getContentPane().add(btn_agregarArbol1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 310, -1, -1));
+
+        btn_Herencia.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
+        btn_Herencia.setText("Generar Herencia");
+        btn_Herencia.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_HerenciaMouseClicked(evt);
+            }
+        });
+        jd_DiagramaClases.getContentPane().add(btn_Herencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 380, -1, -1));
 
         jd_UML.setBackground(new java.awt.Color(255, 255, 255));
-        jd_UML.setMinimumSize(new java.awt.Dimension(1365, 1000));
+        jd_UML.setMinimumSize(new java.awt.Dimension(500, 600));
         jd_UML.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btn_documento.setBackground(new java.awt.Color(255, 255, 255));
+        btn_documento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/UML/documentos.png"))); // NOI18N
+        btn_documento.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_documentoMouseClicked(evt);
+            }
+        });
+        jd_UML.getContentPane().add(btn_documento, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 110, 70));
 
         btn_Proceso.setBackground(new java.awt.Color(204, 204, 204));
         btn_Proceso.setFont(btn_Proceso.getFont().deriveFont((float)13));
@@ -262,15 +325,6 @@ public class Principal extends javax.swing.JFrame {
             }
         });
         jd_UML.getContentPane().add(btn_Proceso, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 110, 70));
-
-        btn_documento.setBackground(new java.awt.Color(255, 255, 255));
-        btn_documento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/UML/documentos.png"))); // NOI18N
-        btn_documento.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btn_documentoMouseClicked(evt);
-            }
-        });
-        jd_UML.getContentPane().add(btn_documento, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 110, 70));
 
         btn_Decision.setBackground(new java.awt.Color(204, 204, 204));
         btn_Decision.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/UML/if.png"))); // NOI18N
@@ -326,27 +380,7 @@ public class Principal extends javax.swing.JFrame {
         });
         jd_UML.getContentPane().add(btn_separador, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 370, 10, 100));
 
-        label1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        label1.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
-        label1.setText("Color");
-        jd_UML.getContentPane().add(label1, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 30, -1, -1));
-        label1.getAccessibleContext().setAccessibleName("Estilo de fuente");
-
-        label2.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
-        label2.setText("Fuente");
-        jd_UML.getContentPane().add(label2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 30, -1, -1));
-
-        label3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        label3.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
-        label3.setText("Tamaño");
-        jd_UML.getContentPane().add(label3, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 30, -1, -1));
-
-        label4.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        label4.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
-        label4.setText("Estilo de fuente");
-        jd_UML.getContentPane().add(label4, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 30, -1, -1));
-
-        jp_Drag.setBackground(new java.awt.Color(255, 255, 255));
+        jp_Drag.setBackground(new java.awt.Color(204, 204, 204));
         jp_Drag.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jp_DragMouseClicked(evt);
@@ -357,14 +391,14 @@ public class Principal extends javax.swing.JFrame {
         jp_Drag.setLayout(jp_DragLayout);
         jp_DragLayout.setHorizontalGroup(
             jp_DragLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 900, Short.MAX_VALUE)
+            .addGap(0, 720, Short.MAX_VALUE)
         );
         jp_DragLayout.setVerticalGroup(
             jp_DragLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 430, Short.MAX_VALUE)
+            .addGap(0, 400, Short.MAX_VALUE)
         );
 
-        jd_UML.getContentPane().add(jp_Drag, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 60, 900, 430));
+        jd_UML.getContentPane().add(jp_Drag, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 50, 720, 400));
 
         jToolBar1.setRollover(true);
 
@@ -375,14 +409,14 @@ public class Principal extends javax.swing.JFrame {
         jButton1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(jButton1);
 
-        jComboBox1.setEditable(true);
-        jComboBox1.setMaximumRowCount(3);
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        jc_Fuentes.setEditable(true);
+        jc_Fuentes.setMaximumRowCount(3);
+        jc_Fuentes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                jc_FuentesActionPerformed(evt);
             }
         });
-        jToolBar1.add(jComboBox1);
+        jToolBar1.add(jc_Fuentes);
         jToolBar1.add(jLabel3);
 
         jd_UML.getContentPane().add(jToolBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 230, 20));
@@ -435,13 +469,26 @@ public class Principal extends javax.swing.JFrame {
 
         jd_UML.getContentPane().add(jToolBar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 0, 170, 20));
 
+        btn_generarCodigoUML.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
+        btn_generarCodigoUML.setText("Generar codigo");
+        btn_generarCodigoUML.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_generarCodigoUMLMouseClicked(evt);
+            }
+        });
+        jd_UML.getContentPane().add(btn_generarCodigoUML, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 460, -1, 50));
+
         jLabel14.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         jLabel14.setText("Opciones: ");
         jd_UML.getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 50, -1, -1));
 
-        jLabel15.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel15.setOpaque(true);
-        jd_UML.getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1240, 500));
+        btn_GenerarCodigoUML.setBackground(new java.awt.Color(255, 255, 255));
+        btn_GenerarCodigoUML.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
+        btn_GenerarCodigoUML.setOpaque(true);
+        jd_UML.getContentPane().add(btn_GenerarCodigoUML, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 1240, 500));
+
+        jLabel15.setText("Tamaño");
+        jd_UML.getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 0, -1, 20));
 
         jMenu6.setText("Archivo");
         jMenuBar2.add(jMenu6);
@@ -584,27 +631,35 @@ public class Principal extends javax.swing.JFrame {
         jd_propiedades.setSize(new java.awt.Dimension(600, 600));
         jd_propiedades.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel5.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         jLabel5.setText("Nombre");
         jd_propiedades.getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
+        jLabel6.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         jLabel6.setText("Texto");
         jd_propiedades.getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, -1, -1));
 
+        jLabel7.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         jLabel7.setText("Color");
         jd_propiedades.getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, -1, -1));
 
+        jLabel8.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         jLabel8.setText("Enable");
         jd_propiedades.getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, -1, -1));
 
+        jLabel9.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         jLabel9.setText("Fuente");
         jd_propiedades.getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, -1, -1));
 
+        jLabel10.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         jLabel10.setText("Tamaño letra");
         jd_propiedades.getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 90, -1));
 
+        jLabel11.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         jLabel11.setText("width (px)");
         jd_propiedades.getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, -1, -1));
 
+        jLabel12.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         jLabel12.setText("Height (px)");
         jd_propiedades.getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, -1, -1));
         jd_propiedades.getContentPane().add(txt_nombreJL_actual, new org.netbeans.lib.awtextra.AbsoluteConstraints(75, 22, 170, -1));
@@ -619,7 +674,7 @@ public class Principal extends javax.swing.JFrame {
         jd_propiedades.getContentPane().add(txt_codigocolorJL_actual, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, 120, -1));
         jd_propiedades.getContentPane().add(btn_enableJL_actual, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 130, 160, 20));
 
-        jd_propiedades.getContentPane().add(jc_fuente, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 160, 160, -1));
+        jd_propiedades.getContentPane().add(jc_fuente1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 160, 160, -1));
 
         js_height.setModel(new javax.swing.SpinnerNumberModel(100, 100, 500, 1));
         jd_propiedades.getContentPane().add(js_height, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 280, 60, -1));
@@ -630,21 +685,25 @@ public class Principal extends javax.swing.JFrame {
         js_width.setModel(new javax.swing.SpinnerNumberModel(100, 100, 500, 1));
         jd_propiedades.getContentPane().add(js_width, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 250, 60, -1));
 
+        btn_cancelar.setBackground(new java.awt.Color(153, 153, 153));
+        btn_cancelar.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         btn_cancelar.setText("Cancelar");
         btn_cancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_cancelarActionPerformed(evt);
             }
         });
-        jd_propiedades.getContentPane().add(btn_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 340, -1, -1));
+        jd_propiedades.getContentPane().add(btn_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 330, 100, 30));
 
-        btn_ok.setText("Ok");
+        btn_ok.setBackground(new java.awt.Color(153, 153, 153));
+        btn_ok.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
+        btn_ok.setText("Close");
         btn_ok.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_okActionPerformed(evt);
             }
         });
-        jd_propiedades.getContentPane().add(btn_ok, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 343, 60, 20));
+        jd_propiedades.getContentPane().add(btn_ok, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 100, 30));
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setOpaque(true);
@@ -670,12 +729,16 @@ public class Principal extends javax.swing.JFrame {
         PP_OPA.add(jmi_EliminarPropiedad);
 
         jmi_DatosPropiedad.setText("Descripcion");
+        jmi_DatosPropiedad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmi_DatosPropiedadActionPerformed(evt);
+            }
+        });
         PP_OPA.add(jmi_DatosPropiedad);
 
         jd_propiedad.setTitle("CREAR PROPIEDAD");
         jd_propiedad.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         jd_propiedad.setForeground(new java.awt.Color(0, 0, 0));
-        jd_propiedad.setMaximumSize(new java.awt.Dimension(300, 300));
         jd_propiedad.setMinimumSize(new java.awt.Dimension(300, 300));
         jd_propiedad.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -700,10 +763,6 @@ public class Principal extends javax.swing.JFrame {
 
         jc_tipo.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         jc_tipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Integer", "String", "Double", "Long", " " }));
-
-        org.jdesktop.beansbinding.Binding binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, new javax.swing.JSpinner(), org.jdesktop.beansbinding.ELProperty.create("${enabled}"), jc_tipo, org.jdesktop.beansbinding.BeanProperty.create("selectedItem"));
-        bindingGroup.addBinding(binding);
-
         jc_tipo.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 jc_tipoItemStateChanged(evt);
@@ -723,6 +782,137 @@ public class Principal extends javax.swing.JFrame {
             }
         });
         jd_propiedad.getContentPane().add(btn_crearpropiedad, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 210, -1, -1));
+
+        btn_actualizar.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
+        btn_actualizar.setText("Actualizar");
+        btn_actualizar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_actualizarMouseClicked(evt);
+            }
+        });
+        jd_propiedad.getContentPane().add(btn_actualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 210, -1, -1));
+
+        jd_Herencia.setTitle("Herencia Entre Clases");
+        jd_Herencia.setMaximumSize(new java.awt.Dimension(400, 400));
+        jd_Herencia.setMinimumSize(new java.awt.Dimension(400, 400));
+
+        jLabel17.setText("Clase Hija");
+
+        jLabel22.setText("Clase Padre");
+
+        btn_agregarherencia.setText("Agregar");
+        btn_agregarherencia.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_agregarherenciaMouseClicked(evt);
+            }
+        });
+
+        jButton8.setText("OK");
+
+        jl_hijo.setModel(new DefaultListModel());
+        jScrollPane2.setViewportView(jl_hijo);
+
+        jl_padre.setModel(new DefaultListModel());
+        jScrollPane3.setViewportView(jl_padre);
+
+        javax.swing.GroupLayout jd_HerenciaLayout = new javax.swing.GroupLayout(jd_Herencia.getContentPane());
+        jd_Herencia.getContentPane().setLayout(jd_HerenciaLayout);
+        jd_HerenciaLayout.setHorizontalGroup(
+            jd_HerenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_HerenciaLayout.createSequentialGroup()
+                .addGroup(jd_HerenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_HerenciaLayout.createSequentialGroup()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jd_HerenciaLayout.createSequentialGroup()
+                        .addGap(53, 53, 53)
+                        .addComponent(btn_agregarherencia, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(79, 79, 79)
+                        .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 34, Short.MAX_VALUE))
+                    .addGroup(jd_HerenciaLayout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel22)
+                        .addGap(55, 55, 55)))
+                .addContainerGap())
+        );
+        jd_HerenciaLayout.setVerticalGroup(
+            jd_HerenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_HerenciaLayout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addGroup(jd_HerenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel22)
+                    .addComponent(jLabel17))
+                .addGap(18, 18, 18)
+                .addGroup(jd_HerenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 233, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2))
+                .addGap(18, 18, 18)
+                .addGroup(jd_HerenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_agregarherencia)
+                    .addComponent(jButton8))
+                .addContainerGap())
+        );
+
+        jd_Metodos.setMaximumSize(new java.awt.Dimension(300, 400));
+        jd_Metodos.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel23.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
+        jLabel23.setText("Nombre");
+        jd_Metodos.getContentPane().add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 85, -1));
+
+        tf_variable1.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
+        jd_Metodos.getContentPane().add(tf_variable1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, 112, -1));
+
+        jc_tipo1.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
+        jc_tipo1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Integer", "String", "Double", "Long", " " }));
+        jc_tipo1.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jc_tipo1ItemStateChanged(evt);
+            }
+        });
+        jd_Metodos.getContentPane().add(jc_tipo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 90, 120, -1));
+
+        jLabel24.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
+        jLabel24.setText("Retun");
+        jd_Metodos.getContentPane().add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 63, -1));
+
+        jLabel25.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
+        jLabel25.setText("Alcance");
+        jd_Metodos.getContentPane().add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, -1, -1));
+
+        jc_alcance1.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
+        jc_alcance1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Package", "Public", "Private", "Protected" }));
+        jd_Metodos.getContentPane().add(jc_alcance1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 130, 121, -1));
+
+        btn_crearpropiedad1.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
+        btn_crearpropiedad1.setText("Crear");
+        btn_crearpropiedad1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_crearpropiedad1MouseClicked(evt);
+            }
+        });
+        jd_Metodos.getContentPane().add(btn_crearpropiedad1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 240, -1, -1));
+
+        btn_actualizar1.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
+        btn_actualizar1.setText("Actualizar");
+        btn_actualizar1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_actualizar1MouseClicked(evt);
+            }
+        });
+        jd_Metodos.getContentPane().add(btn_actualizar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 240, -1, -1));
+
+        jLabel26.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
+        jLabel26.setText("Parametro");
+        jd_Metodos.getContentPane().add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, -1, -1));
+
+        btn_agregarparametro.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
+        btn_agregarparametro.setText("Agregar");
+        jd_Metodos.getContentPane().add(btn_agregarparametro, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 180, -1, -1));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("INICIO");
@@ -766,7 +956,7 @@ public class Principal extends javax.swing.JFrame {
         getContentPane().add(btn_Crear, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 540, 170, 70));
 
         lbl_Diagrama.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/bienvenido.png"))); // NOI18N
-        getContentPane().add(lbl_Diagrama, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 30, 920, 520));
+        getContentPane().add(lbl_Diagrama, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 30, 920, 490));
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setOpaque(true);
@@ -789,8 +979,6 @@ public class Principal extends javax.swing.JFrame {
 
         setJMenuBar(jMenuBar1);
 
-        bindingGroup.bind();
-
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -799,19 +987,16 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_DiagramaFlujoActionPerformed
 
     private void btn_CrearMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_CrearMouseClicked
-
+      
         if (Bandera == 0) {
             JOptionPane.showMessageDialog(this, "Debe seleccionar una opcion antes de iniciar a crear.");
         } else if (Bandera == 1) {
             jd_UML.show(true);
-            this.jd_UML.setModal(true);
             jd_UML.pack();
             jd_UML.setLocationRelativeTo(this);
-//jd_UML.setSize(Principal.WIDTH,Principal.HEIGHT);
+
         } else if (Bandera == 2) {
             jd_DiagramaClases.show(true);
-            /// jd_DiagramaClases.setSize(Principal.WIDTH,Principal.HEIGHT);
-            this.jd_DiagramaClases.setModal(true);
             jd_DiagramaClases.pack();
             jd_DiagramaClases.setLocationRelativeTo(this);
         }
@@ -825,8 +1010,7 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_DiagramaFlujoMouseClicked
 
     private void btn_DiagramaClasesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_DiagramaClasesMouseClicked
-
-        lbl_Diagrama.setIcon(new ImageIcon(".\\src\\Imagenes\\clase.jpg")); // NOI18N
+      lbl_Diagrama.setIcon(new ImageIcon(".\\src\\Imagenes\\clase.jpg")); // NOI18N
         Bandera = 2;
     }//GEN-LAST:event_btn_DiagramaClasesMouseClicked
 
@@ -835,21 +1019,17 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_ProcesoActionPerformed
 
     private void btn_ProcesoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_ProcesoMouseClicked
-        JLabel lbl_Proceso;
-        lbl_Proceso = new JLabel();
+        Proceso lbl_Proceso;
+        lbl_Proceso = new Proceso();
         lbl_Proceso.setOpaque(true);
-        //  lbl_Proceso.
+
         lbl_Proceso.getName();
         lbl_Proceso.setName("Proceso" + Proceso);
         lbl_Proceso.setHorizontalTextPosition(SwingConstants.CENTER);
         Proceso++;
-        // System.out.println(lbl_Proceso);
-        //System.out.println(lbl_Proceso.getName());
-        // System.out.println("EL ERROR ESTA AQUI");
+
         this.jp_Drag.add(lbl_Proceso);
         lbl_Proceso.setBackground(Color.BLUE);
-        //  System.out.println(lbl_Proceso);
-
         lbl_Proceso.setLocation(10, 200);
         lbl_Proceso.setIcon(new ImageIcon(".\\src\\Imagenes\\UML\\proceso.png")); // NOI18N
         lbl_Proceso.setText("proceso");
@@ -859,6 +1039,7 @@ public class Principal extends javax.swing.JFrame {
         lbl_Proceso.setPreferredSize(new Dimension(50, 50));
         lbl_Proceso.setSize(100, 65);
         JL_actual = lbl_Proceso;
+
         lbl_Proceso.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 JL_actual = lbl_Proceso;
@@ -922,8 +1103,8 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_Crear1MouseClicked
 
     private void btn_DecisionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_DecisionMouseClicked
-        JLabel lbl_if;
-        lbl_if = new JLabel();
+        If lbl_if;
+        lbl_if = new If();
         lbl_if.setOpaque(true);
         lbl_if.getName();
         lbl_if.setName("lbo_if" + cont_If);
@@ -945,6 +1126,7 @@ public class Principal extends javax.swing.JFrame {
         lbl_if.setPreferredSize(new Dimension(50, 50));
         lbl_if.setSize(100, 64);
         JL_actual = lbl_if;
+
         lbl_if.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 JL_actual = lbl_if;
@@ -989,21 +1171,17 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_DecisionMouseClicked
 
     private void btn_documentoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_documentoMouseClicked
-        JLabel lbl_documento;
-        lbl_documento = new JLabel();
+        Documento lbl_documento;
+        lbl_documento = new Documento();
         lbl_documento.setOpaque(true);
         lbl_documento.getName();
         lbl_documento.setName("lbl_documento" + documentos);
         lbl_documento.setHorizontalTextPosition(SwingConstants.CENTER);
         documentos++;
+
         lbl_documento.setText("Documento");
-        // System.out.println(lbl_documento);
-        //System.out.println(lbl_documento.getName());
-        // System.out.println("EL ERROR ESTA AQUI");
         this.jp_Drag.add(lbl_documento);
         lbl_documento.setBackground(Color.GREEN);
-        // System.out.println(lbl_documento);
-
         lbl_documento.setLocation(10, 200);
         lbl_documento.setIcon(new ImageIcon(".\\src\\Imagenes\\UML\\documentos.png")); // NOI18N
         lbl_documento.setMaximumSize(new java.awt.Dimension(100, 100));
@@ -1012,6 +1190,7 @@ public class Principal extends javax.swing.JFrame {
         lbl_documento.setPreferredSize(new Dimension(50, 50));
         lbl_documento.setSize(100, 68);
         JL_actual = lbl_documento;
+
         lbl_documento.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 JL_actual = lbl_documento;
@@ -1054,85 +1233,86 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_documentoMouseClicked
 
     private void btn_InicioFinMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_InicioFinMouseClicked
-        JLabel lbl_inicio_fin;
-        lbl_inicio_fin = new JLabel();
-        lbl_inicio_fin.setOpaque(true);
-        lbl_inicio_fin.getName();
-        lbl_inicio_fin.setName("lbl_inicio_fin" + in_out);
-        lbl_inicio_fin.setHorizontalTextPosition(SwingConstants.CENTER);
-        in_out++;
-        lbl_inicio_fin.setText("Inicio");
-        //System.out.println(lbl_inicio_fin);
-        //System.out.println(lbl_inicio_fin.getName());
-        // System.out.println("EL ERROR ESTA AQUI");
-        this.jp_Drag.add(lbl_inicio_fin);
-        lbl_inicio_fin.setBackground(Color.MAGENTA);
-        //System.out.println(lbl_inicio_fin);
-        String Nombre = lbl_inicio_fin.getName();
-        lbl_inicio_fin.setLocation(10, 200);
-        lbl_inicio_fin.setIcon(new ImageIcon(".\\src\\Imagenes\\UML\\in_fin.png")); // NOI18N
-        lbl_inicio_fin.setMaximumSize(new java.awt.Dimension(100, 100));
-        lbl_inicio_fin.setMinimumSize(new Dimension(100, 100));
-        lbl_inicio_fin.setLocation(new Point(20, 20));
-        lbl_inicio_fin.setPreferredSize(new Dimension(50, 50));
-        lbl_inicio_fin.setSize(100, 61);
-        JL_actual = lbl_inicio_fin;
-        lbl_inicio_fin.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseDragged(java.awt.event.MouseEvent evt) {
-                JL_actual = lbl_inicio_fin;
-                if ((lbl_inicio_fin.getLocation().x + evt.getX() - lbl_inicio_fin.getWidth() / 2) >= 0
-                        && (lbl_inicio_fin.getLocation().x + evt.getX() - lbl_inicio_fin.getWidth() / 2) <= 800) {
-                    lbl_inicio_fin.setLocation(lbl_inicio_fin.getLocation().x + evt.getX() - lbl_inicio_fin.getWidth() / 2,
-                            lbl_inicio_fin.getLocation().y + evt.getY() - lbl_inicio_fin.getHeight() / 2);
-                    //  System.out.println(lbl_inicio_fin);
-                    //System.out.println(lbl_inicio_fin.getName());
-                }// para que no se salga del rango
-
+        if (in_out >= 2) {
+            JOptionPane.showMessageDialog(jd_UML, "Solo puede haber un inicio y un fin");
+        } else {
+            Inicio_Fin lbl_inicio_fin;
+            lbl_inicio_fin = new Inicio_Fin();
+            lbl_inicio_fin.setOpaque(true);
+            lbl_inicio_fin.getName();
+            lbl_inicio_fin.setName("lbl_inicio_fin" + in_out);
+            lbl_inicio_fin.setHorizontalTextPosition(SwingConstants.CENTER);
+            if (in_out == 0) {
+                lbl_inicio_fin.setText("Inicio");
+                lbl_inicio_fin.setBackground(Color.MAGENTA);
+            } else {
+                lbl_inicio_fin.setText("Fin");
+                lbl_inicio_fin.setBackground(Color.RED);
             }
-        });
-        lbl_inicio_fin.addMouseListener(new MouseListener() {
-            public void mouseClicked(MouseEvent evt) {
-                JL_actual = lbl_inicio_fin;
-                if (evt.isMetaDown()) {
+            in_out++;
+            this.jp_Drag.add(lbl_inicio_fin);
+            String Nombre = lbl_inicio_fin.getName();
+            lbl_inicio_fin.setLocation(10, 200);
+            lbl_inicio_fin.setIcon(new ImageIcon(".\\src\\Imagenes\\UML\\in_fin.png")); // NOI18N
+            lbl_inicio_fin.setMaximumSize(new java.awt.Dimension(100, 100));
+            lbl_inicio_fin.setMinimumSize(new Dimension(100, 100));
+            lbl_inicio_fin.setLocation(new Point(20, 20));
+            lbl_inicio_fin.setPreferredSize(new Dimension(50, 50));
+            lbl_inicio_fin.setSize(100, 61);
+            JL_actual = lbl_inicio_fin;
+            lbl_inicio_fin.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+                public void mouseDragged(java.awt.event.MouseEvent evt) {
                     JL_actual = lbl_inicio_fin;
-                    System.out.println(JL_actual);
-                    pp_OP.show(evt.getComponent(), evt.getX(), evt.getY());
+                    if ((lbl_inicio_fin.getLocation().x + evt.getX() - lbl_inicio_fin.getWidth() / 2) >= 0
+                            && (lbl_inicio_fin.getLocation().x + evt.getX() - lbl_inicio_fin.getWidth() / 2) <= 800) {
+                        lbl_inicio_fin.setLocation(lbl_inicio_fin.getLocation().x + evt.getX() - lbl_inicio_fin.getWidth() / 2,
+                                lbl_inicio_fin.getLocation().y + evt.getY() - lbl_inicio_fin.getHeight() / 2);
+                        //  System.out.println(lbl_inicio_fin);
+                        //System.out.println(lbl_inicio_fin.getName());
+                    }// para que no se salga del rango
+
                 }
-            }
+            });
+            lbl_inicio_fin.addMouseListener(new MouseListener() {
+                public void mouseClicked(MouseEvent evt) {
+                    JL_actual = lbl_inicio_fin;
+                    if (evt.isMetaDown()) {
+                        JL_actual = lbl_inicio_fin;
+                        System.out.println(JL_actual);
+                        pp_OP.show(evt.getComponent(), evt.getX(), evt.getY());
+                    }
+                }
 
-            public void mouseEntered(MouseEvent arg0) {
-                JL_actual = lbl_inicio_fin;
-            }
+                public void mouseEntered(MouseEvent arg0) {
+                    JL_actual = lbl_inicio_fin;
+                }
 
-            public void mouseExited(MouseEvent arg0) {
-                JL_actual = lbl_inicio_fin;
-            }
+                public void mouseExited(MouseEvent arg0) {
+                    JL_actual = lbl_inicio_fin;
+                }
 
-            public void mousePressed(MouseEvent arg0) {
-                JL_actual = lbl_inicio_fin;
-            }
+                public void mousePressed(MouseEvent arg0) {
+                    JL_actual = lbl_inicio_fin;
+                }
 
-            public void mouseReleased(MouseEvent arg0) {
-                JL_actual = lbl_inicio_fin;
-            }
-        });
-
+                public void mouseReleased(MouseEvent arg0) {
+                    JL_actual = lbl_inicio_fin;
+                }
+            });
+        }
     }//GEN-LAST:event_btn_InicioFinMouseClicked
 
     private void btn_SubProMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_SubProMouseClicked
-        JLabel lbl_subpro;
-        lbl_subpro = new JLabel();
+        SubProceso lbl_subpro;
+        lbl_subpro = new SubProceso();
         lbl_subpro.setOpaque(true);
         lbl_subpro.getName();
         lbl_subpro.setName("lbl_subpro" + Subpro);
         Subpro++;
         lbl_subpro.setText("Subproceso");
-        //  System.out.println(lbl_subpro);
-        // System.out.println(lbl_subpro.getName());
-        // System.out.println("EL ERROR ESTA AQUI");
         this.jp_Drag.add(lbl_subpro);
         lbl_subpro.setBackground(Color.ORANGE);
-        // System.out.println(lbl_subpro);
+
         lbl_subpro.setHorizontalTextPosition(SwingConstants.CENTER);
         lbl_subpro.setLocation(10, 200);
         lbl_subpro.setIcon(new ImageIcon(".\\src\\Imagenes\\UML\\subpro.png")); // NOI18N
@@ -1185,15 +1365,12 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_SubProMouseClicked
 
     private void btn_datosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_datosMouseClicked
-        JLabel lbldatos;
-        lbldatos = new JLabel();
+        Datos lbldatos;
+        lbldatos = new Datos();
         lbldatos.setOpaque(true);
         lbldatos.getName();
         lbldatos.setName("lbldatos" + datos);
         datos++;
-        // System.out.println(lbldatos);
-        // System.out.println(lbldatos.getName());
-        // System.out.println("EL ERROR ESTA AQUI");
         this.jp_Drag.add(lbldatos);
         lbldatos.setBackground(Color.red);
         // System.out.println(lbldatos);
@@ -1207,6 +1384,7 @@ public class Principal extends javax.swing.JFrame {
         lbldatos.setPreferredSize(new Dimension(50, 50));
         lbldatos.setSize(100, 55);
         JL_actual = lbldatos;
+
         lbldatos.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 JL_actual = lbldatos;
@@ -1250,18 +1428,16 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_datosMouseClicked
 
     private void btn_separadorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_separadorMouseClicked
-        JLabel lbl_separador;
-        lbl_separador = new JLabel();
+        Separador lbl_separador;
+        lbl_separador = new Separador();
         lbl_separador.setOpaque(true);
         lbl_separador.getName();
         lbl_separador.setName("lbl_separador" + separador);
+        lbl_separador.setText("Separador");
         separador++;
-        // System.out.println(lbl_separador);
-        // System.out.println(lbl_separador.getName());
-        // System.out.println("EL ERROR ESTA AQUI");
+
         this.jp_Drag.add(lbl_separador);
         lbl_separador.setBackground(Color.black);
-        //  System.out.println(lbl_separador);
         lbl_separador.setHorizontalTextPosition(SwingConstants.CENTER);
         lbl_separador.setLocation(10, 200);
         lbl_separador.setIcon(new ImageIcon(".\\src\\Imagenes\\UML\\separador.png")); // NOI18N
@@ -1311,18 +1487,15 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_separadorMouseClicked
 
     private void btn_SeparadorVMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_SeparadorVMouseClicked
-        JLabel lbl_Vseparador;
-        lbl_Vseparador = new JLabel();
+        Separador lbl_Vseparador;
+        lbl_Vseparador = new Separador();
         lbl_Vseparador.getName();
         lbl_Vseparador.setOpaque(true);
         lbl_Vseparador.setName("lbl_Vseparador" + V_separador);
         V_separador++;
-        //System.out.println(lbl_Vseparador);
-        // System.out.println(lbl_Vseparador.getName());
-        // System.out.println("EL ERROR ESTA AQUI");
+        lbl_Vseparador.setText("VSeparador");
         this.jp_Drag.add(lbl_Vseparador);
         lbl_Vseparador.setBackground(Color.BLACK);
-        //System.out.println(lbl_Vseparador);
         lbl_Vseparador.setHorizontalTextPosition(SwingConstants.CENTER);
         lbl_Vseparador.setLocation(10, 200);
         lbl_Vseparador.setIcon(new ImageIcon(".\\src\\Imagenes\\UML\\separadorV.png")); // NOI18N
@@ -1332,6 +1505,7 @@ public class Principal extends javax.swing.JFrame {
         lbl_Vseparador.setPreferredSize(new Dimension(50, 50));
         lbl_Vseparador.setSize(100, 6);
         JL_actual = lbl_Vseparador;
+
         lbl_Vseparador.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 JL_actual = lbl_Vseparador;
@@ -1390,9 +1564,7 @@ public class Principal extends javax.swing.JFrame {
         try {
             JL_actual.setText(JOptionPane.showInputDialog("Ingrese el nuevo texto de la Label"));
             System.out.println(JL_actual.getText());
-
         } catch (Exception e) {
-
         }
 
     }//GEN-LAST:event_jmi_textoActionPerformed
@@ -1405,24 +1577,19 @@ public class Principal extends javax.swing.JFrame {
                 this.jp_Drag.repaint();
                 JOptionPane.showMessageDialog(this.jd_UML, "Se ha eliminado correctamente");
             }
-
         } catch (Exception e) {
 
         }
     }//GEN-LAST:event_jmi_eliminarActionPerformed
 
     private void jmi_fuenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_fuenteActionPerformed
-        try {
-
-        } catch (Exception e) {
-
-        }
+        JL_actual.setFont(Fuentes.get(jc_Fuentes.getSelectedIndex()));
 
     }//GEN-LAST:event_jmi_fuenteActionPerformed
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void jc_FuentesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jc_FuentesActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_jc_FuentesActionPerformed
 
     private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
         JL_actual.setBackground(jButton3.getBackground());
@@ -1456,8 +1623,7 @@ public class Principal extends javax.swing.JFrame {
         // js_tamanoletra.setValue(JL_actual.getfore);
         js_width.setValue(JL_actual.getWidth());
         btn_colorJL_actual.setBackground(JL_actual.getBackground());
-        //btn_cancelar
-        //  btn_ok
+        jc_fuente1.setSelectedItem(JL_actual.getFont().getFontName());
     }//GEN-LAST:event_jmi_propiedadesActionPerformed
 
     private void btn_cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelarActionPerformed
@@ -1469,8 +1635,10 @@ public class Principal extends javax.swing.JFrame {
         JL_actual.setText(txt_textoJL_actual.getText());
         JL_actual.setSize((int) js_width.getValue(), (int) js_height.getValue());
         JL_actual.setBackground(btn_colorJL_actual.getBackground());
-        JOptionPane.showMessageDialog(this.jd_propiedades, "Objeto actualizado con exito");
+        JL_actual.setFont(Fuentes.get(jc_fuente1.getSelectedIndex()));
         jd_propiedades.show(false);
+        //JOptionPane.showMessageDialog(this.jd_propiedades, "Objeto actualizado con exito");
+
         this.jp_Drag.repaint();
 
         //btn_cancelar
@@ -1491,7 +1659,6 @@ public class Principal extends javax.swing.JFrame {
             public void mouseClicked(MouseEvent evt) {
                 ActualArbol = arbol;
                 int row = arbol.getClosestRowForLocation(evt.getX(), evt.getY());
-           
                 arbol.setSelectionRow(row);
                 //determinar el tipo de objeto selecionado.
                 //contenido en el nodo seleccionado
@@ -1499,10 +1666,14 @@ public class Principal extends javax.swing.JFrame {
                 nodo_seleccionado = (DefaultMutableTreeNode) v1;
                 if (evt.isMetaDown()) {
                     if (nodo_seleccionado.getUserObject() instanceof Clase) {
+                        jmi_agregarpropiedad.show(true);
+                        jmi_Eliminararbol.show(true);
                         jmi_EliminarPropiedad.show(false);
                         jmi_DatosPropiedad.show(false);
-
                     } else {
+                        Propiedad_Global = (Propiedad) nodo_seleccionado.getUserObject();
+                        jmi_agregarpropiedad.show(false);
+                        jmi_Eliminararbol.show(false);
                         jmi_EliminarPropiedad.show(true);
                         jmi_DatosPropiedad.show(true);
                     }
@@ -1541,16 +1712,24 @@ public class Principal extends javax.swing.JFrame {
         });  //agrega los label
         this.jp_dragDiagrama.add(arbol);
         jp_dragDiagrama.repaint();
+
         //Lo agregamos al arbol de las clases.
         DefaultTreeModel m = (DefaultTreeModel) jTree1.getModel();
         DefaultMutableTreeNode Raiz = (DefaultMutableTreeNode) m.getRoot();
         Raiz.add(carpetaRaiz);
         m.reload();
+        DefaultListModel M = (DefaultListModel) jl_hijo.getModel();
+        M.addElement(C);
+        jl_hijo.setModel(M);
+        jl_padre.setModel(M);
+
     }//GEN-LAST:event_btn_agregarArbolMouseClicked
 
     private void jmi_agregarpropiedadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_agregarpropiedadActionPerformed
-       jd_propiedad.show();
-     
+        jd_propiedad.show();
+        jd_propiedad.setTitle("Crear Propiedad");
+ btn_crearpropiedad.show(true);
+        btn_actualizar.show(false);
 
     }//GEN-LAST:event_jmi_agregarpropiedadActionPerformed
 
@@ -1569,8 +1748,8 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_jmi_EliminararbolActionPerformed
 
     private void btn_separadoresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_separadoresMouseClicked
-        JLabel lbl_separador;
-        lbl_separador = new JLabel();
+        UML lbl_separador;
+        lbl_separador = new UML();
         lbl_separador.setOpaque(true);
         lbl_separador.getName();
         lbl_separador.setName("lbl_separador" + separador);
@@ -1638,7 +1817,7 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_generardiagramaActionPerformed
 
     private void btn_generardiagramaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_generardiagramaMouseClicked
-   JOptionPane.showMessageDialog(jd_DiagramaClases, ActualArbol.GenereraCodigo());
+        JOptionPane.showMessageDialog(jd_DiagramaClases, ActualArbol.GenereraCodigo());
     }//GEN-LAST:event_btn_generardiagramaMouseClicked
 
     private void btn_crearpropiedadMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_crearpropiedadMouseClicked
@@ -1647,15 +1826,7 @@ public class Principal extends javax.swing.JFrame {
         DefaultMutableTreeNode Raiz = (DefaultMutableTreeNode) m.getRoot();
         Propiedad P = new Propiedad(Propiedad);
         P.setTipo(jc_tipo.getSelectedItem());
-        if (jc_alcance.getSelectedItem().equals("Public")) {
-            P.setAlcance(true);
-        } else if (jc_alcance.getSelectedItem().equals("Private")) {
-            P.setAlcance(!true);
-        } else if (jc_alcance.getSelectedItem().equals("Protected")) {
-            P.setAlcance(!true);
-        } else {
-            
-        }
+        P.setAlcance(jc_alcance.getSelectedIndex());
         DefaultMutableTreeNode Propiedades = new DefaultMutableTreeNode(P);
         ActualArbol.getClase().AgregarPropiedad(P);
         Raiz.add(Propiedades);
@@ -1663,51 +1834,184 @@ public class Principal extends javax.swing.JFrame {
         //Lo agregamos al arbol de las clases.
         DefaultTreeModel Principal = (DefaultTreeModel) jTree1.getModel();
         Principal.reload();
-         tf_variable.setText("");
+        tf_variable.setText("");
         jc_alcance.setSelectedIndex(0);
-          jc_tipo.setSelectedIndex(0);
-       // JOptionPane.showMessageDialog(jd_propiedad,"Propiedad creada con exito");
-       
-        
+        jc_tipo.setSelectedIndex(0);
+        // JOptionPane.showMessageDialog(jd_propiedad,"Propiedad creada con exito");
+
+
     }//GEN-LAST:event_btn_crearpropiedadMouseClicked
 
     private void jc_tipoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jc_tipoItemStateChanged
-     
-      /*Integer
+
+        /*Integer
 String
 Double
 Long*/
         if (jc_tipo.getSelectedItem().equals("Integer")) {//Integer
-      
+
         } else if (jc_tipo.getSelectedItem().equals("String")) {//String
-        
-        
+
         } else if (jc_tipo.getSelectedItem().equals("Double")) {//Double
-           
-          
+
         } else {
 
         }
     }//GEN-LAST:event_jc_tipoItemStateChanged
 
     private void btn_generarCodigoClasesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_generarCodigoClasesMouseClicked
-       imprimirNodo( (TreeNode)jTree1.getModel().getRoot());
-       
+        JOptionPane.showMessageDialog(jd_DiagramaClases, "Nombre del Paquete");
+
+        String C = imprimirNodo((TreeNode) jTree1.getModel().getRoot());
+
+        JOptionPane.showMessageDialog(jd_DiagramaClases, C);
+
     }//GEN-LAST:event_btn_generarCodigoClasesMouseClicked
-    public void imprimirNodo(TreeNode nodo) {
-        for(int i=0; i<nodo.getChildCount();i++){
-        Object v1=nodo.getChildAt(i);
-           nodo_seleccionado = (DefaultMutableTreeNode) v1;
-           if (nodo_seleccionado.getUserObject() instanceof Clase){
-               System.out.println("CLASE");
-               Diagrama D=new Diagrama();
-               D.setClase((Clase)nodo_seleccionado.getUserObject());
-               System.out.println( D.GenereraCodigo());
+
+    private void btn_generarCodigoUMLMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_generarCodigoUMLMouseClicked
+        Object Obejtos[] = jp_Drag.getComponents();
+        for (int i = 0; i < Obejtos.length; i++) {
+            //System.out.println( Obejtos[i]);
+            if (Obejtos[i] instanceof Proceso) {
+                System.out.println("PROCESO");
+            } else if (Obejtos[i] instanceof If) {
+                System.out.println("IF");
+            } else if (Obejtos[i] instanceof Datos) {
+                System.out.println("DATOS");
+            } else if (Obejtos[i] instanceof Documento) {
+                System.out.println("DOCUMENTOS");
+            } else if (Obejtos[i] instanceof Inicio_Fin) {
+                System.out.println("SUBPROCESO");
+            } else if (Obejtos[i] instanceof SubProceso) {
+
             }
-         
-    
         }
+//        for (int i = 0; i < Obejtos.length; i++) {
+//            UML Objeto = ((UML) Obejtos[i]);
+//            if (Objeto.getTipo().equals("SeperadorV")) {
+//                Separador P= new Separador();
+//                P.AgarrarDatos(Objeto);
+//                P.setPOS(true);
+//                SEPARADORES.add(((Separador)Objeto));
+//               
+//            } else if (((UML) Obejtos[i]).getTipo().equals("Seperador")) {
+//                Separador P= new Separador();
+//                P.AgarrarDatos(Objeto);
+//                 P.setPOS(false);
+//             SEPARADORES.add(P);//CAMBIAR EL BOOLEANO
+//                
+//          } else if (((UML) Obejtos[i]).getTipo().equals("proceso")) {
+//              Proceso P=new Proceso();
+//              P.AgarrarDatos(Objeto);
+//               INSTRUCCIONES.add(P);//CAMBIAR EL BOOLEANO
+//                
+//             } else if (((UML) Obejtos[i]).getTipo().equals("Datos")) {
+//                 Datos P=new Datos();
+//              P.AgarrarDatos(Objeto);
+//               INSTRUCCIONES.add(P);
+//                 
+//              } else if (((UML) Obejtos[i]).getTipo().equals("If")) {
+//                  If P=new If();
+//              P.AgarrarDatos(Objeto);
+//               INSTRUCCIONES.add(P);
+//                  
+//              } else if (((UML) Obejtos[i]).getTipo().equals("Inicio")) {
+//                   Inicio_Fin P=new Inicio_Fin();
+//              P.AgarrarDatos(Objeto);
+//               INSTRUCCIONES.add(P);
+//                  
+//           } else if (((UML) Obejtos[i]).getTipo().equals("Subproceso")) {
+//               
+//               
+//           } else if (((UML) Obejtos[i]).getTipo().equals("Documento")) {
+//               
+//           }
+//        }
+//        System.out.println("TERMINADO");
+//        System.out.println(SEPARADORES.size());
+//        System.out.println(INSTRUCCIONES.size());
+////        for (int i = 0; i < jp_Drag.getComponentCount(); i++) {
+////            System.out.println(jp_Drag.getComponent(i).getX() + ", " + jp_Drag.getComponent(i).getY());
+////        }
+
+    }//GEN-LAST:event_btn_generarCodigoUMLMouseClicked
+
+    private void btn_agregarArbol1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_agregarArbol1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_agregarArbol1MouseClicked
+
+    private void btn_HerenciaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_HerenciaMouseClicked
+        jd_Herencia.show();
+        
+    }//GEN-LAST:event_btn_HerenciaMouseClicked
+
+    private void btn_agregarherenciaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_agregarherenciaMouseClicked
+        if (jl_hijo.getSelectedIndex() >= 0 && jl_padre.getSelectedIndex() >= 0) {
+            DefaultListModel modeloHijo = (DefaultListModel) jl_hijo.getModel();
+            DefaultListModel modeloPadre = (DefaultListModel) jl_padre.getModel();
+            Clase C_Hija = (Clase) modeloHijo.get(jl_hijo.getSelectedIndex());
+            Clase C_Padre = (Clase) modeloPadre.get(jl_padre.getSelectedIndex());
+            if (C_Hija == C_Padre) {
+                JOptionPane.showMessageDialog(jd_Herencia, "No puede heredar de si misma");
+            } else if (C_Hija.getHeredados().contains(C_Padre)) {
+                JOptionPane.showMessageDialog(jd_Herencia, "La clase ya ha sido agregada");
+            } else {
+                C_Hija.AgregarHerencia(C_Padre);
+                JOptionPane.showMessageDialog(jd_Herencia, "Clase agregada");
+            }
+        } else {
+            JOptionPane.showMessageDialog(this.jd_Herencia, "Seleccione Una clase padre y una Clase Hija");
+        }
+    }//GEN-LAST:event_btn_agregarherenciaMouseClicked
+
+    private void jmi_DatosPropiedadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_DatosPropiedadActionPerformed
+         jd_propiedad.show();
+          jd_propiedad.setTitle("Descripcion de "+Propiedad_Global.getNombre() );
+          tf_variable.setText(Propiedad_Global.getNombre());
+       
+       jc_tipo.setSelectedItem(Propiedad_Global.getTipo());
+        jc_alcance.setSelectedIndex(Propiedad_Global.getAlcance());
+        btn_crearpropiedad.show(false);
+        btn_actualizar.show(true);
+         
+    }//GEN-LAST:event_jmi_DatosPropiedadActionPerformed
+
+    private void btn_actualizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_actualizarMouseClicked
+      Propiedad_Global.setNombre(tf_variable.getText());
+       Propiedad_Global.setAlcance(jc_alcance.getSelectedIndex());
+        Propiedad_Global.setTipo( jc_tipo.getSelectedItem());
+         tf_variable.setText("");
+        jc_alcance.setSelectedIndex(0);
+        jc_tipo.setSelectedIndex(0);
+    }//GEN-LAST:event_btn_actualizarMouseClicked
+
+    private void jc_tipo1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jc_tipo1ItemStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jc_tipo1ItemStateChanged
+
+    private void btn_crearpropiedad1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_crearpropiedad1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_crearpropiedad1MouseClicked
+
+    private void btn_actualizar1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_actualizar1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_actualizar1MouseClicked
+    public String imprimirNodo(TreeNode nodo) {
+        String Clases = "";
+        for (int i = 0; i < nodo.getChildCount(); i++) {
+            Object v1 = nodo.getChildAt(i);
+            nodo_seleccionado = (DefaultMutableTreeNode) v1;
+            if (nodo_seleccionado.getUserObject() instanceof Clase) {
+                //// System.out.println("CLASE");
+                Diagrama D = new Diagrama();
+                D.setClase((Clase) nodo_seleccionado.getUserObject());
+                System.out.println(D.GenereraCodigo());
+                Clases += D.GenereraCodigo();
+            }
+        }
+        return Clases;
     }
+
     /**
      * @param args the command line arguments
      */
@@ -1719,7 +2023,7 @@ Long*/
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -1753,18 +2057,27 @@ Long*/
     private javax.swing.JButton btn_DiagramaClases1;
     private javax.swing.JButton btn_DiagramaFlujo;
     private javax.swing.JButton btn_DiagramaFlujo1;
+    private javax.swing.JLabel btn_GenerarCodigoUML;
+    private javax.swing.JButton btn_Herencia;
     private javax.swing.JButton btn_InicioFin;
     private javax.swing.JButton btn_Proceso;
     private javax.swing.JButton btn_SeparadorV;
     private javax.swing.JButton btn_SubPro;
+    private javax.swing.JButton btn_actualizar;
+    private javax.swing.JButton btn_actualizar1;
     private javax.swing.JButton btn_agregarArbol;
+    private javax.swing.JButton btn_agregarArbol1;
+    private javax.swing.JButton btn_agregarherencia;
+    private javax.swing.JButton btn_agregarparametro;
     private javax.swing.JButton btn_cancelar;
     private javax.swing.JButton btn_colorJL_actual;
     private javax.swing.JButton btn_crearpropiedad;
+    private javax.swing.JButton btn_crearpropiedad1;
     private javax.swing.JButton btn_datos;
     private javax.swing.JButton btn_documento;
     private javax.swing.JButton btn_enableJL_actual;
     private javax.swing.JButton btn_generarCodigoClases;
+    private javax.swing.JButton btn_generarCodigoUML;
     private javax.swing.JButton btn_generardiagrama;
     private javax.swing.JButton btn_ok;
     private javax.swing.JButton btn_separador;
@@ -1775,7 +2088,7 @@ Long*/
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JButton jButton8;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -1791,6 +2104,11 @@ Long*/
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1824,16 +2142,25 @@ Long*/
     private javax.swing.JMenuBar jMenuBar4;
     private javax.swing.JMenuBar jMenuBar5;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JToolBar jToolBar2;
     private javax.swing.JTree jTree1;
+    private javax.swing.JComboBox<String> jc_Fuentes;
     private javax.swing.JComboBox<String> jc_alcance;
-    private javax.swing.JComboBox<String> jc_fuente;
+    private javax.swing.JComboBox<String> jc_alcance1;
+    private javax.swing.JComboBox<String> jc_fuente1;
     private javax.swing.JComboBox<String> jc_tipo;
+    private javax.swing.JComboBox<String> jc_tipo1;
     private javax.swing.JDialog jd_DiagramaClases;
+    private javax.swing.JDialog jd_Herencia;
+    private javax.swing.JDialog jd_Metodos;
     private javax.swing.JDialog jd_UML;
     private javax.swing.JDialog jd_propiedad;
     private javax.swing.JDialog jd_propiedades;
+    private javax.swing.JList<String> jl_hijo;
+    private javax.swing.JList<String> jl_padre;
     private javax.swing.JMenuItem jmi_DatosPropiedad;
     private javax.swing.JMenuItem jmi_EliminarPropiedad;
     private javax.swing.JMenuItem jmi_Eliminararbol;
@@ -1848,20 +2175,16 @@ Long*/
     private javax.swing.JSpinner js_height;
     private javax.swing.JSpinner js_tamanoletra;
     private javax.swing.JSpinner js_width;
-    private java.awt.Label label1;
-    private java.awt.Label label2;
-    private java.awt.Label label3;
-    private java.awt.Label label4;
     private javax.swing.JLabel lbl_Diagrama;
     private javax.swing.JLabel lbl_Diagrama1;
     private javax.swing.JLabel lbl_FondoInicio1;
     private javax.swing.JLabel lbl_UML1;
     private javax.swing.JPopupMenu pp_OP;
     private javax.swing.JTextField tf_variable;
+    private javax.swing.JTextField tf_variable1;
     private javax.swing.JTextField txt_codigocolorJL_actual;
     private javax.swing.JTextField txt_nombreJL_actual;
     private javax.swing.JTextField txt_textoJL_actual;
-    private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
     private int Proceso = 0;
     private int cont_If = 0;
@@ -1877,6 +2200,19 @@ Long*/
     private int Cont_A = 0;
     Diagrama ActualArbol;
     DefaultMutableTreeNode nodo_seleccionado;
-
-
+    ArrayList<Font> Fuentes = new ArrayList();
+    ArrayList<Separador> SEPARADORES = new ArrayList();
+    ArrayList<UML> INSTRUCCIONES = new ArrayList();
+    Propiedad Propiedad_Global;
+//        int componentCount = jp_Drag.getComponentCount();
+//
+//        for (int j = 0; j < componentCount; j++) {
+//
+//            Component c = jp_Drag.getComponent(j);
+//            JPanel p = (JPanel) c;
+//            System.out.println(p.getY());//I get zero for all
+//        }       
+    //  System.out.println(jp_Drag.findComponentAt(150,100));
+    //  System.out.println( jp_Drag.contains(10,200));
+    //   System.out.println(jp_Drag.findComponentAt(10, 200));
 }

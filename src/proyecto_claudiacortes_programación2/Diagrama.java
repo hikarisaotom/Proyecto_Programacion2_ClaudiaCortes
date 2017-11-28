@@ -23,18 +23,38 @@ public class Diagrama extends JTree{
     }
     
     public String GenereraCodigo(){
-        String Codigo="";
-        String Public="\n public:";
-       String Private="\n private:";
-        Codigo+="class "+Clase.getNombre()+"{";
-        for (Propiedad propiedad : Clase.getPropiedades()) {
-            if (propiedad.getAlcance()) {
-                Public+=propiedad.getTipo()+" "+propiedad.getNombre()+";\n";
-            }else{
-                Private+=propiedad.getTipo()+" "+propiedad.getNombre()+";\n";
+        String Heredados="";
+        if (Clase.getHeredados().size()>0) {
+            Heredados+=":";
+            for (int i = 0; i <Clase.getHeredados().size(); i++) {
+                if (i==Clase.getHeredados().size()-1) {
+                    Heredados+= "Public "+Clase.getHeredados().get(i).getNombre();
+                }else{
+                     Heredados+= "Public "+Clase.getHeredados().get(i).getNombre()+", ";
+                }
             }
         }
-        Codigo+=Public+Private+"};";
+        String Codigo="#Include<IOStream>\n";
+        String Public="\n public:\n";
+       String Private="\n private:\n";
+       String Protected="\n protected: \n";
+      
+        Codigo+="class "+Clase.getNombre()+Heredados+"{";
+        for (Propiedad propiedad : Clase.getPropiedades()) {
+                   /*0-Package
+                    1-Public
+                    2-Private
+                    3-Protected*/
+                 //System.out.println(propiedad.getAlcance());
+            if (propiedad.getAlcance()==1) {
+                Public+=propiedad.getTipo()+" "+propiedad.getNombre()+";\n";
+            }else if (propiedad.getAlcance()==2){
+                Private+=propiedad.getTipo()+" "+propiedad.getNombre()+";\n";
+            }else if (propiedad.getAlcance()==3){
+                Protected+=propiedad.getTipo()+" "+propiedad.getNombre()+";\n";
+            }
+        }
+        Codigo+=Public+Private+Protected+"};\n";
         return Codigo;
     }
 }

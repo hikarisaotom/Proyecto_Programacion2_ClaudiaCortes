@@ -12,5 +12,32 @@ import javax.swing.JLabel;
  * @author Claudia Cortes
  */
 public class UML extends JLabel{
+    private String Tipo = "";
+    protected int POSx;
+    protected int POSy;
+        
+    public UML() {
+         
+         
+    }
+
+
     
+ 
+    public String getTipo() {
+        return Tipo;
+    }
+
+    public void setTipo() {
+        //this.Tipo = this.getText();
+    }
+    
+    public void GenerarCodigo(){
+        
+    }
+    
+    public void AgarrarDatos(UML Label) {
+        POSx = Label.getX();
+        POSy = Label.getY();
+    }
 }

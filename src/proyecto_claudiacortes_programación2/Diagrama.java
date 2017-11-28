@@ -41,11 +41,6 @@ public class Diagrama extends JTree{
       
         Codigo+="class "+Clase.getNombre()+Heredados+"{";
         for (Propiedad propiedad : Clase.getPropiedades()) {
-                   /*0-Package
-                    1-Public
-                    2-Private
-                    3-Protected*/
-                 //System.out.println(propiedad.getAlcance());
             if (propiedad.getAlcance()==1) {
                 Public+=propiedad.getTipo()+" "+propiedad.getNombre()+";\n";
             }else if (propiedad.getAlcance()==2){
@@ -54,7 +49,24 @@ public class Diagrama extends JTree{
                 Protected+=propiedad.getTipo()+" "+propiedad.getNombre()+";\n";
             }
         }
-        Codigo+=Public+Private+Protected+"};\n";
+        for (Metodo propiedad : Clase.getMetodos()) {
+            String Parametros = "";
+            for (int i = 0; i < propiedad.getParametros().size(); i++) {
+                if (i == propiedad.getParametros().size()-1) {
+                    Parametros += propiedad.getParametros().get(i).getTipo() + " " + propiedad.getParametros().get(i).getNombre() + "){\n";
+                } else {
+                    Parametros += propiedad.getParametros().get(i).getTipo() + " " + propiedad.getParametros().get(i).getNombre() + ", ";
+                }
+            }
+            if (propiedad.getAlcance() == 1) {
+                Public += propiedad.getT_return() + " " + propiedad.getNombre() + "(" + Parametros;
+            } else if (propiedad.getAlcance() == 2) {
+                Private += propiedad.getT_return() + " " + propiedad.getNombre() + "(" + Parametros;
+            } else if (propiedad.getAlcance() == 3) {
+                Protected += propiedad.getT_return() + " " + propiedad.getNombre() + "(" + Parametros;
+            }
+        }
+        Codigo += Public + Private + Protected + "};\n";
         return Codigo;
     }
 }

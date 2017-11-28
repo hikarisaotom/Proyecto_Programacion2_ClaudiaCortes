@@ -15,6 +15,15 @@ public class Metodo {
     private String Nombre;
     private ArrayList<Propiedad>Parametros=new ArrayList();
     private String T_return ;
+    private int Alcance;
+
+    public int getAlcance() {
+        return Alcance;
+    }
+
+    public void setAlcance(int Alcance) {
+        this.Alcance = Alcance;
+    }
 
     public String getT_return() {
         return T_return;
@@ -41,7 +50,8 @@ public class Metodo {
 
     public Metodo() {
     }
-
+public void AgregarAparametro(Propiedad p){
+}
     @Override
     public String toString() {
         return "("+T_return+")"+Nombre;

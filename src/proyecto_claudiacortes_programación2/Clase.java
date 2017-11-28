@@ -14,7 +14,8 @@ import java.util.ArrayList;
 public class Clase {
     String  Nombre;
     ArrayList<Propiedad> Propiedades= new ArrayList();
- ArrayList<Clase> Heredados= new ArrayList();
+     ArrayList<Clase> Heredados= new ArrayList();
+    ArrayList<Metodo> Metodos = new ArrayList();
     public Clase() {
     }
       public Clase(String n ) {
@@ -53,6 +54,16 @@ public class Clase {
         Heredados.add(C);
     }
 
+    public ArrayList<Metodo> getMetodos() {
+        return Metodos;
+    }
+
+    public void setMetodos(ArrayList<Metodo> Metodos) {
+        this.Metodos = Metodos;
+    }
+public void AgregarMetodo(Metodo M){
+    Metodos.add(M);
+}
     @Override
     public String toString() {
         return Nombre;

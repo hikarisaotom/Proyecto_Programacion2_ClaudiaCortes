@@ -5,8 +5,6 @@
  */
 package proyecto_claudiacortes_programación2;
 
-import proyecto_claudiacortes_programación2.UML.*;
-import proyecto_claudiacortes_programación2.Clases.*;
 import java.awt.Color;
 import java.awt.BorderLayout;
 import java.awt.Component;
@@ -1179,51 +1177,12 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_ProcesoActionPerformed
 
     private void btn_ProcesoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_ProcesoMouseClicked
-        Proceso lbl_Proceso= new Proceso(Proceso);
+        Proceso lbl_Proceso = new Proceso();
+        UML U=new UML();
+        U.Proceso(Proceso, lbl_Proceso);
         Proceso++;
-        this.jp_Drag.add(lbl_Proceso);
-        JL_actual = lbl_Proceso;
-        lbl_Proceso.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseDragged(java.awt.event.MouseEvent evt) {
-                JL_actual = lbl_Proceso;
-                if ((lbl_Proceso.getLocation().x + evt.getX() - lbl_Proceso.getWidth() / 2) >= 0
-                        && (lbl_Proceso.getLocation().x + evt.getX() - lbl_Proceso.getWidth() / 2) <= 800) {
-                    lbl_Proceso.setLocation(lbl_Proceso.getLocation().x + evt.getX() - lbl_Proceso.getWidth() / 2,
-                            lbl_Proceso.getLocation().y + evt.getY() - lbl_Proceso.getHeight() / 2);
-                    //System.out.println(lbl_Proceso);
-                    // System.out.println(lbl_Proceso.getName());
-                }// para que no se salga del rango
-
-            }
-        });  //agrega los label
-        lbl_Proceso.addMouseListener(new MouseListener() {
-            public void mouseClicked(MouseEvent evt) {
-                JL_actual = lbl_Proceso;
-                if (evt.isMetaDown()) {
-                    JL_actual = lbl_Proceso;
-                    System.out.println(JL_actual);
-                    System.out.println(lbl_Proceso.getText());
-                    pp_OP.show(evt.getComponent(), evt.getX(), evt.getY());
-                }
-            }
-
-            public void mouseEntered(MouseEvent arg0) {
-                JL_actual = lbl_Proceso;
-            }
-
-            public void mouseExited(MouseEvent arg0) {
-                JL_actual = lbl_Proceso;
-            }
-
-            public void mousePressed(MouseEvent arg0) {
-                JL_actual = lbl_Proceso;
-            }
-
-            public void mouseReleased(MouseEvent arg0) {
-                JL_actual = lbl_Proceso;
-            }
-        });
-          jp_Drag.repaint();
+      
+        AgregarDrag(lbl_Proceso,0);
     }//GEN-LAST:event_btn_ProcesoMouseClicked
 
     private void btn_DiagramaFlujo1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_DiagramaFlujo1MouseClicked
@@ -1243,337 +1202,64 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_Crear1MouseClicked
 
     private void btn_DecisionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_DecisionMouseClicked
-        If lbl_if = new If(cont_If);
+        If lbl_if = new If();
+         UML U=new UML();
+        U.If(cont_If, lbl_if);
         cont_If++;
-        JL_actual = lbl_if;
-        this.jp_Drag.add(lbl_if);
-        lbl_if.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseDragged(java.awt.event.MouseEvent evt) {
-                JL_actual = lbl_if;
-                if ((lbl_if.getLocation().x + evt.getX() - lbl_if.getWidth() / 2) >= 0
-                        && (lbl_if.getLocation().x + evt.getX() - lbl_if.getWidth() / 2) <= 800) {
-                    lbl_if.setLocation(lbl_if.getLocation().x + evt.getX() - lbl_if.getWidth() / 2,
-                            lbl_if.getLocation().y + evt.getY() - lbl_if.getHeight() / 2);
-                    //   JL_actual = lbl_if;
-                    // System.out.println(lbl_if);
-                    //System.out.println(lbl_if.getName());
-                }// para que no se salga del rango
-
-            }
-        });  //agrega los label
-        lbl_if.addMouseListener(new MouseListener() {
-            public void mouseClicked(MouseEvent evt) {
-                JL_actual = lbl_if;
-                if (evt.isMetaDown()) {
-                    JL_actual = lbl_if;
-                    System.out.println(JL_actual);
-                    pp_OP.show(evt.getComponent(), evt.getX(), evt.getY());
-                }
-            }
-
-            public void mouseEntered(MouseEvent arg0) {
-                JL_actual = lbl_if;
-            }
-
-            public void mouseExited(MouseEvent arg0) {
-                JL_actual = lbl_if;
-            }
-
-            public void mousePressed(MouseEvent arg0) {
-                JL_actual = lbl_if;
-            }
-
-            public void mouseReleased(MouseEvent arg0) {
-                JL_actual = lbl_if;
-            }
-        });
-  jp_Drag.repaint();
+        AgregarDrag(lbl_if,0);
     }//GEN-LAST:event_btn_DecisionMouseClicked
 
     private void btn_documentoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_documentoMouseClicked
-        Documento lbl_documento = new Documento(documentos);
-          documentos++;
-        this.jp_Drag.add(lbl_documento);
-        JL_actual = lbl_documento;
-        lbl_documento.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseDragged(java.awt.event.MouseEvent evt) {
-                JL_actual = lbl_documento;
-                if ((lbl_documento.getLocation().x + evt.getX() - lbl_documento.getWidth() / 2) >= 0
-                        && (lbl_documento.getLocation().x + evt.getX() - lbl_documento.getWidth() / 2) <= 800) {
-                    lbl_documento.setLocation(lbl_documento.getLocation().x + evt.getX() - lbl_documento.getWidth() / 2,
-                            lbl_documento.getLocation().y + evt.getY() - lbl_documento.getHeight() / 2);
-                    // System.out.println(lbl_documento);
-                    // System.out.println(lbl_documento.getName());
-                }// para que no se salga del rango
-
-            }
-        });
-        lbl_documento.addMouseListener(new MouseListener() {
-            public void mouseClicked(MouseEvent evt) {
-                JL_actual = lbl_documento;
-                if (evt.isMetaDown()) {
-                    JL_actual = lbl_documento;
-                    System.out.println(JL_actual);
-                    pp_OP.show(evt.getComponent(), evt.getX(), evt.getY());
-                }
-            }
-
-            public void mouseEntered(MouseEvent arg0) {
-                JL_actual = lbl_documento;
-            }
-
-            public void mouseExited(MouseEvent arg0) {
-                JL_actual = lbl_documento;
-            }
-
-            public void mousePressed(MouseEvent arg0) {
-                JL_actual = lbl_documento;
-            }
-
-            public void mouseReleased(MouseEvent arg0) {
-                JL_actual = lbl_documento;
-            }
-        });
-        jp_Drag.repaint();
+        Documento lbl_documento = new Documento();
+          UML U=new UML();
+        U.Documento(documentos, lbl_documento);
+        documentos++;
+        AgregarDrag(lbl_documento,0);
     }//GEN-LAST:event_btn_documentoMouseClicked
 
     private void btn_InicioFinMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_InicioFinMouseClicked
         if (in_out >= 2) {
             JOptionPane.showMessageDialog(jd_UML, "Solo puede haber un inicio y un fin");
         } else {
-            Inicio_Fin lbl_inicio_fin = new Inicio_Fin(in_out);
+            Inicio_Fin lbl_inicio_fin = new Inicio_Fin();
+            UML U = new UML();
+            U.Inicio_Fin(in_out, lbl_inicio_fin);
             in_out++;
-            this.jp_Drag.add(lbl_inicio_fin);
-            JL_actual = lbl_inicio_fin;
-            lbl_inicio_fin.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-                public void mouseDragged(java.awt.event.MouseEvent evt) {
-                    JL_actual = lbl_inicio_fin;
-                    if ((lbl_inicio_fin.getLocation().x + evt.getX() - lbl_inicio_fin.getWidth() / 2) >= 0
-                            && (lbl_inicio_fin.getLocation().x + evt.getX() - lbl_inicio_fin.getWidth() / 2) <= 800) {
-                        lbl_inicio_fin.setLocation(lbl_inicio_fin.getLocation().x + evt.getX() - lbl_inicio_fin.getWidth() / 2,
-                                lbl_inicio_fin.getLocation().y + evt.getY() - lbl_inicio_fin.getHeight() / 2);
-                        //  System.out.println(lbl_inicio_fin);
-                        //System.out.println(lbl_inicio_fin.getName());
-                    }// para que no se salga del rango
-
-                }
-            });
-            lbl_inicio_fin.addMouseListener(new MouseListener() {
-                public void mouseClicked(MouseEvent evt) {
-                    JL_actual = lbl_inicio_fin;
-                    if (evt.isMetaDown()) {
-                        JL_actual = lbl_inicio_fin;
-                        System.out.println(JL_actual);
-                        pp_OP.show(evt.getComponent(), evt.getX(), evt.getY());
-                    }
-                }
-
-                public void mouseEntered(MouseEvent arg0) {
-                    JL_actual = lbl_inicio_fin;
-                }
-
-                public void mouseExited(MouseEvent arg0) {
-                    JL_actual = lbl_inicio_fin;
-                }
-
-                public void mousePressed(MouseEvent arg0) {
-                    JL_actual = lbl_inicio_fin;
-                }
-
-                public void mouseReleased(MouseEvent arg0) {
-                    JL_actual = lbl_inicio_fin;
-                }
-            });
+            AgregarDrag(lbl_inicio_fin,0);
         }
-          jp_Drag.repaint();
+
     }//GEN-LAST:event_btn_InicioFinMouseClicked
 
     private void btn_SubProMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_SubProMouseClicked
-        SubProceso lbl_subpro = new SubProceso(Subpro);
+        SubProceso lbl_subpro = new SubProceso();
+            UML U=new UML();
+        U.SubProceso( Subpro,  lbl_subpro);
         Subpro++;
-        lbl_subpro.setText("Subproceso");
-        JL_actual = lbl_subpro;
-          this.jp_Drag.add(lbl_subpro);
-        lbl_subpro.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseDragged(java.awt.event.MouseEvent evt) {
-                JL_actual = lbl_subpro;
-                if ((lbl_subpro.getLocation().x + evt.getX() - lbl_subpro.getWidth() / 2) >= 0
-                        && (lbl_subpro.getLocation().x + evt.getX() - lbl_subpro.getWidth() / 2) <= 800) {
-                    lbl_subpro.setLocation(lbl_subpro.getLocation().x + evt.getX() - lbl_subpro.getWidth() / 2,
-                            lbl_subpro.getLocation().y + evt.getY() - lbl_subpro.getHeight() / 2);
-                    //System.out.println( lbl_subpro);
-                    // System.out.println( lbl_subpro.getName());
-                }/// para que no se salga del rango
-
-            }
-        });
-        lbl_subpro.addMouseListener(new MouseListener() {
-            public void mouseClicked(MouseEvent evt) {
-                JL_actual = lbl_subpro;
-
-                if (evt.isMetaDown()) {
-                    JL_actual = lbl_subpro;
-                    System.out.println(JL_actual);
-                    pp_OP.show(evt.getComponent(), evt.getX(), evt.getY());
-                }
-            }
-
-            public void mouseEntered(MouseEvent arg0) {
-                JL_actual = lbl_subpro;
-            }
-
-            public void mouseExited(MouseEvent arg0) {
-                JL_actual = lbl_subpro;
-            }
-
-            public void mousePressed(MouseEvent arg0) {
-                JL_actual = lbl_subpro;
-            }
-
-            public void mouseReleased(MouseEvent arg0) {
-                JL_actual = lbl_subpro;
-            }
-        });
-          jp_Drag.repaint();
+        AgregarDrag(lbl_subpro,0);
     }//GEN-LAST:event_btn_SubProMouseClicked
 
     private void btn_datosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_datosMouseClicked
-        Datos lbldatos = new Datos(datos);
+        Datos lbldatos = new Datos();
         datos++;
-        this.jp_Drag.add(lbldatos);
-        JL_actual = lbldatos;
-        lbldatos.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseDragged(java.awt.event.MouseEvent evt) {
-                JL_actual = lbldatos;
-                if ((lbldatos.getLocation().x + evt.getX() - lbldatos.getWidth() / 2) >= 0
-                        && (lbldatos.getLocation().x + evt.getX() - lbldatos.getWidth() / 2) <= 800) {
-                    lbldatos.setLocation(lbldatos.getLocation().x + evt.getX() - lbldatos.getWidth() / 2,
-                            lbldatos.getLocation().y + evt.getY() - lbldatos.getHeight() / 2);
-                    //  System.out.println(lbldatos);
-                    // System.out.println(lbldatos.getName());
-                }// para que no se salga del rango
-
-            }
-        });  //agrega los label
-        lbldatos.addMouseListener(new MouseListener() {
-            public void mouseClicked(MouseEvent evt) {
-                JL_actual = lbldatos;
-
-                if (evt.isMetaDown()) {
-                    JL_actual = lbldatos;
-                    System.out.println(JL_actual);
-                    pp_OP.show(evt.getComponent(), evt.getX(), evt.getY());
-                }
-            }
-
-            public void mouseEntered(MouseEvent arg0) {
-                JL_actual = lbldatos;
-            }
-
-            public void mouseExited(MouseEvent arg0) {
-                JL_actual = lbldatos;
-            }
-
-            public void mousePressed(MouseEvent arg0) {
-                JL_actual = lbldatos;
-            }
-
-            public void mouseReleased(MouseEvent arg0) {
-                JL_actual = lbldatos;
-            }
-        });
-          jp_Drag.repaint();
+        UML U= new UML();
+        U.PropiedadDatos(datos,lbldatos);
+        AgregarDrag(lbldatos,0);
     }//GEN-LAST:event_btn_datosMouseClicked
 
     private void btn_separadorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_separadorMouseClicked
-        Separador  lbl_separador = new Separador(separador,1);
+        Separador lbl_separador = new Separador();
+          UML U=new UML();
+        U.Separador(separador, 1, lbl_separador);
         separador++;
-        this.jp_Drag.add(lbl_separador);
-        JL_actual = lbl_separador;
-        lbl_separador.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseDragged(java.awt.event.MouseEvent evt) {
-                JL_actual = lbl_separador;
-                if ((lbl_separador.getLocation().x + evt.getX() - lbl_separador.getWidth() / 2) >= 0
-                        && (lbl_separador.getLocation().x + evt.getX() - lbl_separador.getWidth() / 2) <= 890) {
-                    lbl_separador.setLocation(lbl_separador.getLocation().x + evt.getX() - lbl_separador.getWidth() / 2,
-                            lbl_separador.getLocation().y + evt.getY() - lbl_separador.getHeight() / 2);
-                }// para que no se salga del rango
-
-            }
-        });  //agrega los label
-        lbl_separador.addMouseListener(new MouseListener() {
-            public void mouseClicked(MouseEvent evt) {
-                JL_actual = lbl_separador;
-                if (evt.isMetaDown()) {
-                    JL_actual = lbl_separador;
-                    System.out.println(JL_actual);
-                    pp_OP.show(evt.getComponent(), evt.getX(), evt.getY());
-                }
-            }
-
-            public void mouseEntered(MouseEvent arg0) {
-                JL_actual = lbl_separador;
-            }
-
-            public void mouseExited(MouseEvent arg0) {
-                JL_actual = lbl_separador;
-            }
-
-            public void mousePressed(MouseEvent arg0) {
-                JL_actual = lbl_separador;
-            }
-
-            public void mouseReleased(MouseEvent arg0) {
-                JL_actual = lbl_separador;
-            }
-        });
-          jp_Drag.repaint();
+        AgregarDrag(lbl_separador,0);
     }//GEN-LAST:event_btn_separadorMouseClicked
 
     private void btn_SeparadorVMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_SeparadorVMouseClicked
-        Separador lbl_Vseparador = new Separador(V_separador,2);
+        Separador lbl_Vseparador = new Separador();
+         UML U=new UML();
+        U.Separador(V_separador, 2, lbl_Vseparador);
         V_separador++;
-        JL_actual = lbl_Vseparador;
-        this.jp_Drag.add(lbl_Vseparador);
-        lbl_Vseparador.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseDragged(java.awt.event.MouseEvent evt) {
-                JL_actual = lbl_Vseparador;
-                if ((lbl_Vseparador.getLocation().x + evt.getX() - lbl_Vseparador.getWidth() / 2) >= 0
-                        && (lbl_Vseparador.getLocation().x + evt.getX() - lbl_Vseparador.getWidth() / 2) <= 800) {
-                    lbl_Vseparador.setLocation(lbl_Vseparador.getLocation().x + evt.getX() - lbl_Vseparador.getWidth() / 2,
-                            lbl_Vseparador.getLocation().y + evt.getY() - lbl_Vseparador.getHeight() / 2);
-                    //  System.out.println(lbl_Vseparador);
-                    // System.out.println(lbl_Vseparador.getName());
-                }// para que no se salga del rango
-
-            }
-        });  //agrega los label
-        lbl_Vseparador.addMouseListener(new MouseListener() {
-            public void mouseClicked(MouseEvent evt) {
-                JL_actual = lbl_Vseparador;
-                if (evt.isMetaDown()) {
-                    System.out.println(JL_actual);
-                    pp_OP.show(evt.getComponent(), evt.getX(), evt.getY());
-                }
-            }
-
-            public void mouseEntered(MouseEvent arg0) {
-                JL_actual = lbl_Vseparador;
-            }
-
-            public void mouseExited(MouseEvent arg0) {
-                JL_actual = lbl_Vseparador;
-            }
-
-            public void mousePressed(MouseEvent arg0) {
-                JL_actual = lbl_Vseparador;
-            }
-
-            public void mouseReleased(MouseEvent arg0) {
-                JL_actual = lbl_Vseparador;
-            }
-        });
-          jp_Drag.repaint();
+        AgregarDrag(lbl_Vseparador,0);
     }//GEN-LAST:event_btn_SeparadorVMouseClicked
 
     private void jmi_colorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_colorActionPerformed
@@ -1813,8 +1499,6 @@ Long*/
     }//GEN-LAST:event_jc_tipoItemStateChanged
 
     private void btn_generarCodigoClasesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_generarCodigoClasesMouseClicked
-        JOptionPane.showMessageDialog(jd_DiagramaClases, "Nombre del Paquete");
-
         String C = imprimirNodo((TreeNode) jTree1.getModel().getRoot());
         txt_CodigoClases.setText(C);
         JOptionPane.showMessageDialog(jd_DiagramaClases, "El codigo Se ha generado Correctamente");
@@ -2201,22 +1885,44 @@ Long*/
     }//GEN-LAST:event_btn_oegarActionPerformed
 
     private void btn_oegarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_oegarMouseClicked
+       UML U=new UML();
         if (JL_actual instanceof Datos) {
-
+            Datos P = new Datos();
+          U.Copiar(P, JL_actual);
+            AgregarDrag(P,0);
+            jp_Drag.add(P);
         } else if (JL_actual instanceof Documento) {
-JOptionPane.showMessageDialog(jd_UML,JL_actual.getClass().getSimpleName());
+            Documento P = new Documento();
+             U.Copiar(P, JL_actual);
+            AgregarDrag(P,0);
+            jp_Drag.add(P);
         } else if (JL_actual instanceof If) {
-JOptionPane.showMessageDialog(jd_UML,JL_actual.getClass().getSimpleName());
+            If P = new If();
+            U.Copiar(P, JL_actual);
+            AgregarDrag(P,0);
+            jp_Drag.add(P);
         } else if (JL_actual instanceof Inicio_Fin) {
-JOptionPane.showMessageDialog(jd_UML,JL_actual.getClass().getSimpleName());
+            Inicio_Fin P = new Inicio_Fin();
+             U.Copiar(P, JL_actual);
+            AgregarDrag(P,0);
+            jp_Drag.add(P);
         } else if (JL_actual instanceof Proceso) {
-JOptionPane.showMessageDialog(jd_UML,JL_actual.getClass().getSimpleName());
+            Proceso P = new Proceso();
+            U.Copiar(P, JL_actual);
+            AgregarDrag(P,0);
+            jp_Drag.add(P);
         } else if (JL_actual instanceof Separador) {
-JOptionPane.showMessageDialog(jd_UML,JL_actual.getClass().getSimpleName());
+            Separador P = new Separador();
+             U.Copiar(P, JL_actual);
+            AgregarDrag(P,0);
+            jp_Drag.add(P);
         } else if (JL_actual instanceof SubProceso) {
-  JOptionPane.showMessageDialog(jd_UML,JL_actual.getClass().getSimpleName());
-
+            SubProceso P = new SubProceso();
+            U.Copiar(P, JL_actual);
+            AgregarDrag(P,0);
+            jp_Drag.add(P);
         }
+        jp_Drag.repaint();
     }//GEN-LAST:event_btn_oegarMouseClicked
     public String imprimirNodo(TreeNode nodo) {
         String Clases = "";
@@ -2233,7 +1939,25 @@ JOptionPane.showMessageDialog(jd_UML,JL_actual.getClass().getSimpleName());
         }
         return Clases;
     }
+public void AgregarPropieddes(JLabel lbl_subpro){
+      lbl_subpro.setOpaque(true);
+        lbl_subpro.getName();
+        lbl_subpro.setName("lbl_subpro" + Subpro);
+        Subpro++;
+        lbl_subpro.setText("Subproceso");
+        this.jp_Drag.add(lbl_subpro);
+        lbl_subpro.setBackground(Color.ORANGE);
 
+        lbl_subpro.setHorizontalTextPosition(SwingConstants.CENTER);
+        lbl_subpro.setLocation(10, 200);
+        lbl_subpro.setIcon(new ImageIcon(".\\src\\Imagenes\\UML\\subpro.png")); // NOI18N
+        lbl_subpro.setMaximumSize(new java.awt.Dimension(100, 100));
+        lbl_subpro.setMinimumSize(new Dimension(100, 100));
+        lbl_subpro.setLocation(new Point(20, 20));
+        lbl_subpro.setPreferredSize(new Dimension(50, 50));
+        lbl_subpro.setSize(100, 64);
+        JL_actual = lbl_subpro;
+}
     public void Guardar(String Nombre, String Extension, String Tipo) {
         JFileChooser jfc = new JFileChooser();
         FileNameExtensionFilter filtro = new FileNameExtensionFilter(Tipo, Extension);
@@ -2275,44 +1999,7 @@ JOptionPane.showMessageDialog(jd_UML,JL_actual.getClass().getSimpleName());
             System.out.println(P.getClass().getSimpleName());
             this.panelActual.add(P);
             panelActual.repaint();
-            P.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-                public void mouseDragged(java.awt.event.MouseEvent evt) {
-                    JL_actual = P;
-                    if ((P.getLocation().x + evt.getX() - P.getWidth() / 2) >= 0
-                            && (P.getLocation().x + evt.getX() - P.getWidth() / 2) <= 800) {
-                        P.setLocation(P.getLocation().x + evt.getX() - P.getWidth() / 2,
-                                P.getLocation().y + evt.getY() - P.getHeight() / 2);
-
-                    }// para que no se salga del rango
-
-                }
-            });  //agrega los label
-            P.addMouseListener(new MouseListener() {
-                public void mouseClicked(MouseEvent evt) {
-                    JL_actual = P;
-                    if (evt.isMetaDown()) {
-                        JL_actual = P;
-                        System.out.println(JL_actual);
-                        pp_OP.show(evt.getComponent(), evt.getX(), evt.getY());
-                    }
-                }
-
-                public void mouseEntered(MouseEvent arg0) {
-                    JL_actual = P;
-                }
-
-                public void mouseExited(MouseEvent arg0) {
-                    JL_actual = P;
-                }
-
-                public void mousePressed(MouseEvent arg0) {
-                    JL_actual = P;
-                }
-
-                public void mouseReleased(MouseEvent arg0) {
-                    JL_actual = P;
-                }
-            });
+            AgregarDrag(P,1);
 
         }//Fin del For
 
@@ -2424,6 +2111,56 @@ JOptionPane.showMessageDialog(jd_UML,JL_actual.getClass().getSimpleName());
             JOptionPane.showMessageDialog(this.Dialogo_Actual, "Se han Guardado las Clases");
         }
     }
+
+    public void AgregarDrag(JLabel lbl_Proceso, int n) {
+        lbl_Proceso.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                JL_actual = lbl_Proceso;
+                if ((lbl_Proceso.getLocation().x + evt.getX() - lbl_Proceso.getWidth() / 2) >= 0
+                        && (lbl_Proceso.getLocation().x + evt.getX() - lbl_Proceso.getWidth() / 2) <= 800) {
+                    lbl_Proceso.setLocation(lbl_Proceso.getLocation().x + evt.getX() - lbl_Proceso.getWidth() / 2,
+                            lbl_Proceso.getLocation().y + evt.getY() - lbl_Proceso.getHeight() / 2);
+                    //System.out.println(lbl_Proceso);
+                    // System.out.println(lbl_Proceso.getName());
+                }// para que no se salga del rango
+
+            }
+        });  //agrega los label
+        lbl_Proceso.addMouseListener(new MouseListener() {
+            public void mouseClicked(MouseEvent evt) {
+                JL_actual = lbl_Proceso;
+                if (evt.isMetaDown()) {
+                    JL_actual = lbl_Proceso;
+                    System.out.println(JL_actual);
+                    System.out.println(lbl_Proceso.getText());
+                    pp_OP.show(evt.getComponent(), evt.getX(), evt.getY());
+                }
+            }
+
+            public void mouseEntered(MouseEvent arg0) {
+                JL_actual = lbl_Proceso;
+            }
+
+            public void mouseExited(MouseEvent arg0) {
+                JL_actual = lbl_Proceso;
+            }
+
+            public void mousePressed(MouseEvent arg0) {
+                JL_actual = lbl_Proceso;
+            }
+
+            public void mouseReleased(MouseEvent arg0) {
+                JL_actual = lbl_Proceso;
+            }
+        });
+        this.jp_Drag.add(lbl_Proceso);
+        if (n==0) {
+              JL_actual = lbl_Proceso;
+        }else{
+            
+        }
+        jp_Drag.repaint();
+    }//FIN DEL METODO
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

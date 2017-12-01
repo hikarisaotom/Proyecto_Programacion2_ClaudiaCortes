@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package proyecto_claudiacortes_programación2.Clases;
+package proyecto_claudiacortes_programación2;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -20,7 +20,7 @@ import javax.swing.JLabel;
  */
 public class Adm_UML {
 
-    private ArrayList<JLabel> listaelementos = new ArrayList();
+    private ArrayList<Object> listaelementos = new ArrayList();
     private File archivo = null;
 
     public Adm_UML(String path) {
@@ -31,11 +31,11 @@ public class Adm_UML {
         listaelementos.add(UML);
     }
 
-    public ArrayList<JLabel> getListaelementos() {
+    public ArrayList<Object> getListaelementos() {
         return listaelementos;
     }
 
-    public void setListaelementos(ArrayList<JLabel> listaelementos) {
+    public void setListaelementos(ArrayList<Object> listaelementos) {
         this.listaelementos = listaelementos;
     }
 

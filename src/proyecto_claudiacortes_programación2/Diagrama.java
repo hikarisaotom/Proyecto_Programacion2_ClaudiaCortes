@@ -3,9 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package proyecto_claudiacortes_programación2.Clases;
+package proyecto_claudiacortes_programación2;
 
-import proyecto_claudiacortes_programación2.UML.Clase;
 import java.io.Serializable;
 import javax.swing.JTree;
 

@@ -81,7 +81,6 @@ public class Principal extends javax.swing.JFrame {
     private void initComponents() {
 
         jd_DiagramaClases = new javax.swing.JDialog();
-        jp_dragDiagrama = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTree1 = new javax.swing.JTree();
         btn_agregarArbol = new javax.swing.JButton();
@@ -91,6 +90,12 @@ public class Principal extends javax.swing.JFrame {
         btn_generardiagrama = new javax.swing.JButton();
         btn_generarCodigoClases = new javax.swing.JButton();
         btn_Herencia = new javax.swing.JButton();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
+        jPanel1 = new javax.swing.JPanel();
+        jp_dragDiagrama = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        txt_CodigoClases = new javax.swing.JTextArea();
         jMenuBar6 = new javax.swing.JMenuBar();
         jMenu6 = new javax.swing.JMenu();
         jmi_AbrirClases = new javax.swing.JMenuItem();
@@ -216,7 +221,7 @@ public class Principal extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        jmi_abrirGlobal = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
         jMenu4 = new javax.swing.JMenu();
@@ -224,21 +229,6 @@ public class Principal extends javax.swing.JFrame {
 
         jd_DiagramaClases.setMinimumSize(new java.awt.Dimension(500, 600));
         jd_DiagramaClases.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jp_dragDiagrama.setBackground(new java.awt.Color(204, 204, 204));
-
-        javax.swing.GroupLayout jp_dragDiagramaLayout = new javax.swing.GroupLayout(jp_dragDiagrama);
-        jp_dragDiagrama.setLayout(jp_dragDiagramaLayout);
-        jp_dragDiagramaLayout.setHorizontalGroup(
-            jp_dragDiagramaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 720, Short.MAX_VALUE)
-        );
-        jp_dragDiagramaLayout.setVerticalGroup(
-            jp_dragDiagramaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 343, Short.MAX_VALUE)
-        );
-
-        jd_DiagramaClases.getContentPane().add(jp_dragDiagrama, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 50, 720, -1));
 
         jTree1.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Clases");
@@ -301,6 +291,57 @@ public class Principal extends javax.swing.JFrame {
             }
         });
         jd_DiagramaClases.getContentPane().add(btn_Herencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, -1, 40));
+
+        jp_dragDiagrama.setBackground(new java.awt.Color(204, 204, 204));
+
+        javax.swing.GroupLayout jp_dragDiagramaLayout = new javax.swing.GroupLayout(jp_dragDiagrama);
+        jp_dragDiagrama.setLayout(jp_dragDiagramaLayout);
+        jp_dragDiagramaLayout.setHorizontalGroup(
+            jp_dragDiagramaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 655, Short.MAX_VALUE)
+        );
+        jp_dragDiagramaLayout.setVerticalGroup(
+            jp_dragDiagramaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 422, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jp_dragDiagrama, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jp_dragDiagrama, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.addTab("Diagrama", jPanel1);
+
+        txt_CodigoClases.setColumns(20);
+        txt_CodigoClases.setRows(5);
+        jScrollPane4.setViewportView(txt_CodigoClases);
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 617, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(28, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 426, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Codigo", jPanel2);
+
+        jd_DiagramaClases.getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 0, 660, 450));
 
         jMenu6.setText("Archivo");
 
@@ -1038,9 +1079,14 @@ public class Principal extends javax.swing.JFrame {
 
         jMenu1.setText("Archivo");
 
-        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem1.setText("Guardar Clases");
-        jMenu1.add(jMenuItem1);
+        jmi_abrirGlobal.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
+        jmi_abrirGlobal.setText("Abrir");
+        jmi_abrirGlobal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmi_abrirGlobalActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jmi_abrirGlobal);
 
         jMenuBar1.add(jMenu1);
 
@@ -1820,7 +1866,8 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_generardiagramaActionPerformed
 
     private void btn_generardiagramaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_generardiagramaMouseClicked
-        JOptionPane.showMessageDialog(jd_DiagramaClases, ActualArbol.GenereraCodigo());
+        JOptionPane.showMessageDialog(jd_DiagramaClases, "Se ha Generado el Codigo Exitosamente");
+        txt_CodigoClases.setText(ActualArbol.GenereraCodigo());
     }//GEN-LAST:event_btn_generardiagramaMouseClicked
 
     private void btn_crearpropiedadMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_crearpropiedadMouseClicked
@@ -1868,8 +1915,8 @@ Long*/
         JOptionPane.showMessageDialog(jd_DiagramaClases, "Nombre del Paquete");
 
         String C = imprimirNodo((TreeNode) jTree1.getModel().getRoot());
-
-        JOptionPane.showMessageDialog(jd_DiagramaClases, C);
+txt_CodigoClases.setText(C);
+      JOptionPane.showMessageDialog(jd_DiagramaClases,"El codigo Se ha generado Correctamente");
 
     }//GEN-LAST:event_btn_generarCodigoClasesMouseClicked
 
@@ -2078,7 +2125,7 @@ Long*/
         arbol.setClase(C);
         arbol.setModel(modelo);
         arbol.setName("Arbol" + Cont_A);
-        arbol.setSize(100, 100);
+        arbol.setSize(150, 150);
         Cont_A++;
         arbol.addMouseListener(new MouseListener() {
             public void mouseClicked(MouseEvent evt) {
@@ -2188,6 +2235,10 @@ Long*/
         Dialogo_Actual = jd_DiagramaClases;
         AbrirD();
     }//GEN-LAST:event_jmi_AbrirClasesActionPerformed
+
+    private void jmi_abrirGlobalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_abrirGlobalActionPerformed
+        
+    }//GEN-LAST:event_jmi_abrirGlobalActionPerformed
     public String imprimirNodo(TreeNode nodo) {
         String Clases = "";
         for (int i = 0; i < nodo.getChildCount(); i++) {
@@ -2300,7 +2351,12 @@ Long*/
         jl_hijo.removeAll();
         jl_padre.removeAll();
         jTree1.removeAll();
-        //ABRIMOS EL ARCHIVO
+        //Cambismos lo modelos por uno vacios
+         jTree1.setModel( new DefaultTreeModel(new DefaultMutableTreeNode("Clases")));
+         jl_hijo.setModel(new DefaultListModel());
+          jl_padre.setModel(new DefaultListModel());
+         
+//ABRIMOS EL ARCHIVO
         JFileChooser jfc = new JFileChooser();
         FileNameExtensionFilter filtro = new FileNameExtensionFilter("Diagramas de Clases", "Clau2");
         jfc.addChoosableFileFilter(filtro);
@@ -2364,10 +2420,8 @@ Long*/
             });
 
         }//Fin del For
-        //Lo agregamos al arbol de las clases.
-
+        //Lo agregamos al arbol de las clases y a las listas.
         m.reload();
-
         jl_hijo.setModel(M);
         jl_padre.setModel(M);
         panelActual.repaint();
@@ -2523,10 +2577,13 @@ Long*/
     private javax.swing.JMenuBar jMenuBar4;
     private javax.swing.JMenuBar jMenuBar5;
     private javax.swing.JMenuBar jMenuBar6;
-    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JToolBar jToolBar2;
     private javax.swing.JTree jTree1;
@@ -2549,6 +2606,7 @@ Long*/
     private javax.swing.JMenuItem jmi_DatosPropiedad;
     private javax.swing.JMenuItem jmi_EliminarPropiedad;
     private javax.swing.JMenuItem jmi_Eliminararbol;
+    private javax.swing.JMenuItem jmi_abrirGlobal;
     private javax.swing.JMenuItem jmi_agregarMetodo;
     private javax.swing.JMenuItem jmi_agregarpropiedad;
     private javax.swing.JMenuItem jmi_color;
@@ -2572,6 +2630,7 @@ Long*/
     private javax.swing.JPopupMenu pp_OP;
     private javax.swing.JTextField tf_variable;
     private javax.swing.JTextField tf_variable1;
+    private javax.swing.JTextArea txt_CodigoClases;
     private javax.swing.JTextField txt_codigocolorJL_actual;
     private javax.swing.JTextField txt_nombreJL_actual;
     private javax.swing.JTextField txt_textoJL_actual;
@@ -2598,146 +2657,4 @@ Long*/
     Metodo M_Actual;
     JPanel panelActual;
     JDialog Dialogo_Actual;
-//        int componentCount = jp_Drag.getComponentCount();
-//
-//        for (int j = 0; j < componentCount; j++) {
-//
-//            Component c = jp_Drag.getComponent(j);
-//            JPanel p = (JPanel) c;
-//            System.out.println(p.getY());//I get zero for all
-//        }       
-    //  System.out.println(jp_Drag.findComponentAt(150,100));
-    //  System.out.println( jp_Drag.contains(10,200));
-    //   System.out.println(jp_Drag.findComponentAt(10, 200));
-
-//        for (int i = 0; i < Obejtos.length; i++) {
-//            UML Objeto = ((UML) Obejtos[i]);
-//            if (Objeto.getTipo().equals("SeperadorV")) {
-//                Separador P= new Separador();
-//                P.AgarrarDatos(Objeto);
-//                P.setPOS(true);
-//                SEPARADORES.add(((Separador)Objeto));
-//               
-//            } else if (((UML) Obejtos[i]).getTipo().equals("Seperador")) {
-//                Separador P= new Separador();
-//                P.AgarrarDatos(Objeto);
-//                 P.setPOS(false);
-//             SEPARADORES.add(P);//CAMBIAR EL BOOLEANO
-//                
-//          } else if (((UML) Obejtos[i]).getTipo().equals("proceso")) {
-//              Proceso P=new Proceso();
-//              P.AgarrarDatos(Objeto);
-//               INSTRUCCIONES.add(P);//CAMBIAR EL BOOLEANO
-//                
-//             } else if (((UML) Obejtos[i]).getTipo().equals("Datos")) {
-//                 Datos P=new Datos();
-//              P.AgarrarDatos(Objeto);
-//               INSTRUCCIONES.add(P);
-//                 
-//              } else if (((UML) Obejtos[i]).getTipo().equals("If")) {
-//                  If P=new If();
-//              P.AgarrarDatos(Objeto);
-//               INSTRUCCIONES.add(P);
-//                  
-//              } else if (((UML) Obejtos[i]).getTipo().equals("Inicio")) {
-//                   Inicio_Fin P=new Inicio_Fin();
-//              P.AgarrarDatos(Objeto);
-//               INSTRUCCIONES.add(P);
-//                  
-//           } else if (((UML) Obejtos[i]).getTipo().equals("Subproceso")) {
-//               
-//               
-//           } else if (((UML) Obejtos[i]).getTipo().equals("Documento")) {
-//               
-//           }
-//        }
-//        System.out.println("TERMINADO");
-//        System.out.println(SEPARADORES.size());
-//        System.out.println(INSTRUCCIONES.size());
-////        for (int i = 0; i < jp_Drag.getComponentCount(); i++) {
-////            System.out.println(jp_Drag.getComponent(i).getX() + ", " + jp_Drag.getComponent(i).getY());
-////        }
 }
-
-//GUARDAR EL UML
-///String Nombre = "Diagrama";
-//        JFileChooser jfc = new JFileChooser();
-//        FileNameExtensionFilter filtro = new FileNameExtensionFilter("Diagramas UML", "clau");
-//        jfc.addChoosableFileFilter(filtro);
-//        jfc.setSelectedFile(new File(Nombre + ".clau"));
-//        int seleccion = jfc.showSaveDialog(this.jd_UML);
-//        if (seleccion == JFileChooser.APPROVE_OPTION) {
-//            System.out.println(jfc.getSelectedFile().getPath());
-//            Adm_Diagramas ap = new Adm_Diagramas(jfc.getSelectedFile().getPath());
-//            ap.CargarArchivo();
-//            Object Obejtos[] = jp_Drag.getComponents();
-//
-//            for (int i = 0; i < Obejtos.length; i++) {
-//                ap.AgregarUML(Obejtos[i]);
-//            }
-//            try {
-//                ap.escribirArchivo();
-//            } catch (IOException ex) {
-//                Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
-//            }
-//            JOptionPane.showMessageDialog(this.jd_UML, "Se ha guardado el Diagrama");
-//            System.out.println(ap.getListaelementos());
-//        }
-///ABRIR
-//jp_Drag.removeAll();
-//        jp_Drag.repaint();
-//        //ABRIMOS EL ATCHIVO
-//        JFileChooser jfc = new JFileChooser();
-//        FileNameExtensionFilter filtro = new FileNameExtensionFilter("Diagramas UML", "clau");
-//        jfc.addChoosableFileFilter(filtro);
-//        int seleccion = jfc.showOpenDialog(this.jd_UML);
-//        System.out.println(jfc.getSelectedFile().getPath());
-//        Adm_Diagramas ap = new Adm_Diagramas(jfc.getSelectedFile().getPath());
-//        ap.CargarArchivo();
-//        for (int i = 0; i < ap.getListaelementos().size(); i++) {
-//           JLabel P= ((JLabel)ap.getListaelementos().get(i));
-//            System.out.println(P.getClass().getSimpleName());
-//            this.jp_Drag.add(P);
-//            jp_Drag.repaint();
-//              P.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-//            public void mouseDragged(java.awt.event.MouseEvent evt) {
-//                JL_actual = P;
-//                if ((P.getLocation().x + evt.getX() - P.getWidth() / 2) >= 0
-//                        && (P.getLocation().x + evt.getX() - P.getWidth() / 2) <= 800) {
-//                    P.setLocation(P.getLocation().x + evt.getX() - P.getWidth() / 2,
-//                            P.getLocation().y + evt.getY() - P.getHeight() / 2);
-//                    
-//                }// para que no se salga del rango
-//
-//            }
-//        });  //agrega los label
-//        P.addMouseListener(new MouseListener() {
-//            public void mouseClicked(MouseEvent evt) {
-//                JL_actual = P;
-//                if (evt.isMetaDown()) {
-//                    JL_actual = P;
-//                    System.out.println(JL_actual);
-//                    pp_OP.show(evt.getComponent(), evt.getX(), evt.getY());
-//                }
-//            }
-//
-//            public void mouseEntered(MouseEvent arg0) {
-//                JL_actual = P;
-//            }
-//
-//            public void mouseExited(MouseEvent arg0) {
-//                JL_actual = P;
-//            }
-//
-//            public void mousePressed(MouseEvent arg0) {
-//                JL_actual = P;
-//            }
-//
-//            public void mouseReleased(MouseEvent arg0) {
-//                JL_actual = P;
-//            }
-//        });
-//        }
-//        jp_Drag.repaint();
-//        JOptionPane.showMessageDialog(this.jd_UML, "Se han cargado los elementos en el panel");
-

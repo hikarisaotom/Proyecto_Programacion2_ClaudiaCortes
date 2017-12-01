@@ -110,7 +110,6 @@ public class Principal extends javax.swing.JFrame {
         btn_InicioFin = new javax.swing.JButton();
         btn_datos = new javax.swing.JButton();
         btn_separador = new javax.swing.JButton();
-        jp_Drag = new javax.swing.JPanel();
         jToolBar1 = new javax.swing.JToolBar();
         jButton1 = new javax.swing.JButton();
         jc_Fuentes = new javax.swing.JComboBox<>();
@@ -124,6 +123,11 @@ public class Principal extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         btn_generarCodigoUML = new javax.swing.JButton();
         jLabel14 = new javax.swing.JLabel();
+        jTabbedPane2 = new javax.swing.JTabbedPane();
+        jp_Drag = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
         btn_GenerarCodigoUML = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jMenuBar2 = new javax.swing.JMenuBar();
@@ -453,26 +457,6 @@ public class Principal extends javax.swing.JFrame {
         });
         jd_UML.getContentPane().add(btn_separador, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 370, 10, 100));
 
-        jp_Drag.setBackground(new java.awt.Color(204, 204, 204));
-        jp_Drag.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jp_DragMouseClicked(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jp_DragLayout = new javax.swing.GroupLayout(jp_Drag);
-        jp_Drag.setLayout(jp_DragLayout);
-        jp_DragLayout.setHorizontalGroup(
-            jp_DragLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 720, Short.MAX_VALUE)
-        );
-        jp_DragLayout.setVerticalGroup(
-            jp_DragLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-
-        jd_UML.getContentPane().add(jp_Drag, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 50, 720, 400));
-
         jToolBar1.setRollover(true);
 
         jButton1.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
@@ -555,10 +539,49 @@ public class Principal extends javax.swing.JFrame {
         jLabel14.setText("Opciones: ");
         jd_UML.getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 50, -1, -1));
 
+        jp_Drag.setBackground(new java.awt.Color(204, 204, 204));
+        jp_Drag.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jp_DragMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jp_DragLayout = new javax.swing.GroupLayout(jp_Drag);
+        jp_Drag.setLayout(jp_DragLayout);
+        jp_DragLayout.setHorizontalGroup(
+            jp_DragLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 915, Short.MAX_VALUE)
+        );
+        jp_DragLayout.setVerticalGroup(
+            jp_DragLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 392, Short.MAX_VALUE)
+        );
+
+        jTabbedPane2.addTab("Diagrama", jp_Drag);
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane5.setViewportView(jTextArea1);
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 915, Short.MAX_VALUE)
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 392, Short.MAX_VALUE)
+        );
+
+        jTabbedPane2.addTab("Codigo", jPanel3);
+
+        jd_UML.getContentPane().add(jTabbedPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 40, 920, 420));
+
         btn_GenerarCodigoUML.setBackground(new java.awt.Color(255, 255, 255));
         btn_GenerarCodigoUML.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         btn_GenerarCodigoUML.setOpaque(true);
-        jd_UML.getContentPane().add(btn_GenerarCodigoUML, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 1240, 500));
+        jd_UML.getContentPane().add(btn_GenerarCodigoUML, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1240, 520));
 
         jLabel15.setText("Tamaño");
         jd_UML.getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 0, -1, 20));
@@ -1671,10 +1694,6 @@ public class Principal extends javax.swing.JFrame {
         });
     }//GEN-LAST:event_btn_SeparadorVMouseClicked
 
-    private void jp_DragMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_DragMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jp_DragMouseClicked
-
     private void jmi_colorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_colorActionPerformed
         try {
             JL_actual.setBackground(JColorChooser.showDialog(jd_UML, "SELECIONE UN COLOR", Color.yellow));
@@ -2239,6 +2258,10 @@ txt_CodigoClases.setText(C);
     private void jmi_abrirGlobalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_abrirGlobalActionPerformed
         
     }//GEN-LAST:event_jmi_abrirGlobalActionPerformed
+
+    private void jp_DragMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_DragMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jp_DragMouseClicked
     public String imprimirNodo(TreeNode nodo) {
         String Clases = "";
         for (int i = 0; i < nodo.getChildCount(); i++) {
@@ -2579,11 +2602,15 @@ txt_CodigoClases.setText(C);
     private javax.swing.JMenuBar jMenuBar6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTabbedPane jTabbedPane2;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JToolBar jToolBar2;
     private javax.swing.JTree jTree1;

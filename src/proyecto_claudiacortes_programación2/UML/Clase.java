@@ -3,10 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package proyecto_claudiacortes_programación2;
+package proyecto_claudiacortes_programación2.UML;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import proyecto_claudiacortes_programación2.Clases.Metodo;
+import proyecto_claudiacortes_programación2.Clases.Propiedad;
 
 /**
  *

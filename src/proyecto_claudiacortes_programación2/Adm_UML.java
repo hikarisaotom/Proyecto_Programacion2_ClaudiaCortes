@@ -12,29 +12,30 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+import javax.swing.JLabel;
 
 /**
  *
  * @author Claudia Cortes
  */
-public class Adm_Diagramas {
+public class Adm_UML {
 
-    private ArrayList<Object> listaelementos = new ArrayList();
+    private ArrayList<JLabel> listaelementos = new ArrayList();
     private File archivo = null;
 
-    public Adm_Diagramas(String path) {
+    public Adm_UML(String path) {
         archivo = new File(path);
     }
 
-    public void AgregarUML(Object UML) {
+    public void AgregarUML(JLabel UML) {
         listaelementos.add(UML);
     }
 
-    public ArrayList<Object> getListaelementos() {
+    public ArrayList<JLabel> getListaelementos() {
         return listaelementos;
     }
 
-    public void setListaelementos(ArrayList<Object> listaelementos) {
+    public void setListaelementos(ArrayList<JLabel> listaelementos) {
         this.listaelementos = listaelementos;
     }
 
@@ -49,12 +50,12 @@ public class Adm_Diagramas {
     public void CargarArchivo() {
         try {
             listaelementos = new ArrayList();
-            Object temp;
+            JLabel temp;
             if (archivo.exists()) {
                 FileInputStream entrada = new FileInputStream(archivo);
                 ObjectInputStream objeto = new ObjectInputStream(entrada);
                 try {
-                    while ((temp = (Object) objeto.readObject()) != null) {
+                    while ((temp = (JLabel) objeto.readObject()) != null) {
                         listaelementos.add(temp);
                     }
                 } catch (Exception e) {

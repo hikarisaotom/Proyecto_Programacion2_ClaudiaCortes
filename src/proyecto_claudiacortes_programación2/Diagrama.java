@@ -5,15 +5,16 @@
  */
 package proyecto_claudiacortes_programación2;
 
+import java.io.Serializable;
 import javax.swing.JTree;
 
 /**
  *
  * @author Claudia Cortes
  */
-public class Diagrama extends JTree{
+public class Diagrama extends JTree implements Serializable{
     Clase Clase;
-
+ private static final long SerialVersionUID=240214L;
     public Clase getClase() {
         return Clase;
     }

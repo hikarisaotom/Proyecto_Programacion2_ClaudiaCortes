@@ -5,14 +5,16 @@
  */
 package proyecto_claudiacortes_programación2;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  *
  * @author Claudia Cortes
  */
-public class Clase {
+public class Clase implements Serializable{
     String  Nombre;
+     private static final long SerialVersionUID=242424L;
     ArrayList<Propiedad> Propiedades= new ArrayList();
      ArrayList<Clase> Heredados= new ArrayList();
     ArrayList<Metodo> Metodos = new ArrayList();

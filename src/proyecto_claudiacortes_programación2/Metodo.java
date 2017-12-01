@@ -5,18 +5,19 @@
  */
 package proyecto_claudiacortes_programación2;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  *
  * @author Claudia Cortes
  */
-public class Metodo {
+public class Metodo implements Serializable{
     private String Nombre;
     private ArrayList<Propiedad>Parametros=new ArrayList();
     private String T_return ;
     private int Alcance;
-
+ private static final long SerialVersionUID=252525L;
     public int getAlcance() {
         return Alcance;
     }

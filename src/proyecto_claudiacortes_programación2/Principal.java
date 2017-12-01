@@ -26,6 +26,7 @@ import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
 import javax.swing.JColorChooser;
 import javax.swing.JComponent;
+import javax.swing.JDialog;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -90,6 +91,11 @@ public class Principal extends javax.swing.JFrame {
         btn_generardiagrama = new javax.swing.JButton();
         btn_generarCodigoClases = new javax.swing.JButton();
         btn_Herencia = new javax.swing.JButton();
+        jMenuBar6 = new javax.swing.JMenuBar();
+        jMenu6 = new javax.swing.JMenu();
+        jmi_AbrirClases = new javax.swing.JMenuItem();
+        jmi_guardarClases = new javax.swing.JMenuItem();
+        jMenu8 = new javax.swing.JMenu();
         jd_UML = new javax.swing.JDialog();
         btn_documento = new javax.swing.JButton();
         btn_Proceso = new javax.swing.JButton();
@@ -296,6 +302,33 @@ public class Principal extends javax.swing.JFrame {
         });
         jd_DiagramaClases.getContentPane().add(btn_Herencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, -1, 40));
 
+        jMenu6.setText("Archivo");
+
+        jmi_AbrirClases.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_MASK));
+        jmi_AbrirClases.setText("Abrir");
+        jmi_AbrirClases.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmi_AbrirClasesActionPerformed(evt);
+            }
+        });
+        jMenu6.add(jmi_AbrirClases);
+
+        jmi_guardarClases.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_G, java.awt.event.InputEvent.CTRL_MASK));
+        jmi_guardarClases.setText("Guardar");
+        jmi_guardarClases.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmi_guardarClasesActionPerformed(evt);
+            }
+        });
+        jMenu6.add(jmi_guardarClases);
+
+        jMenuBar6.add(jMenu6);
+
+        jMenu8.setText("Exportar");
+        jMenuBar6.add(jMenu8);
+
+        jd_DiagramaClases.setJMenuBar(jMenuBar6);
+
         jd_UML.setBackground(new java.awt.Color(255, 255, 255));
         jd_UML.setMinimumSize(new java.awt.Dimension(500, 600));
         jd_UML.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -492,7 +525,7 @@ public class Principal extends javax.swing.JFrame {
         jMenu7.setText("Archivo");
 
         jmi_guardraUML.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_G, java.awt.event.InputEvent.CTRL_MASK));
-        jmi_guardraUML.setText("Guardar UML");
+        jmi_guardraUML.setText("Guardar");
         jmi_guardraUML.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jmi_guardraUMLActionPerformed(evt);
@@ -2040,7 +2073,6 @@ Long*/
         DefaultMutableTreeNode Metodos = new DefaultMutableTreeNode("Metodos");
         carpetaRaiz.add(Atributos);
         carpetaRaiz.add(Metodos);
-
         DefaultTreeModel modelo = new DefaultTreeModel(carpetaRaiz);
         Diagrama arbol = new Diagrama();
         arbol.setClase(C);
@@ -2134,94 +2166,28 @@ Long*/
     }//GEN-LAST:event_btn_agregarArbolMouseClicked
 
     private void jmi_guardraUMLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_guardraUMLActionPerformed
-        String Nombre = "Diagrama";
-        JFileChooser jfc = new JFileChooser();
-        FileNameExtensionFilter filtro = new FileNameExtensionFilter("Diagramas UML", "clau");
-        jfc.addChoosableFileFilter(filtro);
-        jfc.setSelectedFile(new File(Nombre + ".clau"));
-        int seleccion = jfc.showSaveDialog(this.jd_UML);
-        if (seleccion == JFileChooser.APPROVE_OPTION) {
-            System.out.println(jfc.getSelectedFile().getPath());
-            Adm_Diagramas ap = new Adm_Diagramas(jfc.getSelectedFile().getPath());
-            ap.CargarArchivo();
-            Object Obejtos[] = jp_Drag.getComponents();
-
-            for (int i = 0; i < Obejtos.length; i++) {
-                ap.AgregarUML(Obejtos[i]);
-            }
-            try {
-                ap.escribirArchivo();
-            } catch (IOException ex) {
-                Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            JOptionPane.showMessageDialog(this.jd_UML, "Se ha guardado el Diagrama");
-            System.out.println(ap.getListaelementos());
-        }
-
+        panelActual = jp_Drag;
+        Dialogo_Actual = jd_UML;
+        Guardar("Diagrama UML", "Clau", "Diagramas UML");
     }//GEN-LAST:event_jmi_guardraUMLActionPerformed
 
     private void jmi_AbrirUMLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_AbrirUMLActionPerformed
-        jp_Drag.removeAll();
-        jp_Drag.repaint();
-        //ABRIMOS EL ATCHIVO
-        JFileChooser jfc = new JFileChooser();
-        FileNameExtensionFilter filtro = new FileNameExtensionFilter("Diagramas UML", "clau");
-        jfc.addChoosableFileFilter(filtro);
-        int seleccion = jfc.showOpenDialog(this.jd_UML);
-        System.out.println(jfc.getSelectedFile().getPath());
-        Adm_Diagramas ap = new Adm_Diagramas(jfc.getSelectedFile().getPath());
-
-        ap.CargarArchivo();
-        for (int i = 0; i < ap.getListaelementos().size(); i++) {
-           JLabel P= ((JLabel)ap.getListaelementos().get(i));
-            System.out.println(P.getClass().getSimpleName());
-            this.jp_Drag.add(P);
-            jp_Drag.repaint();
-              P.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseDragged(java.awt.event.MouseEvent evt) {
-                JL_actual = P;
-                if ((P.getLocation().x + evt.getX() - P.getWidth() / 2) >= 0
-                        && (P.getLocation().x + evt.getX() - P.getWidth() / 2) <= 800) {
-                    P.setLocation(P.getLocation().x + evt.getX() - P.getWidth() / 2,
-                            P.getLocation().y + evt.getY() - P.getHeight() / 2);
-                    
-                }// para que no se salga del rango
-
-            }
-        });  //agrega los label
-        P.addMouseListener(new MouseListener() {
-            public void mouseClicked(MouseEvent evt) {
-                JL_actual = P;
-                if (evt.isMetaDown()) {
-                    JL_actual = P;
-                    System.out.println(JL_actual);
-                    pp_OP.show(evt.getComponent(), evt.getX(), evt.getY());
-                }
-            }
-
-            public void mouseEntered(MouseEvent arg0) {
-                JL_actual = P;
-            }
-
-            public void mouseExited(MouseEvent arg0) {
-                JL_actual = P;
-            }
-
-            public void mousePressed(MouseEvent arg0) {
-                JL_actual = P;
-            }
-
-            public void mouseReleased(MouseEvent arg0) {
-                JL_actual = P;
-            }
-        });
-        }
-        
-        jp_Drag.repaint();
-        JOptionPane.showMessageDialog(this.jd_UML, "Se han cargado los elementos en el panel");
-
-
+        panelActual = jp_Drag;
+        Dialogo_Actual = jd_UML;
+        Abrir();
     }//GEN-LAST:event_jmi_AbrirUMLActionPerformed
+
+    private void jmi_guardarClasesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_guardarClasesActionPerformed
+        panelActual = jp_dragDiagrama;
+        Dialogo_Actual = jd_DiagramaClases;
+        GuardarD("Diagrama de Clases", "Clau2", "Diagramas De Clase");
+    }//GEN-LAST:event_jmi_guardarClasesActionPerformed
+
+    private void jmi_AbrirClasesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_AbrirClasesActionPerformed
+        panelActual = jp_dragDiagrama;
+        Dialogo_Actual = jd_DiagramaClases;
+        AbrirD();
+    }//GEN-LAST:event_jmi_AbrirClasesActionPerformed
     public String imprimirNodo(TreeNode nodo) {
         String Clases = "";
         for (int i = 0; i < nodo.getChildCount(); i++) {
@@ -2238,9 +2204,202 @@ Long*/
         return Clases;
     }
 
-    /**
-     * @param args the command line arguments
-     */
+    public void Guardar(String Nombre, String Extension, String Tipo) {
+        JFileChooser jfc = new JFileChooser();
+        FileNameExtensionFilter filtro = new FileNameExtensionFilter(Tipo, Extension);
+        jfc.addChoosableFileFilter(filtro);
+        jfc.setSelectedFile(new File(Nombre + "." + Extension));
+        int seleccion = jfc.showSaveDialog(this.Dialogo_Actual);
+        if (seleccion == JFileChooser.APPROVE_OPTION) {
+            System.out.println(jfc.getSelectedFile().getPath());
+            Adm_UML ap = new Adm_UML(jfc.getSelectedFile().getPath());
+            ap.CargarArchivo();
+            Object Obejtos[] = panelActual.getComponents();
+            System.out.println("LOS ELEMNTOS A GUARDAR");
+
+            for (int i = 0; i < Obejtos.length; i++) {
+                ap.AgregarUML((JLabel) Obejtos[i]);
+                System.out.println(Obejtos[i]);
+            }
+            try {
+                ap.escribirArchivo();
+            } catch (IOException ex) {
+                Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            JOptionPane.showMessageDialog(this.Dialogo_Actual, "Se ha guardado el Diagrama");
+            System.out.println(ap.getListaelementos());
+        }
+    }
+
+    public void Abrir() {
+        panelActual.removeAll();
+        panelActual.repaint();
+        //ABRIMOS EL ArCHIVO
+        JFileChooser jfc = new JFileChooser();
+        FileNameExtensionFilter filtro = new FileNameExtensionFilter("Diagramas UML", "Clau");
+        jfc.addChoosableFileFilter(filtro);
+        int seleccion = jfc.showOpenDialog(this.Dialogo_Actual);
+        System.out.println(jfc.getSelectedFile().getPath());
+        Adm_UML ap = new Adm_UML(jfc.getSelectedFile().getPath());
+        //ap.CargarArchivo();
+
+        for (int i = 0; i < ap.getListaelementos().size(); i++) {
+            JLabel P = ((JLabel) ap.getListaelementos().get(i));
+            System.out.println(P.getClass().getSimpleName());
+            this.panelActual.add(P);
+            panelActual.repaint();
+            P.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+                public void mouseDragged(java.awt.event.MouseEvent evt) {
+                    JL_actual = P;
+                    if ((P.getLocation().x + evt.getX() - P.getWidth() / 2) >= 0
+                            && (P.getLocation().x + evt.getX() - P.getWidth() / 2) <= 800) {
+                        P.setLocation(P.getLocation().x + evt.getX() - P.getWidth() / 2,
+                                P.getLocation().y + evt.getY() - P.getHeight() / 2);
+
+                    }// para que no se salga del rango
+
+                }
+            });  //agrega los label
+            P.addMouseListener(new MouseListener() {
+                public void mouseClicked(MouseEvent evt) {
+                    JL_actual = P;
+                    if (evt.isMetaDown()) {
+                        JL_actual = P;
+                        System.out.println(JL_actual);
+                        pp_OP.show(evt.getComponent(), evt.getX(), evt.getY());
+                    }
+                }
+
+                public void mouseEntered(MouseEvent arg0) {
+                    JL_actual = P;
+                }
+
+                public void mouseExited(MouseEvent arg0) {
+                    JL_actual = P;
+                }
+
+                public void mousePressed(MouseEvent arg0) {
+                    JL_actual = P;
+                }
+
+                public void mouseReleased(MouseEvent arg0) {
+                    JL_actual = P;
+                }
+            });
+
+        }//Fin del For
+
+        panelActual.repaint();
+        JOptionPane.showMessageDialog(this.Dialogo_Actual, "Se han cargado los elementos en el panel");
+    }
+
+    public void AbrirD() {
+        //LIMPIAMOS LAS LISTAS, PANEL Y EL ARBOL
+        panelActual.removeAll();
+        panelActual.repaint();
+        jl_hijo.removeAll();
+        jl_padre.removeAll();
+        jTree1.removeAll();
+        //ABRIMOS EL ARCHIVO
+        JFileChooser jfc = new JFileChooser();
+        FileNameExtensionFilter filtro = new FileNameExtensionFilter("Diagramas de Clases", "Clau2");
+        jfc.addChoosableFileFilter(filtro);
+        int seleccion = jfc.showOpenDialog(this.Dialogo_Actual);
+        System.out.println(jfc.getSelectedFile().getPath());
+        Admin_Diagramas ap = new Admin_Diagramas(jfc.getSelectedFile().getPath());
+        ap.CargarArchivo();
+        //DATOS DEL  ARBOL PRINCIPAL
+        DefaultTreeModel m = (DefaultTreeModel) jTree1.getModel();
+        //DATOS DE LAS LISTAS.
+        DefaultListModel M = (DefaultListModel) jl_hijo.getModel();
+        DefaultMutableTreeNode Raiz = (DefaultMutableTreeNode) m.getRoot();
+        //  System.out.println("LOS ELEMENTOS"+ap.getElementos());
+        for (int i = 0; i < ap.getElementos().size(); i++) {
+            Diagrama P = ((Diagrama) ap.getElementos().get(i));
+            System.out.println("TIPO DE DATO" + P.getClass().getSimpleName());
+            DefaultTreeModel modelo = (DefaultTreeModel) P.getModel();
+            DefaultMutableTreeNode carpetaRaiz = (DefaultMutableTreeNode) modelo.getRoot();
+            //Agregar al arbol y a las listas
+            Raiz.add(carpetaRaiz);
+            M.addElement(P.getClase());
+            this.panelActual.add(P);
+            panelActual.repaint();
+            P.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+                public void mouseDragged(java.awt.event.MouseEvent evt) {
+                    ActualArbol = P;
+                    if ((P.getLocation().x + evt.getX() - P.getWidth() / 2) >= 0
+                            && (P.getLocation().x + evt.getX() - P.getWidth() / 2) <= 800) {
+                        P.setLocation(P.getLocation().x + evt.getX() - P.getWidth() / 2,
+                                P.getLocation().y + evt.getY() - P.getHeight() / 2);
+
+                    }// para que no se salga del rango
+
+                }
+            });  //agrega los label
+            P.addMouseListener(new MouseListener() {
+                public void mouseClicked(MouseEvent evt) {
+                    ActualArbol = P;
+                    if (evt.isMetaDown()) {
+                        ActualArbol = P;
+                        System.out.println(JL_actual);
+                        PP_OPA.show(evt.getComponent(), evt.getX(), evt.getY());
+                    }
+                }
+
+                public void mouseEntered(MouseEvent arg0) {
+                    ActualArbol = P;
+                }
+
+                public void mouseExited(MouseEvent arg0) {
+                    ActualArbol = P;
+                }
+
+                public void mousePressed(MouseEvent arg0) {
+                    ActualArbol = P;
+                }
+
+                public void mouseReleased(MouseEvent arg0) {
+                    ActualArbol = P;
+                }
+            });
+
+        }//Fin del For
+        //Lo agregamos al arbol de las clases.
+
+        m.reload();
+
+        jl_hijo.setModel(M);
+        jl_padre.setModel(M);
+        panelActual.repaint();
+        JOptionPane.showMessageDialog(this.Dialogo_Actual, "Se han cargado los elementos en el panel");
+
+    }
+
+    public void GuardarD(String Nombre, String Extension, String Tipo) {
+        JFileChooser jfc = new JFileChooser();
+        FileNameExtensionFilter filtro = new FileNameExtensionFilter(Tipo, Extension);
+        jfc.addChoosableFileFilter(filtro);
+        jfc.setSelectedFile(new File(Nombre + "." + Extension));
+        int seleccion = jfc.showSaveDialog(this.Dialogo_Actual);
+        if (seleccion == JFileChooser.APPROVE_OPTION) {
+            System.out.println(jfc.getSelectedFile().getPath());
+            Admin_Diagramas ap = new Admin_Diagramas(jfc.getSelectedFile().getPath());
+            ap.CargarArchivo();
+            Object Obejtos[] = panelActual.getComponents();
+            System.out.println("LOS ELEMeNTOS A GUARDAR");
+            for (int i = 0; i < Obejtos.length; i++) {
+                ap.AgregarElemento((Diagrama) Obejtos[i]);
+                System.out.println(Obejtos[i]);
+            }
+            try {
+                ap.EscribirArchivo();
+            } catch (IOException ex) {
+                Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            JOptionPane.showMessageDialog(this.Dialogo_Actual, "Se han Guardado las Clases");
+        }
+    }
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -2355,12 +2514,15 @@ Long*/
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
+    private javax.swing.JMenu jMenu6;
     private javax.swing.JMenu jMenu7;
+    private javax.swing.JMenu jMenu8;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuBar jMenuBar3;
     private javax.swing.JMenuBar jMenuBar4;
     private javax.swing.JMenuBar jMenuBar5;
+    private javax.swing.JMenuBar jMenuBar6;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
@@ -2382,6 +2544,7 @@ Long*/
     private javax.swing.JDialog jd_propiedades;
     private javax.swing.JList<String> jl_hijo;
     private javax.swing.JList<String> jl_padre;
+    private javax.swing.JMenuItem jmi_AbrirClases;
     private javax.swing.JMenuItem jmi_AbrirUML;
     private javax.swing.JMenuItem jmi_DatosPropiedad;
     private javax.swing.JMenuItem jmi_EliminarPropiedad;
@@ -2393,6 +2556,7 @@ Long*/
     private javax.swing.JMenuItem jmi_eliminar;
     private javax.swing.JMenuItem jmi_eliminarMetodo;
     private javax.swing.JMenuItem jmi_fuente;
+    private javax.swing.JMenuItem jmi_guardarClases;
     private javax.swing.JMenuItem jmi_guardraUML;
     private javax.swing.JMenuItem jmi_propiedades;
     private javax.swing.JMenuItem jmi_texto;
@@ -2430,8 +2594,10 @@ Long*/
     ArrayList<Separador> SEPARADORES = new ArrayList();
     ArrayList<UML> INSTRUCCIONES = new ArrayList();
     Propiedad Propiedad_Global;
-   ArrayList<Propiedad>PARAMETROS= new ArrayList();
-  Metodo M_Actual;
+    ArrayList<Propiedad> PARAMETROS = new ArrayList();
+    Metodo M_Actual;
+    JPanel panelActual;
+    JDialog Dialogo_Actual;
 //        int componentCount = jp_Drag.getComponentCount();
 //
 //        for (int j = 0; j < componentCount; j++) {
@@ -2443,7 +2609,7 @@ Long*/
     //  System.out.println(jp_Drag.findComponentAt(150,100));
     //  System.out.println( jp_Drag.contains(10,200));
     //   System.out.println(jp_Drag.findComponentAt(10, 200));
-  
+
 //        for (int i = 0; i < Obejtos.length; i++) {
 //            UML Objeto = ((UML) Obejtos[i]);
 //            if (Objeto.getTipo().equals("SeperadorV")) {
@@ -2491,5 +2657,87 @@ Long*/
 ////        for (int i = 0; i < jp_Drag.getComponentCount(); i++) {
 ////            System.out.println(jp_Drag.getComponent(i).getX() + ", " + jp_Drag.getComponent(i).getY());
 ////        }
-
 }
+
+//GUARDAR EL UML
+///String Nombre = "Diagrama";
+//        JFileChooser jfc = new JFileChooser();
+//        FileNameExtensionFilter filtro = new FileNameExtensionFilter("Diagramas UML", "clau");
+//        jfc.addChoosableFileFilter(filtro);
+//        jfc.setSelectedFile(new File(Nombre + ".clau"));
+//        int seleccion = jfc.showSaveDialog(this.jd_UML);
+//        if (seleccion == JFileChooser.APPROVE_OPTION) {
+//            System.out.println(jfc.getSelectedFile().getPath());
+//            Adm_Diagramas ap = new Adm_Diagramas(jfc.getSelectedFile().getPath());
+//            ap.CargarArchivo();
+//            Object Obejtos[] = jp_Drag.getComponents();
+//
+//            for (int i = 0; i < Obejtos.length; i++) {
+//                ap.AgregarUML(Obejtos[i]);
+//            }
+//            try {
+//                ap.escribirArchivo();
+//            } catch (IOException ex) {
+//                Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+//            JOptionPane.showMessageDialog(this.jd_UML, "Se ha guardado el Diagrama");
+//            System.out.println(ap.getListaelementos());
+//        }
+///ABRIR
+//jp_Drag.removeAll();
+//        jp_Drag.repaint();
+//        //ABRIMOS EL ATCHIVO
+//        JFileChooser jfc = new JFileChooser();
+//        FileNameExtensionFilter filtro = new FileNameExtensionFilter("Diagramas UML", "clau");
+//        jfc.addChoosableFileFilter(filtro);
+//        int seleccion = jfc.showOpenDialog(this.jd_UML);
+//        System.out.println(jfc.getSelectedFile().getPath());
+//        Adm_Diagramas ap = new Adm_Diagramas(jfc.getSelectedFile().getPath());
+//        ap.CargarArchivo();
+//        for (int i = 0; i < ap.getListaelementos().size(); i++) {
+//           JLabel P= ((JLabel)ap.getListaelementos().get(i));
+//            System.out.println(P.getClass().getSimpleName());
+//            this.jp_Drag.add(P);
+//            jp_Drag.repaint();
+//              P.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+//            public void mouseDragged(java.awt.event.MouseEvent evt) {
+//                JL_actual = P;
+//                if ((P.getLocation().x + evt.getX() - P.getWidth() / 2) >= 0
+//                        && (P.getLocation().x + evt.getX() - P.getWidth() / 2) <= 800) {
+//                    P.setLocation(P.getLocation().x + evt.getX() - P.getWidth() / 2,
+//                            P.getLocation().y + evt.getY() - P.getHeight() / 2);
+//                    
+//                }// para que no se salga del rango
+//
+//            }
+//        });  //agrega los label
+//        P.addMouseListener(new MouseListener() {
+//            public void mouseClicked(MouseEvent evt) {
+//                JL_actual = P;
+//                if (evt.isMetaDown()) {
+//                    JL_actual = P;
+//                    System.out.println(JL_actual);
+//                    pp_OP.show(evt.getComponent(), evt.getX(), evt.getY());
+//                }
+//            }
+//
+//            public void mouseEntered(MouseEvent arg0) {
+//                JL_actual = P;
+//            }
+//
+//            public void mouseExited(MouseEvent arg0) {
+//                JL_actual = P;
+//            }
+//
+//            public void mousePressed(MouseEvent arg0) {
+//                JL_actual = P;
+//            }
+//
+//            public void mouseReleased(MouseEvent arg0) {
+//                JL_actual = P;
+//            }
+//        });
+//        }
+//        jp_Drag.repaint();
+//        JOptionPane.showMessageDialog(this.jd_UML, "Se han cargado los elementos en el panel");
+

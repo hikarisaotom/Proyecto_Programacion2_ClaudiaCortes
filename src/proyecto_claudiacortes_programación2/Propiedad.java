@@ -5,16 +5,18 @@
  */
 package proyecto_claudiacortes_programación2;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Claudia Cortes
  */
-public class Propiedad{
+public class Propiedad implements Serializable{
    Object Valor;
      String Nombre;
     Object tipo;
    int Alcance;
-
+ private static final long SerialVersionUID=262626L;
     public int getAlcance() {
         return Alcance;
     }

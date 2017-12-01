@@ -226,10 +226,6 @@ public class Principal extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jmi_abrirGlobal = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
-        jMenu3 = new javax.swing.JMenu();
-        jMenu4 = new javax.swing.JMenu();
-        jMenu5 = new javax.swing.JMenu();
 
         jd_DiagramaClases.setMinimumSize(new java.awt.Dimension(500, 600));
         jd_DiagramaClases.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -1102,7 +1098,7 @@ public class Principal extends javax.swing.JFrame {
 
         jMenu1.setText("Archivo");
 
-        jmi_abrirGlobal.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
+        jmi_abrirGlobal.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_MASK));
         jmi_abrirGlobal.setText("Abrir");
         jmi_abrirGlobal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1112,18 +1108,6 @@ public class Principal extends javax.swing.JFrame {
         jMenu1.add(jmi_abrirGlobal);
 
         jMenuBar1.add(jMenu1);
-
-        jMenu2.setText("Insertar");
-        jMenuBar1.add(jMenu2);
-
-        jMenu3.setText("Datos");
-        jMenuBar1.add(jMenu3);
-
-        jMenu4.setText("Procesos");
-        jMenuBar1.add(jMenu4);
-
-        jMenu5.setText("Vista");
-        jMenuBar1.add(jMenu5);
 
         setJMenuBar(jMenuBar1);
 
@@ -1934,8 +1918,8 @@ Long*/
         JOptionPane.showMessageDialog(jd_DiagramaClases, "Nombre del Paquete");
 
         String C = imprimirNodo((TreeNode) jTree1.getModel().getRoot());
-txt_CodigoClases.setText(C);
-      JOptionPane.showMessageDialog(jd_DiagramaClases,"El codigo Se ha generado Correctamente");
+        txt_CodigoClases.setText(C);
+        JOptionPane.showMessageDialog(jd_DiagramaClases, "El codigo Se ha generado Correctamente");
 
     }//GEN-LAST:event_btn_generarCodigoClasesMouseClicked
 
@@ -2240,7 +2224,18 @@ txt_CodigoClases.setText(C);
     private void jmi_AbrirUMLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_AbrirUMLActionPerformed
         panelActual = jp_Drag;
         Dialogo_Actual = jd_UML;
-        Abrir();
+        JFileChooser jfc = new JFileChooser();
+        FileNameExtensionFilter filtro = new FileNameExtensionFilter("Diagramas UML", "Clau");
+        jfc.addChoosableFileFilter(filtro);
+        int seleccion = jfc.showOpenDialog(this.Dialogo_Actual);
+        System.out.println(jfc.getSelectedFile().getPath());
+        String Extension = jfc.getSelectedFile().getPath();
+        String Extension2 = Extension.substring(Extension.length() - 4, Extension.length());
+        if (Extension2.equalsIgnoreCase("Clau")) {//UML
+            Abrir(Extension);
+        } else {
+            JOptionPane.showMessageDialog(Dialogo_Actual, "El Tipo de formato no es reconocible para este tipo de diagrama");
+        }
     }//GEN-LAST:event_jmi_AbrirUMLActionPerformed
 
     private void jmi_guardarClasesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_guardarClasesActionPerformed
@@ -2252,11 +2247,51 @@ txt_CodigoClases.setText(C);
     private void jmi_AbrirClasesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_AbrirClasesActionPerformed
         panelActual = jp_dragDiagrama;
         Dialogo_Actual = jd_DiagramaClases;
-        AbrirD();
+        JFileChooser jfc = new JFileChooser();
+        FileNameExtensionFilter filtro2 = new FileNameExtensionFilter("Diagramas de Clases", "Clau2");
+        jfc.addChoosableFileFilter(filtro2);
+        int seleccion = jfc.showOpenDialog(this.Dialogo_Actual);
+        System.out.println(jfc.getSelectedFile().getPath());
+        String Extension = jfc.getSelectedFile().getPath();
+        String Extension2 = Extension.substring(Extension.length() - 5, Extension.length());
+        if (Extension2.equalsIgnoreCase("Clau2")) {//Clases
+            AbrirD(Extension);
+        } else {
+            JOptionPane.showMessageDialog(Dialogo_Actual, "El Tipo de formato no es reconocible para este tipo de diagrama");
+        }
     }//GEN-LAST:event_jmi_AbrirClasesActionPerformed
 
     private void jmi_abrirGlobalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_abrirGlobalActionPerformed
-        
+        JFileChooser jfc = new JFileChooser();
+        FileNameExtensionFilter filtro = new FileNameExtensionFilter("Diagramas UML", "Clau");
+        FileNameExtensionFilter filtro2 = new FileNameExtensionFilter("Diagramas de Clases", "Clau2");
+        jfc.addChoosableFileFilter(filtro);
+        jfc.addChoosableFileFilter(filtro2);
+        int seleccion = jfc.showOpenDialog(this.Dialogo_Actual);
+        System.out.println(jfc.getSelectedFile().getPath());
+        String Extension = jfc.getSelectedFile().getPath();
+        String Extension2 = Extension.substring(Extension.length() - 5, Extension.length());
+        String Extension1 = Extension.substring(Extension.length() - 4, Extension.length());
+
+        if (Extension1.equalsIgnoreCase("Clau")) {//UML
+            jd_UML.show(true);
+            jd_UML.pack();
+            jd_UML.setLocationRelativeTo(this);
+            panelActual = jp_Drag;
+            Dialogo_Actual = jd_UML;
+            Abrir(Extension);
+
+        } else if (Extension2.equalsIgnoreCase("Clau2")) {//Clases
+            jd_DiagramaClases.show(true);
+            jd_DiagramaClases.pack();
+            jd_DiagramaClases.setLocationRelativeTo(this);
+            panelActual = jp_dragDiagrama;
+            Dialogo_Actual = jd_DiagramaClases;
+            AbrirD(Extension);
+
+        } else {//Invalido
+            JOptionPane.showMessageDialog(this, "La extension del archivo no es reconocible para el sistema");
+        }
     }//GEN-LAST:event_jmi_abrirGlobalActionPerformed
 
     private void jp_DragMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jp_DragMouseClicked
@@ -2305,17 +2340,14 @@ txt_CodigoClases.setText(C);
         }
     }
 
-    public void Abrir() {
+    public void Abrir(String Path) {
         panelActual.removeAll();
         panelActual.repaint();
         //ABRIMOS EL ArCHIVO
-        JFileChooser jfc = new JFileChooser();
-        FileNameExtensionFilter filtro = new FileNameExtensionFilter("Diagramas UML", "Clau");
-        jfc.addChoosableFileFilter(filtro);
-        int seleccion = jfc.showOpenDialog(this.Dialogo_Actual);
-        System.out.println(jfc.getSelectedFile().getPath());
-        Adm_UML ap = new Adm_UML(jfc.getSelectedFile().getPath());
-        //ap.CargarArchivo();
+
+        System.out.println(Path);
+        Adm_UML ap = new Adm_UML(Path);
+        ap.CargarArchivo();
 
         for (int i = 0; i < ap.getListaelementos().size(); i++) {
             JLabel P = ((JLabel) ap.getListaelementos().get(i));
@@ -2367,7 +2399,7 @@ txt_CodigoClases.setText(C);
         JOptionPane.showMessageDialog(this.Dialogo_Actual, "Se han cargado los elementos en el panel");
     }
 
-    public void AbrirD() {
+    public void AbrirD(String Path) {
         //LIMPIAMOS LAS LISTAS, PANEL Y EL ARBOL
         panelActual.removeAll();
         panelActual.repaint();
@@ -2375,17 +2407,12 @@ txt_CodigoClases.setText(C);
         jl_padre.removeAll();
         jTree1.removeAll();
         //Cambismos lo modelos por uno vacios
-         jTree1.setModel( new DefaultTreeModel(new DefaultMutableTreeNode("Clases")));
-         jl_hijo.setModel(new DefaultListModel());
-          jl_padre.setModel(new DefaultListModel());
-         
+        jTree1.setModel(new DefaultTreeModel(new DefaultMutableTreeNode("Clases")));
+        jl_hijo.setModel(new DefaultListModel());
+        jl_padre.setModel(new DefaultListModel());
+
 //ABRIMOS EL ARCHIVO
-        JFileChooser jfc = new JFileChooser();
-        FileNameExtensionFilter filtro = new FileNameExtensionFilter("Diagramas de Clases", "Clau2");
-        jfc.addChoosableFileFilter(filtro);
-        int seleccion = jfc.showOpenDialog(this.Dialogo_Actual);
-        System.out.println(jfc.getSelectedFile().getPath());
-        Admin_Diagramas ap = new Admin_Diagramas(jfc.getSelectedFile().getPath());
+        Admin_Diagramas ap = new Admin_Diagramas(Path);
         ap.CargarArchivo();
         //DATOS DEL  ARBOL PRINCIPAL
         DefaultTreeModel m = (DefaultTreeModel) jTree1.getModel();
@@ -2586,11 +2613,7 @@ txt_CodigoClases.setText(C);
     private javax.swing.JMenu jMenu17;
     private javax.swing.JMenu jMenu18;
     private javax.swing.JMenu jMenu19;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu20;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenu jMenu7;
     private javax.swing.JMenu jMenu8;

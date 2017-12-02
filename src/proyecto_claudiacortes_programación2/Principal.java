@@ -97,7 +97,6 @@ public class Principal extends javax.swing.JFrame {
         jScrollPane4 = new javax.swing.JScrollPane();
         txt_CodigoClases = new javax.swing.JTextArea();
         btn_CopiarArbol = new javax.swing.JButton();
-        jButton12 = new javax.swing.JButton();
         jMenuBar6 = new javax.swing.JMenuBar();
         jMenu6 = new javax.swing.JMenu();
         jmi_AbrirClases = new javax.swing.JMenuItem();
@@ -131,7 +130,6 @@ public class Principal extends javax.swing.JFrame {
         jScrollPane5 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         btn_oegar = new javax.swing.JButton();
-        btn_copiar = new javax.swing.JButton();
         btn_GenerarCodigoUML = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jButton7 = new javax.swing.JButton();
@@ -249,7 +247,7 @@ public class Principal extends javax.swing.JFrame {
                 btn_agregarArbolMouseClicked(evt);
             }
         });
-        jd_DiagramaClases.getContentPane().add(btn_agregarArbol, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 270, -1, -1));
+        jd_DiagramaClases.getContentPane().add(btn_agregarArbol, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 270, -1, -1));
 
         jLabel13.setFont(new java.awt.Font("AR CENA", 0, 36)); // NOI18N
         jLabel13.setText("Clases Generadas");
@@ -356,10 +354,6 @@ public class Principal extends javax.swing.JFrame {
             }
         });
         jd_DiagramaClases.getContentPane().add(btn_CopiarArbol, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 401, 90, 40));
-
-        jButton12.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
-        jButton12.setText("Copiar");
-        jd_DiagramaClases.getContentPane().add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, -1, -1));
 
         jMenu6.setText("Archivo");
 
@@ -606,11 +600,7 @@ public class Principal extends javax.swing.JFrame {
                 btn_oegarActionPerformed(evt);
             }
         });
-        jd_UML.getContentPane().add(btn_oegar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 30, -1, -1));
-
-        btn_copiar.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
-        btn_copiar.setText("Copiar");
-        jd_UML.getContentPane().add(btn_copiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 70, -1, -1));
+        jd_UML.getContentPane().add(btn_oegar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 60, -1, -1));
 
         btn_GenerarCodigoUML.setBackground(new java.awt.Color(255, 255, 255));
         btn_GenerarCodigoUML.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
@@ -1196,8 +1186,7 @@ public class Principal extends javax.swing.JFrame {
         UML U=new UML();
         U.Proceso(Proceso, lbl_Proceso);
         Proceso++;
-      
-        AgregarDrag(lbl_Proceso,0);
+        AgregarDrag(lbl_Proceso,1);
     }//GEN-LAST:event_btn_ProcesoMouseClicked
 
     private void btn_DiagramaFlujo1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_DiagramaFlujo1MouseClicked
@@ -1221,7 +1210,7 @@ public class Principal extends javax.swing.JFrame {
          UML U=new UML();
         U.If(cont_If, lbl_if);
         cont_If++;
-        AgregarDrag(lbl_if,0);
+        AgregarDrag(lbl_if,1);
     }//GEN-LAST:event_btn_DecisionMouseClicked
 
     private void btn_documentoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_documentoMouseClicked
@@ -1229,7 +1218,7 @@ public class Principal extends javax.swing.JFrame {
           UML U=new UML();
         U.Documento(documentos, lbl_documento);
         documentos++;
-        AgregarDrag(lbl_documento,0);
+        AgregarDrag(lbl_documento,1);
     }//GEN-LAST:event_btn_documentoMouseClicked
 
     private void btn_InicioFinMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_InicioFinMouseClicked
@@ -1240,7 +1229,7 @@ public class Principal extends javax.swing.JFrame {
             UML U = new UML();
             U.Inicio_Fin(in_out, lbl_inicio_fin);
             in_out++;
-            AgregarDrag(lbl_inicio_fin,0);
+            AgregarDrag(lbl_inicio_fin,1);
         }
 
     }//GEN-LAST:event_btn_InicioFinMouseClicked
@@ -1250,7 +1239,7 @@ public class Principal extends javax.swing.JFrame {
             UML U=new UML();
         U.SubProceso( Subpro,  lbl_subpro);
         Subpro++;
-        AgregarDrag(lbl_subpro,0);
+        AgregarDrag(lbl_subpro,1);
     }//GEN-LAST:event_btn_SubProMouseClicked
 
     private void btn_datosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_datosMouseClicked
@@ -1258,7 +1247,7 @@ public class Principal extends javax.swing.JFrame {
         datos++;
         UML U= new UML();
         U.PropiedadDatos(datos,lbldatos);
-        AgregarDrag(lbldatos,0);
+        AgregarDrag(lbldatos,1);
     }//GEN-LAST:event_btn_datosMouseClicked
 
     private void btn_separadorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_separadorMouseClicked
@@ -1266,7 +1255,7 @@ public class Principal extends javax.swing.JFrame {
           UML U=new UML();
         U.Separador(separador, 1, lbl_separador);
         separador++;
-        AgregarDrag(lbl_separador,0);
+        AgregarDrag(lbl_separador,1);
     }//GEN-LAST:event_btn_separadorMouseClicked
 
     private void btn_SeparadorVMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_SeparadorVMouseClicked
@@ -1274,7 +1263,7 @@ public class Principal extends javax.swing.JFrame {
          UML U=new UML();
         U.Separador(V_separador, 2, lbl_Vseparador);
         V_separador++;
-        AgregarDrag(lbl_Vseparador,0);
+        AgregarDrag(lbl_Vseparador,1);
     }//GEN-LAST:event_btn_SeparadorVMouseClicked
 
     private void jmi_colorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_colorActionPerformed
@@ -1899,44 +1888,50 @@ Long*/
     }//GEN-LAST:event_btn_oegarActionPerformed
 
     private void btn_oegarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_oegarMouseClicked
-       UML U=new UML();
+  
+        
+        if (JL_actual==null) {
+             JOptionPane.showMessageDialog(jd_DiagramaClases,"No se encuentra ningun elemento en memoria, seleccione un objeto para Copiar");
+        }else{
+             UML U=new UML();
         if (JL_actual instanceof Datos) {
             Datos P = new Datos();
           U.Copiar(P, JL_actual);
-            AgregarDrag(P,0);
+            AgregarDrag(P,1);
             jp_Drag.add(P);
         } else if (JL_actual instanceof Documento) {
             Documento P = new Documento();
              U.Copiar(P, JL_actual);
-            AgregarDrag(P,0);
+            AgregarDrag(P,1);
             jp_Drag.add(P);
         } else if (JL_actual instanceof If) {
             If P = new If();
             U.Copiar(P, JL_actual);
-            AgregarDrag(P,0);
+            AgregarDrag(P,1);
             jp_Drag.add(P);
         } else if (JL_actual instanceof Inicio_Fin) {
             Inicio_Fin P = new Inicio_Fin();
              U.Copiar(P, JL_actual);
-            AgregarDrag(P,0);
+            AgregarDrag(P,1);
             jp_Drag.add(P);
         } else if (JL_actual instanceof Proceso) {
             Proceso P = new Proceso();
             U.Copiar(P, JL_actual);
-            AgregarDrag(P,0);
+            AgregarDrag(P,1);
             jp_Drag.add(P);
         } else if (JL_actual instanceof Separador) {
             Separador P = new Separador();
              U.Copiar(P, JL_actual);
-            AgregarDrag(P,0);
+            AgregarDrag(P,1);
             jp_Drag.add(P);
         } else if (JL_actual instanceof SubProceso) {
             SubProceso P = new SubProceso();
             U.Copiar(P, JL_actual);
-            AgregarDrag(P,0);
+            AgregarDrag(P,1);
             jp_Drag.add(P);
         }
         jp_Drag.repaint();
+        }
     }//GEN-LAST:event_btn_oegarMouseClicked
 
     private void btn_CopiarArbolMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_CopiarArbolMouseClicked
@@ -2132,16 +2127,13 @@ public void AgregarPropieddes(JLabel lbl_subpro){
         System.out.println(Path);
         Adm_UML ap = new Adm_UML(Path);
         ap.CargarArchivo();
-
         for (int i = 0; i < ap.getListaelementos().size(); i++) {
             JLabel P = ((JLabel) ap.getListaelementos().get(i));
             System.out.println(P.getClass().getSimpleName());
             this.panelActual.add(P);
             panelActual.repaint();
-            AgregarDrag(P,1);
-
+            AgregarDrag(P,0);
         }//Fin del For
-
         panelActual.repaint();
         JOptionPane.showMessageDialog(this.Dialogo_Actual, "Se han cargado los elementos en el panel");
     }
@@ -2277,26 +2269,24 @@ public void AgregarPropieddes(JLabel lbl_subpro){
             }
 
             public void mouseEntered(MouseEvent arg0) {
-                JL_actual = lbl_Proceso;
+               
             }
 
             public void mouseExited(MouseEvent arg0) {
-                JL_actual = lbl_Proceso;
+             
             }
 
             public void mousePressed(MouseEvent arg0) {
-                JL_actual = lbl_Proceso;
+               
             }
 
             public void mouseReleased(MouseEvent arg0) {
-                JL_actual = lbl_Proceso;
+               
             }
         });
         this.jp_Drag.add(lbl_Proceso);
-        if (n==0) {
+        if (n!=0) {
               JL_actual = lbl_Proceso;
-        }else{
-            
         }
         jp_Drag.repaint();
     }//FIN DEL METODO
@@ -2358,7 +2348,6 @@ public void AgregarPropieddes(JLabel lbl_subpro){
     private javax.swing.JButton btn_agregarparametros;
     private javax.swing.JButton btn_cancelar;
     private javax.swing.JButton btn_colorJL_actual;
-    private javax.swing.JButton btn_copiar;
     private javax.swing.JButton btn_crearmetodo;
     private javax.swing.JButton btn_crearpropiedad;
     private javax.swing.JButton btn_datos;
@@ -2372,7 +2361,6 @@ public void AgregarPropieddes(JLabel lbl_subpro){
     private javax.swing.JButton btn_separador;
     private javax.swing.JButton btn_separadores;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;

@@ -6,6 +6,7 @@
 package proyecto_claudiacortes_programación2;
 
 import com.itextpdf.text.Document;
+import com.itextpdf.text.Element;
 import com.itextpdf.text.Image;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
@@ -121,6 +122,9 @@ public class Principal extends javax.swing.JFrame {
         jmi_guardarClases = new javax.swing.JMenuItem();
         jMenu8 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
+        jMenu4 = new javax.swing.JMenu();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
         jd_UML = new javax.swing.JDialog();
         btn_documento = new javax.swing.JButton();
         btn_Proceso = new javax.swing.JButton();
@@ -159,8 +163,11 @@ public class Principal extends javax.swing.JFrame {
         jmi_guardraUML = new javax.swing.JMenuItem();
         jmi_AbrirUML = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
-        jmi_crearImagen = new javax.swing.JMenuItem();
         jmi_generarPDF = new javax.swing.JMenuItem();
+        jMenu3 = new javax.swing.JMenu();
+        jmi_crearJpg = new javax.swing.JMenuItem();
+        jmi_crearpng = new javax.swing.JMenuItem();
+        jmi_crearotro = new javax.swing.JMenuItem();
         jFrame1 = new javax.swing.JFrame();
         btn_DiagramaFlujo1 = new javax.swing.JButton();
         btn_DiagramaClases1 = new javax.swing.JButton();
@@ -402,6 +409,11 @@ public class Principal extends javax.swing.JFrame {
         jMenuBar6.add(jMenu6);
 
         jMenu8.setText("Exportar");
+        jMenu8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu8ActionPerformed(evt);
+            }
+        });
 
         jMenuItem1.setText("PDF");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
@@ -410,6 +422,26 @@ public class Principal extends javax.swing.JFrame {
             }
         });
         jMenu8.add(jMenuItem1);
+
+        jMenu4.setText("Imagen");
+
+        jMenuItem2.setText("Jpg");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenu4.add(jMenuItem2);
+
+        jMenuItem3.setText("Png");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        jMenu4.add(jMenuItem3);
+
+        jMenu8.add(jMenu4);
 
         jMenuBar6.add(jMenu8);
 
@@ -699,15 +731,11 @@ public class Principal extends javax.swing.JFrame {
 
         jMenu2.setText("Exportar");
         jMenu2.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
-
-        jmi_crearImagen.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
-        jmi_crearImagen.setText("Imagen");
-        jmi_crearImagen.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jmi_crearImagenActionPerformed(evt);
+        jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu2MouseClicked(evt);
             }
         });
-        jMenu2.add(jmi_crearImagen);
 
         jmi_generarPDF.setText("PDF");
         jmi_generarPDF.addActionListener(new java.awt.event.ActionListener() {
@@ -716,6 +744,42 @@ public class Principal extends javax.swing.JFrame {
             }
         });
         jMenu2.add(jmi_generarPDF);
+
+        jMenu3.setText("Imagen");
+        jMenu3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jMenu3MouseExited(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jMenu3MouseReleased(evt);
+            }
+        });
+
+        jmi_crearJpg.setText("Jpg");
+        jmi_crearJpg.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmi_crearJpgActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jmi_crearJpg);
+
+        jmi_crearpng.setText("Png");
+        jmi_crearpng.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmi_crearpngActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jmi_crearpng);
+
+        jmi_crearotro.setText("Otro");
+        jmi_crearotro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmi_crearotroActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jmi_crearotro);
+
+        jMenu2.add(jMenu3);
 
         jMenuBar2.add(jMenu2);
 
@@ -2192,87 +2256,110 @@ Long*/
                     JL_actual.setFont(font.deriveFont(attributes));
                     break;
             }
-
-
-
-
-
        }catch(Exception e){
            
        }
     }//GEN-LAST:event_jc_tipoletraItemStateChanged
 
-    private void jmi_crearImagenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_crearImagenActionPerformed
-        Dimension d = jp_Drag.getSize();
-        BufferedImage image = ScreenImage.createImage(jp_Drag);
-        Graphics2D g2d = image.createGraphics();
-        jp_Drag.print(g2d);
-        g2d.dispose();
-        try {
-            ImageIO.write(image, "jpg", new File(".\\srcprueb1111a.jpg"));
-        } catch (IOException ex) {
-            Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        JOptionPane.showMessageDialog(jd_UML, "Imagen Creada Exsitosamente");
-
-    }//GEN-LAST:event_jmi_crearImagenActionPerformed
-
     private void jmi_generarPDFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_generarPDFActionPerformed
-         JFileChooser jfc = new JFileChooser();
-        FileNameExtensionFilter filtro = new FileNameExtensionFilter("Diagramas UML", "Clau");
-   
-        int seleccion = jfc.showOpenDialog(this.jd_UML);
-        String Ruta= jfc.getSelectedFile().getPath();
-        try{
-//            CREAR EL DOCUMENTO SENCILLO
-            FileOutputStream archivo=new FileOutputStream(Ruta+".pdf");
-            Document doc = new Document();
-            PdfWriter.getInstance(doc,archivo);
-            doc.open();
-            doc.add(new Paragraph("HOLI"));
-            doc.add(Image.getInstance(".\\src\\Imagenes\\UML\\subpro.png"));
-            doc.close();
-//            GenerarPDF g=new GenerarPDF();
-//                g.GenerarPDF ("TITULO","INFORMACION","Claudia Patricia Cortes Pavón-11711357","C:\\Users\\Claudia Cortes\\Desktop\\Proyecto_ClaudiaCortes_Programacion2\\Proyecto_ClaudiaCortes_Programación2\\src\\Imagenes",Ruta+".pdf");
-            JOptionPane.showMessageDialog(jd_UML,"PDF creado");
-        }catch(Exception e){
-            
-        }
-        
+      GenerarPDF(txt_codigoUML.getText(),jp_Drag);
     }//GEN-LAST:event_jmi_generarPDFActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-         JFileChooser jfc = new JFileChooser();
-        FileNameExtensionFilter filtro = new FileNameExtensionFilter("Diagramas UML", "Clau");
-        int seleccion = jfc.showOpenDialog(this.jd_UML);
-        String Ruta= jfc.getSelectedFile().getPath();
-        try{
-//            CREAR EL DOCUMENTO SENCILLO
-            FileOutputStream archivo=new FileOutputStream(Ruta+".pdf");
-            Document doc = new Document();
-            PdfWriter.getInstance(doc,archivo);
-            doc.open();
-            doc.add(new Paragraph("CODIGO GENERADO DE LAS CLASES"));
-             doc.add(new Paragraph(txt_CodigoClases.getText()));
-             doc.add(new Paragraph("creado por claudia patricia Cortés Pavón"));
-            doc.close();
-            JOptionPane.showMessageDialog(jd_UML,"PDF creado");
-        }catch(Exception e){
-            
-        }
-        
+GenerarPDF(txt_CodigoClases.getText(),jp_dragDiagrama);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jmi_crearJpgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_crearJpgActionPerformed
+CrearIMG(jp_Drag,"jpg"); 
+    }//GEN-LAST:event_jmi_crearJpgActionPerformed
+
+    private void jmi_crearpngActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_crearpngActionPerformed
+    CrearIMG(jp_Drag,"png"); 
+    }//GEN-LAST:event_jmi_crearpngActionPerformed
+
+    private void jmi_crearotroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_crearotroActionPerformed
+       
+    }//GEN-LAST:event_jmi_crearotroActionPerformed
+
+    private void jMenu3MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu3MouseReleased
+      
+    }//GEN-LAST:event_jMenu3MouseReleased
+
+    private void jMenu3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu3MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenu3MouseExited
+
+    private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked
+     Dialogo_Actual=jd_UML;
+      panelActual=jp_Drag;
+    }//GEN-LAST:event_jMenu2MouseClicked
+
+    private void jMenu8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu8ActionPerformed
+        Dialogo_Actual=jd_DiagramaClases;
+        panelActual=jp_dragDiagrama;    
+    }//GEN-LAST:event_jMenu8ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+       CrearIMG(jp_dragDiagrama,"jpg"); 
+
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+      CrearIMG(jp_dragDiagrama,"png"); 
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
     public void Cambiarletra(){
           JL_actual.setFont(Fuentes.get(jc_Fuentes.getSelectedIndex()));
     }
-    public BufferedImage createImage(JPanel panel) {
+    public void GenerarPDF(String Codigo, JPanel Panel) {
+        JFileChooser jfc = new JFileChooser();
+        FileNameExtensionFilter filtro = new FileNameExtensionFilter("Diagramas UML", "Clau");
+        int seleccion = jfc.showOpenDialog(this.Dialogo_Actual);
+        String Ruta = jfc.getSelectedFile().getPath();
+        try {
+            Dimension d = Panel.getSize();
+            BufferedImage image = ScreenImage.createImage(Panel);
+            Graphics2D g2d = image.createGraphics();
+            Panel.print(g2d);
+            g2d.dispose();
+            try {
+                ImageIO.write(image, "jpg", new File(Ruta + "1" + ".jpg"));
+            } catch (IOException ex) {
+                Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            Image imagen = Image.getInstance(Ruta + "1" + ".jpg");
+            imagen.scaleAbsolute(300, 300);
+            imagen.setAlignment(Element.ALIGN_CENTER);
+//            CREAR EL DOCUMENTO SENCILLO
+            FileOutputStream archivo = new FileOutputStream(Ruta + ".pdf");
+            Document doc = new Document();
+            PdfWriter.getInstance(doc, archivo);
+            doc.open();
+            doc.add(new Paragraph("CODIGO GENERADO: "));
+            doc.add(new Paragraph(Codigo));
+            doc.add(imagen);
+            doc.add(new Paragraph("creado por claudia patricia Cortés Pavón"));
+            doc.close();
+            JOptionPane.showMessageDialog(Dialogo_Actual, "PDF creado");
+        } catch (Exception e) {
 
-    int w = panel.getWidth();
-    int h = panel.getHeight();
-    BufferedImage bi = new BufferedImage(w, h, BufferedImage.TYPE_INT_RGB);
-    Graphics2D g = bi.createGraphics();
-    panel.paint(g);
-    return bi;
+        }
+    }
+    public void CrearIMG(JPanel panel, String Extension) {
+        JFileChooser jfc = new JFileChooser();
+        int seleccion = jfc.showOpenDialog(this.Dialogo_Actual);
+        System.out.println(jfc.getSelectedFile().getPath());
+        String Ruta = jfc.getSelectedFile().getPath() + "."+Extension;
+        Dimension d = panel.getSize();
+        BufferedImage image = ScreenImage.createImage(panel);
+        Graphics2D g2d = image.createGraphics();
+        panel.print(g2d);
+        g2d.dispose();
+        try {
+            ImageIO.write(image, Extension, new File(Ruta));
+        } catch (IOException ex) {
+            Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        JOptionPane.showMessageDialog(Dialogo_Actual, "Imagen Creada Exsitosamente");
 }
 
     public String imprimirNodo(TreeNode nodo) {
@@ -2622,6 +2709,8 @@ public void AgregarPropieddes(JLabel lbl_subpro){
     private javax.swing.JMenu jMenu19;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu20;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenu jMenu7;
     private javax.swing.JMenu jMenu8;
@@ -2632,6 +2721,8 @@ public void AgregarPropieddes(JLabel lbl_subpro){
     private javax.swing.JMenuBar jMenuBar5;
     private javax.swing.JMenuBar jMenuBar6;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -2670,7 +2761,9 @@ public void AgregarPropieddes(JLabel lbl_subpro){
     private javax.swing.JMenuItem jmi_agregarMetodo;
     private javax.swing.JMenuItem jmi_agregarpropiedad;
     private javax.swing.JMenuItem jmi_color;
-    private javax.swing.JMenuItem jmi_crearImagen;
+    private javax.swing.JMenuItem jmi_crearJpg;
+    private javax.swing.JMenuItem jmi_crearotro;
+    private javax.swing.JMenuItem jmi_crearpng;
     private javax.swing.JMenuItem jmi_descripcionMetodo;
     private javax.swing.JMenuItem jmi_eliminar;
     private javax.swing.JMenuItem jmi_eliminarMetodo;
@@ -2722,40 +2815,5 @@ public void AgregarPropieddes(JLabel lbl_subpro){
     JDialog Dialogo_Actual;
     
           
-// BufferedImage image = new BufferedImage(100, 100, BufferedImage.TYPE_INT_RGB);
-//       // BufferedImage image=createImage(jp_Drag);
-//        Graphics2D g = (Graphics2D)image.getGraphics();
-//        g.drawString("Hello", 60, 60);
-//        JL_actual.setIcon(new ImageIcon(image));
-//try{
-//    
-//        BufferedImage image = new BufferedImage(66, 15, BufferedImage.TYPE_INT_RGB);
-//        Graphics2D g = (Graphics2D) image.getGraphics();
-//        String country = "25829674";
-//        Font countryFont = new Font("Arial", Font.BOLD, 14);
-//        g.setFont(countryFont);
-//        FontMetrics countryfontMetrics = g.getFontMetrics();
-//        g.drawString(country, 2, 12);
-//        image.createGraphics();
-//        ImageIcon icon = new ImageIcon(image);
-//
-//        int w = icon.getIconWidth();
-//        int h = icon.getIconHeight();
-//        BufferedImage images = new BufferedImage(w, h, BufferedImage.TYPE_INT_RGB);
-//        Graphics2D g2d = images.createGraphics();
-//        double x = (h - w) / 80.0;
-//        double y = (w - h) / 80.0;
-//
-//        AffineTransform at = AffineTransform.getTranslateInstance(x, y);
-//        at.rotate(Math.toRadians(180), w / 2.0, h / 2.0);//cambiar 180 grados
-//        g2d.drawImage(icon.getImage(), at, icon.getImageObserver());
-//        try {
-//            ImageIO.write(images, "jpg", new File(".\\srcprueba.jpg"));
-//        } catch (IOException ex) {
-//            Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//        JOptionPane.showMessageDialog(jd_UML,"Imagen CReada");
-//}catch(Exception e){
-//    
-//}
+
 }

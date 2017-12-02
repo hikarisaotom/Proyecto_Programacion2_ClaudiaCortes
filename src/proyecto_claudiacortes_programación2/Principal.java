@@ -5,6 +5,10 @@
  */
 package proyecto_claudiacortes_programación2;
 
+import com.itextpdf.text.Document;
+import com.itextpdf.text.Image;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfWriter;
 import java.awt.Color;
 import java.awt.BorderLayout;
 import java.awt.Component;
@@ -12,17 +16,23 @@ import java.awt.Font;
 import java.awt.Toolkit;
 import java.awt.event.*;
 import java.awt.Dimension;
+import java.awt.FontMetrics;
+import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.font.TextAttribute;
+import java.awt.geom.AffineTransform;
+import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
@@ -110,6 +120,7 @@ public class Principal extends javax.swing.JFrame {
         jmi_AbrirClases = new javax.swing.JMenuItem();
         jmi_guardarClases = new javax.swing.JMenuItem();
         jMenu8 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
         jd_UML = new javax.swing.JDialog();
         btn_documento = new javax.swing.JButton();
         btn_Proceso = new javax.swing.JButton();
@@ -147,6 +158,9 @@ public class Principal extends javax.swing.JFrame {
         jMenu7 = new javax.swing.JMenu();
         jmi_guardraUML = new javax.swing.JMenuItem();
         jmi_AbrirUML = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
+        jmi_crearImagen = new javax.swing.JMenuItem();
+        jmi_generarPDF = new javax.swing.JMenuItem();
         jFrame1 = new javax.swing.JFrame();
         btn_DiagramaFlujo1 = new javax.swing.JButton();
         btn_DiagramaClases1 = new javax.swing.JButton();
@@ -388,6 +402,15 @@ public class Principal extends javax.swing.JFrame {
         jMenuBar6.add(jMenu6);
 
         jMenu8.setText("Exportar");
+
+        jMenuItem1.setText("PDF");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu8.add(jMenuItem1);
+
         jMenuBar6.add(jMenu8);
 
         jd_DiagramaClases.setJMenuBar(jMenuBar6);
@@ -673,6 +696,28 @@ public class Principal extends javax.swing.JFrame {
         jMenu7.add(jmi_AbrirUML);
 
         jMenuBar2.add(jMenu7);
+
+        jMenu2.setText("Exportar");
+        jMenu2.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
+
+        jmi_crearImagen.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
+        jmi_crearImagen.setText("Imagen");
+        jmi_crearImagen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmi_crearImagenActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jmi_crearImagen);
+
+        jmi_generarPDF.setText("PDF");
+        jmi_generarPDF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmi_generarPDFActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jmi_generarPDF);
+
+        jMenuBar2.add(jMenu2);
 
         jd_UML.setJMenuBar(jMenuBar2);
 
@@ -2156,9 +2201,70 @@ Long*/
            
        }
     }//GEN-LAST:event_jc_tipoletraItemStateChanged
+
+    private void jmi_crearImagenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_crearImagenActionPerformed
+
+        
+    }//GEN-LAST:event_jmi_crearImagenActionPerformed
+
+    private void jmi_generarPDFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_generarPDFActionPerformed
+         JFileChooser jfc = new JFileChooser();
+        FileNameExtensionFilter filtro = new FileNameExtensionFilter("Diagramas UML", "Clau");
+   
+        int seleccion = jfc.showOpenDialog(this.jd_UML);
+        String Ruta= jfc.getSelectedFile().getPath();
+        try{
+//            CREAR EL DOCUMENTO SENCILLO
+            FileOutputStream archivo=new FileOutputStream(Ruta+".pdf");
+            Document doc = new Document();
+            PdfWriter.getInstance(doc,archivo);
+            doc.open();
+            doc.add(new Paragraph("HOLI"));
+            doc.add(Image.getInstance(".\\src\\Imagenes\\UML\\subpro.png"));
+            doc.close();
+//            GenerarPDF g=new GenerarPDF();
+//                g.GenerarPDF ("TITULO","INFORMACION","Claudia Patricia Cortes Pavón-11711357","C:\\Users\\Claudia Cortes\\Desktop\\Proyecto_ClaudiaCortes_Programacion2\\Proyecto_ClaudiaCortes_Programación2\\src\\Imagenes",Ruta+".pdf");
+            JOptionPane.showMessageDialog(jd_UML,"PDF creado");
+        }catch(Exception e){
+            
+        }
+        
+    }//GEN-LAST:event_jmi_generarPDFActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+         JFileChooser jfc = new JFileChooser();
+        FileNameExtensionFilter filtro = new FileNameExtensionFilter("Diagramas UML", "Clau");
+        int seleccion = jfc.showOpenDialog(this.jd_UML);
+        String Ruta= jfc.getSelectedFile().getPath();
+        try{
+//            CREAR EL DOCUMENTO SENCILLO
+            FileOutputStream archivo=new FileOutputStream(Ruta+".pdf");
+            Document doc = new Document();
+            PdfWriter.getInstance(doc,archivo);
+            doc.open();
+            doc.add(new Paragraph("CODIGO GENERADO DE LAS CLASES"));
+             doc.add(new Paragraph(txt_CodigoClases.getText()));
+             doc.add(new Paragraph("creado por claudia patricia Cortés Pavón"));
+            doc.close();
+            JOptionPane.showMessageDialog(jd_UML,"PDF creado");
+        }catch(Exception e){
+            
+        }
+        
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
     public void Cambiarletra(){
           JL_actual.setFont(Fuentes.get(jc_Fuentes.getSelectedIndex()));
     }
+    public BufferedImage createImage(JPanel panel) {
+
+    int w = panel.getWidth();
+    int h = panel.getHeight();
+    BufferedImage bi = new BufferedImage(w, h, BufferedImage.TYPE_INT_RGB);
+    Graphics2D g = bi.createGraphics();
+    panel.paint(g);
+    return bi;
+}
+
     public String imprimirNodo(TreeNode nodo) {
         String Clases = "";
         for (int i = 0; i < nodo.getChildCount(); i++) {
@@ -2504,6 +2610,7 @@ public void AgregarPropieddes(JLabel lbl_subpro){
     private javax.swing.JMenu jMenu17;
     private javax.swing.JMenu jMenu18;
     private javax.swing.JMenu jMenu19;
+    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu20;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenu jMenu7;
@@ -2514,6 +2621,7 @@ public void AgregarPropieddes(JLabel lbl_subpro){
     private javax.swing.JMenuBar jMenuBar4;
     private javax.swing.JMenuBar jMenuBar5;
     private javax.swing.JMenuBar jMenuBar6;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -2552,10 +2660,12 @@ public void AgregarPropieddes(JLabel lbl_subpro){
     private javax.swing.JMenuItem jmi_agregarMetodo;
     private javax.swing.JMenuItem jmi_agregarpropiedad;
     private javax.swing.JMenuItem jmi_color;
+    private javax.swing.JMenuItem jmi_crearImagen;
     private javax.swing.JMenuItem jmi_descripcionMetodo;
     private javax.swing.JMenuItem jmi_eliminar;
     private javax.swing.JMenuItem jmi_eliminarMetodo;
     private javax.swing.JMenuItem jmi_fuente;
+    private javax.swing.JMenuItem jmi_generarPDF;
     private javax.swing.JMenuItem jmi_guardarClases;
     private javax.swing.JMenuItem jmi_guardraUML;
     private javax.swing.JMenuItem jmi_propiedades;
@@ -2600,4 +2710,42 @@ public void AgregarPropieddes(JLabel lbl_subpro){
     Metodo M_Actual;
     JPanel panelActual;
     JDialog Dialogo_Actual;
+    
+          
+// BufferedImage image = new BufferedImage(100, 100, BufferedImage.TYPE_INT_RGB);
+//       // BufferedImage image=createImage(jp_Drag);
+//        Graphics2D g = (Graphics2D)image.getGraphics();
+//        g.drawString("Hello", 60, 60);
+//        JL_actual.setIcon(new ImageIcon(image));
+//try{
+//    
+//        BufferedImage image = new BufferedImage(66, 15, BufferedImage.TYPE_INT_RGB);
+//        Graphics2D g = (Graphics2D) image.getGraphics();
+//        String country = "25829674";
+//        Font countryFont = new Font("Arial", Font.BOLD, 14);
+//        g.setFont(countryFont);
+//        FontMetrics countryfontMetrics = g.getFontMetrics();
+//        g.drawString(country, 2, 12);
+//        image.createGraphics();
+//        ImageIcon icon = new ImageIcon(image);
+//
+//        int w = icon.getIconWidth();
+//        int h = icon.getIconHeight();
+//        BufferedImage images = new BufferedImage(w, h, BufferedImage.TYPE_INT_RGB);
+//        Graphics2D g2d = images.createGraphics();
+//        double x = (h - w) / 80.0;
+//        double y = (w - h) / 80.0;
+//
+//        AffineTransform at = AffineTransform.getTranslateInstance(x, y);
+//        at.rotate(Math.toRadians(180), w / 2.0, h / 2.0);//cambiar 180 grados
+//        g2d.drawImage(icon.getImage(), at, icon.getImageObserver());
+//        try {
+//            ImageIO.write(images, "jpg", new File(".\\srcprueba.jpg"));
+//        } catch (IOException ex) {
+//            Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        JOptionPane.showMessageDialog(jd_UML,"Imagen CReada");
+//}catch(Exception e){
+//    
+//}
 }

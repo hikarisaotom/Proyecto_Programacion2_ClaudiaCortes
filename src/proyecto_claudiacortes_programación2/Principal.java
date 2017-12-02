@@ -15,10 +15,12 @@ import java.awt.Dimension;
 import java.awt.Point;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.font.TextAttribute;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Enumeration;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
@@ -60,11 +62,17 @@ public class Principal extends javax.swing.JFrame {
 
         initComponents();
         DefaultComboBoxModel modelo = (DefaultComboBoxModel) jc_Fuentes.getModel();
+         DefaultComboBoxModel modelo1 = (DefaultComboBoxModel) jc_tamanoletra.getModel();
         for (int i = 0; i < Nombre.size(); i++) {
             Fuentes.add(new java.awt.Font(Nombre.get(i), 1, 11));
             modelo.addElement(Fuentes.get(i).getFontName());
             //System.out.println(Fuentes.get(i).getName());
         }
+        for (int i = 8; i <= 36; i++) {
+           modelo1.addElement(i);
+           i+=3;
+        }
+        jc_tamanoletra.setModel(modelo1);
         jc_fuente1.setModel(modelo);
         jc_Fuentes.setModel(modelo);
         this.setExtendedState(MAXIMIZED_BOTH);
@@ -128,11 +136,13 @@ public class Principal extends javax.swing.JFrame {
         jp_Drag = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        txt_codigoUML = new javax.swing.JTextArea();
         btn_oegar = new javax.swing.JButton();
         btn_GenerarCodigoUML = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
-        jButton7 = new javax.swing.JButton();
+        jc_tamanoletra = new javax.swing.JComboBox<>();
+        jLabel21 = new javax.swing.JLabel();
+        jc_tipoletra = new javax.swing.JComboBox<>();
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenu7 = new javax.swing.JMenu();
         jmi_guardraUML = new javax.swing.JMenuItem();
@@ -475,7 +485,13 @@ public class Principal extends javax.swing.JFrame {
         jToolBar1.add(jButton1);
 
         jc_Fuentes.setEditable(true);
+        jc_Fuentes.setFont(new java.awt.Font("AR CENA", 0, 14)); // NOI18N
         jc_Fuentes.setMaximumRowCount(3);
+        jc_Fuentes.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jc_FuentesItemStateChanged(evt);
+            }
+        });
         jc_Fuentes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jc_FuentesActionPerformed(evt);
@@ -495,6 +511,7 @@ public class Principal extends javax.swing.JFrame {
         jd_UML.getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 0, 24, 20));
 
         jButton3.setBackground(new java.awt.Color(255, 51, 0));
+        jButton3.setForeground(new java.awt.Color(204, 51, 0));
         jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton3MouseClicked(evt);
@@ -541,7 +558,7 @@ public class Principal extends javax.swing.JFrame {
                 btn_generarCodigoUMLMouseClicked(evt);
             }
         });
-        jd_UML.getContentPane().add(btn_generarCodigoUML, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 460, -1, 50));
+        jd_UML.getContentPane().add(btn_generarCodigoUML, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 460, -1, 50));
 
         jLabel14.setFont(new java.awt.Font("AR CENA", 0, 36)); // NOI18N
         jLabel14.setText("Opciones: ");
@@ -549,7 +566,7 @@ public class Principal extends javax.swing.JFrame {
 
         jTabbedPane2.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
 
-        jp_Drag.setBackground(new java.awt.Color(204, 204, 204));
+        jp_Drag.setBackground(new java.awt.Color(255, 255, 255));
         jp_Drag.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jp_DragMouseClicked(evt);
@@ -569,9 +586,9 @@ public class Principal extends javax.swing.JFrame {
 
         jTabbedPane2.addTab("Diagrama", jp_Drag);
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane5.setViewportView(jTextArea1);
+        txt_codigoUML.setColumns(20);
+        txt_codigoUML.setRows(5);
+        jScrollPane5.setViewportView(txt_codigoUML);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -600,22 +617,43 @@ public class Principal extends javax.swing.JFrame {
                 btn_oegarActionPerformed(evt);
             }
         });
-        jd_UML.getContentPane().add(btn_oegar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 60, -1, -1));
+        jd_UML.getContentPane().add(btn_oegar, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 460, 120, 50));
 
         btn_GenerarCodigoUML.setBackground(new java.awt.Color(255, 255, 255));
         btn_GenerarCodigoUML.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         btn_GenerarCodigoUML.setOpaque(true);
-        jd_UML.getContentPane().add(btn_GenerarCodigoUML, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 1240, 520));
+        jd_UML.getContentPane().add(btn_GenerarCodigoUML, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 1240, 510));
 
+        jLabel15.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         jLabel15.setText("Tamaño");
         jd_UML.getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 0, -1, 20));
 
-        jButton7.setText("jButton7");
-        jd_UML.getContentPane().add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        jc_tamanoletra.setFont(new java.awt.Font("AR CENA", 0, 14)); // NOI18N
+        jc_tamanoletra.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jc_tamanoletraItemStateChanged(evt);
+            }
+        });
+        jd_UML.getContentPane().add(jc_tamanoletra, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 0, 70, 18));
+
+        jLabel21.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
+        jLabel21.setText("Tipo");
+        jd_UML.getContentPane().add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 0, -1, -1));
+
+        jc_tipoletra.setFont(new java.awt.Font("AR CENA", 0, 14)); // NOI18N
+        jc_tipoletra.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Normal", "Negrita", "Cursiva", "Subrayado" }));
+        jc_tipoletra.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jc_tipoletraItemStateChanged(evt);
+            }
+        });
+        jd_UML.getContentPane().add(jc_tipoletra, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 0, -1, -1));
 
         jMenu7.setText("Archivo");
+        jMenu7.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
 
         jmi_guardraUML.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_G, java.awt.event.InputEvent.CTRL_MASK));
+        jmi_guardraUML.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         jmi_guardraUML.setText("Guardar");
         jmi_guardraUML.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -625,6 +663,7 @@ public class Principal extends javax.swing.JFrame {
         jMenu7.add(jmi_guardraUML);
 
         jmi_AbrirUML.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_MASK));
+        jmi_AbrirUML.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         jmi_AbrirUML.setText("Abrir");
         jmi_AbrirUML.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2058,6 +2097,68 @@ Long*/
        
 
     }//GEN-LAST:event_btn_CopiarArbolMouseClicked
+
+    private void jc_FuentesItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jc_FuentesItemStateChanged
+        int N = jc_Fuentes.getSelectedIndex();
+        try {
+            if (N >= 0) {
+                  JL_actual.setFont(new java.awt.Font(Fuentes.get(N).getFontName(), JL_actual.getFont().getStyle(),JL_actual.getFont().getSize())); 
+               // JL_actual.setFont(Fuentes.get(N));
+                
+            } else {
+                System.out.println("ES MENOR");
+            }
+        } catch (Exception e) {
+
+        }
+
+    }//GEN-LAST:event_jc_FuentesItemStateChanged
+
+    private void jc_tamanoletraItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jc_tamanoletraItemStateChanged
+  try{
+          JL_actual.setFont(new java.awt.Font(JL_actual.getFont().getFontName(),JL_actual.getFont().getStyle(),(int)jc_tamanoletra.getSelectedItem())); 
+  }catch(Exception e){
+      
+  }
+    }//GEN-LAST:event_jc_tamanoletraItemStateChanged
+
+    private void jc_tipoletraItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jc_tipoletraItemStateChanged
+     int n=jc_tipoletra.getSelectedIndex();
+        try {
+            switch (n) {
+                case 0://Normal
+                    System.out.println("estilo"+JL_actual.getFont().getStyle());
+                   
+                    Font normal = new Font(JL_actual.getFont().getFontName(), Font.PLAIN,JL_actual.getFont().getSize());
+                    JL_actual.setFont(normal);
+                    break;
+                case 1://Negrita
+                    Font negrita = new Font(JL_actual.getFont().getFontName(), Font.BOLD, JL_actual.getFont().getSize());
+                        JL_actual.setFont(negrita);
+                    break;
+                case 2://Cursiva
+                    Font cursiva = new Font( JL_actual.getFont().getFontName(),Font.ITALIC,JL_actual.getFont().getSize());
+                        JL_actual.setFont(cursiva);
+                    break;
+                case 3://Subyarado
+                   Font font = JL_actual.getFont();
+                    Map attributes = font.getAttributes();
+                    attributes.put(TextAttribute.UNDERLINE, TextAttribute.UNDERLINE_ON);
+                    JL_actual.setFont(font.deriveFont(attributes));
+                    break;
+            }
+
+
+
+
+
+       }catch(Exception e){
+           
+       }
+    }//GEN-LAST:event_jc_tipoletraItemStateChanged
+    public void Cambiarletra(){
+          JL_actual.setFont(Fuentes.get(jc_Fuentes.getSelectedIndex()));
+    }
     public String imprimirNodo(TreeNode nodo) {
         String Clases = "";
         for (int i = 0; i < nodo.getChildCount(); i++) {
@@ -2366,7 +2467,6 @@ public void AgregarPropieddes(JLabel lbl_subpro){
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JLabel jLabel1;
@@ -2382,6 +2482,7 @@ public void AgregarPropieddes(JLabel lbl_subpro){
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
@@ -2423,7 +2524,6 @@ public void AgregarPropieddes(JLabel lbl_subpro){
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JToolBar jToolBar2;
     private javax.swing.JTree jTree1;
@@ -2431,8 +2531,10 @@ public void AgregarPropieddes(JLabel lbl_subpro){
     private javax.swing.JComboBox<String> jc_alcance;
     private javax.swing.JComboBox<String> jc_alcance1;
     private javax.swing.JComboBox<String> jc_fuente1;
+    private javax.swing.JComboBox<String> jc_tamanoletra;
     private javax.swing.JComboBox<String> jc_tipo;
     private javax.swing.JComboBox<String> jc_tipo1;
+    private javax.swing.JComboBox<String> jc_tipoletra;
     private javax.swing.JDialog jd_DiagramaClases;
     private javax.swing.JDialog jd_Herencia;
     private javax.swing.JDialog jd_Metodos;
@@ -2471,6 +2573,7 @@ public void AgregarPropieddes(JLabel lbl_subpro){
     private javax.swing.JTextField tf_variable;
     private javax.swing.JTextField tf_variable1;
     private javax.swing.JTextArea txt_CodigoClases;
+    private javax.swing.JTextArea txt_codigoUML;
     private javax.swing.JTextField txt_codigocolorJL_actual;
     private javax.swing.JTextField txt_nombreJL_actual;
     private javax.swing.JTextField txt_textoJL_actual;

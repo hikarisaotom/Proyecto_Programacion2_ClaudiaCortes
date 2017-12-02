@@ -2203,8 +2203,18 @@ Long*/
     }//GEN-LAST:event_jc_tipoletraItemStateChanged
 
     private void jmi_crearImagenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_crearImagenActionPerformed
+        Dimension d = jp_Drag.getSize();
+        BufferedImage image = ScreenImage.createImage(jp_Drag);
+        Graphics2D g2d = image.createGraphics();
+        jp_Drag.print(g2d);
+        g2d.dispose();
+        try {
+            ImageIO.write(image, "jpg", new File(".\\srcprueb1111a.jpg"));
+        } catch (IOException ex) {
+            Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        JOptionPane.showMessageDialog(jd_UML, "Imagen Creada Exsitosamente");
 
-        
     }//GEN-LAST:event_jmi_crearImagenActionPerformed
 
     private void jmi_generarPDFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_generarPDFActionPerformed

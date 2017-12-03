@@ -13,6 +13,7 @@ import com.itextpdf.text.pdf.PdfWriter;
 import java.awt.Color;
 import java.awt.BorderLayout;
 import java.awt.Component;
+import java.awt.Desktop;
 import java.awt.Font;
 import java.awt.Toolkit;
 import java.awt.event.*;
@@ -125,6 +126,7 @@ public class Principal extends javax.swing.JFrame {
         jMenu4 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
+        jmi_imprimir = new javax.swing.JMenuItem();
         jd_UML = new javax.swing.JDialog();
         btn_documento = new javax.swing.JButton();
         btn_Proceso = new javax.swing.JButton();
@@ -442,6 +444,14 @@ public class Principal extends javax.swing.JFrame {
         jMenu4.add(jMenuItem3);
 
         jMenu8.add(jMenu4);
+
+        jmi_imprimir.setText("Imprimir");
+        jmi_imprimir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmi_imprimirActionPerformed(evt);
+            }
+        });
+        jMenu8.add(jmi_imprimir);
 
         jMenuBar6.add(jMenu8);
 
@@ -2307,6 +2317,28 @@ CrearIMG(jp_Drag,"jpg");
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
       CrearIMG(jp_dragDiagrama,"png"); 
     }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void jmi_imprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_imprimirActionPerformed
+        JFileChooser jfc = new JFileChooser();
+        FileNameExtensionFilter filtro2 = new FileNameExtensionFilter("Diagramas de Clases", "Clau2");
+        jfc.addChoosableFileFilter(filtro2);
+        int seleccion = jfc.showOpenDialog(this.Dialogo_Actual);
+        System.out.println(jfc.getSelectedFile().getPath());
+        String Extension = jfc.getSelectedFile().getPath();
+        java.awt.Desktop desktop = java.awt.Desktop.getDesktop();
+        java.io.File fichero = new java.io.File(Extension);
+        if (desktop.isSupported(Desktop.Action.PRINT)) {
+            try {
+                desktop.print(fichero);
+                JOptionPane.showMessageDialog(jd_UML, "Se esta imprimiendo el documento");
+            } catch (IOException ex) {
+                Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        } else {
+            JOptionPane.showMessageDialog(jd_UML, "No se ha podido Imprimir el Documento");
+        }
+    }//GEN-LAST:event_jmi_imprimirActionPerformed
     public void Cambiarletra(){
           JL_actual.setFont(Fuentes.get(jc_Fuentes.getSelectedIndex()));
     }
@@ -2771,6 +2803,7 @@ public void AgregarPropieddes(JLabel lbl_subpro){
     private javax.swing.JMenuItem jmi_generarPDF;
     private javax.swing.JMenuItem jmi_guardarClases;
     private javax.swing.JMenuItem jmi_guardraUML;
+    private javax.swing.JMenuItem jmi_imprimir;
     private javax.swing.JMenuItem jmi_propiedades;
     private javax.swing.JMenuItem jmi_texto;
     private javax.swing.JPanel jp_Drag;

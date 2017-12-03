@@ -16,4 +16,14 @@ public class Datos extends JLabel{
 public void GenerarCodigo(){
         
     } 
+Propiedad P;
+
+    public Propiedad getP() {
+        return P;
+    }
+
+    public void setP(Propiedad P) {
+        this.P = P;
+    }
+
 }

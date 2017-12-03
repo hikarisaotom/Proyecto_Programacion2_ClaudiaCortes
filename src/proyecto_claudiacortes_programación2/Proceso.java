@@ -12,6 +12,15 @@ import javax.swing.JLabel;
  * @author Claudia Cortes
  */
 public class Proceso extends JLabel{
+   Propiedad p;
+
+    public Propiedad getP() {
+        return p;
+    }
+
+    public void setP(Propiedad p) {
+        this.p = p;
+    }
    
 public void GenerarCodigo(){
         

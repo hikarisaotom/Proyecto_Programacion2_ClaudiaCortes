@@ -235,6 +235,7 @@ public class Principal extends javax.swing.JFrame {
         btn_crearpropiedad = new javax.swing.JButton();
         btn_actualizar = new javax.swing.JButton();
         btn_agregarparametros = new javax.swing.JButton();
+        btn_agregarvariable = new javax.swing.JButton();
         jd_Herencia = new javax.swing.JDialog();
         jLabel17 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
@@ -255,6 +256,10 @@ public class Principal extends javax.swing.JFrame {
         btn_actualizarmetodo = new javax.swing.JButton();
         jLabel26 = new javax.swing.JLabel();
         btn_agregarparametro = new javax.swing.JButton();
+        jd_agregarVariable = new javax.swing.JDialog();
+        jButton7 = new javax.swing.JButton();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        jl_variables = new javax.swing.JList<>();
         btn_DiagramaFlujo = new javax.swing.JButton();
         btn_DiagramaClases = new javax.swing.JButton();
         btn_Crear = new javax.swing.JButton();
@@ -1101,7 +1106,7 @@ public class Principal extends javax.swing.JFrame {
                 btn_crearpropiedadMouseClicked(evt);
             }
         });
-        jd_propiedad.getContentPane().add(btn_crearpropiedad, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 210, -1, -1));
+        jd_propiedad.getContentPane().add(btn_crearpropiedad, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 210, -1, -1));
 
         btn_actualizar.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         btn_actualizar.setText("Actualizar");
@@ -1120,6 +1125,15 @@ public class Principal extends javax.swing.JFrame {
             }
         });
         jd_propiedad.getContentPane().add(btn_agregarparametros, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 210, -1, -1));
+
+        btn_agregarvariable.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
+        btn_agregarvariable.setText("Variable");
+        btn_agregarvariable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_agregarvariableMouseClicked(evt);
+            }
+        });
+        jd_propiedad.getContentPane().add(btn_agregarvariable, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, -1, -1));
 
         jd_Herencia.setTitle("Herencia Entre Clases");
         jd_Herencia.setMinimumSize(new java.awt.Dimension(400, 400));
@@ -1246,6 +1260,37 @@ public class Principal extends javax.swing.JFrame {
         });
         jd_Metodos.getContentPane().add(btn_agregarparametro, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 180, -1, -1));
 
+        jButton7.setText("Agregar Variable");
+        jButton7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton7MouseClicked(evt);
+            }
+        });
+
+        jl_variables.setModel(new DefaultListModel());
+        jScrollPane6.setViewportView(jl_variables);
+
+        javax.swing.GroupLayout jd_agregarVariableLayout = new javax.swing.GroupLayout(jd_agregarVariable.getContentPane());
+        jd_agregarVariable.getContentPane().setLayout(jd_agregarVariableLayout);
+        jd_agregarVariableLayout.setHorizontalGroup(
+            jd_agregarVariableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_agregarVariableLayout.createSequentialGroup()
+                .addGap(105, 105, 105)
+                .addGroup(jd_agregarVariableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton7))
+                .addContainerGap(160, Short.MAX_VALUE))
+        );
+        jd_agregarVariableLayout.setVerticalGroup(
+            jd_agregarVariableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_agregarVariableLayout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 242, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton7)
+                .addContainerGap())
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("INICIO");
         setBackground(new java.awt.Color(255, 255, 255));
@@ -1324,7 +1369,19 @@ public class Principal extends javax.swing.JFrame {
             jd_UML.show(true);
             jd_UML.pack();
             jd_UML.setLocationRelativeTo(this);
-
+            jc_alcance.disable();
+            btn_agregarparametros.show(false);
+            btn_agregarvariable.show(true);
+            //  btn_crearpropiedad.show(false);
+            btn_actualizar.show(false);
+            jd_propiedad.setTitle("Crear Variables");
+            jd_propiedad.show();
+            btn_actualizar.show(false);
+            btn_crearpropiedad.show(true);
+            tf_variable.setText("");
+            jc_alcance.setSelectedIndex(0);
+            jc_tipo.setSelectedIndex(0);
+            btn_crearpropiedad.show(false);
         } else if (Bandera == 2) {
             jd_DiagramaClases.show(true);
             jd_DiagramaClases.pack();
@@ -1354,6 +1411,11 @@ public class Principal extends javax.swing.JFrame {
         U.Proceso(Proceso, lbl_Proceso);
         Proceso++;
         AgregarDrag(lbl_Proceso,1);
+          int respuesta = JOptionPane.showConfirmDialog(this.jd_UML, "Desea que esta salida tenga 1 variable?", "Confirm", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+            if (respuesta == JOptionPane.OK_OPTION) {
+         jd_agregarVariable.show(true);
+        lbl_Proceso.setP(Variable);
+            }
     }//GEN-LAST:event_btn_ProcesoMouseClicked
 
     private void btn_DiagramaFlujo1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_DiagramaFlujo1MouseClicked
@@ -1415,6 +1477,8 @@ public class Principal extends javax.swing.JFrame {
         UML U= new UML();
         U.PropiedadDatos(datos,lbldatos);
         AgregarDrag(lbldatos,1);
+        jd_agregarVariable.show(true);
+        lbldatos.setP(Variable);
     }//GEN-LAST:event_btn_datosMouseClicked
 
     private void btn_separadorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_separadorMouseClicked
@@ -2365,6 +2429,30 @@ CrearIMG(jp_Drag,"jpg");
             JOptionPane.showMessageDialog(jd_UML, "No se ha podido Imprimir el Documento");
         }
     }//GEN-LAST:event_jmi_imprimirUMLActionPerformed
+
+    private void btn_agregarvariableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_agregarvariableMouseClicked
+        String Propiedad = tf_variable.getText();
+        Propiedad P = new Propiedad(Propiedad);
+        P.setTipo(jc_tipo.getSelectedItem());
+        P.setAlcance(jc_alcance.getSelectedIndex());
+        DefaultListModel M = (DefaultListModel) jl_variables.getModel();
+        M.addElement(P);
+        jl_variables.setModel(M);
+        tf_variable.setText("");
+        jc_alcance.setSelectedIndex(0);
+        jc_tipo.setSelectedIndex(0);
+         JOptionPane.showMessageDialog(this.jd_UML, "Se ha Agregado la variable ");
+    }//GEN-LAST:event_btn_agregarvariableMouseClicked
+
+    private void jButton7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseClicked
+      if (jl_variables.getSelectedIndex() >= 0) {
+            DefaultListModel Modelo = (DefaultListModel) jl_variables.getModel();
+            Variable = (Propiedad) Modelo.get(jl_variables.getSelectedIndex());
+            JOptionPane.showMessageDialog(this.jd_UML, "Se ha Agregado la variable ");
+        } else {
+            JOptionPane.showMessageDialog(this.jd_UML, "No Se ha Agregado la variable ");
+        }
+    }//GEN-LAST:event_jButton7MouseClicked
     public void Cambiarletra(){
           JL_actual.setFont(Fuentes.get(jc_Fuentes.getSelectedIndex()));
     }
@@ -2717,6 +2805,7 @@ public void AgregarPropieddes(JLabel lbl_subpro){
     private javax.swing.JButton btn_agregarherencia;
     private javax.swing.JButton btn_agregarparametro;
     private javax.swing.JButton btn_agregarparametros;
+    private javax.swing.JButton btn_agregarvariable;
     private javax.swing.JButton btn_cancelar;
     private javax.swing.JButton btn_colorJL_actual;
     private javax.swing.JButton btn_crearmetodo;
@@ -2737,6 +2826,7 @@ public void AgregarPropieddes(JLabel lbl_subpro){
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JLabel jLabel1;
@@ -2798,6 +2888,7 @@ public void AgregarPropieddes(JLabel lbl_subpro){
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JToolBar jToolBar1;
@@ -2815,10 +2906,12 @@ public void AgregarPropieddes(JLabel lbl_subpro){
     private javax.swing.JDialog jd_Herencia;
     private javax.swing.JDialog jd_Metodos;
     private javax.swing.JDialog jd_UML;
+    private javax.swing.JDialog jd_agregarVariable;
     private javax.swing.JDialog jd_propiedad;
     private javax.swing.JDialog jd_propiedades;
     private javax.swing.JList<String> jl_hijo;
     private javax.swing.JList<String> jl_padre;
+    private javax.swing.JList<String> jl_variables;
     private javax.swing.JMenuItem jmi_AbrirClases;
     private javax.swing.JMenuItem jmi_AbrirUML;
     private javax.swing.JMenuItem jmi_DatosPropiedad;
@@ -2879,10 +2972,11 @@ public void AgregarPropieddes(JLabel lbl_subpro){
     ArrayList<UML> INSTRUCCIONES = new ArrayList();
     Propiedad Propiedad_Global;
     ArrayList<Propiedad> PARAMETROS = new ArrayList();
+    ArrayList<Propiedad> VARIABLES = new ArrayList();
     Metodo M_Actual;
     JPanel panelActual;
     JDialog Dialogo_Actual;
     String Nombre_Imprimir;
-          
+    Propiedad Variable;
 
 }

@@ -170,6 +170,7 @@ public class Principal extends javax.swing.JFrame {
         jmi_crearJpg = new javax.swing.JMenuItem();
         jmi_crearpng = new javax.swing.JMenuItem();
         jmi_crearotro = new javax.swing.JMenuItem();
+        jmi_imprimirUML = new javax.swing.JMenuItem();
         jFrame1 = new javax.swing.JFrame();
         btn_DiagramaFlujo1 = new javax.swing.JButton();
         btn_DiagramaClases1 = new javax.swing.JButton();
@@ -790,6 +791,14 @@ public class Principal extends javax.swing.JFrame {
         jMenu3.add(jmi_crearotro);
 
         jMenu2.add(jMenu3);
+
+        jmi_imprimirUML.setText("Imprimir");
+        jmi_imprimirUML.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmi_imprimirUMLActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jmi_imprimirUML);
 
         jMenuBar2.add(jMenu2);
 
@@ -2272,11 +2281,11 @@ Long*/
     }//GEN-LAST:event_jc_tipoletraItemStateChanged
 
     private void jmi_generarPDFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_generarPDFActionPerformed
-      GenerarPDF(txt_codigoUML.getText(),jp_Drag);
+        GenerarPDF(txt_codigoUML.getText(), jp_Drag, 1);
     }//GEN-LAST:event_jmi_generarPDFActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-GenerarPDF(txt_CodigoClases.getText(),jp_dragDiagrama);
+        GenerarPDF(txt_CodigoClases.getText(), jp_dragDiagrama, 1);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jmi_crearJpgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_crearJpgActionPerformed
@@ -2319,14 +2328,31 @@ CrearIMG(jp_Drag,"jpg");
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jmi_imprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_imprimirActionPerformed
-        JFileChooser jfc = new JFileChooser();
-        FileNameExtensionFilter filtro2 = new FileNameExtensionFilter("Diagramas de Clases", "Clau2");
-        jfc.addChoosableFileFilter(filtro2);
-        int seleccion = jfc.showOpenDialog(this.Dialogo_Actual);
-        System.out.println(jfc.getSelectedFile().getPath());
-        String Extension = jfc.getSelectedFile().getPath();
+        //CREAMOS EL ARCHIVO
+        Nombre_Imprimir="PruebaDiagrana";
+         GenerarPDF(txt_CodigoClases.getText(),jp_dragDiagrama,2);
+         String Ruta = ".\\Imprimir\\"+Nombre_Imprimir+".pdf";
         java.awt.Desktop desktop = java.awt.Desktop.getDesktop();
-        java.io.File fichero = new java.io.File(Extension);
+        java.io.File fichero = new java.io.File(Ruta);
+        if (desktop.isSupported(Desktop.Action.PRINT)) {
+            try {
+                desktop.print(fichero);
+                JOptionPane.showMessageDialog(jd_DiagramaClases, "Se esta imprimiendo el documento");
+            } catch (IOException ex) {
+                Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        } else {
+            JOptionPane.showMessageDialog(jd_UML, "No se ha podido Imprimir el Documento");
+        }
+    }//GEN-LAST:event_jmi_imprimirActionPerformed
+
+    private void jmi_imprimirUMLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_imprimirUMLActionPerformed
+        Nombre_Imprimir = "PruebaUML";
+        GenerarPDF(txt_codigoUML.getText(), jp_Drag, 2);
+        String Ruta = ".\\Imprimir\\" + Nombre_Imprimir + ".pdf";
+        java.awt.Desktop desktop = java.awt.Desktop.getDesktop();
+        java.io.File fichero = new java.io.File(Ruta);
         if (desktop.isSupported(Desktop.Action.PRINT)) {
             try {
                 desktop.print(fichero);
@@ -2338,15 +2364,22 @@ CrearIMG(jp_Drag,"jpg");
         } else {
             JOptionPane.showMessageDialog(jd_UML, "No se ha podido Imprimir el Documento");
         }
-    }//GEN-LAST:event_jmi_imprimirActionPerformed
+    }//GEN-LAST:event_jmi_imprimirUMLActionPerformed
     public void Cambiarletra(){
           JL_actual.setFont(Fuentes.get(jc_Fuentes.getSelectedIndex()));
     }
-    public void GenerarPDF(String Codigo, JPanel Panel) {
-        JFileChooser jfc = new JFileChooser();
+    public void GenerarPDF(String Codigo, JPanel Panel, int Bandera) {
+        
+        int seleccion=100;
+        String Ruta="";
+        if (Bandera==1) {
+            JFileChooser jfc = new JFileChooser();
         FileNameExtensionFilter filtro = new FileNameExtensionFilter("Diagramas UML", "Clau");
-        int seleccion = jfc.showOpenDialog(this.Dialogo_Actual);
-        String Ruta = jfc.getSelectedFile().getPath();
+       seleccion = jfc.showOpenDialog(this.Dialogo_Actual);
+         Ruta = jfc.getSelectedFile().getPath();
+        }else if (Bandera==2){
+              Ruta = ".\\Imprimir\\"+Nombre_Imprimir;
+        }
         try {
             Dimension d = Panel.getSize();
             BufferedImage image = ScreenImage.createImage(Panel);
@@ -2371,7 +2404,9 @@ CrearIMG(jp_Drag,"jpg");
             doc.add(imagen);
             doc.add(new Paragraph("creado por claudia patricia Cortés Pavón"));
             doc.close();
-            JOptionPane.showMessageDialog(Dialogo_Actual, "PDF creado");
+            if (Bandera==1) {
+                 JOptionPane.showMessageDialog(Dialogo_Actual, "PDF creado");
+            }
         } catch (Exception e) {
 
         }
@@ -2804,6 +2839,7 @@ public void AgregarPropieddes(JLabel lbl_subpro){
     private javax.swing.JMenuItem jmi_guardarClases;
     private javax.swing.JMenuItem jmi_guardraUML;
     private javax.swing.JMenuItem jmi_imprimir;
+    private javax.swing.JMenuItem jmi_imprimirUML;
     private javax.swing.JMenuItem jmi_propiedades;
     private javax.swing.JMenuItem jmi_texto;
     private javax.swing.JPanel jp_Drag;
@@ -2846,7 +2882,7 @@ public void AgregarPropieddes(JLabel lbl_subpro){
     Metodo M_Actual;
     JPanel panelActual;
     JDialog Dialogo_Actual;
-    
+    String Nombre_Imprimir;
           
 
 }

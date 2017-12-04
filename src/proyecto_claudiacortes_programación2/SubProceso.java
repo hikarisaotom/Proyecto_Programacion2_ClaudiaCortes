@@ -12,5 +12,8 @@ import javax.swing.JLabel;
  * @author Claudia Cortes
  */
 public class SubProceso extends JLabel{
-    
+    public String GenerarCodigo(){
+        String Codigo="";
+        return Codigo;
+    }  
 }

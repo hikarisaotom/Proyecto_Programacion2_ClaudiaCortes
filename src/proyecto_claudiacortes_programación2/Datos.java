@@ -12,13 +12,32 @@ import javax.swing.JLabel;
  * @author Claudia Cortes
  */
 public class Datos extends JLabel{
-   
-public void GenerarCodigo(){
-        
-    } 
-Propiedad P;
+   Propiedad P;
 
-    public Propiedad getP() {
+public String  GenerarCodigo(){
+    /*Integer
+String
+Double
+Long
+*/
+        String Codigo = "";
+        Codigo += "cout << \"Introduce un numero entero: \"; \n";
+        if (P.getTipo() == "Integer" || P.getTipo() == "Double" || P.getTipo() == "Long") {
+            Codigo += " cin >>" + P.getNombre() + ";";
+            Codigo += "cin.ignore(numeric_limits<int>::max(),'\\n');\n";
+        } else if (P.getTipo() == "String") {
+            Codigo += " cin >>" + P.getNombre() + ";\n";
+            Codigo += "  cin.get(c);";
+        }else{
+              Codigo += " cin >>" + P.getNombre() + ";\n";
+            Codigo += "  cin.get(c);";
+        }
+        return Codigo;
+
+   }
+
+    
+public Propiedad getP() {
         return P;
     }
 

@@ -13,7 +13,9 @@ import javax.swing.JLabel;
  */
 public class Inicio_Fin extends JLabel{
 
-public void GenerarCodigo(){
+public String GenerarCodigo(){
+        String Codigo="";
         
-    } 
+        return Codigo;
+    }  
 }

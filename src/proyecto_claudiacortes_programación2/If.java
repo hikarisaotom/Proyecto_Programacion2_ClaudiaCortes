@@ -13,7 +13,8 @@ import javax.swing.JLabel;
  */
 public class If extends JLabel{
 
-public void GenerarCodigo(){
-        
+public String GenerarCodigo(){
+        String Codigo="";
+        return Codigo;
     }  
 }

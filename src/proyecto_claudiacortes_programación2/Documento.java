@@ -12,5 +12,8 @@ import javax.swing.JLabel;
  * @author Claudia Cortes
  */
 public class Documento extends JLabel{
-    
+    public String GenerarCodigo(){
+        String Codigo="";
+        return Codigo;
+    }  
 }

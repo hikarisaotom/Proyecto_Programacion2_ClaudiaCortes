@@ -142,6 +142,7 @@ public class UML extends JLabel{
             D.setName("lbl_Vseparador" + Num);
             D.setText("VSeparador");
             D.setBackground(Color.black);
+          
             D.setHorizontalTextPosition(SwingConstants.CENTER);
             D.setIcon(new ImageIcon(".\\src\\Imagenes\\UML\\separadorV.png")); // NOI18N
             D.setSize(100, 6);

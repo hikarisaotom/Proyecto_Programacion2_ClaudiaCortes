@@ -1407,15 +1407,16 @@ public class Principal extends javax.swing.JFrame {
 
     private void btn_ProcesoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_ProcesoMouseClicked
         Proceso lbl_Proceso = new Proceso();
-        UML U=new UML();
+        //JLabel Etiqueta=new JLabel();
+        UML U = new UML();
         U.Proceso(Proceso, lbl_Proceso);
         Proceso++;
-        AgregarDrag(lbl_Proceso,1);
-          int respuesta = JOptionPane.showConfirmDialog(this.jd_UML, "Desea que esta salida tenga 1 variable?", "Confirm", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-            if (respuesta == JOptionPane.OK_OPTION) {
-         jd_agregarVariable.show(true);
-        lbl_Proceso.setP(Variable);
-            }
+        AgregarDrag(lbl_Proceso, 1);
+        int respuesta = JOptionPane.showConfirmDialog(this.jd_UML, "Desea que esta salida tenga 1 variable?", "Confirm", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        if (respuesta == JOptionPane.OK_OPTION) {
+            jd_agregarVariable.show(true);
+            lbl_Proceso.setP(Variable);
+        }
     }//GEN-LAST:event_btn_ProcesoMouseClicked
 
     private void btn_DiagramaFlujo1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_DiagramaFlujo1MouseClicked
@@ -1740,29 +1741,50 @@ Long*/
     }//GEN-LAST:event_btn_generarCodigoClasesMouseClicked
 
     private void btn_generarCodigoUMLMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_generarCodigoUMLMouseClicked
+        String Codigo="#include <iostream>\n"
+                + "using namespace std;\n"
+                + "int main(){\n";
         Object Obejtos[] = jp_Drag.getComponents();
         for (int i = 0; i < Obejtos.length; i++) {
             //System.out.println( Obejtos[i]);
             if (Obejtos[i] instanceof Proceso) {
                 System.out.println("\n1)PROCESO.\n");
                 System.out.println(Obejtos[i]);
+                Proceso P= (Proceso)Obejtos[i];
+                Codigo+=P.GenerarCodigo()+"\n";
             } else if (Obejtos[i] instanceof If) {
                 System.out.println("\n2)IF.\n");
                 System.out.println(Obejtos[i]);
+                If P= (If)Obejtos[i];
+                Codigo+=P.GenerarCodigo()+"\n";
             } else if (Obejtos[i] instanceof Datos) {
                 System.out.println("\n3)DATOS.\n");
-                System.out.println(Obejtos[i]);
+                 System.out.println(Obejtos[i]);
+                Datos P= (Datos)Obejtos[i];
+                Codigo+=P.GenerarCodigo()+"\n";
             } else if (Obejtos[i] instanceof Documento) {
                 System.out.println("\n4)DOCUMENTOS.\n");
                 System.out.println(Obejtos[i]);
+                Documento P= (Documento)Obejtos[i];
+                Codigo+=P.GenerarCodigo()+"\n";
             } else if (Obejtos[i] instanceof Inicio_Fin) {
-                System.out.println("\n5)SUBPROCESO.\n");
+                System.out.println("\n5)INICIO_FIN.\n");
                 System.out.println(Obejtos[i]);
+                Inicio_Fin P= (Inicio_Fin)Obejtos[i];
+                Codigo+=P.GenerarCodigo()+"\n";
             } else if (Obejtos[i] instanceof SubProceso) {
                 System.out.println("\n6)SUBPROCESO.\n");
                 System.out.println(Obejtos[i]);
+                SubProceso P= (SubProceso)Obejtos[i];
+                Codigo+=P.GenerarCodigo()+"\n";
             }
         }
+        
+          Codigo+="system(\"pause\");\n"
+                + "return 0;\n"
+                + "}";
+        txt_codigoUML.setText(Codigo);
+   JOptionPane.showMessageDialog(jd_UML,"Codigo Generado Exitosamente");
     }//GEN-LAST:event_btn_generarCodigoUMLMouseClicked
 
     private void btn_HerenciaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_HerenciaMouseClicked
@@ -2713,7 +2735,6 @@ public void AgregarPropieddes(JLabel lbl_subpro){
                     //System.out.println(lbl_Proceso);
                     // System.out.println(lbl_Proceso.getName());
                 }// para que no se salga del rango
-
             }
         });  //agrega los label
         lbl_Proceso.addMouseListener(new MouseListener() {

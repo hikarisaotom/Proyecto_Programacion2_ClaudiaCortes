@@ -25,7 +25,7 @@ public class Proceso extends JLabel{
     public String GenerarCodigo() {
         String Codigo = "";
         if (p != null) {
-            Codigo += " cout << " + this.getText() +" << "+ p.getNombre() + " << endl //EL SOUT \n;"; 
+            Codigo += " cout << " + this.getText() +" << "+ p.getNombre() + " << endl; //EL SOUT \n"; 
         }else{
                 Codigo += " cout << " + this.getText()+"; //EL SOUT\n";
         }

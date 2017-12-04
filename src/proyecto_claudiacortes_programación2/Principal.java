@@ -1744,9 +1744,13 @@ Long*/
         String Codigo="#include <iostream>\n"
                 + "using namespace std;\n"
                 + "int main(){\n";
+        for (int i = 0; i <VARIABLES.size(); i++) {
+            Codigo+=VARIABLES.get(i).getTipo() +" "+VARIABLES.get(i).getNombre()+";\n";
+        }
         Object Obejtos[] = jp_Drag.getComponents();
         for (int i = 0; i < Obejtos.length; i++) {
             //System.out.println( Obejtos[i]);
+              Obejtos = jp_Drag.getComponents();
             if (Obejtos[i] instanceof Proceso) {
                 System.out.println("\n1)PROCESO.\n");
                 System.out.println(Obejtos[i]);
@@ -1756,6 +1760,19 @@ Long*/
                 System.out.println("\n2)IF.\n");
                 System.out.println(Obejtos[i]);
                 If P= (If)Obejtos[i];
+                JOptionPane.showMessageDialog(jd_UML,"Cateo");
+                JLabel L1;
+                JLabel L2;
+                    if (Obejtos[i + 1] instanceof Datos) {
+                      L1=(Datos) Obejtos[i + 1];
+                       L2=(Proceso) Obejtos[i + 2];
+                       JOptionPane.showMessageDialog(jd_UML,"Cateo2");
+                P.setSi(L1);
+                P.setNo(L2);
+                i+=2;
+                         JOptionPane.showMessageDialog(jd_UML,"Cateo3");
+                }
+                
                 Codigo+=P.GenerarCodigo()+"\n";
             } else if (Obejtos[i] instanceof Datos) {
                 System.out.println("\n3)DATOS.\n");
@@ -2459,6 +2476,7 @@ CrearIMG(jp_Drag,"jpg");
         P.setAlcance(jc_alcance.getSelectedIndex());
         DefaultListModel M = (DefaultListModel) jl_variables.getModel();
         M.addElement(P);
+        VARIABLES.add(P);
         jl_variables.setModel(M);
         tf_variable.setText("");
         jc_alcance.setSelectedIndex(0);

@@ -66,6 +66,7 @@ public class Principal extends javax.swing.JFrame {
      * Creates new form Principal
      */
     public Principal() {
+    
         ArrayList<String> Nombre = new ArrayList();
         Nombre.add("Arial");
         Nombre.add("Tahoma");
@@ -268,14 +269,14 @@ public class Principal extends javax.swing.JFrame {
         jButton7 = new javax.swing.JButton();
         jScrollPane6 = new javax.swing.JScrollPane();
         jl_variables = new javax.swing.JList<>();
-        btn_DiagramaFlujo = new javax.swing.JButton();
-        btn_DiagramaClases = new javax.swing.JButton();
-        btn_Crear = new javax.swing.JButton();
         lbl_Diagrama = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        lbl_fodo = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jmi_abrirGlobal = new javax.swing.JMenuItem();
+        jMenu5 = new javax.swing.JMenu();
+        jMenuItem4 = new javax.swing.JMenuItem();
+        jMenuItem5 = new javax.swing.JMenuItem();
 
         jd_DiagramaClases.setMinimumSize(new java.awt.Dimension(500, 600));
         jd_DiagramaClases.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -1333,52 +1334,18 @@ public class Principal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("INICIO");
         setBackground(new java.awt.Color(255, 255, 255));
-        setMaximumSize(new java.awt.Dimension(600, 600));
+        setMaximumSize(new java.awt.Dimension(500, 600));
+        setMinimumSize(new java.awt.Dimension(500, 600));
+        setPreferredSize(new java.awt.Dimension(1176, 662));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        btn_DiagramaFlujo.setBackground(new java.awt.Color(204, 204, 204));
-        btn_DiagramaFlujo.setFont(new java.awt.Font("AR CENA", 1, 24)); // NOI18N
-        btn_DiagramaFlujo.setText("Diagramas de Flujo Basico");
-        btn_DiagramaFlujo.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btn_DiagramaFlujoMouseClicked(evt);
-            }
-        });
-        btn_DiagramaFlujo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_DiagramaFlujoActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btn_DiagramaFlujo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 320, 136));
-
-        btn_DiagramaClases.setBackground(new java.awt.Color(204, 204, 204));
-        btn_DiagramaClases.setFont(new java.awt.Font("AR CENA", 1, 24)); // NOI18N
-        btn_DiagramaClases.setText("Diagrama de clases");
-        btn_DiagramaClases.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btn_DiagramaClasesMouseClicked(evt);
-            }
-        });
-        getContentPane().add(btn_DiagramaClases, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 330, 320, 136));
-
-        btn_Crear.setBackground(new java.awt.Color(255, 255, 255));
-        btn_Crear.setFont(new java.awt.Font("AR CENA", 0, 24)); // NOI18N
-        btn_Crear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/edit.png"))); // NOI18N
-        btn_Crear.setText("Crear");
-        btn_Crear.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btn_CrearMouseClicked(evt);
-            }
-        });
-        getContentPane().add(btn_Crear, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 540, 170, 70));
 
         lbl_Diagrama.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/bienvenido.png"))); // NOI18N
         getContentPane().add(lbl_Diagrama, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 30, 920, 490));
 
-        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo.gif"))); // NOI18N
-        jLabel2.setOpaque(true);
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 40, 1090, 580));
+        lbl_fodo.setBackground(new java.awt.Color(255, 255, 255));
+        lbl_fodo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo.gif"))); // NOI18N
+        lbl_fodo.setOpaque(true);
+        getContentPane().add(lbl_fodo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 1420, 630));
 
         jMenu1.setText("Archivo");
 
@@ -1391,56 +1358,32 @@ public class Principal extends javax.swing.JFrame {
         });
         jMenu1.add(jmi_abrirGlobal);
 
+        jMenu5.setText("Nuevo");
+
+        jMenuItem4.setText("Flujo Grama");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
+        jMenu5.add(jMenuItem4);
+
+        jMenuItem5.setText("Diagrama Clases");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
+        jMenu5.add(jMenuItem5);
+
+        jMenu1.add(jMenu5);
+
         jMenuBar1.add(jMenu1);
 
         setJMenuBar(jMenuBar1);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btn_DiagramaFlujoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_DiagramaFlujoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_DiagramaFlujoActionPerformed
-
-    private void btn_CrearMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_CrearMouseClicked
-
-        if (Bandera == 0) {
-            JOptionPane.showMessageDialog(this, "Debe seleccionar una opcion antes de iniciar a crear.");
-        } else if (Bandera == 1) {
-            jd_UML.show(true);
-            jd_UML.pack();
-            jd_UML.setLocationRelativeTo(this);
-            jc_alcance.disable();
-            btn_agregarparametros.show(false);
-            btn_agregarvariable.show(true);
-            //  btn_crearpropiedad.show(false);
-            btn_actualizar.show(false);
-            jd_propiedad.setTitle("Crear Variables");
-            jd_propiedad.show();
-            btn_actualizar.show(false);
-            btn_crearpropiedad.show(true);
-            tf_variable.setText("");
-            jc_alcance.setSelectedIndex(0);
-            jc_tipo.setSelectedIndex(0);
-            btn_crearpropiedad.show(false);
-        } else if (Bandera == 2) {
-            jd_DiagramaClases.show(true);
-            jd_DiagramaClases.pack();
-            jd_DiagramaClases.setLocationRelativeTo(this);
-        }
-    }//GEN-LAST:event_btn_CrearMouseClicked
-
-    private void btn_DiagramaFlujoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_DiagramaFlujoMouseClicked
-
-        lbl_Diagrama.setIcon(new ImageIcon(".\\src\\Imagenes\\flujo.png")); // NOI18N
-        Bandera = 1;
-
-    }//GEN-LAST:event_btn_DiagramaFlujoMouseClicked
-
-    private void btn_DiagramaClasesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_DiagramaClasesMouseClicked
-        lbl_Diagrama.setIcon(new ImageIcon(".\\src\\Imagenes\\clase.jpg")); // NOI18N
-        Bandera = 2;
-    }//GEN-LAST:event_btn_DiagramaClasesMouseClicked
 
     private void btn_ProcesoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ProcesoActionPerformed
 
@@ -2593,6 +2536,31 @@ private int Sentencia(If P,Object []Obejtos, int i){
         Subpro++;
         AgregarDrag(lbl_subpro, 1);
     }//GEN-LAST:event_btn_finifMouseClicked
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        jd_UML.show(true);
+            jd_UML.pack();
+            jd_UML.setLocationRelativeTo(this);
+            jc_alcance.disable();
+            btn_agregarparametros.show(false);
+            btn_agregarvariable.show(true);
+            //  btn_crearpropiedad.show(false);
+            btn_actualizar.show(false);
+            jd_propiedad.setTitle("Crear Variables");
+            jd_propiedad.show();
+            btn_actualizar.show(false);
+            btn_crearpropiedad.show(true);
+            tf_variable.setText("");
+            jc_alcance.setSelectedIndex(0);
+            jc_tipo.setSelectedIndex(0);
+            btn_crearpropiedad.show(false);
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+       jd_DiagramaClases.show(true);
+            jd_DiagramaClases.pack();
+            jd_DiagramaClases.setLocationRelativeTo(this);
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
     public void Cambiarletra() {
         JL_actual.setFont(Fuentes.get(jc_Fuentes.getSelectedIndex()));
     }
@@ -2932,12 +2900,9 @@ private int Sentencia(If P,Object []Obejtos, int i){
     private javax.swing.JLabel LBL_VARIABLES;
     private javax.swing.JPopupMenu PP_OPA;
     private javax.swing.JButton btn_CopiarArbol;
-    private javax.swing.JButton btn_Crear;
     private javax.swing.JButton btn_Crear1;
     private javax.swing.JButton btn_Decision;
-    private javax.swing.JButton btn_DiagramaClases;
     private javax.swing.JButton btn_DiagramaClases1;
-    private javax.swing.JButton btn_DiagramaFlujo;
     private javax.swing.JButton btn_DiagramaFlujo1;
     private javax.swing.JLabel btn_GenerarCodigoUML;
     private javax.swing.JButton btn_Herencia;
@@ -2989,7 +2954,6 @@ private int Sentencia(If P,Object []Obejtos, int i){
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
@@ -3019,6 +2983,7 @@ private int Sentencia(If P,Object []Obejtos, int i){
     private javax.swing.JMenu jMenu20;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenu jMenu7;
     private javax.swing.JMenu jMenu8;
@@ -3031,6 +2996,8 @@ private int Sentencia(If P,Object []Obejtos, int i){
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -3093,10 +3060,11 @@ private int Sentencia(If P,Object []Obejtos, int i){
     private javax.swing.JSpinner js_height;
     private javax.swing.JSpinner js_tamanoletra;
     private javax.swing.JSpinner js_width;
-    private javax.swing.JLabel lbl_Diagrama;
+    public javax.swing.JLabel lbl_Diagrama;
     private javax.swing.JLabel lbl_Diagrama1;
     private javax.swing.JLabel lbl_FondoInicio1;
     private javax.swing.JLabel lbl_UML1;
+    private javax.swing.JLabel lbl_fodo;
     private javax.swing.JPopupMenu pp_OP;
     private javax.swing.JTextField tf_variable;
     private javax.swing.JTextField tf_variable1;

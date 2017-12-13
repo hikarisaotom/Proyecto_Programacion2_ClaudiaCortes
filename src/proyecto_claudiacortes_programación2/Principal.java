@@ -289,30 +289,30 @@ public class Principal extends javax.swing.JFrame {
         jd_DiagramaClases.getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 88, 246, 150));
 
         btn_agregarArbol.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
-        btn_agregarArbol.setText("AGREGAR");
+        btn_agregarArbol.setText("Nueva Clase");
         btn_agregarArbol.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_agregarArbolMouseClicked(evt);
             }
         });
-        jd_DiagramaClases.getContentPane().add(btn_agregarArbol, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 270, -1, -1));
+        jd_DiagramaClases.getContentPane().add(btn_agregarArbol, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 270, 110, 40));
 
         jLabel13.setFont(new java.awt.Font("AR CENA", 0, 36)); // NOI18N
         jLabel13.setText("Clases Generadas");
         jd_DiagramaClases.getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, -1, -1));
 
         btn_separadores.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
-        btn_separadores.setText("Separadores");
+        btn_separadores.setText("Separador");
         btn_separadores.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_separadoresMouseClicked(evt);
             }
         });
-        jd_DiagramaClases.getContentPane().add(btn_separadores, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, -1, -1));
+        jd_DiagramaClases.getContentPane().add(btn_separadores, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 100, 40));
         jd_DiagramaClases.getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 16, -1, -1));
 
         btn_generardiagrama.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
-        btn_generardiagrama.setText("Codigo(1)Clase");
+        btn_generardiagrama.setText("Codigo_Uni");
         btn_generardiagrama.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_generardiagramaMouseClicked(evt);
@@ -323,7 +323,7 @@ public class Principal extends javax.swing.JFrame {
                 btn_generardiagramaActionPerformed(evt);
             }
         });
-        jd_DiagramaClases.getContentPane().add(btn_generardiagrama, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 330, -1, 40));
+        jd_DiagramaClases.getContentPane().add(btn_generardiagrama, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 330, -1, 40));
 
         btn_generarCodigoClases.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         btn_generarCodigoClases.setText("Generar Codigo");
@@ -341,7 +341,7 @@ public class Principal extends javax.swing.JFrame {
                 btn_HerenciaMouseClicked(evt);
             }
         });
-        jd_DiagramaClases.getContentPane().add(btn_Herencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, -1, 40));
+        jd_DiagramaClases.getContentPane().add(btn_Herencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 100, 40));
 
         jp_dragDiagrama.setBackground(new java.awt.Color(204, 204, 204));
 
@@ -404,8 +404,10 @@ public class Principal extends javax.swing.JFrame {
         jd_DiagramaClases.getContentPane().add(btn_CopiarArbol, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 401, 90, 40));
 
         jMenu6.setText("Archivo");
+        jMenu6.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
 
         jmi_AbrirClases.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_MASK));
+        jmi_AbrirClases.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         jmi_AbrirClases.setText("Abrir");
         jmi_AbrirClases.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -415,6 +417,7 @@ public class Principal extends javax.swing.JFrame {
         jMenu6.add(jmi_AbrirClases);
 
         jmi_guardarClases.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_G, java.awt.event.InputEvent.CTRL_MASK));
+        jmi_guardarClases.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         jmi_guardarClases.setText("Guardar");
         jmi_guardarClases.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -426,12 +429,14 @@ public class Principal extends javax.swing.JFrame {
         jMenuBar6.add(jMenu6);
 
         jMenu8.setText("Exportar");
+        jMenu8.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         jMenu8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenu8ActionPerformed(evt);
             }
         });
 
+        jMenuItem1.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         jMenuItem1.setText("PDF");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -441,7 +446,9 @@ public class Principal extends javax.swing.JFrame {
         jMenu8.add(jMenuItem1);
 
         jMenu4.setText("Imagen");
+        jMenu4.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
 
+        jMenuItem2.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         jMenuItem2.setText("Jpg");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -450,6 +457,7 @@ public class Principal extends javax.swing.JFrame {
         });
         jMenu4.add(jMenuItem2);
 
+        jMenuItem3.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         jMenuItem3.setText("Png");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -460,6 +468,7 @@ public class Principal extends javax.swing.JFrame {
 
         jMenu8.add(jMenu4);
 
+        jmi_imprimir.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         jmi_imprimir.setText("Imprimir");
         jmi_imprimir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1136,7 +1145,7 @@ public class Principal extends javax.swing.JFrame {
         jd_propiedad.getContentPane().add(jc_tipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 90, 120, -1));
 
         jc_alcance.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
-        jc_alcance.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Package", "Public", "Private", "Protected" }));
+        jc_alcance.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "------", "Public", "Private", "Protected" }));
         jd_propiedad.getContentPane().add(jc_alcance, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 130, 121, -1));
 
         btn_crearpropiedad.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
@@ -1348,8 +1357,10 @@ public class Principal extends javax.swing.JFrame {
         getContentPane().add(lbl_fodo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 1420, 630));
 
         jMenu1.setText("Archivo");
+        jMenu1.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
 
         jmi_abrirGlobal.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_MASK));
+        jmi_abrirGlobal.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         jmi_abrirGlobal.setText("Abrir");
         jmi_abrirGlobal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1359,7 +1370,9 @@ public class Principal extends javax.swing.JFrame {
         jMenu1.add(jmi_abrirGlobal);
 
         jMenu5.setText("Nuevo");
+        jMenu5.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
 
+        jMenuItem4.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         jMenuItem4.setText("Flujo Grama");
         jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1368,6 +1381,7 @@ public class Principal extends javax.swing.JFrame {
         });
         jMenu5.add(jMenuItem4);
 
+        jMenuItem5.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         jMenuItem5.setText("Diagrama Clases");
         jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1595,6 +1609,7 @@ public class Principal extends javax.swing.JFrame {
         jc_alcance.enable();
         jd_propiedad.setTitle("Crear Propiedad");
         btn_crearpropiedad.show(true);
+        btn_agregarvariable.show(false);
         jc_alcance.enable();
         btn_actualizar.show(false);
         btn_agregarparametros.show(false);
@@ -1738,8 +1753,13 @@ Long*/
     }//GEN-LAST:event_btn_generarCodigoClasesMouseClicked
 
     private void btn_generarCodigoUMLMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_generarCodigoUMLMouseClicked
-        String Codigo = "#include <iostream>\n"
-                + "using namespace std;\n"
+//        String Codigo = "#include <iostream>\n"
+//                + "using namespace std;\n"
+//                + "int main(){\n";
+               String Codigo="//----------------------------INICIO DE LA CLASE----------------------------\n"
+                + "#include<iostream>\n"
+                + " #include <string> \n"
+                + " using namespace std;\n"
                 + "int main(){\n";
         for (int i = 0; i < VARIABLES.size(); i++) {
             Codigo += VARIABLES.get(i).getTipo() + " " + VARIABLES.get(i).getNombre() + ";\n";
@@ -1762,7 +1782,7 @@ Long*/
         }//Fin del for
         Codigo += "system(\"pause\");\n"
                 //  + "return 0;\n"
-                + "}";
+                + "}\n//----------------------------FIN DE LA CLASE----------------------------";
         txt_codigoUML.setText(Codigo);
         JOptionPane.showMessageDialog(jd_UML, "Codigo Generado Exitosamente");
     }//GEN-LAST:event_btn_generarCodigoUMLMouseClicked
@@ -1939,6 +1959,8 @@ private int Sentencia(If P,Object []Obejtos, int i){
         jd_propiedad.show();
         btn_actualizar.show(false);
         btn_crearpropiedad.show(true);
+        btn_agregarvariable.show(false);
+        
         tf_variable.setText("");
         jc_alcance.setSelectedIndex(0);
         jc_tipo.setSelectedIndex(0);
@@ -2550,6 +2572,7 @@ private int Sentencia(If P,Object []Obejtos, int i){
             jd_propiedad.show();
             btn_actualizar.show(false);
             btn_crearpropiedad.show(true);
+            btn_agregarvariable.show(false);
             tf_variable.setText("");
             jc_alcance.setSelectedIndex(0);
             jc_tipo.setSelectedIndex(0);

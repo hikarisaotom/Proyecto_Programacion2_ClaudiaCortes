@@ -1136,7 +1136,7 @@ public class Principal extends javax.swing.JFrame {
         jd_propiedad.getContentPane().add(tf_variable, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, 112, -1));
 
         jc_tipo.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
-        jc_tipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Integer", "String", "Double", "Long", " " }));
+        jc_tipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Int", "String", "Double", "char", "Long", "boolean" }));
         jc_tipo.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 jc_tipoItemStateChanged(evt);
@@ -1258,7 +1258,7 @@ public class Principal extends javax.swing.JFrame {
         jd_Metodos.getContentPane().add(tf_variable1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, 112, -1));
 
         jc_tipo1.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
-        jc_tipo1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Integer", "String", "Double", "Long", " " }));
+        jc_tipo1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Int", "String", "Double", "Long", "char", "boolean", " " }));
         jc_tipo1.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 jc_tipo1ItemStateChanged(evt);
@@ -1275,7 +1275,7 @@ public class Principal extends javax.swing.JFrame {
         jd_Metodos.getContentPane().add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, -1, -1));
 
         jc_alcance1.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
-        jc_alcance1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Package", "Public", "Private", "Protected" }));
+        jc_alcance1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-------", "Public", "Private", "Protected" }));
         jd_Metodos.getContentPane().add(jc_alcance1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 130, 121, -1));
 
         btn_crearmetodo.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N

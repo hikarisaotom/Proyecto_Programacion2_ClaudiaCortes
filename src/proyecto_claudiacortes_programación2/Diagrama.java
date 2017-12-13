@@ -93,20 +93,21 @@ public class Diagrama extends JTree implements Serializable{
       
         String Constructores="//CONSTRUCTORES: \n\n";
         Constructores+="//Simple\n"
-                + Clase.getNombre()+"(){\n}\n";
+                + Clase.getNombre()+"();\n\n";
         Constructores+="//SobreCargado\n";
         for (int i = 0; i <Clase.getPropiedades().size(); i++) {
             Constructor+=Clase.getPropiedades().get(i).getNombre()+"=D_"+i+"; \n";
+            String Tipo=""+Clase.getPropiedades().get(i).getTipo();
             if (i==Clase.getPropiedades().size()-1) {
-                String Tipo=""+Clase.getPropiedades().get(i).getTipo();
+                
                 Constructor_1+=Tipo.toLowerCase()+" D_"+i;
             }else{
-                 Constructor_1+=Clase.getPropiedades().get(i).getTipo()+" D_"+i+", ";
+                 Constructor_1+=Tipo.toLowerCase()+" D_"+i+", ";
             }
         }
-        Constructores+=Clase.getNombre()+"("+Constructor_1+"){\n"+
-                Constructor+"}\n\n";
-            Constructores+="//Destructor\n ~"+Clase.getNombre()+"()\n\n}\n}\n";
+        Constructores+=Clase.getNombre()+"("+Constructor_1+");\n"+
+                Constructor+"\n\n";
+            Constructores+="//Destructor\n ~"+Clase.getNombre()+"();\n\n};\n";
         
         Codigo += Public + Private + Protected+Constructores+"\n//----------------------------FIN DE LA CLASE----------------------------";
         return Codigo;

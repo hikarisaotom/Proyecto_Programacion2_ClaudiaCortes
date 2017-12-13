@@ -35,7 +35,7 @@ public class Diagrama extends JTree implements Serializable{
                 }
             }
         }
-        String Codigo="#Include<IOStream>\n";
+        String Codigo="#include<iostream>\n";
         String Public="\n public:\n";
        String Private="\n private:\n";
        String Protected="\n protected: \n";
@@ -50,10 +50,19 @@ public class Diagrama extends JTree implements Serializable{
                 Protected+=propiedad.getTipo()+" "+propiedad.getNombre()+";\n";
             }
         }
+        Codigo+="\n//H\n";
         for (Metodo propiedad : Clase.getMetodos()) {
             String Parametros = "";
             for (int i = 0; i < propiedad.getParametros().size(); i++) {
                 if (i == propiedad.getParametros().size()-1) {
+                    Parametros += propiedad.getParametros().get(i).getTipo()+"){\n";
+                } else {
+                    Parametros += propiedad.getParametros().get(i).getTipo()+ ", ";
+                }
+            }
+           Codigo+= "\n//CPP\n";
+            for (int i = 0; i < propiedad.getParametros().size(); i++) {
+                if (i == propiedad.getParametros().size() - 1) {
                     Parametros += propiedad.getParametros().get(i).getTipo() + " " + propiedad.getParametros().get(i).getNombre() + "){\n";
                 } else {
                     Parametros += propiedad.getParametros().get(i).getTipo() + " " + propiedad.getParametros().get(i).getNombre() + ", ";

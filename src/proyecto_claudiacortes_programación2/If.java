@@ -5,16 +5,35 @@
  */
 package proyecto_claudiacortes_programación2;
 
+import java.io.Serializable;
+import java.util.ArrayList;
 import javax.swing.JLabel;
 
 /**
  *
  * @author Claudia Cortes
  */
-public class If extends JLabel{
-JLabel si;
-JLabel no;
-String Condicion;
+public class If extends JLabel implements Serializable {
+private JLabel si;
+private JLabel no;
+private String Condicion;
+ private static final long SerialVersionUID=3695L;
+ private ArrayList <JLabel> Contenido= new ArrayList();
+    public ArrayList<JLabel> getContenido() {
+        return Contenido;
+    }
+
+    public void setContenido(ArrayList<JLabel> Contenido) {
+        this.Contenido = Contenido;
+    }
+    
+    public void AgregarElemento(JLabel Label){
+        Contenido.add(Label);
+    }
+
+
+
+
 
     public String getCondicion() {
         return Condicion;
@@ -27,28 +46,21 @@ String Condicion;
   
     public String GenerarCodigo() {
         String Codigo = "";
-        Codigo += "If(" + this.getText() + "){\n";
-        if (si instanceof Datos) {
-            Datos P=(Datos) si; 
-            Codigo += P.GenerarCodigo();
-        } else if (si instanceof Proceso) {
-             Proceso P=(Proceso) si; 
-            Codigo += P.GenerarCodigo();
-        }
-        if (no == null) {
-            Codigo += "\n}";
-        } else {
-             Codigo += "\n}else{\n";
-            if (no instanceof Datos) {
-                Datos P=(Datos) no; 
-                Codigo += P.GenerarCodigo();
-            } else if (no instanceof Proceso) {
-                   Proceso P=(Proceso) no; 
-                Codigo += P.GenerarCodigo();
+        //System.out.println("EL ESTADO ES: " + this.isEstado());
+
+            Codigo += "if(" + this.getText() + "){\n";
+            Codigo += Codigo(this.getSi(), Codigo);
+            if (no == null) {
+                Codigo += "\n}";
+            } else {
+                Codigo += "\n}else{\n";
+                Codigo += Codigo(this.getNo(), Codigo);
+                Codigo += "\n}";
             }
-             Codigo += "\n}";
-        }
-       
+
+            
+        
+
         return Codigo;
     }
 
@@ -67,5 +79,27 @@ String Condicion;
     public void setNo(JLabel no) {
         this.no = no;
     }
+  private String Codigo(JLabel Tipo, String Codigo) {
+      String c="";
+        if (Tipo instanceof Datos) {
+           Datos P=((Datos) Tipo);
+            c= P.GenerarCodigo();
+        } else if (Tipo instanceof Proceso) {
+         Proceso P=((Proceso) Tipo);
+            c= P.GenerarCodigo();
+        } else if (Tipo instanceof SubProceso) {
+         SubProceso P=((SubProceso) Tipo);
+             c= P.GenerarCodigo();
+        } else if (Tipo instanceof Documento) {
+         Documento P=((Documento) Tipo);
+            c= P.GenerarCodigo();
+        }
+        return c;
+    }
 
+    @Override
+    public String toString() {
+        return "If{" +this.getName() +", Contenido=" + Contenido + '}';
+    }
+  
 }

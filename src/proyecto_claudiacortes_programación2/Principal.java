@@ -74,20 +74,20 @@ public class Principal extends javax.swing.JFrame {
 
         initComponents();
         DefaultComboBoxModel modelo = (DefaultComboBoxModel) jc_Fuentes.getModel();
-         DefaultComboBoxModel modelo1 = (DefaultComboBoxModel) jc_tamanoletra.getModel();
+        DefaultComboBoxModel modelo1 = (DefaultComboBoxModel) jc_tamanoletra.getModel();
         for (int i = 0; i < Nombre.size(); i++) {
             Fuentes.add(new java.awt.Font(Nombre.get(i), 1, 11));
             modelo.addElement(Fuentes.get(i).getFontName());
             //System.out.println(Fuentes.get(i).getName());
         }
         for (int i = 8; i <= 36; i++) {
-           modelo1.addElement(i);
-           i+=3;
+            modelo1.addElement(i);
+            i += 3;
         }
         jc_tamanoletra.setModel(modelo1);
         jc_fuente1.setModel(modelo);
         jc_Fuentes.setModel(modelo);
-        this.setExtendedState(MAXIMIZED_BOTH);
+       // this.setExtendedState(MAXIMIZED_BOTH);
         // lbl_FondoInicio.setVisible(false);
     }
 
@@ -128,12 +128,14 @@ public class Principal extends javax.swing.JFrame {
         jMenuItem3 = new javax.swing.JMenuItem();
         jmi_imprimir = new javax.swing.JMenuItem();
         jd_UML = new javax.swing.JDialog();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        jl_VariablesVista = new javax.swing.JList<>();
         btn_documento = new javax.swing.JButton();
         btn_Proceso = new javax.swing.JButton();
+        btn_InicioFin = new javax.swing.JButton();
         btn_Decision = new javax.swing.JButton();
         btn_SubPro = new javax.swing.JButton();
         btn_SeparadorV = new javax.swing.JButton();
-        btn_InicioFin = new javax.swing.JButton();
         btn_datos = new javax.swing.JButton();
         btn_separador = new javax.swing.JButton();
         jToolBar1 = new javax.swing.JToolBar();
@@ -147,8 +149,11 @@ public class Principal extends javax.swing.JFrame {
         jButton6 = new javax.swing.JButton();
         jToolBar2 = new javax.swing.JToolBar();
         jLabel4 = new javax.swing.JLabel();
+        btn_finif = new javax.swing.JButton();
         btn_generarCodigoUML = new javax.swing.JButton();
         jLabel14 = new javax.swing.JLabel();
+        btn_MostrarVariable = new javax.swing.JButton();
+        LBL_VARIABLES = new javax.swing.JLabel();
         jTabbedPane2 = new javax.swing.JTabbedPane();
         jp_Drag = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
@@ -160,6 +165,9 @@ public class Principal extends javax.swing.JFrame {
         jc_tamanoletra = new javax.swing.JComboBox<>();
         jLabel21 = new javax.swing.JLabel();
         jc_tipoletra = new javax.swing.JComboBox<>();
+        jButton9 = new javax.swing.JButton();
+        jLabel27 = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenu7 = new javax.swing.JMenu();
         jmi_guardraUML = new javax.swing.JMenuItem();
@@ -467,6 +475,11 @@ public class Principal extends javax.swing.JFrame {
         jd_UML.setMinimumSize(new java.awt.Dimension(500, 600));
         jd_UML.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jl_VariablesVista.setModel(new DefaultListModel());
+        jScrollPane7.setViewportView(jl_VariablesVista);
+
+        jd_UML.getContentPane().add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 150, 120, 230));
+
         btn_documento.setBackground(new java.awt.Color(255, 255, 255));
         btn_documento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/UML/documentos.png"))); // NOI18N
         btn_documento.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -491,6 +504,15 @@ public class Principal extends javax.swing.JFrame {
             }
         });
         jd_UML.getContentPane().add(btn_Proceso, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 110, 70));
+
+        btn_InicioFin.setBackground(new java.awt.Color(255, 255, 255));
+        btn_InicioFin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/UML/in_fin.png"))); // NOI18N
+        btn_InicioFin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_InicioFinMouseClicked(evt);
+            }
+        });
+        jd_UML.getContentPane().add(btn_InicioFin, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 220, 100, -1));
 
         btn_Decision.setBackground(new java.awt.Color(204, 204, 204));
         btn_Decision.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/UML/if.png"))); // NOI18N
@@ -518,15 +540,6 @@ public class Principal extends javax.swing.JFrame {
             }
         });
         jd_UML.getContentPane().add(btn_SeparadorV, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 430, 100, 10));
-
-        btn_InicioFin.setBackground(new java.awt.Color(255, 255, 255));
-        btn_InicioFin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/UML/in_fin.png"))); // NOI18N
-        btn_InicioFin.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btn_InicioFinMouseClicked(evt);
-            }
-        });
-        jd_UML.getContentPane().add(btn_InicioFin, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 220, 100, -1));
 
         btn_datos.setBackground(new java.awt.Color(255, 255, 255));
         btn_datos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/UML/datos.png"))); // NOI18N
@@ -622,6 +635,14 @@ public class Principal extends javax.swing.JFrame {
 
         jd_UML.getContentPane().add(jToolBar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 0, 170, 20));
 
+        btn_finif.setText("FIN IF");
+        btn_finif.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_finifMouseClicked(evt);
+            }
+        });
+        jd_UML.getContentPane().add(btn_finif, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 460, -1, -1));
+
         btn_generarCodigoUML.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         btn_generarCodigoUML.setText("Generar codigo");
         btn_generarCodigoUML.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -634,6 +655,12 @@ public class Principal extends javax.swing.JFrame {
         jLabel14.setFont(new java.awt.Font("AR CENA", 0, 36)); // NOI18N
         jLabel14.setText("Opciones: ");
         jd_UML.getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 50, -1, -1));
+
+        btn_MostrarVariable.setText("Agregar");
+        jd_UML.getContentPane().add(btn_MostrarVariable, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 400, -1, -1));
+
+        LBL_VARIABLES.setText("Variables ");
+        jd_UML.getContentPane().add(LBL_VARIABLES, new org.netbeans.lib.awtextra.AbsoluteConstraints(1106, 100, 120, 40));
 
         jTabbedPane2.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
 
@@ -648,7 +675,7 @@ public class Principal extends javax.swing.JFrame {
         jp_Drag.setLayout(jp_DragLayout);
         jp_DragLayout.setHorizontalGroup(
             jp_DragLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 915, Short.MAX_VALUE)
+            .addGap(0, 785, Short.MAX_VALUE)
         );
         jp_DragLayout.setVerticalGroup(
             jp_DragLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -665,7 +692,9 @@ public class Principal extends javax.swing.JFrame {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 915, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 646, Short.MAX_VALUE)
+                .addGap(139, 139, 139))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -674,7 +703,7 @@ public class Principal extends javax.swing.JFrame {
 
         jTabbedPane2.addTab("Codigo", jPanel3);
 
-        jd_UML.getContentPane().add(jTabbedPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 40, 920, 420));
+        jd_UML.getContentPane().add(jTabbedPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 40, 790, 420));
 
         btn_oegar.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         btn_oegar.setText("Pegar");
@@ -719,6 +748,16 @@ public class Principal extends javax.swing.JFrame {
             }
         });
         jd_UML.getContentPane().add(jc_tipoletra, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 0, -1, -1));
+
+        jButton9.setText("jButton9");
+        jd_UML.getContentPane().add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        jLabel27.setText("jLabel27");
+        jd_UML.getContentPane().add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 160, -1, -1));
+
+        jLabel28.setFont(new java.awt.Font("AR CENA", 0, 36)); // NOI18N
+        jLabel28.setText("Opciones: ");
+        jd_UML.getContentPane().add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 50, -1, -1));
 
         jMenu7.setText("Archivo");
         jMenu7.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
@@ -1133,7 +1172,7 @@ public class Principal extends javax.swing.JFrame {
                 btn_agregarvariableMouseClicked(evt);
             }
         });
-        jd_propiedad.getContentPane().add(btn_agregarvariable, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, -1, -1));
+        jd_propiedad.getContentPane().add(btn_agregarvariable, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 210, -1, -1));
 
         jd_Herencia.setTitle("Herencia Entre Clases");
         jd_Herencia.setMinimumSize(new java.awt.Dimension(400, 400));
@@ -1294,6 +1333,7 @@ public class Principal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("INICIO");
         setBackground(new java.awt.Color(255, 255, 255));
+        setMaximumSize(new java.awt.Dimension(600, 600));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btn_DiagramaFlujo.setBackground(new java.awt.Color(204, 204, 204));
@@ -1336,8 +1376,9 @@ public class Principal extends javax.swing.JFrame {
         getContentPane().add(lbl_Diagrama, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 30, 920, 490));
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo.gif"))); // NOI18N
         jLabel2.setOpaque(true);
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1140, 630));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 40, 1090, 580));
 
         jMenu1.setText("Archivo");
 
@@ -1436,19 +1477,30 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_Crear1MouseClicked
 
     private void btn_DecisionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_DecisionMouseClicked
+        // int respuesta = JOptionPane.showConfirmDialog(this.jd_UML, "¿Desea que sea una decisión?", "Confirm", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+//       boolean Bandera=false;
+//       if (respuesta == JOptionPane.OK_OPTION) {
+//            Bandera=true;
+//        } else {
+//           
+//           Bandera=false;
+//        }
         If lbl_if = new If();
-         UML U=new UML();
+
+        UML U = new UML();
+
         U.If(cont_If, lbl_if);
         cont_If++;
-        AgregarDrag(lbl_if,1);
+        AgregarDrag(lbl_if, 1);
+
     }//GEN-LAST:event_btn_DecisionMouseClicked
 
     private void btn_documentoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_documentoMouseClicked
         Documento lbl_documento = new Documento();
-          UML U=new UML();
+        UML U = new UML();
         U.Documento(documentos, lbl_documento);
         documentos++;
-        AgregarDrag(lbl_documento,1);
+        AgregarDrag(lbl_documento, 1);
     }//GEN-LAST:event_btn_documentoMouseClicked
 
     private void btn_InicioFinMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_InicioFinMouseClicked
@@ -1459,43 +1511,45 @@ public class Principal extends javax.swing.JFrame {
             UML U = new UML();
             U.Inicio_Fin(in_out, lbl_inicio_fin);
             in_out++;
-            AgregarDrag(lbl_inicio_fin,1);
+            AgregarDrag(lbl_inicio_fin, 1);
         }
 
     }//GEN-LAST:event_btn_InicioFinMouseClicked
 
     private void btn_SubProMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_SubProMouseClicked
         SubProceso lbl_subpro = new SubProceso();
-            UML U=new UML();
-        U.SubProceso( Subpro,  lbl_subpro);
+        UML U = new UML();
+        U.SubProceso(Subpro, lbl_subpro);
         Subpro++;
-        AgregarDrag(lbl_subpro,1);
+        AgregarDrag(lbl_subpro, 1);
     }//GEN-LAST:event_btn_SubProMouseClicked
 
     private void btn_datosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_datosMouseClicked
         Datos lbldatos = new Datos();
         datos++;
-        UML U= new UML();
-        U.PropiedadDatos(datos,lbldatos);
-        AgregarDrag(lbldatos,1);
+        UML U = new UML();
+        U.PropiedadDatos(datos, lbldatos);
+        AgregarDrag(lbldatos, 1);
+        JL_actual = lbldatos;
         jd_agregarVariable.show(true);
+
         lbldatos.setP(Variable);
     }//GEN-LAST:event_btn_datosMouseClicked
 
     private void btn_separadorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_separadorMouseClicked
         Separador lbl_separador = new Separador();
-          UML U=new UML();
+        UML U = new UML();
         U.Separador(separador, 1, lbl_separador);
         separador++;
-        AgregarDrag(lbl_separador,1);
+        AgregarDrag(lbl_separador, 1);
     }//GEN-LAST:event_btn_separadorMouseClicked
 
     private void btn_SeparadorVMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_SeparadorVMouseClicked
         Separador lbl_Vseparador = new Separador();
-         UML U=new UML();
+        UML U = new UML();
         U.Separador(V_separador, 2, lbl_Vseparador);
         V_separador++;
-        AgregarDrag(lbl_Vseparador,1);
+        AgregarDrag(lbl_Vseparador, 1);
     }//GEN-LAST:event_btn_SeparadorVMouseClicked
 
     private void jmi_colorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_colorActionPerformed
@@ -1741,68 +1795,106 @@ Long*/
     }//GEN-LAST:event_btn_generarCodigoClasesMouseClicked
 
     private void btn_generarCodigoUMLMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_generarCodigoUMLMouseClicked
-        String Codigo="#include <iostream>\n"
+        String Codigo = "#include <iostream>\n"
                 + "using namespace std;\n"
                 + "int main(){\n";
-        for (int i = 0; i <VARIABLES.size(); i++) {
-            Codigo+=VARIABLES.get(i).getTipo() +" "+VARIABLES.get(i).getNombre()+";\n";
+        for (int i = 0; i < VARIABLES.size(); i++) {
+            Codigo += VARIABLES.get(i).getTipo() + " " + VARIABLES.get(i).getNombre() + ";\n";
         }
         Object Obejtos[] = jp_Drag.getComponents();
         for (int i = 0; i < Obejtos.length; i++) {
-            //System.out.println( Obejtos[i]);
-              Obejtos = jp_Drag.getComponents();
-            if (Obejtos[i] instanceof Proceso) {
-                System.out.println("\n1)PROCESO.\n");
-                System.out.println(Obejtos[i]);
-                Proceso P= (Proceso)Obejtos[i];
-                Codigo+=P.GenerarCodigo()+"\n";
-            } else if (Obejtos[i] instanceof If) {
-                System.out.println("\n2)IF.\n");
-                System.out.println(Obejtos[i]);
-                If P= (If)Obejtos[i];
-                JOptionPane.showMessageDialog(jd_UML,"Cateo");
-                JLabel L1;
-                JLabel L2;
-                    if (Obejtos[i + 1] instanceof Datos) {
-                      L1=(Datos) Obejtos[i + 1];
-                       L2=(Proceso) Obejtos[i + 2];
-                       JOptionPane.showMessageDialog(jd_UML,"Cateo2");
-                P.setSi(L1);
-                P.setNo(L2);
-                i+=2;
-                         JOptionPane.showMessageDialog(jd_UML,"Cateo3");
-                }
-                
-                Codigo+=P.GenerarCodigo()+"\n";
-            } else if (Obejtos[i] instanceof Datos) {
-                System.out.println("\n3)DATOS.\n");
-                 System.out.println(Obejtos[i]);
-                Datos P= (Datos)Obejtos[i];
-                Codigo+=P.GenerarCodigo()+"\n";
-            } else if (Obejtos[i] instanceof Documento) {
-                System.out.println("\n4)DOCUMENTOS.\n");
-                System.out.println(Obejtos[i]);
-                Documento P= (Documento)Obejtos[i];
-                Codigo+=P.GenerarCodigo()+"\n";
-            } else if (Obejtos[i] instanceof Inicio_Fin) {
-                System.out.println("\n5)INICIO_FIN.\n");
-                System.out.println(Obejtos[i]);
-                Inicio_Fin P= (Inicio_Fin)Obejtos[i];
-                Codigo+=P.GenerarCodigo()+"\n";
+            //Obejtos = jp_Drag.getComponents();
+            if (Obejtos[i] instanceof If) {
+                If P = (If) Obejtos[i];
+                i += Sentencia(P, Obejtos, i);
+                Codigo += P.GenerarCodigo() + "\n";
             } else if (Obejtos[i] instanceof SubProceso) {
-                System.out.println("\n6)SUBPROCESO.\n");
-                System.out.println(Obejtos[i]);
-                SubProceso P= (SubProceso)Obejtos[i];
-                Codigo+=P.GenerarCodigo()+"\n";
-            }
-        }
-        
-          Codigo+="system(\"pause\");\n"
-                + "return 0;\n"
+                 SubProceso P = (SubProceso) Obejtos[i];
+                 i=Bucle(P, Obejtos, i);//AQUI SI SE IGUALA
+                 System.out.println("LA I QUE LLEGO AQUI"+i);
+                  Codigo += P.GenerarCodigo() + "\n";
+            }else{
+                Codigo+=Codigo(((JLabel)Obejtos[i]),"");
+            }//Fin
+        }//Fin del for
+        Codigo += "system(\"pause\");\n"
+                //  + "return 0;\n"
                 + "}";
         txt_codigoUML.setText(Codigo);
-   JOptionPane.showMessageDialog(jd_UML,"Codigo Generado Exitosamente");
+        JOptionPane.showMessageDialog(jd_UML, "Codigo Generado Exitosamente");
     }//GEN-LAST:event_btn_generarCodigoUMLMouseClicked
+    private int Bucle(SubProceso P, Object[] Obejtos, int i) {
+        int num = 0;
+        for (int j = i + 1; j < Obejtos.length; j++) {
+            if (Obejtos[j] instanceof If) {
+                If x = ((If) Obejtos[j]);
+                j += Sentencia(x, Obejtos, (j));
+                P.AgregarElemento(x);
+            } else if (Obejtos[j] instanceof Fin_If) {
+                System.out.println("SALIENDO EN " + j);
+                return j;
+
+            } else {
+                JLabel x = ((JLabel) Obejtos[j]);
+                System.out.println("AGREGANDO" + x);
+                P.AgregarElemento(x);
+            }
+        }
+        return num;
+    }
+
+private int Sentencia(If P,Object []Obejtos, int i){
+    int num=0;
+    boolean Bandera=false;
+     int Aumentar = 0;
+                if (i + 1 <= Obejtos.length - 1) {
+                    if (Obejtos[i+1] instanceof SubProceso) {
+                        System.out.println("QUEDO EN EL SI"+Obejtos[i+1]);
+                         P.setSi(((JLabel) Obejtos[i + 1]));
+                        i=Bucle(((SubProceso)Obejtos[i+1]),Obejtos,i+1);
+                        //Aumentar=1;
+                        Bandera=true;
+                    }else{
+                          P.setSi(((JLabel) Obejtos[i + 1]));
+                    Aumentar++;
+                    }
+                }
+                if (i +1<= Obejtos.length - 1) {
+                    if (((JLabel) Obejtos[i +  1]) instanceof Fin_If) {
+                        //  Aumentar++;
+                    } else {
+                        if (Bandera) {
+                              P.setNo(((JLabel) Obejtos[i + 1]));
+                        }else{
+                              P.setNo(((JLabel) Obejtos[i + 2]));
+                     //Aumentar= Aumentar+1; 
+                        }
+                        Aumentar++;
+                    }
+                }
+                i += Aumentar;
+                num=i;
+    return num;
+}
+    private String Codigo(JLabel Tipo, String Codigo) {
+        String c = "";
+        if (Tipo instanceof Datos) {
+            Datos P = ((Datos) Tipo);
+            c = P.GenerarCodigo();
+        } else if (Tipo instanceof Proceso) {
+            Proceso P = ((Proceso) Tipo);
+            c = P.GenerarCodigo();
+        } else if (Tipo instanceof SubProceso) {
+            SubProceso P = ((SubProceso) Tipo);
+            c = P.GenerarCodigo();
+        } else if (Tipo instanceof Documento) {
+            Documento P = ((Documento) Tipo);
+            c = P.GenerarCodigo();
+        } else if (Tipo instanceof If) {
+
+        }
+        return c;
+    }
 
     private void btn_HerenciaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_HerenciaMouseClicked
         jd_Herencia.show();
@@ -2158,174 +2250,172 @@ Long*/
     }//GEN-LAST:event_btn_oegarActionPerformed
 
     private void btn_oegarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_oegarMouseClicked
-  
-        
-        if (JL_actual==null) {
-             JOptionPane.showMessageDialog(jd_DiagramaClases,"No se encuentra ningun elemento en memoria, seleccione un objeto para Copiar");
-        }else{
-             UML U=new UML();
-        if (JL_actual instanceof Datos) {
-            Datos P = new Datos();
-          U.Copiar(P, JL_actual);
-            AgregarDrag(P,1);
-            jp_Drag.add(P);
-        } else if (JL_actual instanceof Documento) {
-            Documento P = new Documento();
-             U.Copiar(P, JL_actual);
-            AgregarDrag(P,1);
-            jp_Drag.add(P);
-        } else if (JL_actual instanceof If) {
-            If P = new If();
-            U.Copiar(P, JL_actual);
-            AgregarDrag(P,1);
-            jp_Drag.add(P);
-        } else if (JL_actual instanceof Inicio_Fin) {
-            Inicio_Fin P = new Inicio_Fin();
-             U.Copiar(P, JL_actual);
-            AgregarDrag(P,1);
-            jp_Drag.add(P);
-        } else if (JL_actual instanceof Proceso) {
-            Proceso P = new Proceso();
-            U.Copiar(P, JL_actual);
-            AgregarDrag(P,1);
-            jp_Drag.add(P);
-        } else if (JL_actual instanceof Separador) {
-            Separador P = new Separador();
-             U.Copiar(P, JL_actual);
-            AgregarDrag(P,1);
-            jp_Drag.add(P);
-        } else if (JL_actual instanceof SubProceso) {
-            SubProceso P = new SubProceso();
-            U.Copiar(P, JL_actual);
-            AgregarDrag(P,1);
-            jp_Drag.add(P);
-        }
-        jp_Drag.repaint();
+
+        if (JL_actual == null) {
+            JOptionPane.showMessageDialog(jd_DiagramaClases, "No se encuentra ningun elemento en memoria, seleccione un objeto para Copiar");
+        } else {
+            UML U = new UML();
+            if (JL_actual instanceof Datos) {
+                Datos P = new Datos();
+                U.Copiar(P, JL_actual);
+                AgregarDrag(P, 1);
+                jp_Drag.add(P);
+            } else if (JL_actual instanceof Documento) {
+                Documento P = new Documento();
+                U.Copiar(P, JL_actual);
+                AgregarDrag(P, 1);
+                jp_Drag.add(P);
+            } else if (JL_actual instanceof If) {
+                If P = new If();
+                U.Copiar(P, JL_actual);
+                AgregarDrag(P, 1);
+                jp_Drag.add(P);
+            } else if (JL_actual instanceof Inicio_Fin) {
+                Inicio_Fin P = new Inicio_Fin();
+                U.Copiar(P, JL_actual);
+                AgregarDrag(P, 1);
+                jp_Drag.add(P);
+            } else if (JL_actual instanceof Proceso) {
+                Proceso P = new Proceso();
+                U.Copiar(P, JL_actual);
+                AgregarDrag(P, 1);
+                jp_Drag.add(P);
+            } else if (JL_actual instanceof Separador) {
+                Separador P = new Separador();
+                U.Copiar(P, JL_actual);
+                AgregarDrag(P, 1);
+                jp_Drag.add(P);
+            } else if (JL_actual instanceof SubProceso) {
+                SubProceso P = new SubProceso();
+                U.Copiar(P, JL_actual);
+                AgregarDrag(P, 1);
+                jp_Drag.add(P);
+            }
+            jp_Drag.repaint();
         }
     }//GEN-LAST:event_btn_oegarMouseClicked
 
     private void btn_CopiarArbolMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_CopiarArbolMouseClicked
-        if (ActualArbol==null) {
-            JOptionPane.showMessageDialog(jd_DiagramaClases,"No se encuentra ningun elemento en memoria, seleccione un objeto para Copiar");
-        }else{
-             Clase C = new Clase(ActualArbol.getClase().getNombre() + "_Copia");
-        DefaultMutableTreeNode carpetaRaiz = new DefaultMutableTreeNode(C);
-        DefaultMutableTreeNode Atributos = new DefaultMutableTreeNode("Popiedades");
-        DefaultMutableTreeNode Metodos = new DefaultMutableTreeNode("Metodos");
-        carpetaRaiz.add(Atributos);
-        carpetaRaiz.add(Metodos);
-        DefaultTreeModel modelo = new DefaultTreeModel(carpetaRaiz);
-        Diagrama arbol = new Diagrama();
-        arbol.setClase(C);
-        arbol.setModel(modelo);
-        arbol.setName(ActualArbol.getName() + "_Copia");
-        arbol.setSize(150, 150);
-        arbol.addMouseListener(new MouseListener() {
-            public void mouseClicked(MouseEvent evt) {
-                ActualArbol = arbol;
-                int row = arbol.getClosestRowForLocation(evt.getX(), evt.getY());
-                arbol.setSelectionRow(row);
-                //determinar el tipo de objeto selecionado.
-                //contenido en el nodo seleccionado
-                Object v1 = arbol.getSelectionPath().getLastPathComponent();//nos da la ruta y luego nos saca el final de la ruta.
-                nodo_seleccionado = (DefaultMutableTreeNode) v1;
-                if (evt.isMetaDown()) {
-                    if (nodo_seleccionado.getUserObject() instanceof Clase) {
-                        jmi_agregarpropiedad.show(true);
-                        jmi_Eliminararbol.show(true);
-                        jmi_agregarMetodo.show(true);
-                        jmi_EliminarPropiedad.show(false);
-                        jmi_DatosPropiedad.show(false);
-                        jmi_eliminarMetodo.show(false);
-                        jmi_descripcionMetodo.show(false);
-                    } else if (nodo_seleccionado.getUserObject() instanceof Propiedad) {
-                        Propiedad_Global = (Propiedad) nodo_seleccionado.getUserObject();
-                        jmi_agregarpropiedad.show(false);
-                        jmi_Eliminararbol.show(false);
-                        jmi_EliminarPropiedad.show(true);
-                        jmi_DatosPropiedad.show(true);
-                        jmi_eliminarMetodo.show(false);
-                        jmi_descripcionMetodo.show(false);
-                        jmi_agregarMetodo.show(false);
-                    } else if (nodo_seleccionado.getUserObject() instanceof Metodo) {
-                        M_Actual = (Metodo) nodo_seleccionado.getUserObject();
-                        jmi_agregarpropiedad.show(false);
-                        jmi_Eliminararbol.show(false);
-                        jmi_EliminarPropiedad.show(false);
-                        jmi_DatosPropiedad.show(false);
-                        jmi_eliminarMetodo.show(true);
-                        jmi_descripcionMetodo.show(true);
-                        jmi_agregarMetodo.show(false);
+        if (ActualArbol == null) {
+            JOptionPane.showMessageDialog(jd_DiagramaClases, "No se encuentra ningun elemento en memoria, seleccione un objeto para Copiar");
+        } else {
+            Clase C = new Clase(ActualArbol.getClase().getNombre() + "_Copia");
+            DefaultMutableTreeNode carpetaRaiz = new DefaultMutableTreeNode(C);
+            DefaultMutableTreeNode Atributos = new DefaultMutableTreeNode("Popiedades");
+            DefaultMutableTreeNode Metodos = new DefaultMutableTreeNode("Metodos");
+            carpetaRaiz.add(Atributos);
+            carpetaRaiz.add(Metodos);
+            DefaultTreeModel modelo = new DefaultTreeModel(carpetaRaiz);
+            Diagrama arbol = new Diagrama();
+            arbol.setClase(C);
+            arbol.setModel(modelo);
+            arbol.setName(ActualArbol.getName() + "_Copia");
+            arbol.setSize(150, 150);
+            arbol.addMouseListener(new MouseListener() {
+                public void mouseClicked(MouseEvent evt) {
+                    ActualArbol = arbol;
+                    int row = arbol.getClosestRowForLocation(evt.getX(), evt.getY());
+                    arbol.setSelectionRow(row);
+                    //determinar el tipo de objeto selecionado.
+                    //contenido en el nodo seleccionado
+                    Object v1 = arbol.getSelectionPath().getLastPathComponent();//nos da la ruta y luego nos saca el final de la ruta.
+                    nodo_seleccionado = (DefaultMutableTreeNode) v1;
+                    if (evt.isMetaDown()) {
+                        if (nodo_seleccionado.getUserObject() instanceof Clase) {
+                            jmi_agregarpropiedad.show(true);
+                            jmi_Eliminararbol.show(true);
+                            jmi_agregarMetodo.show(true);
+                            jmi_EliminarPropiedad.show(false);
+                            jmi_DatosPropiedad.show(false);
+                            jmi_eliminarMetodo.show(false);
+                            jmi_descripcionMetodo.show(false);
+                        } else if (nodo_seleccionado.getUserObject() instanceof Propiedad) {
+                            Propiedad_Global = (Propiedad) nodo_seleccionado.getUserObject();
+                            jmi_agregarpropiedad.show(false);
+                            jmi_Eliminararbol.show(false);
+                            jmi_EliminarPropiedad.show(true);
+                            jmi_DatosPropiedad.show(true);
+                            jmi_eliminarMetodo.show(false);
+                            jmi_descripcionMetodo.show(false);
+                            jmi_agregarMetodo.show(false);
+                        } else if (nodo_seleccionado.getUserObject() instanceof Metodo) {
+                            M_Actual = (Metodo) nodo_seleccionado.getUserObject();
+                            jmi_agregarpropiedad.show(false);
+                            jmi_Eliminararbol.show(false);
+                            jmi_EliminarPropiedad.show(false);
+                            jmi_DatosPropiedad.show(false);
+                            jmi_eliminarMetodo.show(true);
+                            jmi_descripcionMetodo.show(true);
+                            jmi_agregarMetodo.show(false);
+                        }
+                        PP_OPA.show(evt.getComponent(), evt.getX(), evt.getY());
+
                     }
-                    PP_OPA.show(evt.getComponent(), evt.getX(), evt.getY());
-
                 }
-            }
 
-            public void mouseEntered(MouseEvent arg0) {
-                ActualArbol = arbol;
-            }
+                public void mouseEntered(MouseEvent arg0) {
+                    ActualArbol = arbol;
+                }
 
-            public void mouseExited(MouseEvent arg0) {
-                ActualArbol = arbol;
-            }
+                public void mouseExited(MouseEvent arg0) {
+                    ActualArbol = arbol;
+                }
 
-            public void mousePressed(MouseEvent arg0) {
-                ActualArbol = arbol;
-            }
+                public void mousePressed(MouseEvent arg0) {
+                    ActualArbol = arbol;
+                }
 
-            public void mouseReleased(MouseEvent arg0) {
-                ActualArbol = arbol;
+                public void mouseReleased(MouseEvent arg0) {
+                    ActualArbol = arbol;
+                }
+            });
+            arbol.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+                public void mouseDragged(java.awt.event.MouseEvent evt) {
+                    ActualArbol = arbol;
+                    if ((arbol.getLocation().x + evt.getX() - arbol.getWidth() / 2) >= 0
+                            && (arbol.getLocation().x + evt.getX() - arbol.getWidth() / 2) <= 800) {
+                        arbol.setLocation(jTree1.getLocation().x + evt.getX() - arbol.getWidth() / 2,
+                                arbol.getLocation().y + evt.getY() - arbol.getHeight() / 2);
+                        //  System.out.println(lbl_Vseparador);
+                        // System.out.println(lbl_Vseparador.getName());
+                    }// para que no se salga del rango
+                }
+            });
+            DefaultTreeModel m = (DefaultTreeModel) arbol.getModel();
+            DefaultMutableTreeNode Raiz = (DefaultMutableTreeNode) m.getRoot();
+            for (int i = 0; i < ActualArbol.getClase().getPropiedades().size(); i++) {
+                Propiedad Actual = ActualArbol.getClase().getPropiedades().get(i);
+                Propiedad P = new Propiedad(Actual.getNombre() + "_Copia");
+                P.setTipo(P.getTipo());
+                P.setAlcance(P.getAlcance());
+                DefaultMutableTreeNode Propiedades = new DefaultMutableTreeNode(P);
+                arbol.getClase().AgregarPropiedad(P);
+                ((DefaultMutableTreeNode) Raiz.getChildAt(0)).add(Propiedades);
+                m.reload();
             }
-        });
-        arbol.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseDragged(java.awt.event.MouseEvent evt) {
-                ActualArbol = arbol;
-                if ((arbol.getLocation().x + evt.getX() - arbol.getWidth() / 2) >= 0
-                        && (arbol.getLocation().x + evt.getX() - arbol.getWidth() / 2) <= 800) {
-                    arbol.setLocation(jTree1.getLocation().x + evt.getX() - arbol.getWidth() / 2,
-                            arbol.getLocation().y + evt.getY() - arbol.getHeight() / 2);
-                    //  System.out.println(lbl_Vseparador);
-                    // System.out.println(lbl_Vseparador.getName());
-                }// para que no se salga del rango
+            for (int i = 0; i < ActualArbol.getClase().getMetodos().size(); i++) {
+                Metodo Actual = ActualArbol.getClase().getMetodos().get(i);
+                Metodo P = new Metodo();
+                P.setNombre(Actual.getNombre() + "_Copia");
+                P.setAlcance(P.getAlcance());
+                P.setParametros(Actual.getParametros());
+                P.setT_return(Actual.getT_return());
+                DefaultMutableTreeNode Metodo = new DefaultMutableTreeNode(P);
+                arbol.getClase().AgregarMetodo(P);
+                ((DefaultMutableTreeNode) Raiz.getChildAt(1)).add(Metodo);
+                m.reload();
             }
-        });
-        DefaultTreeModel m = (DefaultTreeModel) arbol.getModel();
-        DefaultMutableTreeNode Raiz = (DefaultMutableTreeNode) m.getRoot();
-        for (int i = 0; i < ActualArbol.getClase().getPropiedades().size(); i++) {
-            Propiedad Actual = ActualArbol.getClase().getPropiedades().get(i);
-            Propiedad P = new Propiedad(Actual.getNombre() + "_Copia");
-            P.setTipo(P.getTipo());
-            P.setAlcance(P.getAlcance());
-            DefaultMutableTreeNode Propiedades = new DefaultMutableTreeNode(P);
-            arbol.getClase().AgregarPropiedad(P);
-            ((DefaultMutableTreeNode) Raiz.getChildAt(0)).add(Propiedades);
-            m.reload();
+            //AGREGAMOS AL ARBOL PRINCIPAL.
+            DefaultTreeModel m_p = (DefaultTreeModel) jTree1.getModel();
+            DefaultMutableTreeNode Raizp = (DefaultMutableTreeNode) m_p.getRoot();
+            Raizp.add(carpetaRaiz);
+            m_p.reload();
+            JOptionPane.showMessageDialog(jd_DiagramaClases, "Se ha Agregado al Arbol principal");
+            //agrega los label
+            this.jp_dragDiagrama.add(arbol);
+            jp_dragDiagrama.repaint();
         }
-        for (int i = 0; i < ActualArbol.getClase().getMetodos().size(); i++) {
-            Metodo Actual = ActualArbol.getClase().getMetodos().get(i);
-            Metodo P = new Metodo();
-            P.setNombre(Actual.getNombre() + "_Copia");
-            P.setAlcance(P.getAlcance());
-            P.setParametros(Actual.getParametros());
-            P.setT_return(Actual.getT_return());
-            DefaultMutableTreeNode Metodo = new DefaultMutableTreeNode(P);
-            arbol.getClase().AgregarMetodo(P);
-            ((DefaultMutableTreeNode) Raiz.getChildAt(1)).add(Metodo);
-            m.reload();
-        }
-         //AGREGAMOS AL ARBOL PRINCIPAL.
-        DefaultTreeModel m_p = (DefaultTreeModel) jTree1.getModel();
-        DefaultMutableTreeNode Raizp = (DefaultMutableTreeNode) m_p.getRoot();
-        Raizp.add(carpetaRaiz);
-        m_p.reload();
-        JOptionPane.showMessageDialog(jd_DiagramaClases,"Se ha Agregado al Arbol principal");
-        //agrega los label
-        this.jp_dragDiagrama.add(arbol);
-        jp_dragDiagrama.repaint();
-        }
 
-       
 
     }//GEN-LAST:event_btn_CopiarArbolMouseClicked
 
@@ -2333,9 +2423,9 @@ Long*/
         int N = jc_Fuentes.getSelectedIndex();
         try {
             if (N >= 0) {
-                  JL_actual.setFont(new java.awt.Font(Fuentes.get(N).getFontName(), JL_actual.getFont().getStyle(),JL_actual.getFont().getSize())); 
-               // JL_actual.setFont(Fuentes.get(N));
-                
+                JL_actual.setFont(new java.awt.Font(Fuentes.get(N).getFontName(), JL_actual.getFont().getStyle(), JL_actual.getFont().getSize()));
+                // JL_actual.setFont(Fuentes.get(N));
+
             } else {
                 System.out.println("ES MENOR");
             }
@@ -2346,41 +2436,41 @@ Long*/
     }//GEN-LAST:event_jc_FuentesItemStateChanged
 
     private void jc_tamanoletraItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jc_tamanoletraItemStateChanged
-  try{
-          JL_actual.setFont(new java.awt.Font(JL_actual.getFont().getFontName(),JL_actual.getFont().getStyle(),(int)jc_tamanoletra.getSelectedItem())); 
-  }catch(Exception e){
-      
-  }
+        try {
+            JL_actual.setFont(new java.awt.Font(JL_actual.getFont().getFontName(), JL_actual.getFont().getStyle(), (int) jc_tamanoletra.getSelectedItem()));
+        } catch (Exception e) {
+
+        }
     }//GEN-LAST:event_jc_tamanoletraItemStateChanged
 
     private void jc_tipoletraItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jc_tipoletraItemStateChanged
-     int n=jc_tipoletra.getSelectedIndex();
+        int n = jc_tipoletra.getSelectedIndex();
         try {
             switch (n) {
                 case 0://Normal
-                    System.out.println("estilo"+JL_actual.getFont().getStyle());
-                   
-                    Font normal = new Font(JL_actual.getFont().getFontName(), Font.PLAIN,JL_actual.getFont().getSize());
+                    System.out.println("estilo" + JL_actual.getFont().getStyle());
+
+                    Font normal = new Font(JL_actual.getFont().getFontName(), Font.PLAIN, JL_actual.getFont().getSize());
                     JL_actual.setFont(normal);
                     break;
                 case 1://Negrita
                     Font negrita = new Font(JL_actual.getFont().getFontName(), Font.BOLD, JL_actual.getFont().getSize());
-                        JL_actual.setFont(negrita);
+                    JL_actual.setFont(negrita);
                     break;
                 case 2://Cursiva
-                    Font cursiva = new Font( JL_actual.getFont().getFontName(),Font.ITALIC,JL_actual.getFont().getSize());
-                        JL_actual.setFont(cursiva);
+                    Font cursiva = new Font(JL_actual.getFont().getFontName(), Font.ITALIC, JL_actual.getFont().getSize());
+                    JL_actual.setFont(cursiva);
                     break;
                 case 3://Subyarado
-                   Font font = JL_actual.getFont();
+                    Font font = JL_actual.getFont();
                     Map attributes = font.getAttributes();
                     attributes.put(TextAttribute.UNDERLINE, TextAttribute.UNDERLINE_ON);
                     JL_actual.setFont(font.deriveFont(attributes));
                     break;
             }
-       }catch(Exception e){
-           
-       }
+        } catch (Exception e) {
+
+        }
     }//GEN-LAST:event_jc_tipoletraItemStateChanged
 
     private void jmi_generarPDFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_generarPDFActionPerformed
@@ -2392,19 +2482,19 @@ Long*/
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jmi_crearJpgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_crearJpgActionPerformed
-CrearIMG(jp_Drag,"jpg"); 
+        CrearIMG(jp_Drag, "jpg");
     }//GEN-LAST:event_jmi_crearJpgActionPerformed
 
     private void jmi_crearpngActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_crearpngActionPerformed
-    CrearIMG(jp_Drag,"png"); 
+        CrearIMG(jp_Drag, "png");
     }//GEN-LAST:event_jmi_crearpngActionPerformed
 
     private void jmi_crearotroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_crearotroActionPerformed
-       
+
     }//GEN-LAST:event_jmi_crearotroActionPerformed
 
     private void jMenu3MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu3MouseReleased
-      
+
     }//GEN-LAST:event_jMenu3MouseReleased
 
     private void jMenu3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu3MouseExited
@@ -2412,29 +2502,29 @@ CrearIMG(jp_Drag,"jpg");
     }//GEN-LAST:event_jMenu3MouseExited
 
     private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked
-     Dialogo_Actual=jd_UML;
-      panelActual=jp_Drag;
+        Dialogo_Actual = jd_UML;
+        panelActual = jp_Drag;
     }//GEN-LAST:event_jMenu2MouseClicked
 
     private void jMenu8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu8ActionPerformed
-        Dialogo_Actual=jd_DiagramaClases;
-        panelActual=jp_dragDiagrama;    
+        Dialogo_Actual = jd_DiagramaClases;
+        panelActual = jp_dragDiagrama;
     }//GEN-LAST:event_jMenu8ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-       CrearIMG(jp_dragDiagrama,"jpg"); 
+        CrearIMG(jp_dragDiagrama, "jpg");
 
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-      CrearIMG(jp_dragDiagrama,"png"); 
+        CrearIMG(jp_dragDiagrama, "png");
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jmi_imprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_imprimirActionPerformed
         //CREAMOS EL ARCHIVO
-        Nombre_Imprimir="PruebaDiagrana";
-         GenerarPDF(txt_CodigoClases.getText(),jp_dragDiagrama,2);
-         String Ruta = ".\\Imprimir\\"+Nombre_Imprimir+".pdf";
+        Nombre_Imprimir = "PruebaDiagrana";
+        GenerarPDF(txt_CodigoClases.getText(), jp_dragDiagrama, 2);
+        String Ruta = ".\\Imprimir\\" + Nombre_Imprimir + ".pdf";
         java.awt.Desktop desktop = java.awt.Desktop.getDesktop();
         java.io.File fichero = new java.io.File(Ruta);
         if (desktop.isSupported(Desktop.Action.PRINT)) {
@@ -2479,34 +2569,44 @@ CrearIMG(jp_Drag,"jpg");
         VARIABLES.add(P);
         jl_variables.setModel(M);
         tf_variable.setText("");
+        jl_VariablesVista.setModel(M);
         jc_alcance.setSelectedIndex(0);
         jc_tipo.setSelectedIndex(0);
-         JOptionPane.showMessageDialog(this.jd_UML, "Se ha Agregado la variable ");
+        JOptionPane.showMessageDialog(this.jd_UML, "Se ha Agregado la variable ");
     }//GEN-LAST:event_btn_agregarvariableMouseClicked
 
     private void jButton7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseClicked
-      if (jl_variables.getSelectedIndex() >= 0) {
+        if (jl_variables.getSelectedIndex() >= 0) {
             DefaultListModel Modelo = (DefaultListModel) jl_variables.getModel();
             Variable = (Propiedad) Modelo.get(jl_variables.getSelectedIndex());
+            ((Datos) JL_actual).setP(Variable);
             JOptionPane.showMessageDialog(this.jd_UML, "Se ha Agregado la variable ");
         } else {
             JOptionPane.showMessageDialog(this.jd_UML, "No Se ha Agregado la variable ");
         }
     }//GEN-LAST:event_jButton7MouseClicked
-    public void Cambiarletra(){
-          JL_actual.setFont(Fuentes.get(jc_Fuentes.getSelectedIndex()));
+
+    private void btn_finifMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_finifMouseClicked
+        Fin_If lbl_subpro = new Fin_If();
+        UML U = new UML();
+        U.Fin_If(Subpro, lbl_subpro);
+        Subpro++;
+        AgregarDrag(lbl_subpro, 1);
+    }//GEN-LAST:event_btn_finifMouseClicked
+    public void Cambiarletra() {
+        JL_actual.setFont(Fuentes.get(jc_Fuentes.getSelectedIndex()));
     }
+
     public void GenerarPDF(String Codigo, JPanel Panel, int Bandera) {
-        
-        int seleccion=100;
-        String Ruta="";
-        if (Bandera==1) {
+        int seleccion = 100;
+        String Ruta = "";
+        if (Bandera == 1) {
             JFileChooser jfc = new JFileChooser();
-        FileNameExtensionFilter filtro = new FileNameExtensionFilter("Diagramas UML", "Clau");
-       seleccion = jfc.showOpenDialog(this.Dialogo_Actual);
-         Ruta = jfc.getSelectedFile().getPath();
-        }else if (Bandera==2){
-              Ruta = ".\\Imprimir\\"+Nombre_Imprimir;
+            FileNameExtensionFilter filtro = new FileNameExtensionFilter("Diagramas UML", "Clau");
+            seleccion = jfc.showOpenDialog(this.Dialogo_Actual);
+            Ruta = jfc.getSelectedFile().getPath();
+        } else if (Bandera == 2) {
+            Ruta = ".\\Imprimir\\" + Nombre_Imprimir;
         }
         try {
             Dimension d = Panel.getSize();
@@ -2532,18 +2632,19 @@ CrearIMG(jp_Drag,"jpg");
             doc.add(imagen);
             doc.add(new Paragraph("creado por claudia patricia Cortés Pavón"));
             doc.close();
-            if (Bandera==1) {
-                 JOptionPane.showMessageDialog(Dialogo_Actual, "PDF creado");
+            if (Bandera == 1) {
+                JOptionPane.showMessageDialog(Dialogo_Actual, "PDF creado");
             }
         } catch (Exception e) {
 
         }
     }
+
     public void CrearIMG(JPanel panel, String Extension) {
         JFileChooser jfc = new JFileChooser();
         int seleccion = jfc.showOpenDialog(this.Dialogo_Actual);
         System.out.println(jfc.getSelectedFile().getPath());
-        String Ruta = jfc.getSelectedFile().getPath() + "."+Extension;
+        String Ruta = jfc.getSelectedFile().getPath() + "." + Extension;
         Dimension d = panel.getSize();
         BufferedImage image = ScreenImage.createImage(panel);
         Graphics2D g2d = image.createGraphics();
@@ -2555,7 +2656,7 @@ CrearIMG(jp_Drag,"jpg");
             Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
         }
         JOptionPane.showMessageDialog(Dialogo_Actual, "Imagen Creada Exsitosamente");
-}
+    }
 
     public String imprimirNodo(TreeNode nodo) {
         String Clases = "";
@@ -2572,8 +2673,9 @@ CrearIMG(jp_Drag,"jpg");
         }
         return Clases;
     }
-public void AgregarPropieddes(JLabel lbl_subpro){
-      lbl_subpro.setOpaque(true);
+
+    public void AgregarPropieddes(JLabel lbl_subpro) {
+        lbl_subpro.setOpaque(true);
         lbl_subpro.getName();
         lbl_subpro.setName("lbl_subpro" + Subpro);
         Subpro++;
@@ -2590,7 +2692,8 @@ public void AgregarPropieddes(JLabel lbl_subpro){
         lbl_subpro.setPreferredSize(new Dimension(50, 50));
         lbl_subpro.setSize(100, 64);
         JL_actual = lbl_subpro;
-}
+    }
+
     public void Guardar(String Nombre, String Extension, String Tipo) {
         JFileChooser jfc = new JFileChooser();
         FileNameExtensionFilter filtro = new FileNameExtensionFilter(Tipo, Extension);
@@ -2601,6 +2704,9 @@ public void AgregarPropieddes(JLabel lbl_subpro){
             System.out.println(jfc.getSelectedFile().getPath());
             Adm_UML ap = new Adm_UML(jfc.getSelectedFile().getPath());
             ap.CargarArchivo();
+            ArrayList X = new ArrayList();//AGREGUE ESTA LINEA DE MAS.
+            ap.setListaelementos(X);
+
             Object Obejtos[] = panelActual.getComponents();
             System.out.println("LOS ELEMNTOS A GUARDAR");
 
@@ -2631,7 +2737,7 @@ public void AgregarPropieddes(JLabel lbl_subpro){
             System.out.println(P.getClass().getSimpleName());
             this.panelActual.add(P);
             panelActual.repaint();
-            AgregarDrag(P,0);
+            AgregarDrag(P, 0);
         }//Fin del For
         panelActual.repaint();
         JOptionPane.showMessageDialog(this.Dialogo_Actual, "Se han cargado los elementos en el panel");
@@ -2767,24 +2873,24 @@ public void AgregarPropieddes(JLabel lbl_subpro){
             }
 
             public void mouseEntered(MouseEvent arg0) {
-               
+
             }
 
             public void mouseExited(MouseEvent arg0) {
-             
+
             }
 
             public void mousePressed(MouseEvent arg0) {
-               
+
             }
 
             public void mouseReleased(MouseEvent arg0) {
-               
+
             }
         });
         this.jp_Drag.add(lbl_Proceso);
-        if (n!=0) {
-              JL_actual = lbl_Proceso;
+        if (n != 0) {
+            JL_actual = lbl_Proceso;
         }
         jp_Drag.repaint();
     }//FIN DEL METODO
@@ -2823,6 +2929,7 @@ public void AgregarPropieddes(JLabel lbl_subpro){
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel LBL_VARIABLES;
     private javax.swing.JPopupMenu PP_OPA;
     private javax.swing.JButton btn_CopiarArbol;
     private javax.swing.JButton btn_Crear;
@@ -2835,6 +2942,7 @@ public void AgregarPropieddes(JLabel lbl_subpro){
     private javax.swing.JLabel btn_GenerarCodigoUML;
     private javax.swing.JButton btn_Herencia;
     private javax.swing.JButton btn_InicioFin;
+    private javax.swing.JButton btn_MostrarVariable;
     private javax.swing.JButton btn_Proceso;
     private javax.swing.JButton btn_SeparadorV;
     private javax.swing.JButton btn_SubPro;
@@ -2852,6 +2960,7 @@ public void AgregarPropieddes(JLabel lbl_subpro){
     private javax.swing.JButton btn_datos;
     private javax.swing.JButton btn_documento;
     private javax.swing.JButton btn_enableJL_actual;
+    private javax.swing.JButton btn_finif;
     private javax.swing.JButton btn_generarCodigoClases;
     private javax.swing.JButton btn_generarCodigoUML;
     private javax.swing.JButton btn_generardiagrama;
@@ -2867,6 +2976,7 @@ public void AgregarPropieddes(JLabel lbl_subpro){
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -2887,6 +2997,8 @@ public void AgregarPropieddes(JLabel lbl_subpro){
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -2928,6 +3040,7 @@ public void AgregarPropieddes(JLabel lbl_subpro){
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JToolBar jToolBar1;
@@ -2948,6 +3061,7 @@ public void AgregarPropieddes(JLabel lbl_subpro){
     private javax.swing.JDialog jd_agregarVariable;
     private javax.swing.JDialog jd_propiedad;
     private javax.swing.JDialog jd_propiedades;
+    private javax.swing.JList<String> jl_VariablesVista;
     private javax.swing.JList<String> jl_hijo;
     private javax.swing.JList<String> jl_padre;
     private javax.swing.JList<String> jl_variables;
@@ -3017,5 +3131,25 @@ public void AgregarPropieddes(JLabel lbl_subpro){
     JDialog Dialogo_Actual;
     String Nombre_Imprimir;
     Propiedad Variable;
-
+/*   } else if (Obejtos[i] instanceof Datos) {
+                System.out.println("\n3)DATOS.\n");
+                System.out.println(Obejtos[i]);
+                Datos P = (Datos) Obejtos[i];
+                Codigo += P.GenerarCodigo() + "\n";
+            } else if (Obejtos[i] instanceof Documento) {
+                System.out.println("\n4)DOCUMENTOS.\n");
+                System.out.println(Obejtos[i]);
+                Documento P = (Documento) Obejtos[i];
+                Codigo += P.GenerarCodigo() + "\n";
+            } else if (Obejtos[i] instanceof Inicio_Fin) {
+                System.out.println("\n5)INICIO_FIN.\n");
+                System.out.println(Obejtos[i]);
+                Inicio_Fin P = (Inicio_Fin) Obejtos[i];
+                Codigo += P.GenerarCodigo() + "\n";
+            } else if (Obejtos[i] instanceof SubProceso) {
+                System.out.println("\n6)SUBPROCESO.\n");
+                System.out.println(Obejtos[i]);
+                SubProceso P = (SubProceso) Obejtos[i];
+                Codigo += P.GenerarCodigo() + "\n";
+            }*/
 }

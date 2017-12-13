@@ -170,7 +170,21 @@ public class UML extends JLabel{
         D.setSize(100, 64);
 
     }
-    
+      public void Fin_If(int Num,JLabel D) {
+       D.setOpaque(true);
+        D.getName();
+       D.setName("FIN IF" + Num);
+       D.setText("Fin_if");
+        D.setHorizontalTextPosition(SwingConstants.CENTER);
+        D.setBackground(Color.red);
+        D.setLocation(10, 200);
+        D.setIcon(new ImageIcon(".\\src\\Imagenes\\UML\\if.png")); // NOI18N
+        D.setMaximumSize(new java.awt.Dimension(100, 100));
+        D.setMinimumSize(new Dimension(100, 100));
+        D.setLocation(new Point(20, 20));
+        D.setPreferredSize(new Dimension(50, 50));
+        D.setSize(100, 64);
+    }
      public void Copiar(JLabel D, JLabel doc) {
         D.setBackground(doc.getBackground());
         D.setText(doc.getText());
@@ -182,4 +196,6 @@ public class UML extends JLabel{
         D.setName(doc.getText() + "-copia");
         D.setSize(doc.getWidth(), doc.getHeight());
     }
+     
+     
 }

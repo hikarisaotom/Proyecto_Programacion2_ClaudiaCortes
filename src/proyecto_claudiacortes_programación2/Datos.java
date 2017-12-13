@@ -11,7 +11,7 @@ import javax.swing.JLabel;
  *
  * @author Claudia Cortes
  */
-public class Datos extends JLabel{
+public class Datos extends JLabel {
    Propiedad P;
 
 public String  GenerarCodigo(){
@@ -43,6 +43,11 @@ public Propiedad getP() {
 
     public void setP(Propiedad P) {
         this.P = P;
+    }
+
+    @Override
+    public String toString() {
+        return "Datos{"+this.getName() + "P=" + P + '}';
     }
 
 }

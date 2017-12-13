@@ -161,7 +161,7 @@ public class UML extends JLabel{
         D.setBackground(Color.ORANGE);
         D.setHorizontalTextPosition(SwingConstants.CENTER);
         D.setLocation(10, 200);
-        D.setText("Subproceso");
+        D.setText("While");
         D.setIcon(new ImageIcon(".\\src\\Imagenes\\UML\\subpro.png")); // NOI18N
         D.setMaximumSize(new java.awt.Dimension(100, 100));
         D.setMinimumSize(new Dimension(100, 100));

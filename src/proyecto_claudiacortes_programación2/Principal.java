@@ -19,6 +19,7 @@ import java.awt.Toolkit;
 import java.awt.event.*;
 import java.awt.Dimension;
 import java.awt.FontMetrics;
+import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.event.MouseEvent;
@@ -74,6 +75,10 @@ public class Principal extends javax.swing.JFrame {
         Nombre.add("Algerian");
 
         initComponents();
+        btn_finif.setOpaque(true);
+        btn_finif.setBackground(Color.red);
+          btn_finif.setHorizontalTextPosition(SwingConstants.CENTER);
+          btn_finif.setText("Fin");
         DefaultComboBoxModel modelo = (DefaultComboBoxModel) jc_Fuentes.getModel();
         DefaultComboBoxModel modelo1 = (DefaultComboBoxModel) jc_tamanoletra.getModel();
         for (int i = 0; i < Nombre.size(); i++) {
@@ -161,7 +166,7 @@ public class Principal extends javax.swing.JFrame {
         jScrollPane5 = new javax.swing.JScrollPane();
         txt_codigoUML = new javax.swing.JTextArea();
         btn_oegar = new javax.swing.JButton();
-        btn_GenerarCodigoUML = new javax.swing.JLabel();
+        lbl_fondo = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jc_tamanoletra = new javax.swing.JComboBox<>();
         jLabel21 = new javax.swing.JLabel();
@@ -199,6 +204,8 @@ public class Principal extends javax.swing.JFrame {
         jmi_eliminar = new javax.swing.JMenuItem();
         jmi_fuente = new javax.swing.JMenuItem();
         jmi_propiedades = new javax.swing.JMenuItem();
+        jmi_copiar = new javax.swing.JMenuItem();
+        jmi_Lectura = new javax.swing.JMenuItem();
         jMenuBar4 = new javax.swing.JMenuBar();
         jMenu17 = new javax.swing.JMenu();
         jMenu18 = new javax.swing.JMenu();
@@ -269,6 +276,7 @@ public class Principal extends javax.swing.JFrame {
         jButton7 = new javax.swing.JButton();
         jScrollPane6 = new javax.swing.JScrollPane();
         jl_variables = new javax.swing.JList<>();
+        jLabel2 = new javax.swing.JLabel();
         lbl_Diagrama = new javax.swing.JLabel();
         lbl_fodo = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
@@ -645,13 +653,15 @@ public class Principal extends javax.swing.JFrame {
 
         jd_UML.getContentPane().add(jToolBar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 0, 170, 20));
 
-        btn_finif.setText("FIN IF");
+        btn_finif.setBackground(new java.awt.Color(255, 255, 255));
+        btn_finif.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/UML/if.png"))); // NOI18N
+        btn_finif.setToolTipText("");
         btn_finif.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_finifMouseClicked(evt);
             }
         });
-        jd_UML.getContentPane().add(btn_finif, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 460, -1, -1));
+        jd_UML.getContentPane().add(btn_finif, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 450, 100, -1));
 
         btn_generarCodigoUML.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         btn_generarCodigoUML.setText("Generar codigo");
@@ -667,6 +677,16 @@ public class Principal extends javax.swing.JFrame {
         jd_UML.getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 50, -1, -1));
 
         btn_MostrarVariable.setText("Agregar");
+        btn_MostrarVariable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_MostrarVariableMouseClicked(evt);
+            }
+        });
+        btn_MostrarVariable.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_MostrarVariableActionPerformed(evt);
+            }
+        });
         jd_UML.getContentPane().add(btn_MostrarVariable, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 400, -1, -1));
 
         LBL_VARIABLES.setText("Variables ");
@@ -729,10 +749,10 @@ public class Principal extends javax.swing.JFrame {
         });
         jd_UML.getContentPane().add(btn_oegar, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 460, 120, 50));
 
-        btn_GenerarCodigoUML.setBackground(new java.awt.Color(255, 255, 255));
-        btn_GenerarCodigoUML.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
-        btn_GenerarCodigoUML.setOpaque(true);
-        jd_UML.getContentPane().add(btn_GenerarCodigoUML, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 1240, 510));
+        lbl_fondo.setBackground(new java.awt.Color(255, 255, 255));
+        lbl_fondo.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
+        lbl_fondo.setOpaque(true);
+        jd_UML.getContentPane().add(lbl_fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 1240, 510));
 
         jLabel15.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         jLabel15.setText("Tamaño");
@@ -962,6 +982,22 @@ public class Principal extends javax.swing.JFrame {
         });
         pp_OP.add(jmi_propiedades);
 
+        jmi_copiar.setText("Copiar");
+        jmi_copiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmi_copiarActionPerformed(evt);
+            }
+        });
+        pp_OP.add(jmi_copiar);
+
+        jmi_Lectura.setText("Agregar Nueva Lectura");
+        jmi_Lectura.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmi_LecturaActionPerformed(evt);
+            }
+        });
+        pp_OP.add(jmi_Lectura);
+
         jMenu17.setText("File");
         jMenuBar4.add(jMenu17);
 
@@ -1117,7 +1153,7 @@ public class Principal extends javax.swing.JFrame {
         jd_propiedad.setTitle("CREAR PROPIEDAD");
         jd_propiedad.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         jd_propiedad.setForeground(new java.awt.Color(0, 0, 0));
-        jd_propiedad.setMinimumSize(new java.awt.Dimension(300, 300));
+        jd_propiedad.setMinimumSize(new java.awt.Dimension(241, 241));
         jd_propiedad.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel18.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
@@ -1185,12 +1221,15 @@ public class Principal extends javax.swing.JFrame {
         jd_propiedad.getContentPane().add(btn_agregarvariable, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 210, -1, -1));
 
         jd_Herencia.setTitle("Herencia Entre Clases");
-        jd_Herencia.setMinimumSize(new java.awt.Dimension(400, 400));
+        jd_Herencia.setMinimumSize(new java.awt.Dimension(353, 334));
 
+        jLabel17.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         jLabel17.setText("Clase Hija");
 
+        jLabel22.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         jLabel22.setText("Clase Padre");
 
+        btn_agregarherencia.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         btn_agregarherencia.setText("Agregar");
         btn_agregarherencia.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1198,6 +1237,7 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
+        jButton8.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         jButton8.setText("OK");
 
         jl_hijo.setModel(new DefaultListModel());
@@ -1221,7 +1261,7 @@ public class Principal extends javax.swing.JFrame {
                         .addComponent(btn_agregarherencia, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(79, 79, 79)
                         .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 34, Short.MAX_VALUE))
+                        .addGap(0, 41, Short.MAX_VALUE))
                     .addGroup(jd_HerenciaLayout.createSequentialGroup()
                         .addGap(33, 33, 33)
                         .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1239,7 +1279,7 @@ public class Principal extends javax.swing.JFrame {
                     .addComponent(jLabel17))
                 .addGap(18, 18, 18)
                 .addGroup(jd_HerenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 233, Short.MAX_VALUE)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 213, Short.MAX_VALUE)
                     .addComponent(jScrollPane2))
                 .addGap(18, 18, 18)
                 .addGroup(jd_HerenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -1258,7 +1298,7 @@ public class Principal extends javax.swing.JFrame {
         jd_Metodos.getContentPane().add(tf_variable1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, 112, -1));
 
         jc_tipo1.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
-        jc_tipo1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Int", "String", "Double", "Long", "char", "boolean", " " }));
+        jc_tipo1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Void", "Int", "String", "Double", "Long", "char", "boolean", " " }));
         jc_tipo1.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 jc_tipo1ItemStateChanged(evt);
@@ -1309,6 +1349,9 @@ public class Principal extends javax.swing.JFrame {
         });
         jd_Metodos.getContentPane().add(btn_agregarparametro, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 180, -1, -1));
 
+        jd_agregarVariable.setMinimumSize(new java.awt.Dimension(286, 309));
+
+        jButton7.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         jButton7.setText("Agregar Variable");
         jButton7.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1319,22 +1362,28 @@ public class Principal extends javax.swing.JFrame {
         jl_variables.setModel(new DefaultListModel());
         jScrollPane6.setViewportView(jl_variables);
 
+        jLabel2.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
+        jLabel2.setText("Agregar Varible a Elemento");
+
         javax.swing.GroupLayout jd_agregarVariableLayout = new javax.swing.GroupLayout(jd_agregarVariable.getContentPane());
         jd_agregarVariable.getContentPane().setLayout(jd_agregarVariableLayout);
         jd_agregarVariableLayout.setHorizontalGroup(
             jd_agregarVariableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jd_agregarVariableLayout.createSequentialGroup()
-                .addGap(105, 105, 105)
+                .addGap(58, 58, 58)
                 .addGroup(jd_agregarVariableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton7))
-                .addContainerGap(160, Short.MAX_VALUE))
+                    .addComponent(jButton7)
+                    .addComponent(jLabel2)
+                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(57, Short.MAX_VALUE))
         );
         jd_agregarVariableLayout.setVerticalGroup(
             jd_agregarVariableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_agregarVariableLayout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 242, Short.MAX_VALUE)
+                .addGap(7, 7, 7)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton7)
                 .addContainerGap())
@@ -1343,9 +1392,7 @@ public class Principal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("INICIO");
         setBackground(new java.awt.Color(255, 255, 255));
-        setMaximumSize(new java.awt.Dimension(500, 600));
         setMinimumSize(new java.awt.Dimension(500, 600));
-        setPreferredSize(new java.awt.Dimension(1176, 662));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lbl_Diagrama.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/bienvenido.png"))); // NOI18N
@@ -1458,6 +1505,11 @@ public class Principal extends javax.swing.JFrame {
         U.Documento(documentos, lbl_documento);
         documentos++;
         AgregarDrag(lbl_documento, 1);
+         int respuesta = JOptionPane.showConfirmDialog(this.jd_UML, "Desea que esta salida tenga 1 variable?", "Confirm", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        if (respuesta == JOptionPane.OK_OPTION) {
+            jd_agregarVariable.show(true);
+           lbl_documento.setP(Variable);
+        }
     }//GEN-LAST:event_btn_documentoMouseClicked
 
     private void btn_InicioFinMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_InicioFinMouseClicked
@@ -1489,7 +1541,8 @@ public class Principal extends javax.swing.JFrame {
         AgregarDrag(lbldatos, 1);
         JL_actual = lbldatos;
         jd_agregarVariable.show(true);
-
+        jd_agregarVariable.setLocationRelativeTo(jd_UML);
+        jd_agregarVariable.pack();
         lbldatos.setP(Variable);
     }//GEN-LAST:event_btn_datosMouseClicked
 
@@ -1606,6 +1659,7 @@ public class Principal extends javax.swing.JFrame {
 
     private void jmi_agregarpropiedadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_agregarpropiedadActionPerformed
         jd_propiedad.show();
+        jd_propiedad.setLocationRelativeTo(jd_DiagramaClases);
         jc_alcance.enable();
         jd_propiedad.setTitle("Crear Propiedad");
         btn_crearpropiedad.show(true);
@@ -1747,6 +1801,7 @@ Long*/
 
     private void btn_generarCodigoClasesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_generarCodigoClasesMouseClicked
         String C = imprimirNodo((TreeNode) jTree1.getModel().getRoot());
+        C=C.toLowerCase();
         txt_CodigoClases.setText(C);
         JOptionPane.showMessageDialog(jd_DiagramaClases, "El codigo Se ha generado Correctamente");
 
@@ -1756,6 +1811,8 @@ Long*/
 //        String Codigo = "#include <iostream>\n"
 //                + "using namespace std;\n"
 //                + "int main(){\n";
+
+
                String Codigo="//----------------------------INICIO DE LA CLASE----------------------------\n"
                 + "#include<iostream>\n"
                 + " #include <string> \n"
@@ -1765,6 +1822,13 @@ Long*/
             Codigo += VARIABLES.get(i).getTipo() + " " + VARIABLES.get(i).getNombre() + ";\n";
         }
         Object Obejtos[] = jp_Drag.getComponents();
+          Graphics g = jp_Drag.getGraphics();
+        for (int i = 0; i < Obejtos.length; i++) {
+            if (i>=1) {
+                g.drawLine(((JLabel)Obejtos[i-1]).getX(),((JLabel)Obejtos[i-1]).getY(), 
+                       ((JLabel)Obejtos[i]).getX(), ((JLabel)Obejtos[i]).getY());
+            }
+        }
         for (int i = 0; i < Obejtos.length; i++) {
             //Obejtos = jp_Drag.getComponents();
             if (Obejtos[i] instanceof If) {
@@ -1773,6 +1837,7 @@ Long*/
                 Codigo += P.GenerarCodigo() + "\n";
             } else if (Obejtos[i] instanceof SubProceso) {
                  SubProceso P = (SubProceso) Obejtos[i];
+                 P.getContenido().removeAll(P.getContenido());
                  i=Bucle(P, Obejtos, i);//AQUI SI SE IGUALA
                  System.out.println("LA I QUE LLEGO AQUI"+i);
                   Codigo += P.GenerarCodigo() + "\n";
@@ -1783,6 +1848,7 @@ Long*/
         Codigo += "system(\"pause\");\n"
                 //  + "return 0;\n"
                 + "}\n//----------------------------FIN DE LA CLASE----------------------------";
+         Codigo= Codigo.toLowerCase();
         txt_codigoUML.setText(Codigo);
         JOptionPane.showMessageDialog(jd_UML, "Codigo Generado Exitosamente");
     }//GEN-LAST:event_btn_generarCodigoUMLMouseClicked
@@ -1829,7 +1895,11 @@ private int Sentencia(If P,Object []Obejtos, int i){
                         if (Bandera) {
                               P.setNo(((JLabel) Obejtos[i + 1]));
                         }else{
-                              P.setNo(((JLabel) Obejtos[i + 2]));
+                             if (((JLabel)Obejtos[i + 2])instanceof Fin_If) {
+                                
+                            }else{
+                                  P.setNo(((JLabel) Obejtos[i + 2]));
+                             }
                      //Aumentar= Aumentar+1; 
                         }
                         Aumentar++;
@@ -1861,7 +1931,8 @@ private int Sentencia(If P,Object []Obejtos, int i){
 
     private void btn_HerenciaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_HerenciaMouseClicked
         jd_Herencia.show();
-
+        jd_Herencia.pack();
+jd_Herencia.setLocationRelativeTo(jd_DiagramaClases);
     }//GEN-LAST:event_btn_HerenciaMouseClicked
 
     private void btn_agregarherenciaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_agregarherenciaMouseClicked
@@ -1885,6 +1956,7 @@ private int Sentencia(If P,Object []Obejtos, int i){
 
     private void jmi_DatosPropiedadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_DatosPropiedadActionPerformed
         jd_propiedad.show();
+        jd_propiedad.setLocationRelativeTo(jd_DiagramaClases);
         jd_propiedad.setTitle("Descripcion de " + Propiedad_Global.getNombre());
         tf_variable.setText(Propiedad_Global.getNombre());
 
@@ -1944,6 +2016,7 @@ private int Sentencia(If P,Object []Obejtos, int i){
 
     private void jmi_agregarMetodoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_agregarMetodoActionPerformed
         jd_Metodos.show();
+        jd_Metodos.setLocationRelativeTo(jd_DiagramaClases);
         btn_agregarparametro.enable(true);
         btn_actualizarmetodo.show(false);
         btn_crearmetodo.show(true);
@@ -1957,6 +2030,7 @@ private int Sentencia(If P,Object []Obejtos, int i){
         btn_actualizar.show(false);
         jd_propiedad.setTitle("Crear Parametro");
         jd_propiedad.show();
+        jd_propiedad.setLocationRelativeTo(jd_DiagramaClases);
         btn_actualizar.show(false);
         btn_crearpropiedad.show(true);
         btn_agregarvariable.show(false);
@@ -2145,6 +2219,7 @@ private int Sentencia(If P,Object []Obejtos, int i){
         String Extension2 = Extension.substring(Extension.length() - 4, Extension.length());
         if (Extension2.equalsIgnoreCase("Clau")) {//UML
             Abrir(Extension);
+            txt_codigoUML.setText("");
         } else {
             JOptionPane.showMessageDialog(Dialogo_Actual, "El Tipo de formato no es reconocible para este tipo de diagrama");
         }
@@ -2168,6 +2243,7 @@ private int Sentencia(If P,Object []Obejtos, int i){
         String Extension2 = Extension.substring(Extension.length() - 5, Extension.length());
         if (Extension2.equalsIgnoreCase("Clau2")) {//Clases
             AbrirD(Extension);
+            txt_CodigoClases.setText("");
         } else {
             JOptionPane.showMessageDialog(Dialogo_Actual, "El Tipo de formato no es reconocible para este tipo de diagrama");
         }
@@ -2192,7 +2268,7 @@ private int Sentencia(If P,Object []Obejtos, int i){
             panelActual = jp_Drag;
             Dialogo_Actual = jd_UML;
             Abrir(Extension);
-
+            txt_codigoUML.setText("");
         } else if (Extension2.equalsIgnoreCase("Clau2")) {//Clases
             jd_DiagramaClases.show(true);
             jd_DiagramaClases.pack();
@@ -2200,7 +2276,7 @@ private int Sentencia(If P,Object []Obejtos, int i){
             panelActual = jp_dragDiagrama;
             Dialogo_Actual = jd_DiagramaClases;
             AbrirD(Extension);
-
+            txt_CodigoClases.setText("");
         } else {//Invalido
             JOptionPane.showMessageDialog(this, "La extension del archivo no es reconocible para el sistema");
         }
@@ -2215,7 +2291,7 @@ private int Sentencia(If P,Object []Obejtos, int i){
     }//GEN-LAST:event_btn_oegarActionPerformed
 
     private void btn_oegarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_oegarMouseClicked
-
+        for (JLabel JL_actual: ArrayCopiar) {
         if (JL_actual == null) {
             JOptionPane.showMessageDialog(jd_DiagramaClases, "No se encuentra ningun elemento en memoria, seleccione un objeto para Copiar");
         } else {
@@ -2258,6 +2334,7 @@ private int Sentencia(If P,Object []Obejtos, int i){
             }
             jp_Drag.repaint();
         }
+    }
     }//GEN-LAST:event_btn_oegarMouseClicked
 
     private void btn_CopiarArbolMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_CopiarArbolMouseClicked
@@ -2542,10 +2619,21 @@ private int Sentencia(If P,Object []Obejtos, int i){
 
     private void jButton7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseClicked
         if (jl_variables.getSelectedIndex() >= 0) {
+
             DefaultListModel Modelo = (DefaultListModel) jl_variables.getModel();
             Variable = (Propiedad) Modelo.get(jl_variables.getSelectedIndex());
-            ((Datos) JL_actual).setP(Variable);
-            JOptionPane.showMessageDialog(this.jd_UML, "Se ha Agregado la variable ");
+           // ((Datos) JL_actual).setP(Variable);
+            if (JL_actual instanceof Datos) {
+                ((Datos) JL_actual).AgregarPropiedad(Variable);
+                JOptionPane.showMessageDialog(this.jd_UML, "Se ha Agregado la variable ");
+                System.out.println("NUEVO ARRAYLIST" + ((Datos) JL_actual).getPropiedades());
+            } else if (JL_actual instanceof Documento) {
+                ((Documento) JL_actual).setP(Variable);
+           } else if (JL_actual instanceof Proceso) {
+               ((Proceso) JL_actual).setP(Variable);
+           }
+          
+            
         } else {
             JOptionPane.showMessageDialog(this.jd_UML, "No Se ha Agregado la variable ");
         }
@@ -2566,17 +2654,23 @@ private int Sentencia(If P,Object []Obejtos, int i){
             jc_alcance.disable();
             btn_agregarparametros.show(false);
             btn_agregarvariable.show(true);
+            btn_agregarvariable.show(true);
             //  btn_crearpropiedad.show(false);
             btn_actualizar.show(false);
             jd_propiedad.setTitle("Crear Variables");
+             jd_propiedad.setLocationRelativeTo(jd_UML);
             jd_propiedad.show();
+            
             btn_actualizar.show(false);
             btn_crearpropiedad.show(true);
-            btn_agregarvariable.show(false);
+           // btn_agregarvariable.show(false);
             tf_variable.setText("");
             jc_alcance.setSelectedIndex(0);
             jc_tipo.setSelectedIndex(0);
             btn_crearpropiedad.show(false);
+            File archivo = new File(".\\src\\Imagenes\\UML\\2.jpg");
+              java.awt.Image img=Toolkit.getDefaultToolkit().createImage(archivo.getPath()).getScaledInstance(1240,510,0);
+            this.lbl_fondo.setIcon(new ImageIcon(img));
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
@@ -2584,6 +2678,39 @@ private int Sentencia(If P,Object []Obejtos, int i){
             jd_DiagramaClases.pack();
             jd_DiagramaClases.setLocationRelativeTo(this);
     }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void btn_MostrarVariableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_MostrarVariableActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_MostrarVariableActionPerformed
+
+    private void btn_MostrarVariableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_MostrarVariableMouseClicked
+        jc_alcance.disable();
+            btn_agregarparametros.show(false);
+            btn_agregarvariable.show(true);
+            btn_agregarvariable.show(true);
+            //  btn_crearpropiedad.show(false);
+            btn_actualizar.show(false);
+            jd_propiedad.setTitle("Crear Variables");
+             jd_propiedad.setLocationRelativeTo(jd_UML);
+            jd_propiedad.show();
+            
+            btn_actualizar.show(false);
+            btn_crearpropiedad.show(true);
+           // btn_agregarvariable.show(false);
+            tf_variable.setText("");
+            jc_alcance.setSelectedIndex(0);
+            jc_tipo.setSelectedIndex(0);
+            btn_crearpropiedad.show(false);
+    }//GEN-LAST:event_btn_MostrarVariableMouseClicked
+
+    private void jmi_copiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_copiarActionPerformed
+        ArrayCopiar.add(JL_actual);
+        JOptionPane.showMessageDialog(this.jd_UML,"COPIADO");
+    }//GEN-LAST:event_jmi_copiarActionPerformed
+
+    private void jmi_LecturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_LecturaActionPerformed
+        
+    }//GEN-LAST:event_jmi_LecturaActionPerformed
     public void Cambiarletra() {
         JL_actual.setFont(Fuentes.get(jc_Fuentes.getSelectedIndex()));
     }
@@ -2859,6 +2986,11 @@ private int Sentencia(If P,Object []Obejtos, int i){
                     JL_actual = lbl_Proceso;
                     System.out.println(JL_actual);
                     System.out.println(lbl_Proceso.getText());
+                    if (JL_actual instanceof Datos) {
+                        jmi_Lectura.show(true);
+                    }else{
+                         jmi_Lectura.show(false); 
+                    }
                     pp_OP.show(evt.getComponent(), evt.getX(), evt.getY());
                 }
             }
@@ -2927,7 +3059,6 @@ private int Sentencia(If P,Object []Obejtos, int i){
     private javax.swing.JButton btn_Decision;
     private javax.swing.JButton btn_DiagramaClases1;
     private javax.swing.JButton btn_DiagramaFlujo1;
-    private javax.swing.JLabel btn_GenerarCodigoUML;
     private javax.swing.JButton btn_Herencia;
     private javax.swing.JButton btn_InicioFin;
     private javax.swing.JButton btn_MostrarVariable;
@@ -2977,6 +3108,7 @@ private int Sentencia(If P,Object []Obejtos, int i){
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
@@ -3060,10 +3192,12 @@ private int Sentencia(If P,Object []Obejtos, int i){
     private javax.swing.JMenuItem jmi_DatosPropiedad;
     private javax.swing.JMenuItem jmi_EliminarPropiedad;
     private javax.swing.JMenuItem jmi_Eliminararbol;
+    private javax.swing.JMenuItem jmi_Lectura;
     private javax.swing.JMenuItem jmi_abrirGlobal;
     private javax.swing.JMenuItem jmi_agregarMetodo;
     private javax.swing.JMenuItem jmi_agregarpropiedad;
     private javax.swing.JMenuItem jmi_color;
+    private javax.swing.JMenuItem jmi_copiar;
     private javax.swing.JMenuItem jmi_crearJpg;
     private javax.swing.JMenuItem jmi_crearotro;
     private javax.swing.JMenuItem jmi_crearpng;
@@ -3088,6 +3222,7 @@ private int Sentencia(If P,Object []Obejtos, int i){
     private javax.swing.JLabel lbl_FondoInicio1;
     private javax.swing.JLabel lbl_UML1;
     private javax.swing.JLabel lbl_fodo;
+    private javax.swing.JLabel lbl_fondo;
     private javax.swing.JPopupMenu pp_OP;
     private javax.swing.JTextField tf_variable;
     private javax.swing.JTextField tf_variable1;
@@ -3122,6 +3257,7 @@ private int Sentencia(If P,Object []Obejtos, int i){
     JDialog Dialogo_Actual;
     String Nombre_Imprimir;
     Propiedad Variable;
+    ArrayList<JLabel>ArrayCopiar=new ArrayList();
 /*   } else if (Obejtos[i] instanceof Datos) {
                 System.out.println("\n3)DATOS.\n");
                 System.out.println(Obejtos[i]);

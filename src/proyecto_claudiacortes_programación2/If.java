@@ -47,7 +47,7 @@ private String Condicion;
     public String GenerarCodigo() {
         String Codigo = "";
         //System.out.println("EL ESTADO ES: " + this.isEstado());
-
+System.out.println("EL NO"+this.getNo());
             Codigo += "if(" + this.getText() + "){\n";
             Codigo += Codigo(this.getSi(), Codigo);
             if (no == null) {
@@ -57,9 +57,6 @@ private String Condicion;
                 Codigo += Codigo(this.getNo(), Codigo);
                 Codigo += "\n}";
             }
-
-            
-        
 
         return Codigo;
     }

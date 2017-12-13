@@ -12,8 +12,23 @@ import javax.swing.JLabel;
  * @author Claudia Cortes
  */
 public class Documento extends JLabel{
+     Propiedad p;
+
+    public Propiedad getP() {
+        return p;
+    }
+
+    public void setP(Propiedad p) {
+        this.p = p;
+    }
+     
     public String GenerarCodigo(){
         String Codigo="";
+     if (p != null) {
+            Codigo += " cout << \""+ this.getText() +"\" << "+ p.getNombre() + " << endl; //EL SOUT \n"; 
+        }else{
+                Codigo += " cout << \"" + this.getText()+"\"; //EL SOUT\n";
+        }
         return Codigo;
     }  
 }

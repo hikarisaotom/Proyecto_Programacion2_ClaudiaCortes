@@ -219,6 +219,7 @@ public class Principal extends javax.swing.JFrame {
         jmi_propiedades = new javax.swing.JMenuItem();
         jmi_copiar = new javax.swing.JMenuItem();
         jmi_Lectura = new javax.swing.JMenuItem();
+        jmi_operacion = new javax.swing.JMenuItem();
         jMenuBar4 = new javax.swing.JMenuBar();
         jMenu17 = new javax.swing.JMenu();
         jMenu18 = new javax.swing.JMenu();
@@ -380,6 +381,8 @@ public class Principal extends javax.swing.JFrame {
         });
         jd_DiagramaClases.getContentPane().add(btn_Herencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 100, 40));
 
+        jTabbedPane1.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
+
         jp_dragDiagrama.setBackground(new java.awt.Color(204, 204, 204));
 
         javax.swing.GroupLayout jp_dragDiagramaLayout = new javax.swing.GroupLayout(jp_dragDiagrama);
@@ -390,7 +393,7 @@ public class Principal extends javax.swing.JFrame {
         );
         jp_dragDiagramaLayout.setVerticalGroup(
             jp_dragDiagramaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 422, Short.MAX_VALUE)
+            .addGap(0, 414, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -537,7 +540,7 @@ public class Principal extends javax.swing.JFrame {
         jl_VariablesVista.setModel(new DefaultListModel());
         jScrollPane7.setViewportView(jl_VariablesVista);
 
-        jd_UML.getContentPane().add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 150, 120, 230));
+        jd_UML.getContentPane().add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 120, 160, 310));
 
         btn_documento.setBackground(new java.awt.Color(255, 255, 255));
         btn_documento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/UML/documentos.png"))); // NOI18N
@@ -718,6 +721,7 @@ public class Principal extends javax.swing.JFrame {
         jLabel14.setText("Opciones: ");
         jd_UML.getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 50, -1, -1));
 
+        btn_MostrarVariable.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         btn_MostrarVariable.setText("Agregar");
         btn_MostrarVariable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -729,10 +733,11 @@ public class Principal extends javax.swing.JFrame {
                 btn_MostrarVariableActionPerformed(evt);
             }
         });
-        jd_UML.getContentPane().add(btn_MostrarVariable, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 400, -1, -1));
+        jd_UML.getContentPane().add(btn_MostrarVariable, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 440, -1, -1));
 
+        LBL_VARIABLES.setFont(new java.awt.Font("AR CENA", 0, 24)); // NOI18N
         LBL_VARIABLES.setText("Variables ");
-        jd_UML.getContentPane().add(LBL_VARIABLES, new org.netbeans.lib.awtextra.AbsoluteConstraints(1106, 100, 120, 40));
+        jd_UML.getContentPane().add(LBL_VARIABLES, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 70, 120, 40));
 
         jTabbedPane2.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
 
@@ -747,7 +752,7 @@ public class Principal extends javax.swing.JFrame {
         jp_Drag.setLayout(jp_DragLayout);
         jp_DragLayout.setHorizontalGroup(
             jp_DragLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 785, Short.MAX_VALUE)
+            .addGap(0, 745, Short.MAX_VALUE)
         );
         jp_DragLayout.setVerticalGroup(
             jp_DragLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -765,7 +770,7 @@ public class Principal extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 646, Short.MAX_VALUE)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 606, Short.MAX_VALUE)
                 .addGap(139, 139, 139))
         );
         jPanel3Layout.setVerticalGroup(
@@ -775,7 +780,7 @@ public class Principal extends javax.swing.JFrame {
 
         jTabbedPane2.addTab("Codigo", jPanel3);
 
-        jd_UML.getContentPane().add(jTabbedPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 40, 790, 420));
+        jd_UML.getContentPane().add(jTabbedPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 40, 750, 420));
 
         btn_oegar.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         btn_oegar.setText("Pegar");
@@ -1048,6 +1053,14 @@ public class Principal extends javax.swing.JFrame {
             }
         });
         pp_OP.add(jmi_Lectura);
+
+        jmi_operacion.setText("AgregarPropiedad");
+        jmi_operacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmi_operacionActionPerformed(evt);
+            }
+        });
+        pp_OP.add(jmi_operacion);
 
         jMenu17.setText("File");
         jMenuBar4.add(jMenu17);
@@ -2843,6 +2856,10 @@ jd_Herencia.setLocationRelativeTo(jd_DiagramaClases);
     }//GEN-LAST:event_jmi_copiarActionPerformed
 
     private void jmi_LecturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_LecturaActionPerformed
+  jd_agregarVariable.show(true);
+        jd_agregarVariable.setLocationRelativeTo(jd_UML);
+        jd_agregarVariable.pack();
+       
         
     }//GEN-LAST:event_jmi_LecturaActionPerformed
 
@@ -2874,6 +2891,12 @@ jd_Herencia.setLocationRelativeTo(jd_DiagramaClases);
         txt_CodigoClases.setText("");
          JOptionPane.showMessageDialog(jd_UML,"Se ha Limpiado el area de trabajo");
     }//GEN-LAST:event_jMenuItem7ActionPerformed
+
+    private void jmi_operacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_operacionActionPerformed
+     jd_generarproceso.show(true);
+        jd_generarproceso.setLocationRelativeTo(jd_UML);
+        jd_generarproceso.pack();
+    }//GEN-LAST:event_jmi_operacionActionPerformed
     public void Cambiarletra() {
         JL_actual.setFont(Fuentes.get(jc_Fuentes.getSelectedIndex()));
     }
@@ -3145,14 +3168,22 @@ jd_Herencia.setLocationRelativeTo(jd_DiagramaClases);
         lbl_Proceso.addMouseListener(new MouseListener() {
             public void mouseClicked(MouseEvent evt) {
                 JL_actual = lbl_Proceso;
+                /*Datos
+Documento
+Proceso*/
                 if (evt.isMetaDown()) {
                     JL_actual = lbl_Proceso;
                     System.out.println(JL_actual);
                     System.out.println(lbl_Proceso.getText());
-                    if (JL_actual instanceof Datos) {
+                    if (JL_actual instanceof Datos||JL_actual instanceof Datos/*||JL_actual instanceof Proceso*/) {
                         jmi_Lectura.show(true);
                     }else{
                          jmi_Lectura.show(false); 
+                    }
+                    if (JL_actual instanceof Proceso) {
+                         jmi_operacion.show(true);
+                    }else{
+                         jmi_operacion.show(false);
                     }
                     pp_OP.show(evt.getComponent(), evt.getX(), evt.getY());
                 }
@@ -3387,6 +3418,7 @@ jd_Herencia.setLocationRelativeTo(jd_DiagramaClases);
     private javax.swing.JMenuItem jmi_guardraUML;
     private javax.swing.JMenuItem jmi_imprimir;
     private javax.swing.JMenuItem jmi_imprimirUML;
+    private javax.swing.JMenuItem jmi_operacion;
     private javax.swing.JMenuItem jmi_propiedades;
     private javax.swing.JMenuItem jmi_texto;
     private javax.swing.JPanel jp_Drag;

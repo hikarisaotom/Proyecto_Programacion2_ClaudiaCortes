@@ -1364,7 +1364,7 @@ public class Principal extends javax.swing.JFrame {
                 jc_tipo1ItemStateChanged(evt);
             }
         });
-        jd_Metodos.getContentPane().add(jc_tipo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 90, 120, -1));
+        jd_Metodos.getContentPane().add(jc_tipo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 90, 120, -1));
 
         jLabel24.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         jLabel24.setText("Retun");
@@ -2667,7 +2667,21 @@ Long*/
     }//GEN-LAST:event_jmi_crearpngActionPerformed
 
     private void jmi_crearotroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_crearotroActionPerformed
-
+  /* BMP GIF JPEG TIF*/ 
+  String Opcion="";
+   String[] Opciones = {"bmp", "gif", "jpeg", "tif"};
+            Opcion = (String) JOptionPane.showInputDialog(null,
+                    "Seleccione un formato de imagen", //Mensaje
+                    "                                  IMAGEN",//TITULO
+                    JOptionPane.QUESTION_MESSAGE,
+                    null,
+                    Opciones,
+                    Opciones[0]);
+        if (Opcion==null) {
+            JOptionPane.showMessageDialog(jd_UML,"No se ha seleccionado un formato");
+        }else{
+             CrearIMG(jp_Drag, Opcion);
+        }
     }//GEN-LAST:event_jmi_crearotroActionPerformed
 
     private void jMenu3MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu3MouseReleased

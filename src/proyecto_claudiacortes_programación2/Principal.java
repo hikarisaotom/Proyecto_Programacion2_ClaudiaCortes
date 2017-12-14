@@ -49,6 +49,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.JTextField;
 import javax.swing.JTree;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.SwingConstants;
@@ -280,8 +281,8 @@ public class Principal extends javax.swing.JFrame {
         jl_padre = new javax.swing.JList<>();
         lbl_herenciafondo = new javax.swing.JLabel();
         jd_Metodos = new javax.swing.JDialog();
-        jLabel23 = new javax.swing.JLabel();
         tf_variable1 = new javax.swing.JTextField();
+        jLabel23 = new javax.swing.JLabel();
         jc_tipo1 = new javax.swing.JComboBox<>();
         jLabel24 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
@@ -1062,11 +1063,6 @@ public class Principal extends javax.swing.JFrame {
         pp_OP.add(jmi_operacion);
 
         jmi_ColorFuentes.setText("Color de Fuente");
-        jmi_ColorFuentes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jmi_ColorFuentesActionPerformed(evt);
-            }
-        });
         pp_OP.add(jmi_ColorFuentes);
 
         jMenu17.setText("File");
@@ -1224,6 +1220,7 @@ public class Principal extends javax.swing.JFrame {
         });
         PP_OPA.add(jmi_descripcionMetodo);
 
+        jd_propiedad.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         jd_propiedad.setTitle("CREAR PROPIEDAD");
         jd_propiedad.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         jd_propiedad.setForeground(new java.awt.Color(0, 0, 0));
@@ -1337,15 +1334,23 @@ public class Principal extends javax.swing.JFrame {
         lbl_herenciafondo.setText("jLabel1");
         jd_Herencia.getContentPane().add(lbl_herenciafondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(-2, -6, 360, 340));
 
-        jd_Metodos.setFocusableWindowState(false);
+        jd_Metodos.setTitle("Crear Metodo");
+        jd_Metodos.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         jd_Metodos.setMaximumSize(new java.awt.Dimension(280, 271));
         jd_Metodos.setMinimumSize(new java.awt.Dimension(280, 271));
         jd_Metodos.setPreferredSize(new java.awt.Dimension(280, 271));
+        jd_Metodos.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        tf_variable1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tf_variable1ActionPerformed(evt);
+            }
+        });
+        jd_Metodos.getContentPane().add(tf_variable1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 40, 130, 30));
 
         jLabel23.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         jLabel23.setText("Nombre");
-
-        tf_variable1.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
+        jd_Metodos.getContentPane().add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 85, -1));
 
         jc_tipo1.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         jc_tipo1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Void", "Int", "String", "Double", "Long", "char", "boolean", " " }));
@@ -1354,15 +1359,19 @@ public class Principal extends javax.swing.JFrame {
                 jc_tipo1ItemStateChanged(evt);
             }
         });
+        jd_Metodos.getContentPane().add(jc_tipo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 90, 120, -1));
 
         jLabel24.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         jLabel24.setText("Retun");
+        jd_Metodos.getContentPane().add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 63, -1));
 
         jLabel25.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         jLabel25.setText("Alcance");
+        jd_Metodos.getContentPane().add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, -1, -1));
 
         jc_alcance1.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         jc_alcance1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-------", "Public", "Private", "Protected" }));
+        jd_Metodos.getContentPane().add(jc_alcance1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 130, 121, -1));
 
         btn_crearmetodo.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         btn_crearmetodo.setText("Crear");
@@ -1371,6 +1380,7 @@ public class Principal extends javax.swing.JFrame {
                 btn_crearmetodoMouseClicked(evt);
             }
         });
+        jd_Metodos.getContentPane().add(btn_crearmetodo, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 240, -1, -1));
 
         btn_actualizarmetodo.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         btn_actualizarmetodo.setText("Actualizar");
@@ -1379,9 +1389,11 @@ public class Principal extends javax.swing.JFrame {
                 btn_actualizarmetodoMouseClicked(evt);
             }
         });
+        jd_Metodos.getContentPane().add(btn_actualizarmetodo, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 240, -1, -1));
 
         jLabel26.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         jLabel26.setText("Parametro");
+        jd_Metodos.getContentPane().add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, -1, -1));
 
         btn_agregarparametro.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         btn_agregarparametro.setText("Agregar");
@@ -1390,77 +1402,13 @@ public class Principal extends javax.swing.JFrame {
                 btn_agregarparametroMouseClicked(evt);
             }
         });
+        jd_Metodos.getContentPane().add(btn_agregarparametro, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 170, -1, -1));
 
         lbl_metodosFondo.setText("jLabel1");
         lbl_metodosFondo.setMaximumSize(new java.awt.Dimension(280, 271));
         lbl_metodosFondo.setMinimumSize(new java.awt.Dimension(280, 271));
         lbl_metodosFondo.setPreferredSize(new java.awt.Dimension(264, 271));
-
-        javax.swing.GroupLayout jd_MetodosLayout = new javax.swing.GroupLayout(jd_Metodos.getContentPane());
-        jd_Metodos.getContentPane().setLayout(jd_MetodosLayout);
-        jd_MetodosLayout.setHorizontalGroup(
-            jd_MetodosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jd_MetodosLayout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jd_MetodosLayout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37)
-                .addComponent(jc_tipo1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jd_MetodosLayout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(jLabel25))
-            .addGroup(jd_MetodosLayout.createSequentialGroup()
-                .addGap(126, 126, 126)
-                .addComponent(btn_agregarparametro))
-            .addGroup(jd_MetodosLayout.createSequentialGroup()
-                .addGap(126, 126, 126)
-                .addComponent(jc_alcance1, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jd_MetodosLayout.createSequentialGroup()
-                .addGap(86, 86, 86)
-                .addComponent(btn_crearmetodo))
-            .addGroup(jd_MetodosLayout.createSequentialGroup()
-                .addGap(76, 76, 76)
-                .addComponent(btn_actualizarmetodo))
-            .addGroup(jd_MetodosLayout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(jLabel26))
-            .addGroup(jd_MetodosLayout.createSequentialGroup()
-                .addGap(126, 126, 126)
-                .addComponent(tf_variable1, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(lbl_metodosFondo, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
-        jd_MetodosLayout.setVerticalGroup(
-            jd_MetodosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jd_MetodosLayout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addComponent(jLabel23)
-                .addGap(28, 28, 28)
-                .addGroup(jd_MetodosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel24)
-                    .addComponent(jc_tipo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(12, 12, 12)
-                .addComponent(jLabel25)
-                .addGap(28, 28, 28)
-                .addComponent(btn_agregarparametro))
-            .addGroup(jd_MetodosLayout.createSequentialGroup()
-                .addGap(140, 140, 140)
-                .addComponent(jc_alcance1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jd_MetodosLayout.createSequentialGroup()
-                .addGap(250, 250, 250)
-                .addComponent(btn_crearmetodo))
-            .addGroup(jd_MetodosLayout.createSequentialGroup()
-                .addGap(250, 250, 250)
-                .addComponent(btn_actualizarmetodo))
-            .addGroup(jd_MetodosLayout.createSequentialGroup()
-                .addGap(180, 180, 180)
-                .addComponent(jLabel26))
-            .addGroup(jd_MetodosLayout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addComponent(tf_variable1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(lbl_metodosFondo, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
+        jd_Metodos.getContentPane().add(lbl_metodosFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 280, 310));
 
         jd_agregarVariable.setMaximumSize(new java.awt.Dimension(286, 309));
         jd_agregarVariable.setMinimumSize(new java.awt.Dimension(286, 309));
@@ -1803,7 +1751,9 @@ jd_generarproceso.show(true);
 
     private void jmi_agregarpropiedadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_agregarpropiedadActionPerformed
         jd_propiedad.show();
-        jd_propiedad.setLocationRelativeTo(jd_DiagramaClases);
+        tf_variable1.enable(true);
+         tf_variable1.show(true);
+      //  jd_propiedad.setLocationRelativeTo(jd_DiagramaClases);
         jc_alcance.enable();
         jd_propiedad.setTitle("Crear Propiedad");
         btn_crearpropiedad.show(true);
@@ -1817,6 +1767,7 @@ jd_generarproceso.show(true);
     private void jmi_EliminararbolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_EliminararbolActionPerformed
         int respuesta = JOptionPane.showConfirmDialog(this.jd_DiagramaClases, "Seguro que desea eliminar?", "Confirm", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
         if (respuesta == JOptionPane.OK_OPTION) {
+           
             DefaultTreeModel m = (DefaultTreeModel) ActualArbol.getModel();
             m.removeNodeFromParent(nodo_seleccionado);
             m.reload();
@@ -1824,6 +1775,8 @@ jd_generarproceso.show(true);
             jp_dragDiagrama.repaint();
             JOptionPane.showMessageDialog(this.jd_UML, "Se ha eliminado correctamente");
         }
+            tf_variable1.enable(true);
+         tf_variable1.show(true);
         DefaultTreeModel Principal = (DefaultTreeModel) jTree1.getModel();
         Principal.reload();
     }//GEN-LAST:event_jmi_EliminararbolActionPerformed
@@ -2083,7 +2036,7 @@ private int Sentencia(If P,Object []Obejtos, int i){
     private void btn_HerenciaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_HerenciaMouseClicked
         jd_Herencia.show();
         jd_Herencia.pack();
-jd_Herencia.setLocationRelativeTo(jd_DiagramaClases);
+//jd_Herencia.setLocationRelativeTo(jd_DiagramaClases);
     }//GEN-LAST:event_btn_HerenciaMouseClicked
 
     private void btn_agregarherenciaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_agregarherenciaMouseClicked
@@ -2107,7 +2060,7 @@ jd_Herencia.setLocationRelativeTo(jd_DiagramaClases);
 
     private void jmi_DatosPropiedadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_DatosPropiedadActionPerformed
         jd_propiedad.show();
-        jd_propiedad.setLocationRelativeTo(jd_DiagramaClases);
+        //jd_propiedad.setLocationRelativeTo(jd_DiagramaClases);
         jd_propiedad.setTitle("Descripcion de " + Propiedad_Global.getNombre());
         tf_variable.setText(Propiedad_Global.getNombre());
 
@@ -2116,6 +2069,8 @@ jd_Herencia.setLocationRelativeTo(jd_DiagramaClases);
         btn_crearpropiedad.show(false);
         btn_actualizar.show(true);
         btn_agregarparametros.show(false);
+            tf_variable1.enable(true);
+         tf_variable1.show(true);
     }//GEN-LAST:event_jmi_DatosPropiedadActionPerformed
 
     private void btn_actualizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_actualizarMouseClicked
@@ -2166,11 +2121,27 @@ jd_Herencia.setLocationRelativeTo(jd_DiagramaClases);
     }//GEN-LAST:event_btn_actualizarmetodoMouseClicked
 
     private void jmi_agregarMetodoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_agregarMetodoActionPerformed
+//        jd_Metodos.show();
+//        btn_agregarparametro.enable(true);
+//        btn_actualizarmetodo.show(false);
+//        btn_crearmetodo.show(true);
+//    jd_Metodos.pack();
         jd_Metodos.show();
-        jd_Metodos.setLocationRelativeTo(jd_DiagramaClases);
+        tf_variable1.enable(true);
+        tf_variable1.show(true);
+               jd_Metodos.setLocationRelativeTo(jd_DiagramaClases);
+        //  jd_propiedad.setLocationRelativeTo(jd_DiagramaClases);
+        jc_alcance.enable();
+        jd_Metodos.setTitle("Crear Metodo");
+        btn_crearpropiedad.show(true);
         btn_agregarparametro.enable(true);
         btn_actualizarmetodo.show(false);
         btn_crearmetodo.show(true);
+//         JTextField T= new JTextField();
+//         T.setLocation(50, 50);
+//         T.setSize(20, 20);
+//           jd_Metodos.add(T);
+
     }//GEN-LAST:event_jmi_agregarMetodoActionPerformed
 
     private void btn_agregarparametroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_agregarparametroMouseClicked
@@ -2207,6 +2178,8 @@ jd_Herencia.setLocationRelativeTo(jd_DiagramaClases);
             Principal.reload();
             JOptionPane.showMessageDialog(this.jd_DiagramaClases, "Se ha eliminado correctamente la propiedad");
         }
+            tf_variable1.enable(true);
+         tf_variable1.show(true);
     }//GEN-LAST:event_jmi_EliminarPropiedadActionPerformed
 
     private void jmi_eliminarMetodoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_eliminarMetodoActionPerformed
@@ -2222,7 +2195,8 @@ jd_Herencia.setLocationRelativeTo(jd_DiagramaClases);
             m.reload();
             Principal.reload();
             JOptionPane.showMessageDialog(this.jd_DiagramaClases, "Se ha eliminado correctamente el metodo");
-
+    tf_variable1.enable(true);
+         tf_variable1.show(true);
         }
 
     }//GEN-LAST:event_jmi_eliminarMetodoActionPerformed
@@ -2236,6 +2210,8 @@ jd_Herencia.setLocationRelativeTo(jd_DiagramaClases);
         jc_tipo1.setSelectedItem(M_Actual.getT_return());
         jc_alcance1.setSelectedIndex(M_Actual.getAlcance());
         PARAMETROS = M_Actual.getParametros();
+            tf_variable1.enable(true);
+         tf_variable1.show(true);
     }//GEN-LAST:event_jmi_descripcionMetodoActionPerformed
 
     private void btn_agregarparametrosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_agregarparametrosMouseClicked
@@ -2270,6 +2246,9 @@ jd_Herencia.setLocationRelativeTo(jd_DiagramaClases);
         arbol.addMouseListener(new MouseListener() {
             public void mouseClicked(MouseEvent evt) {
                 ActualArbol = arbol;
+      
+        
+                 
                 int row = arbol.getClosestRowForLocation(evt.getX(), evt.getY());
                 arbol.setSelectionRow(row);
                 //determinar el tipo de objeto selecionado.
@@ -2912,9 +2891,9 @@ jd_Herencia.setLocationRelativeTo(jd_DiagramaClases);
         jd_generarproceso.pack();
     }//GEN-LAST:event_jmi_operacionActionPerformed
 
-    private void jmi_ColorFuentesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_ColorFuentesActionPerformed
-      JL_actual.setForeground(JColorChooser.showDialog(jd_UML,"Coor de la fuente: ", Color.yellow));
-    }//GEN-LAST:event_jmi_ColorFuentesActionPerformed
+    private void tf_variable1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_variable1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tf_variable1ActionPerformed
     public void Cambiarletra() {
         JL_actual.setFont(Fuentes.get(jc_Fuentes.getSelectedIndex()));
     }
@@ -2942,7 +2921,7 @@ jd_Herencia.setLocationRelativeTo(jd_DiagramaClases);
                 Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
             }
             Image imagen = Image.getInstance(Ruta + "1" + ".jpg");
-            imagen.scaleAbsolute(300, 300);
+            imagen.scaleAbsolute(400, 400);
             imagen.setAlignment(Element.ALIGN_CENTER);
 //            CREAR EL DOCUMENTO SENCILLO
             FileOutputStream archivo = new FileOutputStream(Ruta + ".pdf");

@@ -76,7 +76,7 @@ public class Principal extends javax.swing.JFrame {
 
         initComponents();
         btn_finif.setOpaque(true);
-        btn_finif.setBackground(Color.red);
+        //btn_finif.setBackground(Color.red);
           btn_finif.setHorizontalTextPosition(SwingConstants.CENTER);
           btn_finif.setText("Fin");
         DefaultComboBoxModel modelo = (DefaultComboBoxModel) jc_Fuentes.getModel();
@@ -95,6 +95,16 @@ public class Principal extends javax.swing.JFrame {
         jc_Fuentes.setModel(modelo);
        // this.setExtendedState(MAXIMIZED_BOTH);
         // lbl_FondoInicio.setVisible(false);
+          File archivo = new File(".\\src\\Imagenes\\UML\\2.jpg");
+              java.awt.Image img=Toolkit.getDefaultToolkit().createImage(archivo.getPath()).getScaledInstance(1240,510,0);
+            this.lbl_fondo.setIcon(new ImageIcon(img));
+            lbl_fondoDiagrama.setIcon(new ImageIcon(img));
+            lbl_Propiedades.setIcon(new ImageIcon(img));
+            lbl_propiedadesfondo.setIcon(new ImageIcon(img));
+            lbl_herenciafondo.setIcon(new ImageIcon(img));
+            lbl_metodosFondo.setIcon(new ImageIcon(img));
+            lbl_agregarVariableFONDO.setIcon(new ImageIcon(img));
+            LBL_OPERACION.setIcon(new ImageIcon(img));
     }
 
     /**
@@ -123,6 +133,7 @@ public class Principal extends javax.swing.JFrame {
         jScrollPane4 = new javax.swing.JScrollPane();
         txt_CodigoClases = new javax.swing.JTextArea();
         btn_CopiarArbol = new javax.swing.JButton();
+        lbl_fondoDiagrama = new javax.swing.JLabel();
         jMenuBar6 = new javax.swing.JMenuBar();
         jMenu6 = new javax.swing.JMenu();
         jmi_AbrirClases = new javax.swing.JMenuItem();
@@ -234,7 +245,8 @@ public class Principal extends javax.swing.JFrame {
         js_width = new javax.swing.JSpinner();
         btn_cancelar = new javax.swing.JButton();
         btn_ok = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        lbl_Propiedades = new javax.swing.JLabel();
+        jLabel34 = new javax.swing.JLabel();
         PP_OPA = new javax.swing.JPopupMenu();
         jmi_agregarpropiedad = new javax.swing.JMenuItem();
         jmi_Eliminararbol = new javax.swing.JMenuItem();
@@ -254,6 +266,7 @@ public class Principal extends javax.swing.JFrame {
         btn_actualizar = new javax.swing.JButton();
         btn_agregarparametros = new javax.swing.JButton();
         btn_agregarvariable = new javax.swing.JButton();
+        lbl_propiedadesfondo = new javax.swing.JLabel();
         jd_Herencia = new javax.swing.JDialog();
         jLabel17 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
@@ -263,6 +276,7 @@ public class Principal extends javax.swing.JFrame {
         jl_hijo = new javax.swing.JList<>();
         jScrollPane3 = new javax.swing.JScrollPane();
         jl_padre = new javax.swing.JList<>();
+        lbl_herenciafondo = new javax.swing.JLabel();
         jd_Metodos = new javax.swing.JDialog();
         jLabel23 = new javax.swing.JLabel();
         tf_variable1 = new javax.swing.JTextField();
@@ -274,11 +288,13 @@ public class Principal extends javax.swing.JFrame {
         btn_actualizarmetodo = new javax.swing.JButton();
         jLabel26 = new javax.swing.JLabel();
         btn_agregarparametro = new javax.swing.JButton();
+        lbl_metodosFondo = new javax.swing.JLabel();
         jd_agregarVariable = new javax.swing.JDialog();
         jButton7 = new javax.swing.JButton();
         jScrollPane6 = new javax.swing.JScrollPane();
         jl_variables = new javax.swing.JList<>();
         jLabel2 = new javax.swing.JLabel();
+        lbl_agregarVariableFONDO = new javax.swing.JLabel();
         jd_generarproceso = new javax.swing.JDialog();
         jLabel29 = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
@@ -290,6 +306,7 @@ public class Principal extends javax.swing.JFrame {
         cb_resultado = new javax.swing.JComboBox<>();
         jButton10 = new javax.swing.JButton();
         jLabel33 = new javax.swing.JLabel();
+        LBL_OPERACION = new javax.swing.JLabel();
         lbl_fodo = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
@@ -422,6 +439,9 @@ public class Principal extends javax.swing.JFrame {
             }
         });
         jd_DiagramaClases.getContentPane().add(btn_CopiarArbol, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 401, 90, 40));
+
+        lbl_fondoDiagrama.setText("jLabel35");
+        jd_DiagramaClases.getContentPane().add(lbl_fondoDiagrama, new org.netbeans.lib.awtextra.AbsoluteConstraints(1, -3, 930, 500));
 
         jMenu6.setText("Archivo");
         jMenu6.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
@@ -675,6 +695,7 @@ public class Principal extends javax.swing.JFrame {
         jd_UML.getContentPane().add(jToolBar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 0, 170, 20));
 
         btn_finif.setBackground(new java.awt.Color(255, 255, 255));
+        btn_finif.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         btn_finif.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/UML/if.png"))); // NOI18N
         btn_finif.setToolTipText("");
         btn_finif.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1119,9 +1140,12 @@ public class Principal extends javax.swing.JFrame {
         });
         jd_propiedades.getContentPane().add(btn_ok, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 100, 30));
 
-        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel1.setOpaque(true);
-        jd_propiedades.getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 260, 370));
+        lbl_Propiedades.setBackground(new java.awt.Color(255, 255, 255));
+        lbl_Propiedades.setOpaque(true);
+        jd_propiedades.getContentPane().add(lbl_Propiedades, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 260, 370));
+
+        jLabel34.setText("jLabel34");
+        jd_propiedades.getContentPane().add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 250, -1, 60));
 
         jmi_agregarpropiedad.setText("Agregar Propiedad");
         jmi_agregarpropiedad.addActionListener(new java.awt.event.ActionListener() {
@@ -1183,7 +1207,9 @@ public class Principal extends javax.swing.JFrame {
         jd_propiedad.setTitle("CREAR PROPIEDAD");
         jd_propiedad.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         jd_propiedad.setForeground(new java.awt.Color(0, 0, 0));
-        jd_propiedad.setMinimumSize(new java.awt.Dimension(241, 241));
+        jd_propiedad.setMaximumSize(new java.awt.Dimension(279, 253));
+        jd_propiedad.setMinimumSize(new java.awt.Dimension(279, 253));
+        jd_propiedad.setPreferredSize(new java.awt.Dimension(279, 253));
         jd_propiedad.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel18.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
@@ -1250,14 +1276,20 @@ public class Principal extends javax.swing.JFrame {
         });
         jd_propiedad.getContentPane().add(btn_agregarvariable, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 210, -1, -1));
 
+        lbl_propiedadesfondo.setText("jLabel1");
+        jd_propiedad.getContentPane().add(lbl_propiedadesfondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(-6, -10, 290, 260));
+
         jd_Herencia.setTitle("Herencia Entre Clases");
         jd_Herencia.setMinimumSize(new java.awt.Dimension(353, 334));
+        jd_Herencia.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel17.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         jLabel17.setText("Clase Hija");
+        jd_Herencia.getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, 79, -1));
 
         jLabel22.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         jLabel22.setText("Clase Padre");
+        jd_Herencia.getContentPane().add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 20, -1, -1));
 
         btn_agregarherencia.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         btn_agregarherencia.setText("Agregar");
@@ -1266,66 +1298,34 @@ public class Principal extends javax.swing.JFrame {
                 btn_agregarherenciaMouseClicked(evt);
             }
         });
+        jd_Herencia.getContentPane().add(btn_agregarherencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, 113, -1));
 
         jButton8.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         jButton8.setText("OK");
+        jd_Herencia.getContentPane().add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 290, 57, -1));
 
         jl_hijo.setModel(new DefaultListModel());
         jScrollPane2.setViewportView(jl_hijo);
 
+        jd_Herencia.getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 144, 213));
+
         jl_padre.setModel(new DefaultListModel());
         jScrollPane3.setViewportView(jl_padre);
 
-        javax.swing.GroupLayout jd_HerenciaLayout = new javax.swing.GroupLayout(jd_Herencia.getContentPane());
-        jd_Herencia.getContentPane().setLayout(jd_HerenciaLayout);
-        jd_HerenciaLayout.setHorizontalGroup(
-            jd_HerenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jd_HerenciaLayout.createSequentialGroup()
-                .addGroup(jd_HerenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jd_HerenciaLayout.createSequentialGroup()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jd_HerenciaLayout.createSequentialGroup()
-                        .addGap(53, 53, 53)
-                        .addComponent(btn_agregarherencia, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(79, 79, 79)
-                        .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 41, Short.MAX_VALUE))
-                    .addGroup(jd_HerenciaLayout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel22)
-                        .addGap(55, 55, 55)))
-                .addContainerGap())
-        );
-        jd_HerenciaLayout.setVerticalGroup(
-            jd_HerenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jd_HerenciaLayout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addGroup(jd_HerenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel22)
-                    .addComponent(jLabel17))
-                .addGap(18, 18, 18)
-                .addGroup(jd_HerenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 213, Short.MAX_VALUE)
-                    .addComponent(jScrollPane2))
-                .addGap(18, 18, 18)
-                .addGroup(jd_HerenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_agregarherencia)
-                    .addComponent(jButton8))
-                .addContainerGap())
-        );
+        jd_Herencia.getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(199, 61, 144, 213));
 
-        jd_Metodos.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        lbl_herenciafondo.setText("jLabel1");
+        jd_Herencia.getContentPane().add(lbl_herenciafondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(-2, -6, 360, 340));
+
+        jd_Metodos.setFocusableWindowState(false);
+        jd_Metodos.setMaximumSize(new java.awt.Dimension(280, 271));
+        jd_Metodos.setMinimumSize(new java.awt.Dimension(280, 271));
+        jd_Metodos.setPreferredSize(new java.awt.Dimension(280, 271));
 
         jLabel23.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         jLabel23.setText("Nombre");
-        jd_Metodos.getContentPane().add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 85, -1));
 
         tf_variable1.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
-        jd_Metodos.getContentPane().add(tf_variable1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, 112, -1));
 
         jc_tipo1.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         jc_tipo1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Void", "Int", "String", "Double", "Long", "char", "boolean", " " }));
@@ -1334,19 +1334,15 @@ public class Principal extends javax.swing.JFrame {
                 jc_tipo1ItemStateChanged(evt);
             }
         });
-        jd_Metodos.getContentPane().add(jc_tipo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 90, 120, -1));
 
         jLabel24.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         jLabel24.setText("Retun");
-        jd_Metodos.getContentPane().add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 63, -1));
 
         jLabel25.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         jLabel25.setText("Alcance");
-        jd_Metodos.getContentPane().add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, -1, -1));
 
         jc_alcance1.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         jc_alcance1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-------", "Public", "Private", "Protected" }));
-        jd_Metodos.getContentPane().add(jc_alcance1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 130, 121, -1));
 
         btn_crearmetodo.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         btn_crearmetodo.setText("Crear");
@@ -1355,7 +1351,6 @@ public class Principal extends javax.swing.JFrame {
                 btn_crearmetodoMouseClicked(evt);
             }
         });
-        jd_Metodos.getContentPane().add(btn_crearmetodo, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 240, -1, -1));
 
         btn_actualizarmetodo.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         btn_actualizarmetodo.setText("Actualizar");
@@ -1364,11 +1359,9 @@ public class Principal extends javax.swing.JFrame {
                 btn_actualizarmetodoMouseClicked(evt);
             }
         });
-        jd_Metodos.getContentPane().add(btn_actualizarmetodo, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 240, -1, -1));
 
         jLabel26.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         jLabel26.setText("Parametro");
-        jd_Metodos.getContentPane().add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, -1, -1));
 
         btn_agregarparametro.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         btn_agregarparametro.setText("Agregar");
@@ -1377,9 +1370,81 @@ public class Principal extends javax.swing.JFrame {
                 btn_agregarparametroMouseClicked(evt);
             }
         });
-        jd_Metodos.getContentPane().add(btn_agregarparametro, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 180, -1, -1));
 
+        lbl_metodosFondo.setText("jLabel1");
+        lbl_metodosFondo.setMaximumSize(new java.awt.Dimension(280, 271));
+        lbl_metodosFondo.setMinimumSize(new java.awt.Dimension(280, 271));
+        lbl_metodosFondo.setPreferredSize(new java.awt.Dimension(264, 271));
+
+        javax.swing.GroupLayout jd_MetodosLayout = new javax.swing.GroupLayout(jd_Metodos.getContentPane());
+        jd_Metodos.getContentPane().setLayout(jd_MetodosLayout);
+        jd_MetodosLayout.setHorizontalGroup(
+            jd_MetodosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_MetodosLayout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jd_MetodosLayout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(37, 37, 37)
+                .addComponent(jc_tipo1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jd_MetodosLayout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(jLabel25))
+            .addGroup(jd_MetodosLayout.createSequentialGroup()
+                .addGap(126, 126, 126)
+                .addComponent(btn_agregarparametro))
+            .addGroup(jd_MetodosLayout.createSequentialGroup()
+                .addGap(126, 126, 126)
+                .addComponent(jc_alcance1, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jd_MetodosLayout.createSequentialGroup()
+                .addGap(86, 86, 86)
+                .addComponent(btn_crearmetodo))
+            .addGroup(jd_MetodosLayout.createSequentialGroup()
+                .addGap(76, 76, 76)
+                .addComponent(btn_actualizarmetodo))
+            .addGroup(jd_MetodosLayout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(jLabel26))
+            .addGroup(jd_MetodosLayout.createSequentialGroup()
+                .addGap(126, 126, 126)
+                .addComponent(tf_variable1, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(lbl_metodosFondo, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        jd_MetodosLayout.setVerticalGroup(
+            jd_MetodosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_MetodosLayout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addComponent(jLabel23)
+                .addGap(28, 28, 28)
+                .addGroup(jd_MetodosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel24)
+                    .addComponent(jc_tipo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(12, 12, 12)
+                .addComponent(jLabel25)
+                .addGap(28, 28, 28)
+                .addComponent(btn_agregarparametro))
+            .addGroup(jd_MetodosLayout.createSequentialGroup()
+                .addGap(140, 140, 140)
+                .addComponent(jc_alcance1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jd_MetodosLayout.createSequentialGroup()
+                .addGap(250, 250, 250)
+                .addComponent(btn_crearmetodo))
+            .addGroup(jd_MetodosLayout.createSequentialGroup()
+                .addGap(250, 250, 250)
+                .addComponent(btn_actualizarmetodo))
+            .addGroup(jd_MetodosLayout.createSequentialGroup()
+                .addGap(180, 180, 180)
+                .addComponent(jLabel26))
+            .addGroup(jd_MetodosLayout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addComponent(tf_variable1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(lbl_metodosFondo, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+
+        jd_agregarVariable.setMaximumSize(new java.awt.Dimension(286, 309));
         jd_agregarVariable.setMinimumSize(new java.awt.Dimension(286, 309));
+        jd_agregarVariable.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton7.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         jButton7.setText("Agregar Variable");
@@ -1388,50 +1453,48 @@ public class Principal extends javax.swing.JFrame {
                 jButton7MouseClicked(evt);
             }
         });
+        jd_agregarVariable.getContentPane().add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, -1, -1));
 
         jl_variables.setModel(new DefaultListModel());
         jScrollPane6.setViewportView(jl_variables);
 
+        jd_agregarVariable.getContentPane().add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, 135, 226));
+
         jLabel2.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         jLabel2.setText("Agregar Varible a Elemento");
+        jd_agregarVariable.getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, -1, -1));
 
-        javax.swing.GroupLayout jd_agregarVariableLayout = new javax.swing.GroupLayout(jd_agregarVariable.getContentPane());
-        jd_agregarVariable.getContentPane().setLayout(jd_agregarVariableLayout);
-        jd_agregarVariableLayout.setHorizontalGroup(
-            jd_agregarVariableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jd_agregarVariableLayout.createSequentialGroup()
-                .addGap(58, 58, 58)
-                .addGroup(jd_agregarVariableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton7)
-                    .addComponent(jLabel2)
-                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(57, Short.MAX_VALUE))
-        );
-        jd_agregarVariableLayout.setVerticalGroup(
-            jd_agregarVariableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_agregarVariableLayout.createSequentialGroup()
-                .addGap(7, 7, 7)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton7)
-                .addContainerGap())
-        );
+        lbl_agregarVariableFONDO.setText("jLabel35");
+        jd_agregarVariable.getContentPane().add(lbl_agregarVariableFONDO, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 260, 320));
+
+        jd_generarproceso.setMaximumSize(new java.awt.Dimension(298, 294));
+        jd_generarproceso.setMinimumSize(new java.awt.Dimension(298, 294));
+        jd_generarproceso.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel29.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         jLabel29.setText("Operacion");
+        jd_generarproceso.getContentPane().add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(43, 68, 77, -1));
 
         jLabel30.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         jLabel30.setText("Variable 1");
+        jd_generarproceso.getContentPane().add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(43, 108, -1, -1));
 
         jLabel31.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         jLabel31.setText("Variable 2");
+        jd_generarproceso.getContentPane().add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(43, 148, -1, -1));
 
         jLabel32.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         jLabel32.setText("Resultado");
+        jd_generarproceso.getContentPane().add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(43, 188, -1, -1));
 
         cb_operacion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "+", "-", "*", "/", " " }));
+        jd_generarproceso.getContentPane().add(cb_operacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 68, 109, -1));
+
+        jd_generarproceso.getContentPane().add(cb_Variable1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, 109, -1));
+
+        jd_generarproceso.getContentPane().add(cb_Variable2, new org.netbeans.lib.awtextra.AbsoluteConstraints(126, 150, 113, -1));
+
+        jd_generarproceso.getContentPane().add(cb_resultado, new org.netbeans.lib.awtextra.AbsoluteConstraints(121, 190, 118, -1));
 
         jButton10.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         jButton10.setText("Guardar");
@@ -1440,67 +1503,14 @@ public class Principal extends javax.swing.JFrame {
                 jButton10MouseClicked(evt);
             }
         });
+        jd_generarproceso.getContentPane().add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(121, 245, -1, -1));
 
         jLabel33.setFont(new java.awt.Font("AR CENA", 0, 24)); // NOI18N
         jLabel33.setText("CREACION DE LA OPERACIÓN.");
+        jd_generarproceso.getContentPane().add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 27, -1, -1));
 
-        javax.swing.GroupLayout jd_generarprocesoLayout = new javax.swing.GroupLayout(jd_generarproceso.getContentPane());
-        jd_generarproceso.getContentPane().setLayout(jd_generarprocesoLayout);
-        jd_generarprocesoLayout.setHorizontalGroup(
-            jd_generarprocesoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jd_generarprocesoLayout.createSequentialGroup()
-                .addGroup(jd_generarprocesoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jd_generarprocesoLayout.createSequentialGroup()
-                        .addGap(43, 43, 43)
-                        .addGroup(jd_generarprocesoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jd_generarprocesoLayout.createSequentialGroup()
-                                .addComponent(jLabel31)
-                                .addGap(18, 18, 18)
-                                .addComponent(cb_Variable2, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jd_generarprocesoLayout.createSequentialGroup()
-                                .addGroup(jd_generarprocesoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel30))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jd_generarprocesoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(cb_operacion, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(cb_Variable1, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jd_generarprocesoLayout.createSequentialGroup()
-                                .addComponent(jLabel32)
-                                .addGap(18, 18, 18)
-                                .addGroup(jd_generarprocesoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jButton10)
-                                    .addComponent(cb_resultado, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
-                    .addGroup(jd_generarprocesoLayout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addComponent(jLabel33)))
-                .addContainerGap(24, Short.MAX_VALUE))
-        );
-        jd_generarprocesoLayout.setVerticalGroup(
-            jd_generarprocesoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jd_generarprocesoLayout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addComponent(jLabel33)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jd_generarprocesoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel29)
-                    .addComponent(cb_operacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jd_generarprocesoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel30)
-                    .addComponent(cb_Variable1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jd_generarprocesoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel31)
-                    .addComponent(cb_Variable2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jd_generarprocesoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel32)
-                    .addComponent(cb_resultado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(35, 35, 35)
-                .addComponent(jButton10)
-                .addContainerGap(18, Short.MAX_VALUE))
-        );
+        LBL_OPERACION.setText("jLabel1");
+        jd_generarproceso.getContentPane().add(LBL_OPERACION, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, -13, 330, 330));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("INICIO");
@@ -2794,9 +2804,7 @@ jd_Herencia.setLocationRelativeTo(jd_DiagramaClases);
             jc_alcance.setSelectedIndex(0);
             jc_tipo.setSelectedIndex(0);
             btn_crearpropiedad.show(false);
-            File archivo = new File(".\\src\\Imagenes\\UML\\2.jpg");
-              java.awt.Image img=Toolkit.getDefaultToolkit().createImage(archivo.getPath()).getScaledInstance(1240,510,0);
-            this.lbl_fondo.setIcon(new ImageIcon(img));
+          
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
@@ -3207,6 +3215,7 @@ jd_Herencia.setLocationRelativeTo(jd_DiagramaClases);
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel LBL_OPERACION;
     private javax.swing.JLabel LBL_VARIABLES;
     private javax.swing.JPopupMenu PP_OPA;
     private javax.swing.JButton btn_CopiarArbol;
@@ -3257,7 +3266,6 @@ jd_Herencia.setLocationRelativeTo(jd_DiagramaClases);
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JFrame jFrame1;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -3284,6 +3292,7 @@ jd_Herencia.setLocationRelativeTo(jd_DiagramaClases);
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -3387,9 +3396,15 @@ jd_Herencia.setLocationRelativeTo(jd_DiagramaClases);
     private javax.swing.JSpinner js_width;
     private javax.swing.JLabel lbl_Diagrama1;
     private javax.swing.JLabel lbl_FondoInicio1;
+    private javax.swing.JLabel lbl_Propiedades;
     private javax.swing.JLabel lbl_UML1;
+    private javax.swing.JLabel lbl_agregarVariableFONDO;
     private javax.swing.JLabel lbl_fodo;
     private javax.swing.JLabel lbl_fondo;
+    private javax.swing.JLabel lbl_fondoDiagrama;
+    private javax.swing.JLabel lbl_herenciafondo;
+    private javax.swing.JLabel lbl_metodosFondo;
+    private javax.swing.JLabel lbl_propiedadesfondo;
     private javax.swing.JPopupMenu pp_OP;
     private javax.swing.JTextField tf_variable;
     private javax.swing.JTextField tf_variable1;

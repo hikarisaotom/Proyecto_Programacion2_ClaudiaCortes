@@ -76,6 +76,7 @@ public class Principal extends javax.swing.JFrame {
         Nombre.add("Algerian");
 
         initComponents();
+        this.setLocationRelativeTo(null);
         btn_finif.setOpaque(true);
         //btn_finif.setBackground(Color.red);
         btn_finif.setHorizontalTextPosition(SwingConstants.CENTER);
@@ -145,6 +146,7 @@ public class Principal extends javax.swing.JFrame {
         jMenu4 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItem8 = new javax.swing.JMenuItem();
         jmi_imprimir = new javax.swing.JMenuItem();
         jd_UML = new javax.swing.JDialog();
         jScrollPane7 = new javax.swing.JScrollPane();
@@ -471,6 +473,7 @@ public class Principal extends javax.swing.JFrame {
         });
         jMenu6.add(jmi_guardarClases);
 
+        jMenuItem7.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.CTRL_MASK));
         jMenuItem7.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         jMenuItem7.setText("Nuevo");
         jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
@@ -490,6 +493,7 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
+        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.CTRL_MASK));
         jMenuItem1.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         jMenuItem1.setText("PDF");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
@@ -502,6 +506,7 @@ public class Principal extends javax.swing.JFrame {
         jMenu4.setText("Imagen");
         jMenu4.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
 
+        jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_NUMPAD1, java.awt.event.InputEvent.CTRL_MASK));
         jMenuItem2.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         jMenuItem2.setText("Jpg");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
@@ -511,6 +516,7 @@ public class Principal extends javax.swing.JFrame {
         });
         jMenu4.add(jMenuItem2);
 
+        jMenuItem3.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_NUMPAD2, java.awt.event.InputEvent.CTRL_MASK));
         jMenuItem3.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         jMenuItem3.setText("Png");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
@@ -520,8 +526,19 @@ public class Principal extends javax.swing.JFrame {
         });
         jMenu4.add(jMenuItem3);
 
+        jMenuItem8.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_NUMPAD3, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem8.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
+        jMenuItem8.setText("Otro");
+        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem8ActionPerformed(evt);
+            }
+        });
+        jMenu4.add(jMenuItem8);
+
         jMenu8.add(jMenu4);
 
+        jmi_imprimir.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_I, java.awt.event.InputEvent.CTRL_MASK));
         jmi_imprimir.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         jmi_imprimir.setText("Imprimir");
         jmi_imprimir.addActionListener(new java.awt.event.ActionListener() {
@@ -859,6 +876,7 @@ public class Principal extends javax.swing.JFrame {
         });
         jMenu7.add(jmi_AbrirUML);
 
+        jMenuItem6.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.CTRL_MASK));
         jMenuItem6.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         jMenuItem6.setText("Nuevo");
         jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
@@ -878,6 +896,8 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
+        jmi_generarPDF.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.CTRL_MASK));
+        jmi_generarPDF.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         jmi_generarPDF.setText("PDF");
         jmi_generarPDF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -887,6 +907,7 @@ public class Principal extends javax.swing.JFrame {
         jMenu2.add(jmi_generarPDF);
 
         jMenu3.setText("Imagen");
+        jMenu3.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         jMenu3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 jMenu3MouseExited(evt);
@@ -896,6 +917,8 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
+        jmi_crearJpg.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_NUMPAD1, java.awt.event.InputEvent.CTRL_MASK));
+        jmi_crearJpg.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         jmi_crearJpg.setText("Jpg");
         jmi_crearJpg.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -904,6 +927,8 @@ public class Principal extends javax.swing.JFrame {
         });
         jMenu3.add(jmi_crearJpg);
 
+        jmi_crearpng.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_NUMPAD2, java.awt.event.InputEvent.CTRL_MASK));
+        jmi_crearpng.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         jmi_crearpng.setText("Png");
         jmi_crearpng.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -912,6 +937,8 @@ public class Principal extends javax.swing.JFrame {
         });
         jMenu3.add(jmi_crearpng);
 
+        jmi_crearotro.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_NUMPAD3, java.awt.event.InputEvent.CTRL_MASK));
+        jmi_crearotro.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         jmi_crearotro.setText("Otro");
         jmi_crearotro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -922,6 +949,8 @@ public class Principal extends javax.swing.JFrame {
 
         jMenu2.add(jMenu3);
 
+        jmi_imprimirUML.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_I, java.awt.event.InputEvent.CTRL_MASK));
+        jmi_imprimirUML.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         jmi_imprimirUML.setText("Imprimir");
         jmi_imprimirUML.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1777,6 +1806,7 @@ public class Principal extends javax.swing.JFrame {
 
             DefaultTreeModel m = (DefaultTreeModel) ActualArbol.getModel();
             m.removeNodeFromParent(nodo_seleccionado);
+           
             m.reload();
             jp_dragDiagrama.remove(ActualArbol);
             jp_dragDiagrama.repaint();
@@ -2900,6 +2930,17 @@ Long*/
         jp_dragDiagrama.removeAll();
         jp_dragDiagrama.repaint();
         txt_CodigoClases.setText("");
+        //JOptionPane.showMessageDialog(jd_UML, "Se ha Limpiado el area de trabajo");
+        /*LO NUEVO*/
+        panelActual.removeAll();
+        panelActual.repaint();
+        jl_hijo.removeAll();
+        jl_padre.removeAll();
+        jTree1.removeAll();
+        //Cambismos lo modelos por uno vacios
+        jTree1.setModel(new DefaultTreeModel(new DefaultMutableTreeNode("Clases")));
+        jl_hijo.setModel(new DefaultListModel());
+        jl_padre.setModel(new DefaultListModel());
         JOptionPane.showMessageDialog(jd_UML, "Se ha Limpiado el area de trabajo");
     }//GEN-LAST:event_jMenuItem7ActionPerformed
 
@@ -2916,6 +2957,23 @@ Long*/
     private void jmi_ColorFuentesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_ColorFuentesActionPerformed
      JL_actual.setForeground(JColorChooser.showDialog(jd_UML,"Color de fuente", Color.yellow));
     }//GEN-LAST:event_jmi_ColorFuentesActionPerformed
+
+    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
+      String Opcion="";
+   String[] Opciones = {"bmp", "gif", "jpeg", "tif"};
+            Opcion = (String) JOptionPane.showInputDialog(null,
+                    "Seleccione un formato de imagen", //Mensaje
+                    "                                  IMAGEN",//TITULO
+                    JOptionPane.QUESTION_MESSAGE,
+                    null,
+                    Opciones,
+                    Opciones[0]);
+        if (Opcion==null) {
+            JOptionPane.showMessageDialog(jd_DiagramaClases,"No se ha seleccionado un formato");
+        }else{
+             CrearIMG(jp_dragDiagrama, Opcion);
+        }
+    }//GEN-LAST:event_jMenuItem8ActionPerformed
     public void Cambiarletra() {
         JL_actual.setFont(Fuentes.get(jc_Fuentes.getSelectedIndex()));
     }
@@ -3379,6 +3437,7 @@ Proceso*/
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
+    private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

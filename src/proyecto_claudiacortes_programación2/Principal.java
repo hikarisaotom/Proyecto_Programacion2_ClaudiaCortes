@@ -1789,7 +1789,7 @@ public class Principal extends javax.swing.JFrame {
         jd_propiedad.show();
         tf_variable1.enable(true);
         tf_variable1.show(true);
-        //  jd_propiedad.setLocationRelativeTo(jd_DiagramaClases);
+        jd_propiedad.setLocationRelativeTo(jd_DiagramaClases);
         jc_alcance.enable();
         jd_propiedad.setTitle("Crear Propiedad");
         btn_crearpropiedad.show(true);
@@ -1806,7 +1806,7 @@ public class Principal extends javax.swing.JFrame {
 
             DefaultTreeModel m = (DefaultTreeModel) ActualArbol.getModel();
             m.removeNodeFromParent(nodo_seleccionado);
-           
+
             m.reload();
             jp_dragDiagrama.remove(ActualArbol);
             jp_dragDiagrama.repaint();
@@ -1937,14 +1937,14 @@ Long*/
         String C = imprimirNodo((TreeNode) jTree1.getModel().getRoot());
         C = C.toLowerCase();
         txt_CodigoClases.setText(C);
-          Object Obejtos[] = jp_dragDiagrama.getComponents();
-            Graphics g = jp_dragDiagrama.getGraphics();
-            for (int i = 0; i < Obejtos.length; i++) {
-                if (i >= 1) {
-                    g.drawLine(((JTree) Obejtos[i - 1]).getX(), ((JTree) Obejtos[i - 1]).getY(),
-                            ((JTree) Obejtos[i]).getX(), ((JTree) Obejtos[i]).getY());
-                }
+        Object Obejtos[] = jp_dragDiagrama.getComponents();
+        Graphics g = jp_dragDiagrama.getGraphics();
+        for (int i = 0; i < Obejtos.length; i++) {
+            if (i >= 1) {
+                g.drawLine(((JTree) Obejtos[i - 1]).getX(), ((JTree) Obejtos[i - 1]).getY(),
+                        ((JTree) Obejtos[i]).getX(), ((JTree) Obejtos[i]).getY());
             }
+        }
         JOptionPane.showMessageDialog(jd_DiagramaClases, "El codigo Se ha generado Correctamente");
 
     }//GEN-LAST:event_btn_generarCodigoClasesMouseClicked
@@ -2022,6 +2022,9 @@ Long*/
 
     private int Sentencia(If P, Object[] Obejtos, int i) {
         int num = 0;
+        /*LO ULTIMO QUE CAMBIE EN LA NOCHE*/
+        P.setSi(null);
+        P.setNo(null);
         boolean Bandera = false;
         int Aumentar = 0;
         if (i + 1 <= Obejtos.length - 1) {
@@ -2705,20 +2708,20 @@ Long*/
     }//GEN-LAST:event_jmi_crearpngActionPerformed
 
     private void jmi_crearotroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_crearotroActionPerformed
-  /* BMP GIF JPEG TIF*/ 
-  String Opcion="";
-   String[] Opciones = {"bmp", "gif", "jpeg", "tif"};
-            Opcion = (String) JOptionPane.showInputDialog(null,
-                    "Seleccione un formato de imagen", //Mensaje
-                    "                                  IMAGEN",//TITULO
-                    JOptionPane.QUESTION_MESSAGE,
-                    null,
-                    Opciones,
-                    Opciones[0]);
-        if (Opcion==null) {
-            JOptionPane.showMessageDialog(jd_UML,"No se ha seleccionado un formato");
-        }else{
-             CrearIMG(jp_Drag, Opcion);
+        /* BMP GIF JPEG TIF*/
+        String Opcion = "";
+        String[] Opciones = {"bmp", "gif", "jpeg"};
+        Opcion = (String) JOptionPane.showInputDialog(null,
+                "Seleccione un formato de imagen", //Mensaje
+                "                                  IMAGEN",//TITULO
+                JOptionPane.QUESTION_MESSAGE,
+                null,
+                Opciones,
+                Opciones[0]);
+        if (Opcion == null) {
+            JOptionPane.showMessageDialog(jd_UML, "No se ha seleccionado un formato");
+        } else {
+            CrearIMG(jp_Drag, Opcion);
         }
     }//GEN-LAST:event_jmi_crearotroActionPerformed
 
@@ -2866,6 +2869,9 @@ Long*/
         jc_alcance.setSelectedIndex(0);
         jc_tipo.setSelectedIndex(0);
         btn_crearpropiedad.show(false);
+        txt_codigoUML.setText("");
+        jp_Drag.removeAll();
+        jp_Drag.repaint();
 
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
@@ -2873,6 +2879,19 @@ Long*/
         jd_DiagramaClases.show(true);
         jd_DiagramaClases.pack();
         jd_DiagramaClases.setLocationRelativeTo(this);
+        jp_dragDiagrama.removeAll();
+        jp_dragDiagrama.repaint();
+        txt_CodigoClases.setText("");
+        //JOptionPane.showMessageDialog(jd_UML, "Se ha Limpiado el area de trabajo");
+        /*LO NUEVO*/
+
+        jl_hijo.removeAll();
+        jl_padre.removeAll();
+        jTree1.removeAll();
+        //Cambismos lo modelos por uno vacios
+        jTree1.setModel(new DefaultTreeModel(new DefaultMutableTreeNode("Clases")));
+        jl_hijo.setModel(new DefaultListModel());
+        jl_padre.setModel(new DefaultListModel());
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     private void btn_MostrarVariableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_MostrarVariableActionPerformed
@@ -2928,28 +2947,34 @@ Long*/
     }//GEN-LAST:event_jButton10MouseClicked
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
-        txt_codigoUML.setText("");
-        jp_Drag.removeAll();
-        jp_Drag.repaint();
-        JOptionPane.showMessageDialog(jd_UML, "Se ha Limpiado el area de trabajo");
+        int respuesta = JOptionPane.showConfirmDialog(this.jd_UML, "¿Seguro de que desea eliminar todos los elementos del panel?", "Confirm", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        if (respuesta == JOptionPane.OK_OPTION) {
+            txt_codigoUML.setText("");
+            jp_Drag.removeAll();
+            jp_Drag.repaint();
+            JOptionPane.showMessageDialog(jd_UML, "Se ha Limpiado el area de trabajo");
+        }
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
-        jp_dragDiagrama.removeAll();
-        jp_dragDiagrama.repaint();
-        txt_CodigoClases.setText("");
-        //JOptionPane.showMessageDialog(jd_UML, "Se ha Limpiado el area de trabajo");
-        /*LO NUEVO*/
-        panelActual.removeAll();
-        panelActual.repaint();
-        jl_hijo.removeAll();
-        jl_padre.removeAll();
-        jTree1.removeAll();
-        //Cambismos lo modelos por uno vacios
-        jTree1.setModel(new DefaultTreeModel(new DefaultMutableTreeNode("Clases")));
-        jl_hijo.setModel(new DefaultListModel());
-        jl_padre.setModel(new DefaultListModel());
-        JOptionPane.showMessageDialog(jd_UML, "Se ha Limpiado el area de trabajo");
+        int respuesta = JOptionPane.showConfirmDialog(this.jd_UML, "¿Seguro de que desea eliminar todos los elementos del panel?", "Confirm", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        if (respuesta == JOptionPane.OK_OPTION) {
+            jp_dragDiagrama.removeAll();
+            jp_dragDiagrama.repaint();
+            txt_CodigoClases.setText("");
+            //JOptionPane.showMessageDialog(jd_UML, "Se ha Limpiado el area de trabajo");
+            /*LO NUEVO*/
+            panelActual.removeAll();
+            panelActual.repaint();
+            jl_hijo.removeAll();
+            jl_padre.removeAll();
+            jTree1.removeAll();
+            //Cambismos lo modelos por uno vacios
+            jTree1.setModel(new DefaultTreeModel(new DefaultMutableTreeNode("Clases")));
+            jl_hijo.setModel(new DefaultListModel());
+            jl_padre.setModel(new DefaultListModel());
+            JOptionPane.showMessageDialog(jd_UML, "Se ha Limpiado el area de trabajo");
+        }
     }//GEN-LAST:event_jMenuItem7ActionPerformed
 
     private void jmi_operacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_operacionActionPerformed
@@ -2963,23 +2988,23 @@ Long*/
     }//GEN-LAST:event_tf_variable1ActionPerformed
 
     private void jmi_ColorFuentesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_ColorFuentesActionPerformed
-     JL_actual.setForeground(JColorChooser.showDialog(jd_UML,"Color de fuente", Color.yellow));
+        JL_actual.setForeground(JColorChooser.showDialog(jd_UML, "Color de fuente", Color.yellow));
     }//GEN-LAST:event_jmi_ColorFuentesActionPerformed
 
     private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
-      String Opcion="";
-   String[] Opciones = {"bmp", "gif", "jpeg", "tif"};
-            Opcion = (String) JOptionPane.showInputDialog(null,
-                    "Seleccione un formato de imagen", //Mensaje
-                    "                                  IMAGEN",//TITULO
-                    JOptionPane.QUESTION_MESSAGE,
-                    null,
-                    Opciones,
-                    Opciones[0]);
-        if (Opcion==null) {
-            JOptionPane.showMessageDialog(jd_DiagramaClases,"No se ha seleccionado un formato");
-        }else{
-             CrearIMG(jp_dragDiagrama, Opcion);
+        String Opcion = "";
+        String[] Opciones = {"bmp", "gif", "jpeg"};
+        Opcion = (String) JOptionPane.showInputDialog(null,
+                "Seleccione un formato de imagen", //Mensaje
+                "                                  IMAGEN",//TITULO
+                JOptionPane.QUESTION_MESSAGE,
+                null,
+                Opciones,
+                Opciones[0]);
+        if (Opcion == null) {
+            JOptionPane.showMessageDialog(jd_DiagramaClases, "No se ha seleccionado un formato");
+        } else {
+            CrearIMG(jp_dragDiagrama, Opcion);
         }
     }//GEN-LAST:event_jMenuItem8ActionPerformed
     public void Cambiarletra() {

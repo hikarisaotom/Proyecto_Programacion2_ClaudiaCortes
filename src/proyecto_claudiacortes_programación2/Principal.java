@@ -1937,6 +1937,14 @@ Long*/
         String C = imprimirNodo((TreeNode) jTree1.getModel().getRoot());
         C = C.toLowerCase();
         txt_CodigoClases.setText(C);
+          Object Obejtos[] = jp_dragDiagrama.getComponents();
+            Graphics g = jp_dragDiagrama.getGraphics();
+            for (int i = 0; i < Obejtos.length; i++) {
+                if (i >= 1) {
+                    g.drawLine(((JTree) Obejtos[i - 1]).getX(), ((JTree) Obejtos[i - 1]).getY(),
+                            ((JTree) Obejtos[i]).getX(), ((JTree) Obejtos[i]).getY());
+                }
+            }
         JOptionPane.showMessageDialog(jd_DiagramaClases, "El codigo Se ha generado Correctamente");
 
     }//GEN-LAST:event_btn_generarCodigoClasesMouseClicked

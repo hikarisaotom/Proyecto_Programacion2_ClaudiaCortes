@@ -769,9 +769,7 @@ public class Principal extends javax.swing.JFrame {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 606, Short.MAX_VALUE)
-                .addGap(139, 139, 139))
+            .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 745, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1948,46 +1946,49 @@ Long*/
 //        String Codigo = "#include <iostream>\n"
 //                + "using namespace std;\n"
 //                + "int main(){\n";
+        try {
 
-
-               String Codigo="//----------------------------INICIO DE LA CLASE----------------------------\n"
-                + "#include<iostream>\n"
-                + " #include <string> \n"
-                + " using namespace std;\n"
-                + "int main(){\n";
-        for (int i = 0; i < VARIABLES.size(); i++) {
-            Codigo += VARIABLES.get(i).getTipo() + " " + VARIABLES.get(i).getNombre() + ";\n";
-        }
-        Object Obejtos[] = jp_Drag.getComponents();
-          Graphics g = jp_Drag.getGraphics();
-        for (int i = 0; i < Obejtos.length; i++) {
-            if (i>=1) {
-                g.drawLine(((JLabel)Obejtos[i-1]).getX(),((JLabel)Obejtos[i-1]).getY(), 
-                       ((JLabel)Obejtos[i]).getX(), ((JLabel)Obejtos[i]).getY());
+            String Codigo = "//----------------------------INICIO DE LA CLASE----------------------------\n"
+                    + "#include<iostream>\n"
+                    + " #include <string> \n"
+                    + " using namespace std;\n"
+                    + "int main(){\n";
+            for (int i = 0; i < VARIABLES.size(); i++) {
+                Codigo += VARIABLES.get(i).getTipo() + " " + VARIABLES.get(i).getNombre() + ";\n";
             }
+            Object Obejtos[] = jp_Drag.getComponents();
+            Graphics g = jp_Drag.getGraphics();
+            for (int i = 0; i < Obejtos.length; i++) {
+                if (i >= 1) {
+                    g.drawLine(((JLabel) Obejtos[i - 1]).getX(), ((JLabel) Obejtos[i - 1]).getY(),
+                            ((JLabel) Obejtos[i]).getX(), ((JLabel) Obejtos[i]).getY());
+                }
+            }
+            for (int i = 0; i < Obejtos.length; i++) {
+                //Obejtos = jp_Drag.getComponents();
+                if (Obejtos[i] instanceof If) {
+                    If P = (If) Obejtos[i];
+                    i += Sentencia(P, Obejtos, i);
+                    Codigo += P.GenerarCodigo() + "\n";
+                } else if (Obejtos[i] instanceof SubProceso) {
+                    SubProceso P = (SubProceso) Obejtos[i];
+                    P.getContenido().removeAll(P.getContenido());
+                    i = Bucle(P, Obejtos, i);//AQUI SI SE IGUALA
+                    System.out.println("LA I QUE LLEGO AQUI" + i);
+                    Codigo += P.GenerarCodigo() + "\n";
+                } else {
+                    Codigo += Codigo(((JLabel) Obejtos[i]), "");
+                }//Fin
+            }//Fin del for
+            Codigo += "system(\"pause\");\n"
+                    //  + "return 0;\n"
+                    + "}\n//----------------------------FIN DE LA CLASE----------------------------";
+            Codigo = Codigo.toLowerCase();
+            txt_codigoUML.setText(Codigo);
+            JOptionPane.showMessageDialog(jd_UML, "Codigo Generado Exitosamente");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(jd_UML, "Ha ocurrido un error, revise las variables de los elementos");
         }
-        for (int i = 0; i < Obejtos.length; i++) {
-            //Obejtos = jp_Drag.getComponents();
-            if (Obejtos[i] instanceof If) {
-                If P = (If) Obejtos[i];
-                i += Sentencia(P, Obejtos, i);
-                Codigo += P.GenerarCodigo() + "\n";
-            } else if (Obejtos[i] instanceof SubProceso) {
-                 SubProceso P = (SubProceso) Obejtos[i];
-                 P.getContenido().removeAll(P.getContenido());
-                 i=Bucle(P, Obejtos, i);//AQUI SI SE IGUALA
-                 System.out.println("LA I QUE LLEGO AQUI"+i);
-                  Codigo += P.GenerarCodigo() + "\n";
-            }else{
-                Codigo+=Codigo(((JLabel)Obejtos[i]),"");
-            }//Fin
-        }//Fin del for
-        Codigo += "system(\"pause\");\n"
-                //  + "return 0;\n"
-                + "}\n//----------------------------FIN DE LA CLASE----------------------------";
-         Codigo= Codigo.toLowerCase();
-        txt_codigoUML.setText(Codigo);
-        JOptionPane.showMessageDialog(jd_UML, "Codigo Generado Exitosamente");
     }//GEN-LAST:event_btn_generarCodigoUMLMouseClicked
     private int Bucle(SubProceso P, Object[] Obejtos, int i) {
         int num = 0;

@@ -127,6 +127,7 @@ public class Principal extends javax.swing.JFrame {
         jMenu6 = new javax.swing.JMenu();
         jmi_AbrirClases = new javax.swing.JMenuItem();
         jmi_guardarClases = new javax.swing.JMenuItem();
+        jMenuItem7 = new javax.swing.JMenuItem();
         jMenu8 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
@@ -178,6 +179,7 @@ public class Principal extends javax.swing.JFrame {
         jMenu7 = new javax.swing.JMenu();
         jmi_guardraUML = new javax.swing.JMenuItem();
         jmi_AbrirUML = new javax.swing.JMenuItem();
+        jMenuItem6 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jmi_generarPDF = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
@@ -277,7 +279,17 @@ public class Principal extends javax.swing.JFrame {
         jScrollPane6 = new javax.swing.JScrollPane();
         jl_variables = new javax.swing.JList<>();
         jLabel2 = new javax.swing.JLabel();
-        lbl_Diagrama = new javax.swing.JLabel();
+        jd_generarproceso = new javax.swing.JDialog();
+        jLabel29 = new javax.swing.JLabel();
+        jLabel30 = new javax.swing.JLabel();
+        jLabel31 = new javax.swing.JLabel();
+        jLabel32 = new javax.swing.JLabel();
+        cb_operacion = new javax.swing.JComboBox<>();
+        cb_Variable1 = new javax.swing.JComboBox<>();
+        cb_Variable2 = new javax.swing.JComboBox<>();
+        cb_resultado = new javax.swing.JComboBox<>();
+        jButton10 = new javax.swing.JButton();
+        jLabel33 = new javax.swing.JLabel();
         lbl_fodo = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
@@ -433,6 +445,15 @@ public class Principal extends javax.swing.JFrame {
             }
         });
         jMenu6.add(jmi_guardarClases);
+
+        jMenuItem7.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
+        jMenuItem7.setText("Nuevo");
+        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem7ActionPerformed(evt);
+            }
+        });
+        jMenu6.add(jMenuItem7);
 
         jMenuBar6.add(jMenu6);
 
@@ -811,6 +832,15 @@ public class Principal extends javax.swing.JFrame {
             }
         });
         jMenu7.add(jmi_AbrirUML);
+
+        jMenuItem6.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
+        jMenuItem6.setText("Nuevo");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
+        jMenu7.add(jMenuItem6);
 
         jMenuBar2.add(jMenu7);
 
@@ -1200,7 +1230,7 @@ public class Principal extends javax.swing.JFrame {
                 btn_actualizarMouseClicked(evt);
             }
         });
-        jd_propiedad.getContentPane().add(btn_actualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 210, -1, -1));
+        jd_propiedad.getContentPane().add(btn_actualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 210, -1, -1));
 
         btn_agregarparametros.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         btn_agregarparametros.setText("Agregar");
@@ -1209,7 +1239,7 @@ public class Principal extends javax.swing.JFrame {
                 btn_agregarparametrosMouseClicked(evt);
             }
         });
-        jd_propiedad.getContentPane().add(btn_agregarparametros, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 210, -1, -1));
+        jd_propiedad.getContentPane().add(btn_agregarparametros, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 210, -1, -1));
 
         btn_agregarvariable.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         btn_agregarvariable.setText("Variable");
@@ -1218,7 +1248,7 @@ public class Principal extends javax.swing.JFrame {
                 btn_agregarvariableMouseClicked(evt);
             }
         });
-        jd_propiedad.getContentPane().add(btn_agregarvariable, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 210, -1, -1));
+        jd_propiedad.getContentPane().add(btn_agregarvariable, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 210, -1, -1));
 
         jd_Herencia.setTitle("Herencia Entre Clases");
         jd_Herencia.setMinimumSize(new java.awt.Dimension(353, 334));
@@ -1389,14 +1419,95 @@ public class Principal extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        jLabel29.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
+        jLabel29.setText("Operacion");
+
+        jLabel30.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
+        jLabel30.setText("Variable 1");
+
+        jLabel31.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
+        jLabel31.setText("Variable 2");
+
+        jLabel32.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
+        jLabel32.setText("Resultado");
+
+        cb_operacion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "+", "-", "*", "/", " " }));
+
+        jButton10.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
+        jButton10.setText("Guardar");
+        jButton10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton10MouseClicked(evt);
+            }
+        });
+
+        jLabel33.setFont(new java.awt.Font("AR CENA", 0, 24)); // NOI18N
+        jLabel33.setText("CREACION DE LA OPERACIÓN.");
+
+        javax.swing.GroupLayout jd_generarprocesoLayout = new javax.swing.GroupLayout(jd_generarproceso.getContentPane());
+        jd_generarproceso.getContentPane().setLayout(jd_generarprocesoLayout);
+        jd_generarprocesoLayout.setHorizontalGroup(
+            jd_generarprocesoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_generarprocesoLayout.createSequentialGroup()
+                .addGroup(jd_generarprocesoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_generarprocesoLayout.createSequentialGroup()
+                        .addGap(43, 43, 43)
+                        .addGroup(jd_generarprocesoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jd_generarprocesoLayout.createSequentialGroup()
+                                .addComponent(jLabel31)
+                                .addGap(18, 18, 18)
+                                .addComponent(cb_Variable2, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jd_generarprocesoLayout.createSequentialGroup()
+                                .addGroup(jd_generarprocesoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel30))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jd_generarprocesoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(cb_operacion, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(cb_Variable1, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jd_generarprocesoLayout.createSequentialGroup()
+                                .addComponent(jLabel32)
+                                .addGap(18, 18, 18)
+                                .addGroup(jd_generarprocesoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jButton10)
+                                    .addComponent(cb_resultado, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                    .addGroup(jd_generarprocesoLayout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addComponent(jLabel33)))
+                .addContainerGap(24, Short.MAX_VALUE))
+        );
+        jd_generarprocesoLayout.setVerticalGroup(
+            jd_generarprocesoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_generarprocesoLayout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addComponent(jLabel33)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jd_generarprocesoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel29)
+                    .addComponent(cb_operacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jd_generarprocesoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel30)
+                    .addComponent(cb_Variable1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jd_generarprocesoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel31)
+                    .addComponent(cb_Variable2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jd_generarprocesoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel32)
+                    .addComponent(cb_resultado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(35, 35, 35)
+                .addComponent(jButton10)
+                .addContainerGap(18, Short.MAX_VALUE))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("INICIO");
         setBackground(new java.awt.Color(255, 255, 255));
         setMinimumSize(new java.awt.Dimension(500, 600));
+        setPreferredSize(new java.awt.Dimension(1170, 670));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        lbl_Diagrama.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/bienvenido.png"))); // NOI18N
-        getContentPane().add(lbl_Diagrama, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 30, 920, 490));
 
         lbl_fodo.setBackground(new java.awt.Color(255, 255, 255));
         lbl_fodo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo.gif"))); // NOI18N
@@ -1457,11 +1568,14 @@ public class Principal extends javax.swing.JFrame {
         U.Proceso(Proceso, lbl_Proceso);
         Proceso++;
         AgregarDrag(lbl_Proceso, 1);
-        int respuesta = JOptionPane.showConfirmDialog(this.jd_UML, "Desea que esta salida tenga 1 variable?", "Confirm", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-        if (respuesta == JOptionPane.OK_OPTION) {
-            jd_agregarVariable.show(true);
-            lbl_Proceso.setP(Variable);
-        }
+//        int respuesta = JOptionPane.showConfirmDialog(this.jd_UML, "Desea que esta salida tenga 1 variable?", "Confirm", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+//        if (respuesta == JOptionPane.OK_OPTION) {
+//            jd_agregarVariable.show(true);
+//            lbl_Proceso.setP(Variable);
+//        }
+jd_generarproceso.show(true);
+        jd_generarproceso.setLocationRelativeTo(jd_UML);
+        jd_generarproceso.pack();
     }//GEN-LAST:event_btn_ProcesoMouseClicked
 
     private void btn_DiagramaFlujo1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_DiagramaFlujo1MouseClicked
@@ -2609,6 +2723,16 @@ jd_Herencia.setLocationRelativeTo(jd_DiagramaClases);
         DefaultListModel M = (DefaultListModel) jl_variables.getModel();
         M.addElement(P);
         VARIABLES.add(P);
+       // DefaultComboBoxModel M_1 = (DefaultComboBoxModel) cb_operacion.getModel();
+        DefaultComboBoxModel M_2 = (DefaultComboBoxModel) cb_Variable1.getModel();
+        DefaultComboBoxModel M_3 = (DefaultComboBoxModel) cb_Variable2.getModel();
+        DefaultComboBoxModel M_4 = (DefaultComboBoxModel) cb_resultado.getModel();
+        M_2.addElement(P);
+        M_3.addElement(P);
+        M_4.addElement(P);
+         cb_Variable1.setModel(M_2);
+       cb_Variable2.setModel(M_3);
+       cb_resultado.setModel(M_4);
         jl_variables.setModel(M);
         tf_variable.setText("");
         jl_VariablesVista.setModel(M);
@@ -2629,8 +2753,10 @@ jd_Herencia.setLocationRelativeTo(jd_DiagramaClases);
                 System.out.println("NUEVO ARRAYLIST" + ((Datos) JL_actual).getPropiedades());
             } else if (JL_actual instanceof Documento) {
                 ((Documento) JL_actual).setP(Variable);
+                   JOptionPane.showMessageDialog(this.jd_UML, "Se ha Agregado la variable ");
            } else if (JL_actual instanceof Proceso) {
                ((Proceso) JL_actual).setP(Variable);
+                  JOptionPane.showMessageDialog(this.jd_UML, "Se ha Agregado la variable ");
            }
           
             
@@ -2711,6 +2837,35 @@ jd_Herencia.setLocationRelativeTo(jd_DiagramaClases);
     private void jmi_LecturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_LecturaActionPerformed
         
     }//GEN-LAST:event_jmi_LecturaActionPerformed
+
+    private void jButton10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton10MouseClicked
+        String Operacion = "";
+        String Simbolo = cb_operacion.getSelectedItem().toString();
+        Propiedad Variable1 = (Propiedad) cb_Variable1.getSelectedItem();
+        Propiedad Variable2 = (Propiedad) cb_Variable2.getSelectedItem();
+        Propiedad Resultado = (Propiedad) cb_resultado.getSelectedItem();
+        Operacion = Resultado.getNombre() + "= " + Variable1.getNombre() + " " + Simbolo + " " + Variable2.getNombre() + " ;";
+        Operacion = Operacion.toLowerCase();
+        if (JL_actual instanceof Proceso) {
+            ((Proceso) JL_actual).setProceso(Operacion);
+               ((Proceso) JL_actual).setP(Resultado);
+            JOptionPane.showMessageDialog(jd_generarproceso, "Operacion Generada.");
+        }
+    }//GEN-LAST:event_jButton10MouseClicked
+
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+     txt_codigoUML.setText("");
+     jp_Drag.removeAll();
+     jp_Drag.repaint();
+     JOptionPane.showMessageDialog(jd_UML,"Se ha Limpiado el area de trabajo");
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
+
+    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
+        jp_dragDiagrama.removeAll();
+        jp_dragDiagrama.repaint();
+        txt_CodigoClases.setText("");
+         JOptionPane.showMessageDialog(jd_UML,"Se ha Limpiado el area de trabajo");
+    }//GEN-LAST:event_jMenuItem7ActionPerformed
     public void Cambiarletra() {
         JL_actual.setFont(Fuentes.get(jc_Fuentes.getSelectedIndex()));
     }
@@ -3087,7 +3242,12 @@ jd_Herencia.setLocationRelativeTo(jd_DiagramaClases);
     private javax.swing.JButton btn_ok;
     private javax.swing.JButton btn_separador;
     private javax.swing.JButton btn_separadores;
+    private javax.swing.JComboBox<String> cb_Variable1;
+    private javax.swing.JComboBox<String> cb_Variable2;
+    private javax.swing.JComboBox<String> cb_operacion;
+    private javax.swing.JComboBox<String> cb_resultado;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -3118,7 +3278,12 @@ jd_Herencia.setLocationRelativeTo(jd_DiagramaClases);
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -3153,6 +3318,8 @@ jd_Herencia.setLocationRelativeTo(jd_DiagramaClases);
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -3181,6 +3348,7 @@ jd_Herencia.setLocationRelativeTo(jd_DiagramaClases);
     private javax.swing.JDialog jd_Metodos;
     private javax.swing.JDialog jd_UML;
     private javax.swing.JDialog jd_agregarVariable;
+    private javax.swing.JDialog jd_generarproceso;
     private javax.swing.JDialog jd_propiedad;
     private javax.swing.JDialog jd_propiedades;
     private javax.swing.JList<String> jl_VariablesVista;
@@ -3217,7 +3385,6 @@ jd_Herencia.setLocationRelativeTo(jd_DiagramaClases);
     private javax.swing.JSpinner js_height;
     private javax.swing.JSpinner js_tamanoletra;
     private javax.swing.JSpinner js_width;
-    public javax.swing.JLabel lbl_Diagrama;
     private javax.swing.JLabel lbl_Diagrama1;
     private javax.swing.JLabel lbl_FondoInicio1;
     private javax.swing.JLabel lbl_UML1;

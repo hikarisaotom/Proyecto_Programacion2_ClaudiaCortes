@@ -13,6 +13,15 @@ import javax.swing.JLabel;
  */
 public class Proceso extends JLabel{
    Propiedad p;
+String Proceso;
+
+    public String getProceso() {
+        return Proceso;
+    }
+
+    public void setProceso(String Proceso) {
+        this.Proceso = Proceso;
+    }
 
     public Propiedad getP() {
         return p;
@@ -24,11 +33,14 @@ public class Proceso extends JLabel{
    
     public String GenerarCodigo() {
         String Codigo = "";
-        if (p != null) {
-            Codigo += " cout << \""+ this.getText() +"\" << "+ p.getNombre() + " << endl; //EL SOUT \n"; 
-        }else{
-                Codigo += " cout << \"" + this.getText()+"\"; //EL SOUT\n";
-        }
+//        if (p != null) {
+//            Codigo += " cout << \""+ this.getText() +"\" << "+ p.getNombre() + " << endl; //EL SOUT \n"; 
+//        }else{
+//                Codigo += " cout << \"" + this.getText()+"\"; //EL SOUT\n";
+//        }
+
+        Codigo+=Proceso;
+        Codigo += " cout << \""+ this.getText() +"\" << "+ p.getNombre() + " << endl; //EL SOUT \n"; 
         return Codigo;
     }
 }

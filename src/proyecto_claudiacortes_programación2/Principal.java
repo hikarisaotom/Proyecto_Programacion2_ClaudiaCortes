@@ -220,6 +220,7 @@ public class Principal extends javax.swing.JFrame {
         jmi_copiar = new javax.swing.JMenuItem();
         jmi_Lectura = new javax.swing.JMenuItem();
         jmi_operacion = new javax.swing.JMenuItem();
+        jmi_ColorFuentes = new javax.swing.JMenuItem();
         jMenuBar4 = new javax.swing.JMenuBar();
         jMenu17 = new javax.swing.JMenu();
         jMenu18 = new javax.swing.JMenu();
@@ -1059,6 +1060,14 @@ public class Principal extends javax.swing.JFrame {
             }
         });
         pp_OP.add(jmi_operacion);
+
+        jmi_ColorFuentes.setText("Color de Fuente");
+        jmi_ColorFuentes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmi_ColorFuentesActionPerformed(evt);
+            }
+        });
+        pp_OP.add(jmi_ColorFuentes);
 
         jMenu17.setText("File");
         jMenuBar4.add(jMenu17);
@@ -1947,6 +1956,7 @@ Long*/
 //                + "using namespace std;\n"
 //                + "int main(){\n";
         try {
+       
 
             String Codigo = "//----------------------------INICIO DE LA CLASE----------------------------\n"
                     + "#include<iostream>\n"
@@ -1956,6 +1966,8 @@ Long*/
             for (int i = 0; i < VARIABLES.size(); i++) {
                 Codigo += VARIABLES.get(i).getTipo() + " " + VARIABLES.get(i).getNombre() + ";\n";
             }
+            //jp_Drag.
+            
             Object Obejtos[] = jp_Drag.getComponents();
             Graphics g = jp_Drag.getGraphics();
             for (int i = 0; i < Obejtos.length; i++) {
@@ -1964,6 +1976,7 @@ Long*/
                             ((JLabel) Obejtos[i]).getX(), ((JLabel) Obejtos[i]).getY());
                 }
             }
+          
             for (int i = 0; i < Obejtos.length; i++) {
                 //Obejtos = jp_Drag.getComponents();
                 if (Obejtos[i] instanceof If) {
@@ -2898,6 +2911,10 @@ jd_Herencia.setLocationRelativeTo(jd_DiagramaClases);
         jd_generarproceso.setLocationRelativeTo(jd_UML);
         jd_generarproceso.pack();
     }//GEN-LAST:event_jmi_operacionActionPerformed
+
+    private void jmi_ColorFuentesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_ColorFuentesActionPerformed
+      JL_actual.setForeground(JColorChooser.showDialog(jd_UML,"Coor de la fuente: ", Color.yellow));
+    }//GEN-LAST:event_jmi_ColorFuentesActionPerformed
     public void Cambiarletra() {
         JL_actual.setFont(Fuentes.get(jc_Fuentes.getSelectedIndex()));
     }
@@ -3176,7 +3193,7 @@ Proceso*/
                     JL_actual = lbl_Proceso;
                     System.out.println(JL_actual);
                     System.out.println(lbl_Proceso.getText());
-                    if (JL_actual instanceof Datos||JL_actual instanceof Datos/*||JL_actual instanceof Proceso*/) {
+                    if (JL_actual instanceof Datos||JL_actual instanceof Datos||JL_actual instanceof Documento/*||JL_actual instanceof Proceso*/) {
                         jmi_Lectura.show(true);
                     }else{
                          jmi_Lectura.show(false); 
@@ -3398,6 +3415,7 @@ Proceso*/
     private javax.swing.JList<String> jl_variables;
     private javax.swing.JMenuItem jmi_AbrirClases;
     private javax.swing.JMenuItem jmi_AbrirUML;
+    private javax.swing.JMenuItem jmi_ColorFuentes;
     private javax.swing.JMenuItem jmi_DatosPropiedad;
     private javax.swing.JMenuItem jmi_EliminarPropiedad;
     private javax.swing.JMenuItem jmi_Eliminararbol;

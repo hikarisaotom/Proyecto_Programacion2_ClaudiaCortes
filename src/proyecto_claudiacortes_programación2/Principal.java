@@ -68,7 +68,7 @@ public class Principal extends javax.swing.JFrame {
      * Creates new form Principal
      */
     public Principal() {
-    
+
         ArrayList<String> Nombre = new ArrayList();
         Nombre.add("Arial");
         Nombre.add("Tahoma");
@@ -78,8 +78,8 @@ public class Principal extends javax.swing.JFrame {
         initComponents();
         btn_finif.setOpaque(true);
         //btn_finif.setBackground(Color.red);
-          btn_finif.setHorizontalTextPosition(SwingConstants.CENTER);
-          btn_finif.setText("Fin");
+        btn_finif.setHorizontalTextPosition(SwingConstants.CENTER);
+        btn_finif.setText("Fin");
         DefaultComboBoxModel modelo = (DefaultComboBoxModel) jc_Fuentes.getModel();
         DefaultComboBoxModel modelo1 = (DefaultComboBoxModel) jc_tamanoletra.getModel();
         for (int i = 0; i < Nombre.size(); i++) {
@@ -94,18 +94,18 @@ public class Principal extends javax.swing.JFrame {
         jc_tamanoletra.setModel(modelo1);
         jc_fuente1.setModel(modelo);
         jc_Fuentes.setModel(modelo);
-       // this.setExtendedState(MAXIMIZED_BOTH);
+        // this.setExtendedState(MAXIMIZED_BOTH);
         // lbl_FondoInicio.setVisible(false);
-          File archivo = new File(".\\src\\Imagenes\\UML\\2.jpg");
-              java.awt.Image img=Toolkit.getDefaultToolkit().createImage(archivo.getPath()).getScaledInstance(1240,510,0);
-            this.lbl_fondo.setIcon(new ImageIcon(img));
-            lbl_fondoDiagrama.setIcon(new ImageIcon(img));
-            lbl_Propiedades.setIcon(new ImageIcon(img));
-            lbl_propiedadesfondo.setIcon(new ImageIcon(img));
-            lbl_herenciafondo.setIcon(new ImageIcon(img));
-            lbl_metodosFondo.setIcon(new ImageIcon(img));
-            lbl_agregarVariableFONDO.setIcon(new ImageIcon(img));
-            LBL_OPERACION.setIcon(new ImageIcon(img));
+        File archivo = new File(".\\src\\Imagenes\\UML\\2.jpg");
+        java.awt.Image img = Toolkit.getDefaultToolkit().createImage(archivo.getPath()).getScaledInstance(1240, 510, 0);
+        this.lbl_fondo.setIcon(new ImageIcon(img));
+        lbl_fondoDiagrama.setIcon(new ImageIcon(img));
+        lbl_Propiedades.setIcon(new ImageIcon(img));
+        lbl_propiedadesfondo.setIcon(new ImageIcon(img));
+        lbl_herenciafondo.setIcon(new ImageIcon(img));
+        lbl_metodosFondo.setIcon(new ImageIcon(img));
+        lbl_agregarVariableFONDO.setIcon(new ImageIcon(img));
+        LBL_OPERACION.setIcon(new ImageIcon(img));
     }
 
     /**
@@ -1063,6 +1063,11 @@ public class Principal extends javax.swing.JFrame {
         pp_OP.add(jmi_operacion);
 
         jmi_ColorFuentes.setText("Color de Fuente");
+        jmi_ColorFuentes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmi_ColorFuentesActionPerformed(evt);
+            }
+        });
         pp_OP.add(jmi_ColorFuentes);
 
         jMenu17.setText("File");
@@ -1224,9 +1229,9 @@ public class Principal extends javax.swing.JFrame {
         jd_propiedad.setTitle("CREAR PROPIEDAD");
         jd_propiedad.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         jd_propiedad.setForeground(new java.awt.Color(0, 0, 0));
-        jd_propiedad.setMaximumSize(new java.awt.Dimension(279, 253));
-        jd_propiedad.setMinimumSize(new java.awt.Dimension(279, 253));
-        jd_propiedad.setPreferredSize(new java.awt.Dimension(279, 253));
+        jd_propiedad.setMaximumSize(new java.awt.Dimension(279, 290));
+        jd_propiedad.setMinimumSize(new java.awt.Dimension(279, 290));
+        jd_propiedad.setPreferredSize(new java.awt.Dimension(279, 290));
         jd_propiedad.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel18.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
@@ -1336,9 +1341,9 @@ public class Principal extends javax.swing.JFrame {
 
         jd_Metodos.setTitle("Crear Metodo");
         jd_Metodos.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
-        jd_Metodos.setMaximumSize(new java.awt.Dimension(280, 271));
-        jd_Metodos.setMinimumSize(new java.awt.Dimension(280, 271));
-        jd_Metodos.setPreferredSize(new java.awt.Dimension(280, 271));
+        jd_Metodos.setMaximumSize(new java.awt.Dimension(280, 315));
+        jd_Metodos.setMinimumSize(new java.awt.Dimension(280, 315));
+        jd_Metodos.setPreferredSize(new java.awt.Dimension(280, 315));
         jd_Metodos.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tf_variable1.addActionListener(new java.awt.event.ActionListener() {
@@ -1508,6 +1513,7 @@ public class Principal extends javax.swing.JFrame {
         jMenu5.setText("Nuevo");
         jMenu5.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
 
+        jMenuItem4.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F, java.awt.event.InputEvent.CTRL_MASK));
         jMenuItem4.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         jMenuItem4.setText("Flujo Grama");
         jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
@@ -1517,6 +1523,7 @@ public class Principal extends javax.swing.JFrame {
         });
         jMenu5.add(jMenuItem4);
 
+        jMenuItem5.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.CTRL_MASK));
         jMenuItem5.setFont(new java.awt.Font("AR CENA", 0, 18)); // NOI18N
         jMenuItem5.setText("Diagrama Clases");
         jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
@@ -1551,7 +1558,7 @@ public class Principal extends javax.swing.JFrame {
 //            jd_agregarVariable.show(true);
 //            lbl_Proceso.setP(Variable);
 //        }
-jd_generarproceso.show(true);
+        jd_generarproceso.show(true);
         jd_generarproceso.setLocationRelativeTo(jd_UML);
         jd_generarproceso.pack();
     }//GEN-LAST:event_btn_ProcesoMouseClicked
@@ -1597,10 +1604,10 @@ jd_generarproceso.show(true);
         U.Documento(documentos, lbl_documento);
         documentos++;
         AgregarDrag(lbl_documento, 1);
-         int respuesta = JOptionPane.showConfirmDialog(this.jd_UML, "Desea que esta salida tenga 1 variable?", "Confirm", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        int respuesta = JOptionPane.showConfirmDialog(this.jd_UML, "Desea que esta salida tenga 1 variable?", "Confirm", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
         if (respuesta == JOptionPane.OK_OPTION) {
             jd_agregarVariable.show(true);
-           lbl_documento.setP(Variable);
+            lbl_documento.setP(Variable);
         }
     }//GEN-LAST:event_btn_documentoMouseClicked
 
@@ -1752,8 +1759,8 @@ jd_generarproceso.show(true);
     private void jmi_agregarpropiedadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_agregarpropiedadActionPerformed
         jd_propiedad.show();
         tf_variable1.enable(true);
-         tf_variable1.show(true);
-      //  jd_propiedad.setLocationRelativeTo(jd_DiagramaClases);
+        tf_variable1.show(true);
+        //  jd_propiedad.setLocationRelativeTo(jd_DiagramaClases);
         jc_alcance.enable();
         jd_propiedad.setTitle("Crear Propiedad");
         btn_crearpropiedad.show(true);
@@ -1767,7 +1774,7 @@ jd_generarproceso.show(true);
     private void jmi_EliminararbolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_EliminararbolActionPerformed
         int respuesta = JOptionPane.showConfirmDialog(this.jd_DiagramaClases, "Seguro que desea eliminar?", "Confirm", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
         if (respuesta == JOptionPane.OK_OPTION) {
-           
+
             DefaultTreeModel m = (DefaultTreeModel) ActualArbol.getModel();
             m.removeNodeFromParent(nodo_seleccionado);
             m.reload();
@@ -1775,8 +1782,8 @@ jd_generarproceso.show(true);
             jp_dragDiagrama.repaint();
             JOptionPane.showMessageDialog(this.jd_UML, "Se ha eliminado correctamente");
         }
-            tf_variable1.enable(true);
-         tf_variable1.show(true);
+        tf_variable1.enable(true);
+        tf_variable1.show(true);
         DefaultTreeModel Principal = (DefaultTreeModel) jTree1.getModel();
         Principal.reload();
     }//GEN-LAST:event_jmi_EliminararbolActionPerformed
@@ -1898,7 +1905,7 @@ Long*/
 
     private void btn_generarCodigoClasesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_generarCodigoClasesMouseClicked
         String C = imprimirNodo((TreeNode) jTree1.getModel().getRoot());
-        C=C.toLowerCase();
+        C = C.toLowerCase();
         txt_CodigoClases.setText(C);
         JOptionPane.showMessageDialog(jd_DiagramaClases, "El codigo Se ha generado Correctamente");
 
@@ -1909,7 +1916,6 @@ Long*/
 //                + "using namespace std;\n"
 //                + "int main(){\n";
         try {
-       
 
             String Codigo = "//----------------------------INICIO DE LA CLASE----------------------------\n"
                     + "#include<iostream>\n"
@@ -1920,7 +1926,7 @@ Long*/
                 Codigo += VARIABLES.get(i).getTipo() + " " + VARIABLES.get(i).getNombre() + ";\n";
             }
             //jp_Drag.
-            
+
             Object Obejtos[] = jp_Drag.getComponents();
             Graphics g = jp_Drag.getGraphics();
             for (int i = 0; i < Obejtos.length; i++) {
@@ -1929,7 +1935,7 @@ Long*/
                             ((JLabel) Obejtos[i]).getX(), ((JLabel) Obejtos[i]).getY());
                 }
             }
-          
+
             for (int i = 0; i < Obejtos.length; i++) {
                 //Obejtos = jp_Drag.getComponents();
                 if (Obejtos[i] instanceof If) {
@@ -1976,43 +1982,44 @@ Long*/
         return num;
     }
 
-private int Sentencia(If P,Object []Obejtos, int i){
-    int num=0;
-    boolean Bandera=false;
-     int Aumentar = 0;
-                if (i + 1 <= Obejtos.length - 1) {
-                    if (Obejtos[i+1] instanceof SubProceso) {
-                        System.out.println("QUEDO EN EL SI"+Obejtos[i+1]);
-                         P.setSi(((JLabel) Obejtos[i + 1]));
-                        i=Bucle(((SubProceso)Obejtos[i+1]),Obejtos,i+1);
-                        //Aumentar=1;
-                        Bandera=true;
-                    }else{
-                          P.setSi(((JLabel) Obejtos[i + 1]));
-                    Aumentar++;
-                    }
-                }
-                if (i +1<= Obejtos.length - 1) {
-                    if (((JLabel) Obejtos[i +  1]) instanceof Fin_If) {
-                        //  Aumentar++;
+    private int Sentencia(If P, Object[] Obejtos, int i) {
+        int num = 0;
+        boolean Bandera = false;
+        int Aumentar = 0;
+        if (i + 1 <= Obejtos.length - 1) {
+            if (Obejtos[i + 1] instanceof SubProceso) {
+                System.out.println("QUEDO EN EL SI" + Obejtos[i + 1]);
+                P.setSi(((JLabel) Obejtos[i + 1]));
+                i = Bucle(((SubProceso) Obejtos[i + 1]), Obejtos, i + 1);
+                //Aumentar=1;
+                Bandera = true;
+            } else {
+                P.setSi(((JLabel) Obejtos[i + 1]));
+                Aumentar++;
+            }
+        }
+        if (i + 1 <= Obejtos.length - 1) {
+            if (((JLabel) Obejtos[i + 1]) instanceof Fin_If) {
+                //  Aumentar++;
+            } else {
+                if (Bandera) {
+                    P.setNo(((JLabel) Obejtos[i + 1]));
+                } else {
+                    if (((JLabel) Obejtos[i + 2]) instanceof Fin_If) {
+
                     } else {
-                        if (Bandera) {
-                              P.setNo(((JLabel) Obejtos[i + 1]));
-                        }else{
-                             if (((JLabel)Obejtos[i + 2])instanceof Fin_If) {
-                                
-                            }else{
-                                  P.setNo(((JLabel) Obejtos[i + 2]));
-                             }
-                     //Aumentar= Aumentar+1; 
-                        }
-                        Aumentar++;
+                        P.setNo(((JLabel) Obejtos[i + 2]));
                     }
+                    //Aumentar= Aumentar+1; 
                 }
-                i += Aumentar;
-                num=i;
-    return num;
-}
+                Aumentar++;
+            }
+        }
+        i += Aumentar;
+        num = i;
+        return num;
+    }
+
     private String Codigo(JLabel Tipo, String Codigo) {
         String c = "";
         if (Tipo instanceof Datos) {
@@ -2069,8 +2076,8 @@ private int Sentencia(If P,Object []Obejtos, int i){
         btn_crearpropiedad.show(false);
         btn_actualizar.show(true);
         btn_agregarparametros.show(false);
-            tf_variable1.enable(true);
-         tf_variable1.show(true);
+        tf_variable1.enable(true);
+        tf_variable1.show(true);
     }//GEN-LAST:event_jmi_DatosPropiedadActionPerformed
 
     private void btn_actualizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_actualizarMouseClicked
@@ -2129,7 +2136,7 @@ private int Sentencia(If P,Object []Obejtos, int i){
         jd_Metodos.show();
         tf_variable1.enable(true);
         tf_variable1.show(true);
-               jd_Metodos.setLocationRelativeTo(jd_DiagramaClases);
+        jd_Metodos.setLocationRelativeTo(jd_DiagramaClases);
         //  jd_propiedad.setLocationRelativeTo(jd_DiagramaClases);
         jc_alcance.enable();
         jd_Metodos.setTitle("Crear Metodo");
@@ -2156,7 +2163,7 @@ private int Sentencia(If P,Object []Obejtos, int i){
         btn_actualizar.show(false);
         btn_crearpropiedad.show(true);
         btn_agregarvariable.show(false);
-        
+
         tf_variable.setText("");
         jc_alcance.setSelectedIndex(0);
         jc_tipo.setSelectedIndex(0);
@@ -2178,8 +2185,8 @@ private int Sentencia(If P,Object []Obejtos, int i){
             Principal.reload();
             JOptionPane.showMessageDialog(this.jd_DiagramaClases, "Se ha eliminado correctamente la propiedad");
         }
-            tf_variable1.enable(true);
-         tf_variable1.show(true);
+        tf_variable1.enable(true);
+        tf_variable1.show(true);
     }//GEN-LAST:event_jmi_EliminarPropiedadActionPerformed
 
     private void jmi_eliminarMetodoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_eliminarMetodoActionPerformed
@@ -2195,8 +2202,8 @@ private int Sentencia(If P,Object []Obejtos, int i){
             m.reload();
             Principal.reload();
             JOptionPane.showMessageDialog(this.jd_DiagramaClases, "Se ha eliminado correctamente el metodo");
-    tf_variable1.enable(true);
-         tf_variable1.show(true);
+            tf_variable1.enable(true);
+            tf_variable1.show(true);
         }
 
     }//GEN-LAST:event_jmi_eliminarMetodoActionPerformed
@@ -2210,8 +2217,8 @@ private int Sentencia(If P,Object []Obejtos, int i){
         jc_tipo1.setSelectedItem(M_Actual.getT_return());
         jc_alcance1.setSelectedIndex(M_Actual.getAlcance());
         PARAMETROS = M_Actual.getParametros();
-            tf_variable1.enable(true);
-         tf_variable1.show(true);
+        tf_variable1.enable(true);
+        tf_variable1.show(true);
     }//GEN-LAST:event_jmi_descripcionMetodoActionPerformed
 
     private void btn_agregarparametrosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_agregarparametrosMouseClicked
@@ -2246,9 +2253,7 @@ private int Sentencia(If P,Object []Obejtos, int i){
         arbol.addMouseListener(new MouseListener() {
             public void mouseClicked(MouseEvent evt) {
                 ActualArbol = arbol;
-      
-        
-                 
+
                 int row = arbol.getClosestRowForLocation(evt.getX(), evt.getY());
                 arbol.setSelectionRow(row);
                 //determinar el tipo de objeto selecionado.
@@ -2421,50 +2426,50 @@ private int Sentencia(If P,Object []Obejtos, int i){
     }//GEN-LAST:event_btn_oegarActionPerformed
 
     private void btn_oegarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_oegarMouseClicked
-        for (JLabel JL_actual: ArrayCopiar) {
-        if (JL_actual == null) {
-            JOptionPane.showMessageDialog(jd_DiagramaClases, "No se encuentra ningun elemento en memoria, seleccione un objeto para Copiar");
-        } else {
-            UML U = new UML();
-            if (JL_actual instanceof Datos) {
-                Datos P = new Datos();
-                U.Copiar(P, JL_actual);
-                AgregarDrag(P, 1);
-                jp_Drag.add(P);
-            } else if (JL_actual instanceof Documento) {
-                Documento P = new Documento();
-                U.Copiar(P, JL_actual);
-                AgregarDrag(P, 1);
-                jp_Drag.add(P);
-            } else if (JL_actual instanceof If) {
-                If P = new If();
-                U.Copiar(P, JL_actual);
-                AgregarDrag(P, 1);
-                jp_Drag.add(P);
-            } else if (JL_actual instanceof Inicio_Fin) {
-                Inicio_Fin P = new Inicio_Fin();
-                U.Copiar(P, JL_actual);
-                AgregarDrag(P, 1);
-                jp_Drag.add(P);
-            } else if (JL_actual instanceof Proceso) {
-                Proceso P = new Proceso();
-                U.Copiar(P, JL_actual);
-                AgregarDrag(P, 1);
-                jp_Drag.add(P);
-            } else if (JL_actual instanceof Separador) {
-                Separador P = new Separador();
-                U.Copiar(P, JL_actual);
-                AgregarDrag(P, 1);
-                jp_Drag.add(P);
-            } else if (JL_actual instanceof SubProceso) {
-                SubProceso P = new SubProceso();
-                U.Copiar(P, JL_actual);
-                AgregarDrag(P, 1);
-                jp_Drag.add(P);
+        for (JLabel JL_actual : ArrayCopiar) {
+            if (JL_actual == null) {
+                JOptionPane.showMessageDialog(jd_DiagramaClases, "No se encuentra ningun elemento en memoria, seleccione un objeto para Copiar");
+            } else {
+                UML U = new UML();
+                if (JL_actual instanceof Datos) {
+                    Datos P = new Datos();
+                    U.Copiar(P, JL_actual);
+                    AgregarDrag(P, 1);
+                    jp_Drag.add(P);
+                } else if (JL_actual instanceof Documento) {
+                    Documento P = new Documento();
+                    U.Copiar(P, JL_actual);
+                    AgregarDrag(P, 1);
+                    jp_Drag.add(P);
+                } else if (JL_actual instanceof If) {
+                    If P = new If();
+                    U.Copiar(P, JL_actual);
+                    AgregarDrag(P, 1);
+                    jp_Drag.add(P);
+                } else if (JL_actual instanceof Inicio_Fin) {
+                    Inicio_Fin P = new Inicio_Fin();
+                    U.Copiar(P, JL_actual);
+                    AgregarDrag(P, 1);
+                    jp_Drag.add(P);
+                } else if (JL_actual instanceof Proceso) {
+                    Proceso P = new Proceso();
+                    U.Copiar(P, JL_actual);
+                    AgregarDrag(P, 1);
+                    jp_Drag.add(P);
+                } else if (JL_actual instanceof Separador) {
+                    Separador P = new Separador();
+                    U.Copiar(P, JL_actual);
+                    AgregarDrag(P, 1);
+                    jp_Drag.add(P);
+                } else if (JL_actual instanceof SubProceso) {
+                    SubProceso P = new SubProceso();
+                    U.Copiar(P, JL_actual);
+                    AgregarDrag(P, 1);
+                    jp_Drag.add(P);
+                }
+                jp_Drag.repaint();
             }
-            jp_Drag.repaint();
         }
-    }
     }//GEN-LAST:event_btn_oegarMouseClicked
 
     private void btn_CopiarArbolMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_CopiarArbolMouseClicked
@@ -2739,16 +2744,16 @@ private int Sentencia(If P,Object []Obejtos, int i){
         DefaultListModel M = (DefaultListModel) jl_variables.getModel();
         M.addElement(P);
         VARIABLES.add(P);
-       // DefaultComboBoxModel M_1 = (DefaultComboBoxModel) cb_operacion.getModel();
+        // DefaultComboBoxModel M_1 = (DefaultComboBoxModel) cb_operacion.getModel();
         DefaultComboBoxModel M_2 = (DefaultComboBoxModel) cb_Variable1.getModel();
         DefaultComboBoxModel M_3 = (DefaultComboBoxModel) cb_Variable2.getModel();
         DefaultComboBoxModel M_4 = (DefaultComboBoxModel) cb_resultado.getModel();
         M_2.addElement(P);
         M_3.addElement(P);
         M_4.addElement(P);
-         cb_Variable1.setModel(M_2);
-       cb_Variable2.setModel(M_3);
-       cb_resultado.setModel(M_4);
+        cb_Variable1.setModel(M_2);
+        cb_Variable2.setModel(M_3);
+        cb_resultado.setModel(M_4);
         jl_variables.setModel(M);
         tf_variable.setText("");
         jl_VariablesVista.setModel(M);
@@ -2762,20 +2767,19 @@ private int Sentencia(If P,Object []Obejtos, int i){
 
             DefaultListModel Modelo = (DefaultListModel) jl_variables.getModel();
             Variable = (Propiedad) Modelo.get(jl_variables.getSelectedIndex());
-           // ((Datos) JL_actual).setP(Variable);
+            // ((Datos) JL_actual).setP(Variable);
             if (JL_actual instanceof Datos) {
                 ((Datos) JL_actual).AgregarPropiedad(Variable);
                 JOptionPane.showMessageDialog(this.jd_UML, "Se ha Agregado la variable ");
                 System.out.println("NUEVO ARRAYLIST" + ((Datos) JL_actual).getPropiedades());
             } else if (JL_actual instanceof Documento) {
                 ((Documento) JL_actual).setP(Variable);
-                   JOptionPane.showMessageDialog(this.jd_UML, "Se ha Agregado la variable ");
-           } else if (JL_actual instanceof Proceso) {
-               ((Proceso) JL_actual).setP(Variable);
-                  JOptionPane.showMessageDialog(this.jd_UML, "Se ha Agregado la variable ");
-           }
-          
-            
+                JOptionPane.showMessageDialog(this.jd_UML, "Se ha Agregado la variable ");
+            } else if (JL_actual instanceof Proceso) {
+                ((Proceso) JL_actual).setP(Variable);
+                JOptionPane.showMessageDialog(this.jd_UML, "Se ha Agregado la variable ");
+            }
+
         } else {
             JOptionPane.showMessageDialog(this.jd_UML, "No Se ha Agregado la variable ");
         }
@@ -2791,32 +2795,32 @@ private int Sentencia(If P,Object []Obejtos, int i){
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
         jd_UML.show(true);
-            jd_UML.pack();
-            jd_UML.setLocationRelativeTo(this);
-            jc_alcance.disable();
-            btn_agregarparametros.show(false);
-            btn_agregarvariable.show(true);
-            btn_agregarvariable.show(true);
-            //  btn_crearpropiedad.show(false);
-            btn_actualizar.show(false);
-            jd_propiedad.setTitle("Crear Variables");
-             jd_propiedad.setLocationRelativeTo(jd_UML);
-            jd_propiedad.show();
-            
-            btn_actualizar.show(false);
-            btn_crearpropiedad.show(true);
-           // btn_agregarvariable.show(false);
-            tf_variable.setText("");
-            jc_alcance.setSelectedIndex(0);
-            jc_tipo.setSelectedIndex(0);
-            btn_crearpropiedad.show(false);
-          
+        jd_UML.pack();
+        jd_UML.setLocationRelativeTo(this);
+        jc_alcance.disable();
+        btn_agregarparametros.show(false);
+        btn_agregarvariable.show(true);
+        btn_agregarvariable.show(true);
+        //  btn_crearpropiedad.show(false);
+        btn_actualizar.show(false);
+        jd_propiedad.setTitle("Crear Variables");
+        jd_propiedad.setLocationRelativeTo(jd_UML);
+        jd_propiedad.show();
+
+        btn_actualizar.show(false);
+        btn_crearpropiedad.show(true);
+        // btn_agregarvariable.show(false);
+        tf_variable.setText("");
+        jc_alcance.setSelectedIndex(0);
+        jc_tipo.setSelectedIndex(0);
+        btn_crearpropiedad.show(false);
+
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
-       jd_DiagramaClases.show(true);
-            jd_DiagramaClases.pack();
-            jd_DiagramaClases.setLocationRelativeTo(this);
+        jd_DiagramaClases.show(true);
+        jd_DiagramaClases.pack();
+        jd_DiagramaClases.setLocationRelativeTo(this);
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     private void btn_MostrarVariableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_MostrarVariableActionPerformed
@@ -2825,35 +2829,35 @@ private int Sentencia(If P,Object []Obejtos, int i){
 
     private void btn_MostrarVariableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_MostrarVariableMouseClicked
         jc_alcance.disable();
-            btn_agregarparametros.show(false);
-            btn_agregarvariable.show(true);
-            btn_agregarvariable.show(true);
-            //  btn_crearpropiedad.show(false);
-            btn_actualizar.show(false);
-            jd_propiedad.setTitle("Crear Variables");
-             jd_propiedad.setLocationRelativeTo(jd_UML);
-            jd_propiedad.show();
-            
-            btn_actualizar.show(false);
-            btn_crearpropiedad.show(true);
-           // btn_agregarvariable.show(false);
-            tf_variable.setText("");
-            jc_alcance.setSelectedIndex(0);
-            jc_tipo.setSelectedIndex(0);
-            btn_crearpropiedad.show(false);
+        btn_agregarparametros.show(false);
+        btn_agregarvariable.show(true);
+        btn_agregarvariable.show(true);
+        //  btn_crearpropiedad.show(false);
+        btn_actualizar.show(false);
+        jd_propiedad.setTitle("Crear Variables");
+        jd_propiedad.setLocationRelativeTo(jd_UML);
+        jd_propiedad.show();
+
+        btn_actualizar.show(false);
+        btn_crearpropiedad.show(true);
+        // btn_agregarvariable.show(false);
+        tf_variable.setText("");
+        jc_alcance.setSelectedIndex(0);
+        jc_tipo.setSelectedIndex(0);
+        btn_crearpropiedad.show(false);
     }//GEN-LAST:event_btn_MostrarVariableMouseClicked
 
     private void jmi_copiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_copiarActionPerformed
         ArrayCopiar.add(JL_actual);
-        JOptionPane.showMessageDialog(this.jd_UML,"COPIADO");
+        JOptionPane.showMessageDialog(this.jd_UML, "COPIADO");
     }//GEN-LAST:event_jmi_copiarActionPerformed
 
     private void jmi_LecturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_LecturaActionPerformed
-  jd_agregarVariable.show(true);
+        jd_agregarVariable.show(true);
         jd_agregarVariable.setLocationRelativeTo(jd_UML);
         jd_agregarVariable.pack();
-       
-        
+
+
     }//GEN-LAST:event_jmi_LecturaActionPerformed
 
     private void jButton10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton10MouseClicked
@@ -2866,27 +2870,27 @@ private int Sentencia(If P,Object []Obejtos, int i){
         Operacion = Operacion.toLowerCase();
         if (JL_actual instanceof Proceso) {
             ((Proceso) JL_actual).setProceso(Operacion);
-               ((Proceso) JL_actual).setP(Resultado);
+            ((Proceso) JL_actual).setP(Resultado);
             JOptionPane.showMessageDialog(jd_generarproceso, "Operacion Generada.");
         }
     }//GEN-LAST:event_jButton10MouseClicked
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
-     txt_codigoUML.setText("");
-     jp_Drag.removeAll();
-     jp_Drag.repaint();
-     JOptionPane.showMessageDialog(jd_UML,"Se ha Limpiado el area de trabajo");
+        txt_codigoUML.setText("");
+        jp_Drag.removeAll();
+        jp_Drag.repaint();
+        JOptionPane.showMessageDialog(jd_UML, "Se ha Limpiado el area de trabajo");
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
         jp_dragDiagrama.removeAll();
         jp_dragDiagrama.repaint();
         txt_CodigoClases.setText("");
-         JOptionPane.showMessageDialog(jd_UML,"Se ha Limpiado el area de trabajo");
+        JOptionPane.showMessageDialog(jd_UML, "Se ha Limpiado el area de trabajo");
     }//GEN-LAST:event_jMenuItem7ActionPerformed
 
     private void jmi_operacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_operacionActionPerformed
-     jd_generarproceso.show(true);
+        jd_generarproceso.show(true);
         jd_generarproceso.setLocationRelativeTo(jd_UML);
         jd_generarproceso.pack();
     }//GEN-LAST:event_jmi_operacionActionPerformed
@@ -2894,6 +2898,10 @@ private int Sentencia(If P,Object []Obejtos, int i){
     private void tf_variable1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_variable1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tf_variable1ActionPerformed
+
+    private void jmi_ColorFuentesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmi_ColorFuentesActionPerformed
+     JL_actual.setForeground(JColorChooser.showDialog(jd_UML,"Color de fuente", Color.yellow));
+    }//GEN-LAST:event_jmi_ColorFuentesActionPerformed
     public void Cambiarletra() {
         JL_actual.setFont(Fuentes.get(jc_Fuentes.getSelectedIndex()));
     }
@@ -3172,15 +3180,15 @@ Proceso*/
                     JL_actual = lbl_Proceso;
                     System.out.println(JL_actual);
                     System.out.println(lbl_Proceso.getText());
-                    if (JL_actual instanceof Datos||JL_actual instanceof Datos||JL_actual instanceof Documento/*||JL_actual instanceof Proceso*/) {
+                    if (JL_actual instanceof Datos || JL_actual instanceof Datos || JL_actual instanceof Documento/*||JL_actual instanceof Proceso*/) {
                         jmi_Lectura.show(true);
-                    }else{
-                         jmi_Lectura.show(false); 
+                    } else {
+                        jmi_Lectura.show(false);
                     }
                     if (JL_actual instanceof Proceso) {
-                         jmi_operacion.show(true);
-                    }else{
-                         jmi_operacion.show(false);
+                        jmi_operacion.show(true);
+                    } else {
+                        jmi_operacion.show(false);
                     }
                     pp_OP.show(evt.getComponent(), evt.getX(), evt.getY());
                 }
@@ -3469,8 +3477,8 @@ Proceso*/
     JDialog Dialogo_Actual;
     String Nombre_Imprimir;
     Propiedad Variable;
-    ArrayList<JLabel>ArrayCopiar=new ArrayList();
-/*   } else if (Obejtos[i] instanceof Datos) {
+    ArrayList<JLabel> ArrayCopiar = new ArrayList();
+    /*   } else if (Obejtos[i] instanceof Datos) {
                 System.out.println("\n3)DATOS.\n");
                 System.out.println(Obejtos[i]);
                 Datos P = (Datos) Obejtos[i];
